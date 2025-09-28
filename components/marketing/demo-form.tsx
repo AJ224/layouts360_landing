@@ -12,6 +12,7 @@ import { useToast } from "@/components/ui/use-toast"
 export default function DemoForm() {
   const { toast } = useToast()
   const [pending, setPending] = useState(false)
+  const [showConfirmation, setShowConfirmation] = useState(false)
   const [formData, setFormData] = useState({
     email: "",
     mobile: "",
@@ -85,7 +86,9 @@ export default function DemoForm() {
       })
       const data = await res.json()
       if (!res.ok) throw new Error(data?.error || "Failed to send request")
-      toast({ title: "Request sent!", description: "We'll contact you shortly." })
+      
+      // Show confirmation popup
+      setShowConfirmation(true)
       setFormData({ email: "", mobile: "", company: "", description: "" })
     } catch (err: any) {
       toast({ title: "Could not send request", description: err.message, variant: "destructive" })
@@ -264,6 +267,37 @@ export default function DemoForm() {
           </form>
         </div>
       </div>
+
+      {/* Confirmation Modal */}
+      {showConfirmation && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 text-center">
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">Thank You!</h3>
+            <p className="text-gray-600 mb-6">
+              We have received your request and will contact you soon. Our team will get back to you within 24 hours.
+            </p>
+            <div className="space-y-3">
+              <Button 
+                onClick={() => setShowConfirmation(false)}
+                className="w-full bg-primary hover:bg-primary/90"
+              >
+                Got it!
+              </Button>
+              <p className="text-sm text-gray-500">
+                For immediate assistance, call us at{" "}
+                <a href="tel:+917276495199" className="text-primary font-semibold hover:underline">
+                  +91 72764 95199
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

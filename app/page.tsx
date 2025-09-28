@@ -2,7 +2,6 @@ import Hero from "@/components/marketing/hero"
 import Features from "@/components/marketing/features"
 import Steps from "@/components/marketing/steps"
 import WhyChooseUs from "@/components/marketing/why-choose-us"
-import Testimonials from "@/components/marketing/testimonials"
 import CTA from "@/components/marketing/cta"
 import Link from "next/link"
 
@@ -13,7 +12,6 @@ export default function Page() {
       <Features />
       <Steps />
       <WhyChooseUs />
-      <Testimonials />
       <CTA />
       <footer className="border-t">
         <div className="mx-auto max-w-6xl px-4 py-10 md:px-6">
