@@ -1,70 +1,75 @@
-import Image from "next/image"
-
 const steps = [
   {
-    title: "Add layout",
-    desc: "Digitize your site plan with plots and statuses.",
-    img: "/add-layout-site-plan.jpg",
+    title: "Project Setup",
+    desc: "Digitize your site plans with advanced mapping tools and configure project parameters.",
   },
   {
-    title: "Show to customer",
-    desc: "Share an interactive layout for transparent browsing.",
-    img: "/customer-view-interactive-plot-map.jpg",
+    title: "Customer Engagement",
+    desc: "Deploy interactive layouts with real-time availability and transparent browsing experience.",
   },
   {
-    title: "Freeze plot",
-    desc: "Temporarily reserve a plot to prevent conflicts.",
-    img: "/freeze-plot-reservation.jpg",
+    title: "Lead Management",
+    desc: "Capture and manage leads with automated follow-ups and CRM integration.",
   },
   {
-    title: "Book plot",
-    desc: "Confirm booking and auto-update availability.",
-    img: "/book-plot-confirmation.jpg",
+    title: "Booking Process",
+    desc: "Streamlined booking with automated confirmations and payment integration.",
   },
   {
-    title: "Track booking/payment",
-    desc: "Monitor installments, receipts, and dues.",
-    img: "/payment-tracking-dashboard.png",
+    title: "Financial Tracking",
+    desc: "Complete payment management with installment tracking and financial reporting.",
   },
   {
-    title: "Sold the plot",
-    desc: "Mark as sold and lock further actions.",
-    img: "/sold-plot-status.jpg",
+    title: "Project Completion",
+    desc: "Document management and customer portal access for seamless project delivery.",
   },
 ]
 
 export default function Steps() {
   return (
     <section id="steps" className="mx-auto max-w-6xl px-4 py-12 md:py-20 md:px-6">
-      <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-balance text-3xl font-semibold tracking-tight md:text-4xl">Simple end-to-end steps</h2>
+      <div className="mx-auto max-w-3xl text-center">
+        <h2 className="text-balance text-3xl font-semibold tracking-tight md:text-4xl">Complete Business Workflow</h2>
         <p className="mt-3 text-pretty text-muted-foreground">
-          From adding layouts to marking plots sold — keep everything visible and in sync.
+          From project setup to completion — manage your entire real estate business with professional tools.
         </p>
       </div>
 
-      <ol className="mt-10 grid gap-6 md:grid-cols-3 lg:grid-cols-6">
-        {steps.map((s, i) => (
-          <li key={s.title} className="rounded-lg border bg-card p-4">
-            <div className="flex items-center gap-2">
-              <div className="flex h-7 w-7 items-center justify-center rounded-md bg-primary text-primary-foreground">
-                <span className="text-xs font-semibold">{i + 1}</span>
+      <div className="mt-16">
+        <div className="relative">
+          {/* Timeline line */}
+          <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-primary/20 hidden md:block"></div>
+          
+          <div className="space-y-8 md:space-y-12">
+            {steps.map((step, i) => (
+              <div key={step.title} className={`flex items-center gap-8 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                {/* Content */}
+                <div className={`flex-1 ${i % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+                  <div className="inline-block rounded-lg border bg-card p-6 max-w-sm">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-semibold">
+                        {i + 1}
+                      </div>
+                      <h3 className="text-lg font-semibold">{step.title}</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
+                  </div>
+                </div>
+
+                {/* Timeline dot */}
+                <div className="hidden md:flex items-center justify-center">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground text-lg font-bold shadow-lg">
+                    {i + 1}
+                  </div>
+                </div>
+
+                {/* Spacer for alternating layout */}
+                <div className="flex-1 hidden md:block"></div>
               </div>
-              <h3 className="text-sm font-semibold">{s.title}</h3>
-            </div>
-            <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{s.desc}</p>
-            <div className="mt-3">
-              <Image
-                src={s.img || "/placeholder.svg"}
-                alt={s.title}
-                width={280}
-                height={180}
-                className="h-auto w-full rounded-md border bg-card"
-              />
-            </div>
-          </li>
-        ))}
-      </ol>
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   )
 }
