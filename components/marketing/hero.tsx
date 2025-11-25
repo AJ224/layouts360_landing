@@ -31,16 +31,30 @@ const ServiceCard = ({ service, isInView, index }: { service: ServiceConfig, isI
           {service.title}
         </h3>
 
-        {/* Description */}
-        <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-md">
+        {/* Description - Hidden on mobile */}
+        <p className="hidden md:block text-gray-400 text-lg md:text-xl leading-relaxed max-w-md">
           {service.description}
         </p>
 
+        {/* Mobile Image - Visible only on mobile */}
+        <div className="block md:hidden w-[85%] max-w-[300px] aspect-video rounded-xl overflow-hidden bg-gray-900 relative my-2">
+          {service.image ? (
+            <Image
+              src={service.image}
+              alt={service.title}
+              fill
+              className="object-cover"
+            />
+          ) : (
+            <div className={`w-full h-full bg-gradient-to-br ${service.color}`} />
+          )}
+        </div>
+
         {/* Button */}
-        <div className="pt-4">
+        <div className="pt-2 md:pt-4">
           <Link
             href={service.href}
-            className="inline-flex items-center justify-center px-8 py-3 rounded-full border border-gray-700 text-white font-medium transition-all hover:bg-white hover:text-black hover:border-white group"
+            className="inline-flex items-center justify-center px-6 py-2 md:px-8 md:py-3 text-sm md:text-base rounded-full border border-gray-700 text-white font-medium transition-all hover:bg-white hover:text-black hover:border-white group"
           >
             Know More
           </Link>
@@ -179,14 +193,14 @@ export default function Hero() {
                 onClick={() => setIsVideoPlaying(true)}
               >
                 {isVideoPlaying ? (
-                  <iframe
-                    width="100%"
-                    height="100%"
-                    src="https://www.youtube.com/embed/u1ZSaB-sRkg?autoplay=1&mute=1&rel=0&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&disablekb=1&fs=0&playsinline=1"
-                    title="Product Demo Video"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="absolute top-1/2 left-1/2 w-[135%] h-[135%] -translate-x-1/2 -translate-y-1/2 pointer-events-none object-cover"
+                  <video
+                    src="https://dulkwtst6l5u22jl.public.blob.vercel-storage.com/Export%20Video.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                    onLoadedMetadata={(e) => e.currentTarget.playbackRate = 0.7}
                   />
                 ) : (
                   <>
