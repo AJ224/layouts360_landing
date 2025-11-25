@@ -1,356 +1,223 @@
-import type { Metadata } from "next"
+"use client"
+
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import Image from "next/image"
+import Header from "@/components/marketing/header"
+import Footer from "@/components/marketing/footer"
+import CtaSection from "@/components/marketing/cta-section"
+import { motion } from "framer-motion"
+import { ArrowRight, Check, Layout, Database, Smartphone, Shield, BarChart3, Users, FileText, Globe } from "lucide-react"
 
-export const metadata: Metadata = {
-  title: "Features - Comprehensive Real Estate Management Solutions",
-  description: "Discover our complete suite of real estate management features: interactive layouts, CRM system, financial tracking, project management, document handling, and analytics. Built for real estate developers.",
-  keywords: [
-    "real estate management features",
-    "property management software features",
-    "real estate CRM features",
-    "plot management system",
-    "real estate analytics features",
-    "property sales management tools",
-    "real estate project management",
-    "property document management"
-  ],
-  openGraph: {
-    title: "Features - Comprehensive Real Estate Management Solutions",
-    description: "Discover our complete suite of real estate management features: interactive layouts, CRM system, financial tracking, project management, document handling, and analytics.",
-    type: 'website',
-    images: [
-      {
-        url: '/herosection.png',
-        width: 1200,
-        height: 630,
-        alt: 'IdeatoLive Features Dashboard',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Features - Comprehensive Real Estate Management Solutions',
-    description: 'Discover our complete suite of real estate management features for developers.',
-  },
-}
+// Note: Metadata export removed from client component. 
+// In a real Next.js app, you'd move metadata to a separate layout.tsx or keep this page server-side 
+// and make the content a client component. For this refactor, we'll keep it simple.
 
 const featureCategories = [
   {
     title: "Layout & Visualization",
-    description: "Advanced digital mapping and interactive plot visualization",
+    description: "Bring your properties to life with our advanced digital mapping and interactive visualization tools.",
+    icon: Layout,
+    color: "text-blue-500",
+    bg: "bg-blue-500/10",
     features: [
       {
         title: "Interactive Site Plans",
-        description: "Upload and digitize your site plans with high-resolution mapping. Customers can zoom, pan, and explore every detail of your layout.",
-        icon: "🗺️",
-        benefits: ["Plot visualization", "Mobile-responsive design", "Real-time updates"]
+        description: "Upload and digitize your site plans. Allow customers to zoom, pan, and explore every detail of your layout from any device.",
+        benefits: ["High-resolution mapping", "Mobile-responsive", "Real-time availability"]
       },
       {
         title: "Plot Status Management",
-        description: "Real-time status tracking for each plot - Available, Reserved, Booked, or Sold. Automatic color coding and status updates.",
-        icon: "📍",
-        benefits: ["Color-coded status system", "Automatic updates", "Conflict prevention"]
+        description: "Visual status tracking for every plot. Instantly see what's Available, Reserved, Booked, or Sold with automatic color coding.",
+        benefits: ["Color-coded system", "Instant updates", "Conflict prevention"]
       },
       {
         title: "Multi-Layout Support",
-        description: "Manage multiple projects and layouts from a single dashboard. Switch between different developments seamlessly.",
-        icon: "🏗️",
-        benefits: ["Unlimited layouts", "Centralized management", "Project isolation"]
+        description: "Manage multiple phases or entirely different projects from a single, centralized dashboard.",
+        benefits: ["Unlimited layouts", "Centralized control", "Project isolation"]
       }
     ]
   },
   {
-    title: "Sales & Booking Management",
-    description: "Streamlined sales process with automated booking and reservation systems",
+    title: "Sales & Booking",
+    description: "Streamline your entire sales process from lead capture to booking confirmation.",
+    icon: Users,
+    color: "text-emerald-500",
+    bg: "bg-emerald-500/10",
     features: [
       {
-        title: "Plot Reservation System",
-        description: "Temporary plot freezing to prevent double bookings. Configurable reservation periods with automatic expiry.",
-        icon: "⏰",
-        benefits: ["Configurable time limits", "Automatic expiry", "Conflict prevention"]
+        title: "Smart Reservation System",
+        description: "Prevent double-bookings with temporary plot freezing. Set configurable reservation periods that auto-expire.",
+        benefits: ["Auto-expiry timers", "Waitlist management", "Fair booking policy"]
       },
       {
-        title: "Booking Confirmation",
-        description: "Secure booking process with digital contracts, payment integration, and automated confirmations.",
-        icon: "📋",
-        benefits: ["Digital contracts", "Payment integration", "Automated confirmations"]
+        title: "Digital Booking Journey",
+        description: "A completely paperless booking experience. Generate digital contracts, collect payments, and send automated confirmations.",
+        benefits: ["Digital contracts", "Payment gateway", "Instant receipts"]
       },
       {
-        title: "Customer Management",
-        description: "Comprehensive CRM with customer profiles, communication history, and lead tracking.",
-        icon: "👥",
-        benefits: ["Customer profiles", "Communication tracking", "Lead management"]
-      }
-    ]
-  },
-  {
-    title: "Payment & Financial Management",
-    description: "Complete financial tracking and payment processing solutions",
-    features: [
-      {
-        title: "Payment Tracking",
-        description: "Track all payments, installments, and dues with detailed financial reports and analytics.",
-        icon: "💰",
-        benefits: ["Installment tracking", "Financial reports", "Due date alerts"]
-      },
-      {
-        title: "Financial Analytics",
-        description: "Comprehensive financial dashboards with revenue tracking, collection reports, and forecasting.",
-        icon: "📊",
-        benefits: ["Revenue tracking", "Collection reports", "Financial forecasting"]
+        title: "CRM Integration",
+        description: "Built-in CRM to manage customer profiles, track communication history, and nurture leads through the funnel.",
+        benefits: ["Customer 360° view", "Lead scoring", "Interaction logs"]
       }
     ]
   },
   {
     title: "Customer Experience",
-    description: "Enhanced customer portals and self-service capabilities",
+    description: "Delight your customers with modern, self-service tools and transparent information.",
+    icon: Smartphone,
+    color: "text-purple-500",
+    bg: "bg-purple-500/10",
     features: [
       {
-        title: "Customer Portal",
-        description: "Dedicated customer portal for plot documents, payment history, and project updates.",
-        icon: "🏠",
-        benefits: ["Document access", "Payment history", "Project updates"]
+        title: "Client Portal",
+        description: "Give buyers their own dedicated space to view documents, track payment history, and see project updates.",
+        benefits: ["Document repository", "Payment tracking", "Project timeline"]
       },
       {
-        title: "Mobile Responsive Design",
-        description: "Fully responsive web interface that works perfectly on all devices and screen sizes.",
-        icon: "📱",
-        benefits: ["Mobile optimized", "Tablet friendly", "Cross-device compatibility"]
+        title: "Mobile-First Design",
+        description: "Ensure a flawless experience whether your customers are browsing on a desktop, tablet, or smartphone.",
+        benefits: ["Responsive UI", "Touch-optimized", "Fast loading"]
       },
       {
-        title: "Document Management",
-        description: "Secure document storage and sharing with role-based access controls.",
-        icon: "📄",
-        benefits: ["Secure storage", "Role-based access", "Version control"]
+        title: "Secure Document Vault",
+        description: "Bank-grade security for storing sensitive property documents and agreements.",
+        benefits: ["Encrypted storage", "Role-based access", "Audit trails"]
       }
     ]
   },
   {
-    title: "Marketing & Lead Generation",
-    description: "Built-in marketing tools and lead generation capabilities",
+    title: "Analytics & Growth",
+    description: "Make data-driven decisions with comprehensive reporting and marketing tools.",
+    icon: BarChart3,
+    color: "text-orange-500",
+    bg: "bg-orange-500/10",
     features: [
       {
-        title: "Project Landing Pages",
-        description: "Professional marketing pages for each project with SEO optimization and lead capture forms.",
-        icon: "🌐",
-        benefits: ["SEO optimized", "Lead capture", "Professional design"]
+        title: "Sales Intelligence",
+        description: "Deep dive into your sales performance. Track conversion rates, revenue velocity, and team performance.",
+        benefits: ["Real-time dashboard", "Revenue forecasting", "Team metrics"]
       },
       {
-        title: "Lead Management",
-        description: "Comprehensive lead tracking with automated follow-ups and conversion analytics.",
-        icon: "🎯",
-        benefits: ["Automated follow-ups", "Conversion tracking", "Lead scoring"]
-      },
-    ]
-  },
-  {
-    title: "Analytics & Reporting",
-    description: "Comprehensive business intelligence and reporting tools",
-    features: [
-      {
-        title: "Sales Analytics",
-        description: "Detailed sales reports with conversion rates, revenue tracking, and performance metrics.",
-        icon: "📈",
-        benefits: ["Conversion tracking", "Revenue analytics", "Performance metrics"]
+        title: "Marketing Landing Pages",
+        description: "Auto-generate SEO-optimized landing pages for each of your projects to capture high-intent leads.",
+        benefits: ["SEO ready", "Lead capture forms", "Pixel integration"]
       },
       {
-        title: "Custom Reports",
-        description: "Generate custom reports with drag-and-drop interface and automated scheduling.",
-        icon: "📋",
-        benefits: ["Drag-and-drop interface", "Automated scheduling", "Custom metrics"]
+        title: "Custom Reporting",
+        description: "Create tailored reports that matter to your stakeholders. Schedule them to be delivered automatically.",
+        benefits: ["Drag-and-drop builder", "Scheduled emails", "Export to PDF/Excel"]
       }
     ]
-  }
-]
-
-const technicalFeatures = [
-  {
-    title: "Enterprise Security",
-    description: "Bank-grade security with SSL encryption, role-based access, and audit trails",
-    icon: "🔒"
-  },
-  {
-    title: "API Integration",
-    description: "RESTful APIs for seamless integration with existing business systems",
-    icon: "🔗"
-  },
-  {
-    title: "Cloud Infrastructure",
-    description: "Scalable cloud infrastructure with high uptime guarantee",
-    icon: "☁️"
-  },
-  {
-    title: "Mobile Responsive",
-    description: "Fully responsive design that works perfectly on all devices",
-    icon: "📱"
   }
 ]
 
 export default function FeaturesPage() {
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b bg-card">
-        <div className="mx-auto max-w-6xl px-4 py-6 md:px-6">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-3">
-              <Image
-                src="/logo.png"
-                alt="IdeatoLive logo"
-                width={32}
-                height={32}
-                className="rounded-lg"
-              />
-              <span className="text-lg font-semibold">IdeatoLive</span>
-            </Link>
-            <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
-              <Link href="/" className="hover:text-foreground">Home</Link>
-              <Link href="/features" className="hover:text-foreground text-foreground">Features</Link>
-              <Link href="/pricing" className="hover:text-foreground">Pricing</Link>
-              <Link href="/contact" className="hover:text-foreground">Contact</Link>
-            </nav>
-            <Button asChild>
-              <Link href="/#demo">Get Demo</Link>
-            </Button>
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen bg-white">
+      <Header theme="light" />
 
       {/* Hero Section */}
-      <section className="mx-auto max-w-6xl px-4 py-12 md:py-20 md:px-6">
-        <div className="mx-auto max-w-3xl text-center">
-          <h1 className="text-balance text-4xl font-semibold tracking-tight md:text-5xl">
-            Comprehensive Real Estate Management Features
-          </h1>
-          <p className="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground">
-            Everything you need to digitize, manage, and scale your real estate business. 
-            From interactive layouts to payment tracking, we've got you covered.
-          </p>
-          <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Button size="lg" asChild>
-              <Link href="/#demo">Schedule Demo</Link>
-            </Button>
-            <Button className="text-black" size="lg" variant="outline" asChild>
-              <Link href="/pricing">View Pricing</Link>
-            </Button>
-          </div>
+      <section className="relative pt-20 pb-32 overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        <div className="relative mx-auto max-w-7xl px-4 md:px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 border border-gray-200 text-sm font-medium text-gray-600 mb-6">
+              <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+              Feature Rich Platform
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-6">
+              Everything you need to <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                scale your sales
+              </span>
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+              A complete operating system for real estate developers. From the first lead to the final handover, we've digitized every step of the journey.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button size="lg" className="rounded-full px-8 h-12 text-base bg-gray-900 hover:bg-gray-800 text-white" asChild>
+                <Link href="/#demo">Schedule Demo</Link>
+              </Button>
+              <Button size="lg" variant="outline" className="rounded-full px-8 h-12 text-base border-gray-200 hover:bg-gray-50" asChild>
+                <Link href="/pricing">View Pricing</Link>
+              </Button>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Feature Categories */}
-      <section className="mx-auto max-w-6xl px-4 py-12 md:py-20 md:px-6">
-        <div className="space-y-16">
-          {featureCategories.map((category, categoryIndex) => (
-            <div key={category.title} className="space-y-8">
-              {/* Category Header */}
-              <div className="text-center max-w-3xl mx-auto">
-                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
-                  <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
-                  {category.title}
+      {/* Sticky Categories Section */}
+      <div className="relative bg-white">
+        {featureCategories.map((category, index) => (
+          <section key={category.title} className="py-20 border-t border-gray-100">
+            <div className="mx-auto max-w-7xl px-4 md:px-6">
+              <div className="grid lg:grid-cols-12 gap-12 lg:gap-24">
+
+                {/* Sticky Left Column */}
+                <div className="lg:col-span-4">
+                  <div className="sticky top-32">
+                    <div className={`w-12 h-12 rounded-2xl ${category.bg} ${category.color} flex items-center justify-center mb-6`}>
+                      <category.icon className="w-6 h-6" />
+                    </div>
+                    <h2 className="text-3xl font-bold text-gray-900 mb-4">{category.title}</h2>
+                    <p className="text-lg text-gray-500 leading-relaxed mb-8">
+                      {category.description}
+                    </p>
+                    <Button variant="ghost" className={`p-0 hover:bg-transparent ${category.color} hover:${category.color} group`} asChild>
+                      <Link href="/contact" className="flex items-center gap-2">
+                        Learn more <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
-                <h2 className="text-3xl font-bold tracking-tight mb-4">{category.title}</h2>
-                <p className="text-lg text-muted-foreground">{category.description}</p>
-              </div>
-              
-              {/* Features Grid */}
-              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                {category.features.map((feature, featureIndex) => (
-                  <Card key={feature.title} className="group p-8 hover:shadow-2xl transition-all duration-300 border-l-4 border-l-transparent hover:border-l-primary bg-gradient-to-br from-background to-primary/5">
-                    <div className="space-y-6">
-                      {/* Feature Header */}
-                      <div className="flex items-start gap-4">
-                        <div className="text-4xl group-hover:scale-110 transition-transform duration-300">
-                          {feature.icon}
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+
+                {/* Scrollable Right Column */}
+                <div className="lg:col-span-8">
+                  <div className="grid gap-6 md:grid-cols-2">
+                    {category.features.map((feature, fIndex) => (
+                      <motion.div
+                        key={feature.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: fIndex * 0.1 }}
+                      >
+                        <Card className="h-full p-8 border-gray-100 bg-gray-50/50 hover:bg-white hover:border-gray-200 hover:shadow-xl hover:shadow-gray-200/50 transition-all duration-300 group">
+                          <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
                             {feature.title}
                           </h3>
-                          <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
-                        </div>
-                      </div>
-                      
-                      {/* Benefits */}
-                      <div className="space-y-3">
-                        {feature.benefits.map((benefit, benefitIndex) => (
-                          <div key={benefitIndex} className="flex items-center gap-3 p-3 bg-white/50 rounded-lg group-hover:bg-primary/10 transition-colors">
-                            <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
-                            <span className="text-sm font-medium">{benefit}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </Card>
-                ))}
+                          <p className="text-gray-500 mb-6 leading-relaxed">
+                            {feature.description}
+                          </p>
+                          <ul className="space-y-3">
+                            {feature.benefits.map((benefit) => (
+                              <li key={benefit} className="flex items-center gap-2 text-sm text-gray-600">
+                                <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                {benefit}
+                              </li>
+                            ))}
+                          </ul>
+                        </Card>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
               </div>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Technical Features */}
-      <section className="mx-auto max-w-6xl px-4 py-12 md:py-20 md:px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-semibold tracking-tight">Enterprise-Grade Technology</h2>
-          <p className="mt-3 text-lg text-muted-foreground">
-            Built with enterprise security and scalability in mind
-          </p>
-        </div>
-        
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {technicalFeatures.map((feature, index) => (
-            <Card key={feature.title} className="p-6 text-center">
-              <div className="space-y-4">
-                <span className="text-3xl">{feature.icon}</span>
-                <h3 className="text-lg font-semibold">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground">{feature.description}</p>
-              </div>
-            </Card>
-          ))}
-        </div>
-      </section>
+          </section>
+        ))}
+      </div>
 
       {/* CTA Section */}
-      <section className="mx-auto max-w-6xl px-4 py-12 md:py-20 md:px-6">
-        <div className="rounded-2xl bg-gradient-to-r from-primary to-primary/90 text-primary-foreground p-8 md:p-12 text-center">
-          <h2 className="text-3xl font-semibold tracking-tight mb-4">
-            Ready to Transform Your Real Estate Business?
-          </h2>
-          <p className="text-lg text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-            Join hundreds of developers who have already digitized their sales process. 
-            Get a personalized demo and see how IdeatoLive can streamline your operations.
-          </p>
-          <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Button size="lg" variant="secondary" asChild>
-              <Link href="/#demo">Schedule Demo</Link>
-            </Button>
-            <Button size="lg" variant="outline" className="border-primary-foreground text-black hover:bg-primary-foreground hover:text-primary" asChild>
-              <Link href="/pricing">View Pricing</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <CtaSection />
 
-      {/* Footer */}
-      <footer className="border-t">
-        <div className="mx-auto max-w-6xl px-4 py-10 md:px-6">
-          <div className="flex flex-col items-center justify-between gap-4 text-sm text-muted-foreground md:flex-row">
-            <p className="text-pretty text-center md:text-left">
-              © {new Date().getFullYear()} IdeatoLive. All rights reserved.
-            </p>
-            <nav className="flex flex-wrap items-center justify-center gap-6">
-              <Link href="/" className="hover:text-foreground">Home</Link>
-              <Link href="/features" className="hover:text-foreground">Features</Link>
-              <Link href="/pricing" className="hover:text-foreground">Pricing</Link>
-              <Link href="tel:+917276495199" className="hover:text-foreground">+91 72764 95199</Link>
-              <Link href="tel:+919595337334" className="hover:text-foreground">+91 95953 37334</Link>
-            </nav>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

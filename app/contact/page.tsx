@@ -1,205 +1,169 @@
-import type { Metadata } from "next"
+"use client"
+
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
 import DemoForm from "@/components/marketing/demo-form"
-
-export const metadata: Metadata = {
-  title: "Contact Us - Get Your Free Real Estate Management Demo",
-  description: "Contact IdeatoLive for custom real estate management solutions. Call +91 72764 95199 or schedule a free demo. Professional support for real estate developers.",
-  keywords: [
-    "contact real estate management",
-    "real estate software demo",
-    "property management consultation",
-    "real estate CRM demo",
-    "plot management software demo",
-    "real estate analytics consultation",
-    "property management support",
-    "real estate software contact"
-  ],
-  openGraph: {
-    title: "Contact Us - Get Your Free Real Estate Management Demo",
-    description: "Contact IdeatoLive for custom real estate management solutions. Call +91 72764 95199 or schedule a free demo.",
-    type: 'website',
-    images: [
-      {
-        url: '/herosection.png',
-        width: 1200,
-        height: 630,
-        alt: 'Contact IdeatoLive for Real Estate Solutions',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Contact Us - Get Your Free Real Estate Management Demo',
-    description: 'Contact IdeatoLive for custom real estate management solutions. Call +91 72764 95199 or schedule a free demo.',
-  },
-}
+import Header from "@/components/marketing/header"
+import Footer from "@/components/marketing/footer"
+import CtaSection from "@/components/marketing/cta-section"
+import { motion } from "framer-motion"
+import { Phone, MessageCircle, Mail, MapPin, CheckCircle2 } from "lucide-react"
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b bg-card">
-        <div className="mx-auto max-w-6xl px-4 py-6 md:px-6">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-3">
-              <Image
-                src="/logo.png"
-                alt="IdeatoLive logo"
-                width={32}
-                height={32}
-                className="rounded-lg"
-              />
-              <span className="text-lg font-semibold">IdeatoLive</span>
-            </Link>
-            <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
-              <Link href="/" className="hover:text-foreground">Home</Link>
-              <Link href="/features" className="hover:text-foreground">Features</Link>
-              <Link href="/pricing" className="hover:text-foreground">Pricing</Link>
-              <Link href="/contact" className="hover:text-foreground text-foreground">Contact</Link>
-            </nav>
-            <Button asChild>
-              <Link href="/#demo">Get Demo</Link>
-            </Button>
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen bg-white relative selection:bg-blue-100">
+      {/* Background Gradients */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-blue-500/5 blur-[120px] rounded-full" />
+        <div className="absolute bottom-0 right-0 w-[800px] h-[600px] bg-purple-500/5 blur-[120px] rounded-full" />
+      </div>
+
+      <Header theme="light" />
 
       {/* Hero Section */}
-      <section className="mx-auto max-w-6xl px-4 py-12 md:py-20 md:px-6">
-        <div className="mx-auto max-w-3xl text-center">
-          <h1 className="text-balance text-4xl font-semibold tracking-tight md:text-5xl">
-            Get in Touch
-          </h1>
-          <p className="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground">
-            Ready to transform your real estate business? Contact our team for a personalized consultation 
-            and discover how IdeatoLive can accelerate your growth.
-          </p>
+      <section className="relative pt-20 overflow-hidden z-10">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        <div className="relative mx-auto max-w-7xl px-4 md:px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 border border-gray-200 text-sm font-medium text-gray-600 mb-6">
+              <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+              Contact Us
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-6">
+              Let's Start a <br className="md:hidden" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                Conversation
+              </span>
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+              Ready to transform your real estate business? Contact our team for a personalized consultation and discover how IdeatoLive can accelerate your growth.
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      {/* Contact Numbers */}
-      <section className="mx-auto max-w-6xl px-4 py-12 md:py-20 md:px-6">
+      {/* Contact Options */}
+      <section className="relative mx-auto max-w-7xl px-4 pb-20 md:px-6 z-10">
         <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
-          <Card className="p-8 text-center">
-            <div className="space-y-4">
-              <div className="text-4xl">📞</div>
-              <h3 className="text-xl font-semibold">Call Us</h3>
-              <p className="text-muted-foreground">Ready to transform your real estate business?</p>
-              <div className="space-y-2">
-                <a href="tel:+917276495199" className="block text-primary hover:text-primary/80 font-medium text-lg">
-                  +91 72764 95199
-                </a>
-                <a href="tel:+919595337334" className="block text-primary hover:text-primary/80 font-medium text-lg">
-                  +91 95953 37334
-                </a>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            <Card className="h-full p-8 hover:shadow-xl transition-all duration-300 border-gray-100 hover:border-blue-100 bg-white/80 backdrop-blur-sm group">
+              <div className="flex flex-col items-center text-center space-y-4">
+                <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Phone className="w-8 h-8 text-blue-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Call Us</h3>
+                <p className="text-gray-600">Speak directly with our sales team for immediate assistance.</p>
+                <div className="space-y-2 pt-2">
+                  <a href="tel:+917276495199" className="block text-lg font-semibold text-gray-900 hover:text-blue-600 transition-colors">
+                    +91 72764 95199
+                  </a>
+                  <a href="tel:+919595337334" className="block text-lg font-semibold text-gray-900 hover:text-blue-600 transition-colors">
+                    +91 95953 37334
+                  </a>
+                </div>
               </div>
-            </div>
-          </Card>
-          
-          <Card className="p-8 text-center">
-            <div className="space-y-4">
-              <div className="text-4xl">💬</div>
-              <h3 className="text-xl font-semibold">WhatsApp</h3>
-              <p className="text-muted-foreground">Quick responses and instant support</p>
-              <div className="space-y-2">
-                <a href="https://wa.me/917276495199" className="block text-primary hover:text-primary/80 font-medium text-lg">
-                  +91 72764 95199
-                </a>
-                <a href="https://wa.me/919595337334" className="block text-primary hover:text-primary/80 font-medium text-lg">
-                  +91 95953 37334
-                </a>
+            </Card>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            <Card className="h-full p-8 hover:shadow-xl transition-all duration-300 border-gray-100 hover:border-green-100 bg-white/80 backdrop-blur-sm group">
+              <div className="flex flex-col items-center text-center space-y-4">
+                <div className="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <MessageCircle className="w-8 h-8 text-green-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">WhatsApp</h3>
+                <p className="text-gray-600">Chat with us for quick responses and instant support.</p>
+                <div className="space-y-2 pt-2">
+                  <a href="https://wa.me/917276495199" target="_blank" rel="noopener noreferrer" className="block text-lg font-semibold text-gray-900 hover:text-green-600 transition-colors">
+                    Chat on WhatsApp
+                  </a>
+                  <p className="text-sm text-gray-500">Available 9 AM - 6 PM IST</p>
+                </div>
               </div>
-            </div>
-          </Card>
+            </Card>
+          </motion.div>
         </div>
       </section>
 
       {/* Demo Form Section */}
-      <section className="mx-auto max-w-6xl px-4 py-12 md:py-20 md:px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          <div>
-            <h2 className="text-3xl font-semibold tracking-tight mb-6">
-              Schedule a Personalized Demo
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Get a customized demonstration of our real estate management solutions. 
-              Our experts will show you exactly how IdeatoLive can solve your specific business challenges.
-            </p>
-            
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-primary font-semibold text-sm">1</span>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2">Free Consultation</h3>
-                  <p className="text-sm text-muted-foreground">We'll analyze your current processes and identify optimization opportunities.</p>
-                </div>
+      <section id="demo-form" className="relative py-20 bg-gray-50/50 border-t border-gray-100 z-10">
+        <div className="mx-auto max-w-7xl px-4 md:px-6">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 mb-6">
+                Schedule a Personalized Demo
+              </h2>
+              <p className="text-lg text-gray-600 mb-10 leading-relaxed">
+                Get a customized demonstration of our real estate management solutions.
+                Our experts will show you exactly how IdeatoLive can solve your specific business challenges.
+              </p>
+
+              <div className="space-y-8">
+                {[
+                  {
+                    title: "Free Consultation",
+                    description: "We'll analyze your current processes and identify optimization opportunities."
+                  },
+                  {
+                    title: "Custom Demo",
+                    description: "See our platform in action with your specific use cases and requirements."
+                  },
+                  {
+                    title: "Implementation Plan",
+                    description: "Get a detailed roadmap for implementing our solutions in your business."
+                  }
+                ].map((item, index) => (
+                  <div key={index} className="flex gap-4">
+                    <div className="flex-shrink-0 mt-1">
+                      <CheckCircle2 className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-gray-900 mb-1">{item.title}</h3>
+                      <p className="text-gray-600">{item.description}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-              
-              <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-primary font-semibold text-sm">2</span>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2">Custom Demo</h3>
-                  <p className="text-sm text-muted-foreground">See our platform in action with your specific use cases and requirements.</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-primary font-semibold text-sm">3</span>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2">Implementation Plan</h3>
-                  <p className="text-sm text-muted-foreground">Get a detailed roadmap for implementing our solutions in your business.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-8 rounded-2xl">
-            <DemoForm />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
+              <DemoForm />
+            </motion.div>
           </div>
         </div>
       </section>
-
 
       {/* CTA Section */}
-      <section className="mx-auto max-w-6xl px-4 py-12 md:py-20 md:px-6">
-        <div className="rounded-2xl bg-gradient-to-r from-primary to-primary/90 text-primary-foreground p-8 md:p-12 text-center">
-          <h2 className="text-3xl font-semibold tracking-tight mb-4">
-            Ready to Get Started?
-          </h2>
-          <p className="text-lg text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-            Don't wait to transform your real estate business. Contact us today and take the first step 
-            towards digital transformation.
-          </p>
-        </div>
-      </section>
+      <CtaSection />
 
-      {/* Footer */}
-      <footer className="border-t">
-        <div className="mx-auto max-w-6xl px-4 py-10 md:px-6">
-          <div className="flex flex-col items-center justify-between gap-4 text-sm text-muted-foreground md:flex-row">
-            <p className="text-pretty text-center md:text-left">
-              © {new Date().getFullYear()} IdeatoLive. All rights reserved.
-            </p>
-            <nav className="flex flex-wrap items-center justify-center gap-6">
-              <Link href="/" className="hover:text-foreground">Home</Link>
-              <Link href="/features" className="hover:text-foreground">Features</Link>
-              <Link href="/pricing" className="hover:text-foreground">Pricing</Link>
-              <Link href="tel:+917276495199" className="hover:text-foreground">+91 72764 95199</Link>
-              <Link href="tel:+919595337334" className="hover:text-foreground">+91 95953 37334</Link>
-            </nav>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

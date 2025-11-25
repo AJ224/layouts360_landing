@@ -1,44 +1,15 @@
-import type { Metadata } from "next"
+"use client"
+
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
 import PricingCards from "@/components/pricing/pricing-cards"
 import PricingCalculator from "@/components/pricing/pricing-calculator"
-
-export const metadata: Metadata = {
-  title: "Pricing - Real Estate Management Solutions | Starting ₹4,000/month",
-  description: "Transparent pricing for real estate management solutions. Platform fee starting at ₹4,000/month with flexible subscription options. Calculate your exact pricing with our interactive calculator.",
-  keywords: [
-    "real estate management pricing",
-    "property management software cost",
-    "real estate platform pricing",
-    "property management system pricing",
-    "real estate CRM pricing",
-    "plot management software cost",
-    "real estate analytics pricing",
-    "property management platform cost",
-    "plot booking software pricing"
-  ],
-  openGraph: {
-    title: "Pricing - Real Estate Management Solutions | Starting ₹4,000/month",
-    description: "Transparent pricing for real estate management solutions. Platform fee starting at ₹4,000/month with flexible subscription options.",
-    type: 'website',
-    images: [
-      {
-        url: '/herosection.png',
-        width: 1200,
-        height: 630,
-        alt: 'IdeatoLive Pricing Plans',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Pricing - Real Estate Management Solutions | Starting ₹4,000/month',
-    description: 'Transparent pricing for real estate management solutions. Platform fee starting at ₹4,000/month.',
-  },
-}
+import Header from "@/components/marketing/header"
+import Footer from "@/components/marketing/footer"
+import CtaSection from "@/components/marketing/cta-section"
+import { motion } from "framer-motion"
 
 const faqs = [
   {
@@ -61,49 +32,60 @@ const faqs = [
 
 export default function PricingPage() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white relative selection:bg-blue-100">
+      {/* Background Gradients */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-blue-500/5 blur-[120px] rounded-full" />
+        <div className="absolute bottom-0 right-0 w-[800px] h-[600px] bg-purple-500/5 blur-[120px] rounded-full" />
+      </div>
+
       {/* Header */}
-      <header className="border-b bg-card sticky top-0 z-50 backdrop-blur-sm bg-card/95">
-        <div className="mx-auto max-w-6xl px-4 py-4 md:px-6">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-3">
-              <Image
-                src="/logo.png"
-                alt="IdeatoLive logo"
-                width={32}
-                height={32}
-                className="rounded-lg"
-              />
-              <span className="text-lg font-semibold">IdeatoLive</span>
-            </Link>
-            <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
-              <Link href="/" className="hover:text-foreground">Home</Link>
-              <Link href="/features" className="hover:text-foreground">Features</Link>
-              <Link href="/pricing" className="hover:text-foreground text-foreground">Pricing</Link>
-              <Link href="/contact" className="hover:text-foreground">Contact</Link>
-            </nav>
-            <Button asChild>
-              <Link href="/#demo">Get Demo</Link>
-            </Button>
-          </div>
+      <Header theme="light" />
+
+      {/* Hero Section */}
+      <section className="relative pt-20 overflow-hidden z-10">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        <div className="relative mx-auto max-w-7xl px-4 md:px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 border border-gray-200 text-sm font-medium text-gray-600 mb-6">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+              Flexible Plans
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-6">
+              Simple, <br className="md:hidden" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                Transparent Pricing
+              </span>
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+              Choose the plan that fits your business size. All features included, no hidden fees.
+            </p>
+          </motion.div>
         </div>
-      </header>
+      </section>
 
       {/* Pricing Cards */}
-      <section className="mx-auto max-w-7xl px-4 py-8 md:px-6">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">
-            Simple, Transparent Pricing
-          </h1>
-          <p className="text-sm md:text-base text-muted-foreground">
-            Choose your plan. All features included. Save more with longer subscriptions.
-          </p>
-        </div>
-        <PricingCards />
+      <section className="relative mx-auto max-w-7xl px-4 pb-16 md:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+        >
+          <PricingCards />
+        </motion.div>
       </section>
 
       {/* Pricing Calculator */}
-      <section className="mx-auto max-w-7xl px-4 py-16 md:px-6">
+      <section className="relative mx-auto max-w-7xl px-4 py-16 md:px-6 bg-gray-50/50 border-y border-gray-100">
+        <div className="max-w-3xl mx-auto text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Calculate Your Investment</h2>
+          <p className="text-lg text-gray-600">Estimate your total cost based on your project size and duration.</p>
+        </div>
         <div className="max-w-2xl mx-auto">
           <PricingCalculator />
         </div>
@@ -111,57 +93,35 @@ export default function PricingPage() {
 
 
       {/* FAQ Section */}
-      <section className="mx-auto max-w-4xl px-4 py-16 md:px-6">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold tracking-tight mb-2">Frequently Asked Questions</h2>
-          <p className="text-muted-foreground">Quick answers to common questions</p>
+      <section className="mx-auto max-w-4xl px-4 py-24 md:px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold tracking-tight mb-4 text-gray-900">Frequently Asked Questions</h2>
+          <p className="text-lg text-gray-600">Quick answers to common questions about our pricing and plans.</p>
         </div>
-        
-        <div className="grid gap-4 md:grid-cols-2">
+
+        <div className="grid gap-6 md:grid-cols-2">
           {faqs.map((faq, index) => (
-            <Card key={index} className="p-6 hover:shadow-md transition-shadow border hover:border-primary/20">
-              <h3 className="text-base font-semibold mb-2.5 text-foreground">{faq.question}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
-            </Card>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <Card className="h-full p-8 hover:shadow-lg transition-all duration-300 border-gray-100 hover:border-blue-100 bg-white">
+                <h3 className="text-lg font-bold mb-3 text-gray-900">{faq.question}</h3>
+                <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="mx-auto max-w-5xl px-4 py-16 md:px-6">
-        <div className="rounded-2xl bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white p-10 md:p-12 text-center shadow-2xl relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
-          <div className="relative z-10">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-3">
-              Ready to Get Started?
-            </h2>
-            <p className="text-lg text-white/90 mb-8 max-w-xl mx-auto">
-              Contact us for a free consultation and see how we can help your real estate business grow.
-            </p>
-            <Button size="lg" variant="secondary" className="shadow-lg hover:shadow-xl transition-all" asChild>
-              <Link href="/#demo">Schedule Demo</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <CtaSection />
 
       {/* Footer */}
-      <footer className="border-t">
-        <div className="mx-auto max-w-6xl px-4 py-10 md:px-6">
-          <div className="flex flex-col items-center justify-between gap-4 text-sm text-muted-foreground md:flex-row">
-            <p className="text-pretty text-center md:text-left">
-              © {new Date().getFullYear()} IdeatoLive. All rights reserved.
-            </p>
-            <nav className="flex flex-wrap items-center justify-center gap-6">
-              <Link href="/" className="hover:text-foreground">Home</Link>
-              <Link href="/features" className="hover:text-foreground">Features</Link>
-              <Link href="/pricing" className="hover:text-foreground">Pricing</Link>
-              <Link href="tel:+917276495199" className="hover:text-foreground">+91 72764 95199</Link>
-              <Link href="tel:+919595337334" className="hover:text-foreground">+91 95953 37334</Link>
-            </nav>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
