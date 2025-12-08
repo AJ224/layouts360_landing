@@ -38,7 +38,7 @@ export default function WhyChooseUs() {
   return (
     <section id="why-choose-us" className="mx-auto max-w-6xl px-4 py-12 md:py-20 md:px-6">
       <div className="mx-auto max-w-3xl text-center">
-        <h2 className="text-balance text-3xl font-semibold tracking-tight md:text-4xl">Why Choose IdeatoLive</h2>
+        <h2 className="text-balance text-3xl font-semibold tracking-tight md:text-4xl">Why Choose Layouts360</h2>
         <p className="mt-3 text-pretty text-muted-foreground">
           Enterprise-grade solutions designed specifically for real estate developers who demand reliability, security, and scalability.
         </p>

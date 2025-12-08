@@ -1,4 +1,4 @@
-# Email Setup Guide for IdeatoLive
+# Email Setup Guide for Layouts360
 
 ## 🔧 Environment Variables Setup
 
@@ -20,12 +20,12 @@ DEMO_REQUESTS_TO=your_email@example.com
 ### 2. Get API Key
 - Go to [https://resend.com/api-keys](https://resend.com/api-keys)
 - Click "Create API Key"
-- Name it "IdeatoLive Demo Form"
+- Name it "Layouts360 Demo Form"
 - Copy the API key
 
 ### 3. Add Domain (Optional)
 - Go to [https://resend.com/domains](https://resend.com/domains)
-- Add your domain (e.g., `ideatolive.com`)
+- Add your domain (e.g., `layouts360.com`)
 - Follow DNS setup instructions
 - Update the `from` field in the API route
 

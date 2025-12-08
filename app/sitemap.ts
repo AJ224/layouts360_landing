@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://ideatolive.com'
+  const baseUrl = 'https://layouts360.com'
   
   return [
     {

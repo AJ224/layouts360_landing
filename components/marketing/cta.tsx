@@ -23,7 +23,7 @@ export default function CTA() {
             </h2>
             <p className="text-base text-white/90 leading-relaxed mb-6">
               Transform your real estate business with our enterprise-grade solutions. 
-              Get a personalized demo and discover how IdeatoLive can accelerate your growth.
+              Get a personalized demo and discover how Layouts360 can accelerate your growth.
             </p>
             
             {/* Trust Indicators */}

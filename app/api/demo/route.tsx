@@ -32,11 +32,11 @@ export async function POST(req: Request) {
     const resend = new Resend(resendApiKey)
     
     // Create email content
-    const subject = "New Demo Request - IdeatoLive"
+    const subject = "New Demo Request - Layouts360"
     const html = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
         <h2 style="color: #333; border-bottom: 2px solid #007bff; padding-bottom: 10px;">
-          New Demo Request - IdeatoLive
+          New Demo Request - Layouts360
         </h2>
         
         <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
@@ -61,14 +61,14 @@ export async function POST(req: Request) {
         
         <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
         <p style="color: #666; font-size: 12px; text-align: center;">
-          This email was sent from the IdeatoLive demo form.
+          This email was sent from the Layouts360 demo form.
         </p>
       </div>
     `
 
     // Send email
     const result = await resend.emails.send({
-      from: "IdeatoLive <onboarding@resend.dev>", // Use Resend's default domain for testing
+      from: "Layouts360 <onboarding@resend.dev>", // Use Resend's default domain for testing
       to: [to],
       subject,
       html,

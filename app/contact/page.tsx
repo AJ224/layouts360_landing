@@ -42,7 +42,7 @@ export default function ContactPage() {
               </span>
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
-              Ready to transform your real estate business? Contact our team for a personalized consultation and discover how IdeatoLive can accelerate your growth.
+              Ready to transform your real estate business? Contact our team for a personalized consultation and discover how Layouts360 can accelerate your growth.
             </p>
           </motion.div>
         </div>
@@ -115,7 +115,7 @@ export default function ContactPage() {
               </h2>
               <p className="text-lg text-gray-600 mb-10 leading-relaxed">
                 Get a customized demonstration of our real estate management solutions.
-                Our experts will show you exactly how IdeatoLive can solve your specific business challenges.
+                Our experts will show you exactly how Layouts360 can solve your specific business challenges.
               </p>
 
               <div className="space-y-8">

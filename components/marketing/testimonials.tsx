@@ -5,7 +5,7 @@ import Image from "next/image"
 
 const testimonials = [
     {
-        quote: "IdeatoLive transformed our property management. The platform has reduced administrative time by 40% and delighted our tenants with its ease of use.",
+        quote: "Layouts360 transformed our property management. The platform has reduced administrative time by 40% and delighted our tenants with its ease of use.",
         author: "Sarah Johnson",
         role: "Director of Operations",
         company: "EstatePrime Developers",

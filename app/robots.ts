@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://ideatolive.com/sitemap.xml',
+    sitemap: 'https://layouts360.com/sitemap.xml',
   }
 }

@@ -37,7 +37,7 @@ export default function CaseStudies() {
                     <div className="max-w-2xl">
                         <h2 className="text-4xl md:text-5xl font-medium mb-6">Success Stories</h2>
                         <p className="text-gray-400 text-lg">
-                            See how leading developers use IdeatoLive to transform their business.
+                            See how leading developers use Layouts360 to transform their business.
                         </p>
                     </div>
                     <Button

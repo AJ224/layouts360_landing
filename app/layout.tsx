@@ -8,8 +8,8 @@ import "./globals.css"
 
 export const metadata: Metadata = {
   title: {
-    default: "IdeatoLive - Professional Real Estate Management Solutions",
-    template: "%s | IdeatoLive"
+    default: "Layouts360 - Professional Real Estate Management Solutions",
+    template: "%s | Layouts360"
   },
   description:
     "Transform your real estate business with our comprehensive suite of digital tools. From interactive layouts to payment management, we help developers scale efficiently.",
@@ -25,37 +25,37 @@ export const metadata: Metadata = {
     "real estate digital transformation",
     "property management platform"
   ],
-  authors: [{ name: "IdeatoLive" }],
-  creator: "IdeatoLive",
-  publisher: "IdeatoLive",
+  authors: [{ name: "Layouts360" }],
+  creator: "Layouts360",
+  publisher: "Layouts360",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://ideatolive.com'),
+  metadataBase: new URL('https://layouts360.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://ideatolive.com',
-    title: 'IdeatoLive - Professional Real Estate Management Solutions',
+    url: 'https://layouts360.com',
+    title: 'Layouts360 - Professional Real Estate Management Solutions',
     description: 'Transform your real estate business with our comprehensive suite of digital tools. From interactive layouts to payment management, we help developers scale efficiently.',
-    siteName: 'IdeatoLive',
+    siteName: 'Layouts360',
     images: [
       {
         url: '/herosection.png',
         width: 1200,
         height: 630,
-        alt: 'IdeatoLive Real Estate Management Dashboard',
+        alt: 'Layouts360 Real Estate Management Dashboard',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'IdeatoLive - Professional Real Estate Management Solutions',
+    title: 'Layouts360 - Professional Real Estate Management Solutions',
     description: 'Transform your real estate business with our comprehensive suite of digital tools.',
     images: ['/herosection.png'],
   },
@@ -81,9 +81,9 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: 'IdeatoLive',
+  name: 'Layouts360',
   description: 'Professional real estate management solutions for developers. Interactive layouts, plot booking, payment tracking, and customer portals.',
-  url: 'https://ideatolive.com',
+  url: 'https://layouts360.com',
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web',
   offers: {
@@ -94,8 +94,8 @@ const jsonLd = {
   },
   provider: {
     '@type': 'Organization',
-    name: 'IdeatoLive',
-    url: 'https://ideatolive.com',
+    name: 'Layouts360',
+    url: 'https://layouts360.com',
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: '+91-72764-95199',

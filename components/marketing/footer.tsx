@@ -14,12 +14,12 @@ export default function Footer() {
                         <Link href="/" className="flex items-center gap-3">
                             <Image
                                 src="/logo.png"
-                                alt="IdeatoLive logo"
+                                alt="Layouts360 logo"
                                 width={40}
                                 height={40}
                                 className="rounded-lg"
                             />
-                            <span className="text-xl font-bold">IdeatoLive</span>
+                            <span className="text-xl font-bold">Layouts360</span>
                         </Link>
                         <p className="text-gray-400 leading-relaxed">
                             Transforming real estate management with innovative digital solutions. Build, scale, and manage with confidence.
@@ -50,7 +50,7 @@ export default function Footer() {
                             </li>
                             {/* <li className="flex md:flex-row-reverse items-center gap-3 text-gray-400">
                                 <Mail className="w-5 h-5 text-[#FFB800] shrink-0" />
-                                <a href="mailto:hello@ideatolive.com" className="hover:text-white transition-colors">hello@ideatolive.com</a>
+                                <a href="mailto:hello@layouts360.com" className="hover:text-white transition-colors">hello@layouts360.com</a>
                             </li> */}
                             <li className="flex md:flex-row-reverse items-center gap-3 text-gray-400">
                                 <Phone className="w-5 h-5 text-[#FFB800] shrink-0" />
@@ -61,7 +61,7 @@ export default function Footer() {
                 </div>
 
                 <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-                    <p>© {new Date().getFullYear()} IdeatoLive. All rights reserved.</p>
+                    <p>© {new Date().getFullYear()} Layouts360. All rights reserved.</p>
                     <div className="flex gap-6">
                         <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
                         <Link href="/terms" className="hover:text-white transition-colors">Terms of Use</Link>

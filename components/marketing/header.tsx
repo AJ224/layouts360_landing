@@ -30,13 +30,13 @@ export default function Header({ theme = "light" }: HeaderProps) {
                     <Link href="/" className="flex items-center gap-3">
                         <Image
                             src="/logo.png"
-                            alt="IdeatoLive logo"
+                            alt="Layouts360 logo"
                             width={32}
                             height={32}
                             className="rounded-lg"
                         />
                         <span className={cn("text-lg font-semibold", isDark ? "text-white" : "text-gray-900")}>
-                            IdeatoLive
+                            Layouts360
                         </span>
                     </Link>
 
@@ -100,13 +100,13 @@ export default function Header({ theme = "light" }: HeaderProps) {
                                 <Link href="/" className="flex items-center gap-3" onClick={toggleMenu}>
                                     <Image
                                         src="/logo.png"
-                                        alt="IdeatoLive logo"
+                                        alt="Layouts360 logo"
                                         width={32}
                                         height={32}
                                         className="rounded-lg"
                                     />
                                     <span className="text-lg font-semibold text-gray-900">
-                                        IdeatoLive
+                                        Layouts360
                                     </span>
                                 </Link>
                                 <button
