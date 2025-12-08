@@ -43,7 +43,7 @@ export const servicesConfig: ServiceConfig[] = [
       "Facing",
       "Area Details"
     ],
-    image: "/assets/images/plotdetailsontap.jpeg",
+    image: "/assets/images/plotdetailsontap.gif",
     color: "from-pink-500 to-rose-500",
     href: "/features/plot-details",
   },
@@ -57,7 +57,7 @@ export const servicesConfig: ServiceConfig[] = [
       "Instant synchronization across all sales channels",
       "Size wise filtering"
     ],
-    image: "/assets/images/availabilitystatus.jpeg",
+    image: "/assets/images/availabilitystatus.png",
     color: "from-emerald-500 to-green-500",
     href: "/features/availability",
   },
@@ -72,7 +72,7 @@ export const servicesConfig: ServiceConfig[] = [
       "360-degree panoramic view support",
       "Categorized albums for amenities, interiors, and exteriors"
     ],
-    image: "/assets/images/gallery.jpeg",
+    image: "/assets/images/gallery.png",
     color: "from-purple-500 to-violet-500",
     href: "/features/gallery",
   },
@@ -86,7 +86,7 @@ export const servicesConfig: ServiceConfig[] = [
       "Touch-friendly interface for tablets and kiosks",
       "Consistent experience across iOS, Android, and Web",
     ],
-    image: "/assets/images/allscreensupport.jpeg",
+    image: "/assets/images/allscreensupport.png",
     color: "from-blue-500 to-cyan-500",
     href: "/features/cross-platform",
   }

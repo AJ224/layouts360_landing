@@ -72,13 +72,14 @@ export default function FeaturePage({ params }: { params: { slug: string } }) {
                             </div>
                         </div>
 
-                        <div className="relative aspect-video rounded-2xl overflow-hidden">
+                        <div className="relative w-[504px] h-[331px] rounded-2xl overflow-hidden">
                             {service.image ? (
                                 <Image
                                     src={service.image}
                                     alt={service.title}
-                                    fill
-                                    className="object-cover"
+                                    width={504}
+                                    height={331}
+                                    className="object-cover w-full h-full"
                                     priority
                                 />
                             ) : (

@@ -277,7 +277,7 @@ export default function Hero() {
 
             {/* Right Column: Sticky Image */}
             <div className="hidden lg:block w-full lg:w-1/2 order-1 lg:order-2 relative">
-              <div className="sticky top-32 h-[300px] w-[300px] rounded-3xl overflow-hidden mx-auto">
+              <div className="sticky top-32 w-[504px] h-[331px] rounded-3xl overflow-hidden mx-auto">
                 {servicesConfig.map((service, index) => (
                   <motion.div
                     key={service.id}
@@ -296,8 +296,9 @@ export default function Hero() {
                         <Image
                           src={service.image}
                           alt={service.title}
-                          fill
-                          className="object-cover"
+                          width={504}
+                          height={331}
+                          className="object-cover w-full h-full"
                           priority={index === 0}
                         />
                       ) : (
