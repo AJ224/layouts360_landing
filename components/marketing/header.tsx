@@ -19,29 +19,29 @@ export default function Header({ theme = "light" }: HeaderProps) {
     const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen)
 
     return (
-        <header className="relative z-50 w-full pt-6 md:pt-8">
-            <div className="mx-auto max-w-7xl px-4 md:px-6">
+        <header className="relative z-50 w-full pt-4 sm:pt-6 md:pt-8">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6">
                 <div className={cn(
-                    "flex items-center justify-between rounded-full px-6 py-3 shadow-sm backdrop-blur-md border",
+                    "flex items-center justify-between rounded-full px-4 sm:px-6 py-2.5 sm:py-3 shadow-sm backdrop-blur-md border",
                     isDark
                         ? "bg-white/10 border-white/10 text-white"
                         : "bg-white/80 border-gray-200 text-gray-900"
                 )}>
-                    <Link href="/" className="flex items-center gap-3">
+                    <Link href="/" className="flex items-center gap-2 sm:gap-3">
                         <Image
                             src="/logo.png"
                             alt="Layouts360 logo"
-                            width={32}
-                            height={32}
-                            className="rounded-lg"
+                            width={28}
+                            height={28}
+                            className="rounded-lg sm:w-8 sm:h-8"
                         />
-                        <span className={cn("text-lg font-semibold", isDark ? "text-white" : "text-gray-900")}>
+                        <span className={cn("text-base sm:text-lg font-semibold", isDark ? "text-white" : "text-gray-900")}>
                             Layouts360
                         </span>
                     </Link>
 
                     <nav className={cn(
-                        "hidden items-center gap-8 text-sm font-medium md:flex",
+                        "hidden items-center gap-6 lg:gap-8 text-sm font-medium md:flex",
                         isDark ? "text-gray-300" : "text-gray-700"
                     )} aria-label="Main">
                         <Link href="/" className="hover:text-[#FFB800] transition-colors">
@@ -59,7 +59,7 @@ export default function Header({ theme = "light" }: HeaderProps) {
                     </nav>
 
                     <div className="hidden md:block">
-                        <Button asChild className="bg-[#FFB800] hover:bg-[#E5A600] text-black font-bold rounded-full px-6">
+                        <Button asChild className="bg-[#FFB800] hover:bg-[#E5A600] text-black font-bold rounded-full px-4 sm:px-6 text-sm sm:text-base">
                             <Link href="/contact#demo-form">Get Started</Link>
                         </Button>
                     </div>

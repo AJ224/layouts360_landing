@@ -15,46 +15,46 @@ const ServiceCard = ({ service, isInView, index }: { service: ServiceConfig, isI
   return (
     <div
       className={cn(
-        "flex flex-col justify-center min-h-[60vh] py-10 transition-opacity duration-500 relative pl-12", // Added pl-12 for spacing from line
+        "flex flex-col justify-center min-h-[50vh] sm:min-h-[60vh] py-6 sm:py-8 md:py-10 transition-opacity duration-500 relative pl-0 sm:pl-4 md:pl-8 lg:pl-12", // Hide padding on mobile, show line only on larger screens
         isInView ? "opacity-100" : "opacity-30"
       )}
     >
       {/* Service Content */}
-      <div className="flex flex-col gap-6 items-start text-left">
+      <div className="flex flex-col gap-4 sm:gap-6 items-start text-left w-full">
         {/* Numbering */}
-        <span className="text-blue-500 font-mono text-xl font-medium tracking-wider">
+        <span className="text-blue-500 font-mono text-base sm:text-lg md:text-xl font-medium tracking-wider">
           {String(index + 1).padStart(2, '0')}
         </span>
 
         {/* Title */}
-        <h3 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+        <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight w-full">
           {service.title}
         </h3>
 
         {/* Description - Hidden on mobile */}
-        <p className="hidden md:block text-gray-400 text-lg md:text-xl leading-relaxed max-w-md">
+        <p className="hidden md:block text-gray-400 text-base md:text-lg lg:text-xl leading-relaxed max-w-md">
           {service.description}
         </p>
 
         {/* Mobile Image - Visible only on mobile */}
-        <div className="block md:hidden w-[85%] max-w-[300px] aspect-video rounded-xl overflow-hidden bg-gray-900 relative my-2">
+        <div className="block md:hidden w-full aspect-[504/331] rounded-xl overflow-hidden relative my-6">
           {service.image ? (
             <Image
               src={service.image}
               alt={service.title}
               fill
-              className="object-cover"
+              className="object-contain rounded-xl"
             />
           ) : (
-            <div className={`w-full h-full bg-gradient-to-br ${service.color}`} />
+            <div className={`w-full h-full bg-gradient-to-br ${service.color} rounded-xl`} />
           )}
         </div>
 
         {/* Button */}
-        <div className="pt-2 md:pt-4">
+        <div className="pt-2 sm:pt-3 md:pt-4">
           <Link
             href={service.href}
-            className="inline-flex items-center justify-center px-6 py-2 md:px-8 md:py-3 text-sm md:text-base rounded-full border border-gray-700 text-white font-medium transition-all hover:bg-white hover:text-black hover:border-white group"
+            className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 md:px-8 md:py-3 text-sm sm:text-base rounded-full border border-gray-700 text-white font-medium transition-all hover:bg-white hover:text-black hover:border-white group w-full sm:w-auto"
           >
             Know More
           </Link>
@@ -122,38 +122,38 @@ export default function Hero() {
         <Header theme="light" />
 
         {/* Hero Content */}
-        <section className="relative z-10 flex-grow flex items-center justify-center px-4 md:px-6 py-20 pb-36 md:pb-44 lg:pb-52">
+        <section className="relative z-10 flex-grow flex items-center justify-center px-4 sm:px-6 py-12 sm:py-16 md:py-20 pb-24 sm:pb-32 md:pb-36 lg:pb-44 xl:pb-52">
           <div className="max-w-5xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="space-y-8"
+              className="space-y-6 sm:space-y-8"
             >
               {/* Badge/Tagline */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 border border-gray-200 text-sm font-medium text-gray-600 mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 border border-gray-200 text-xs sm:text-sm font-medium text-gray-600 mb-3 sm:mb-4">
                 <span className="w-2 h-2 rounded-full bg-[#FFB800] animate-pulse"></span>
                 Transforming Real Estate Management
               </div>
 
               {/* Main Headline */}
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-gray-900 leading-[1.1] md:leading-[1.1]">
-                Transform Your <br className="hidden md:block" />
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold tracking-tight text-gray-900 leading-[1.1] px-4">
+                Transform Your <br className="hidden sm:block" />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                   Real Estate Business
                 </span>
               </h1>
 
               {/* Subheadline */}
-              <p className="max-w-2xl mx-auto text-xl text-gray-600 leading-relaxed">
+              <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed px-4">
                 Comprehensive digital tools for Real Estate Developers. From interactive layouts to payment management, we help you scale efficiently and effortlessly.
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-2 sm:pt-4 px-4">
                 <Button
                   size="lg"
-                  className="bg-[#FFB800] hover:bg-[#E5A600] text-black text-lg font-bold rounded-full px-8 py-7 h-auto min-w-[180px] transition-all hover:scale-105"
+                  className="bg-[#FFB800] hover:bg-[#E5A600] text-black text-base sm:text-lg font-bold rounded-full px-6 sm:px-8 py-5 sm:py-6 md:py-7 h-auto w-full sm:w-auto min-w-[160px] sm:min-w-[180px] transition-all hover:scale-105"
                   asChild
                 >
                   <Link href="/contact#demo-form">
@@ -164,7 +164,7 @@ export default function Hero() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="bg-transparent border-gray-300 hover:bg-gray-50 text-gray-900 text-lg font-medium rounded-full px-8 py-7 h-auto min-w-[180px] backdrop-blur-sm transition-all hover:scale-105"
+                  className="bg-transparent border-gray-300 hover:bg-gray-50 text-gray-900 text-base sm:text-lg font-medium rounded-full px-6 sm:px-8 py-5 sm:py-6 md:py-7 h-auto w-full sm:w-auto min-w-[160px] sm:min-w-[180px] backdrop-blur-sm transition-all hover:scale-105"
                   asChild
                 >
                   <Link href="/pricing">
@@ -177,10 +177,10 @@ export default function Hero() {
         </section>
 
         {/* Floating Video Container - Half in white section, half in black section */}
-        <div className="absolute bottom-0 left-0 right-0 z-[60] px-4 md:px-6 pointer-events-none">
+        <div className="absolute bottom-0 left-0 right-0 z-[60] px-4 sm:px-6 pointer-events-none">
           <div className="mx-auto max-w-6xl relative pointer-events-auto">
             <div
-              className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-gray-200/80 shadow-[0_25px_70px_-12px_rgba(0,0,0,0.25)] bg-white"
+              className="relative rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden border border-gray-200/80 shadow-[0_25px_70px_-12px_rgba(0,0,0,0.25)] bg-white"
               style={{
                 transform: 'translateY(50%)',
                 willChange: 'transform'
@@ -235,23 +235,23 @@ export default function Hero() {
         </div>
       </div>
       {/* Services Section - Black Background (Directly after Hero) */}
-      <section className="bg-black py-24 relative z-10" ref={containerRef}>
+      <section className="bg-black py-12 sm:py-16 md:py-20 lg:py-24 relative z-10" ref={containerRef}>
         {/* Spacer for video bottom half - accounts for ~50% of video height (responsive) */}
-        <div className="h-48 md:h-56 lg:h-64 xl:h-72" aria-hidden="true" />
+        <div className="h-32 sm:h-40 md:h-48 lg:h-56 xl:h-64 2xl:h-72" aria-hidden="true" />
 
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="mb-20 text-center">
-            <h2 className="text-4xl md:text-6xl font-medium text-white mb-6">Platform Features</h2>
-            <p className="text-gray-400 text-xl max-w-2xl mx-auto">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="mb-12 sm:mb-16 md:mb-20 text-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-white mb-4 sm:mb-6 px-4">Platform Features</h2>
+            <p className="text-gray-400 text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4">
               A complete ecosystem of tools designed to help you build, scale, and maintain your real estate business efficiently.
             </p>
           </div>
 
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
             {/* Left Column: Scrollable Text */}
-            <div className="w-full lg:w-1/2 order-2 lg:order-1 relative pl-12">
-              {/* Continuous vertical line connecting all services - refined styling */}
-              <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-gray-800">
+            <div className="w-full lg:w-1/2 order-2 lg:order-1 relative pl-0 sm:pl-4 md:pl-8 lg:pl-12">
+              {/* Continuous vertical line connecting all services - hidden on mobile */}
+              <div className="hidden sm:block absolute left-0 top-0 bottom-0 w-[1px] bg-gray-800">
                 {/* Active progress line - animated */}
                 <div
                   className="absolute top-0 left-0 right-0 bg-gradient-to-b from-gray-800 via-gray-600 to-gray-800 transition-all duration-700 ease-out"
@@ -261,7 +261,7 @@ export default function Hero() {
                   }}
                 />
                 {/* Sticky Dot Indicator */}
-                <div className="sticky top-[278px] left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white shadow-[0_0_20px_rgba(255,255,255,0.5)] z-20" />
+                <div className="sticky top-[278px] left-1/2 -translate-x-1/2 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-white shadow-[0_0_20px_rgba(255,255,255,0.5)] z-20" />
               </div>
 
               {servicesConfig.map((service, index) => (
@@ -277,7 +277,7 @@ export default function Hero() {
 
             {/* Right Column: Sticky Image */}
             <div className="hidden lg:block w-full lg:w-1/2 order-1 lg:order-2 relative">
-              <div className="sticky top-32 w-[504px] h-[331px] rounded-3xl overflow-hidden mx-auto">
+              <div className="sticky top-32 w-full max-w-[504px] h-[331px] rounded-3xl overflow-hidden mx-auto">
                 {servicesConfig.map((service, index) => (
                   <motion.div
                     key={service.id}
@@ -298,7 +298,7 @@ export default function Hero() {
                           alt={service.title}
                           width={504}
                           height={331}
-                          className="object-cover w-full h-full"
+                          className="object-contain w-full h-full"
                           priority={index === 0}
                         />
                       ) : (

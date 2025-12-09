@@ -28,33 +28,50 @@ export default function FeaturePage({ params }: { params: { slug: string } }) {
 
             {/* Main Content */}
             <main className="flex-grow">
-                <div className="container mx-auto px-4 md:px-6 py-20">
+                <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16 lg:py-20">
                     <Link
                         href="/#features"
-                        className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors"
+                        className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-6 sm:mb-8 transition-colors text-sm sm:text-base"
                     >
                         <ArrowLeft className="w-4 h-4" />
                         Back to Features
                     </Link>
 
-                    <div className="grid lg:grid-cols-2 gap-12 items-center">
-                        <div className="space-y-8">
-                            <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight">
+                    <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start lg:items-center">
+                        {/* Image - Show first on mobile */}
+                        <div className="relative w-full lg:w-[504px] lg:h-[331px] aspect-[504/331] rounded-xl sm:rounded-2xl overflow-hidden order-1 lg:order-2">
+                            {service.image ? (
+                                <Image
+                                    src={service.image}
+                                    alt={service.title}
+                                    width={504}
+                                    height={331}
+                                    className="object-contain w-full h-full rounded-xl sm:rounded-2xl"
+                                    priority
+                                />
+                            ) : (
+                                <div className={`w-full h-full bg-gradient-to-br ${service.color} rounded-xl sm:rounded-2xl`} />
+                            )}
+                        </div>
+
+                        {/* Content */}
+                        <div className="space-y-6 sm:space-y-8 order-2 lg:order-1 w-full">
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
                                 {service.title}
                             </h1>
 
-                            <div className="space-y-6">
-                                <p className="text-xl text-gray-400 leading-relaxed max-w-xl">
+                            <div className="space-y-4 sm:space-y-6">
+                                <p className="text-base sm:text-lg md:text-xl text-gray-400 leading-relaxed">
                                     {service.longDescription || service.description}
                                 </p>
 
                                 {service.benefits && (
-                                    <div className="space-y-4">
-                                        <h3 className="text-lg font-semibold text-white">Key Advantages</h3>
-                                        <ul className="space-y-3">
+                                    <div className="space-y-3 sm:space-y-4">
+                                        <h3 className="text-base sm:text-lg font-semibold text-white">Key Advantages</h3>
+                                        <ul className="space-y-2 sm:space-y-3">
                                             {service.benefits.map((benefit, index) => (
-                                                <li key={index} className="flex items-start gap-3 text-gray-300">
-                                                    <div className={`mt-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-r ${service.color}`} />
+                                                <li key={index} className="flex items-start gap-3 text-sm sm:text-base text-gray-300">
+                                                    <div className={`mt-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-r ${service.color} flex-shrink-0`} />
                                                     <span>{benefit}</span>
                                                 </li>
                                             ))}
@@ -63,28 +80,13 @@ export default function FeaturePage({ params }: { params: { slug: string } }) {
                                 )}
                             </div>
 
-                            <div className="pt-4">
-                                <Button asChild size="lg" className="bg-[#FFB800] hover:bg-[#E5A600] text-black font-bold rounded-full px-8">
+                            <div className="pt-2 sm:pt-4">
+                                <Button asChild size="lg" className="bg-[#FFB800] hover:bg-[#E5A600] text-black font-bold rounded-full px-6 sm:px-8 w-full sm:w-auto">
                                     <Link href="/contact">
                                         Contact Sales
                                     </Link>
                                 </Button>
                             </div>
-                        </div>
-
-                        <div className="relative w-[504px] h-[331px] rounded-2xl overflow-hidden">
-                            {service.image ? (
-                                <Image
-                                    src={service.image}
-                                    alt={service.title}
-                                    width={504}
-                                    height={331}
-                                    className="object-cover w-full h-full"
-                                    priority
-                                />
-                            ) : (
-                                <div className={`w-full h-full bg-gradient-to-br ${service.color}`} />
-                            )}
                         </div>
                     </div>
                 </div>

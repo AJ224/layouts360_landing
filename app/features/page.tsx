@@ -118,32 +118,32 @@ export default function FeaturesPage() {
       <Header theme="light" />
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-32 overflow-hidden">
+      <section className="relative pt-16 sm:pt-20 pb-20 sm:pb-28 md:pb-32 overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-        <div className="relative mx-auto max-w-7xl px-4 md:px-6 text-center">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 border border-gray-200 text-sm font-medium text-gray-600 mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 border border-gray-200 text-xs sm:text-sm font-medium text-gray-600 mb-4 sm:mb-6">
               <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
               Feature Rich Platform
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-6">
-              Everything you need to <br />
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-gray-900 mb-4 sm:mb-6 px-4">
+              Everything you need to <br className="hidden sm:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                 scale your sales
               </span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-4">
               A complete operating system for real estate developers. From the first lead to the final handover, we've digitized every step of the journey.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button size="lg" className="rounded-full px-8 h-12 text-base bg-gray-900 hover:bg-gray-800 text-white" asChild>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4">
+              <Button size="lg" className="rounded-full px-6 sm:px-8 h-11 sm:h-12 text-sm sm:text-base bg-gray-900 hover:bg-gray-800 text-white w-full sm:w-auto" asChild>
                 <Link href="/#demo">Schedule Demo</Link>
               </Button>
-              <Button size="lg" variant="outline" className="rounded-full px-8 h-12 text-base border-gray-200 hover:bg-gray-50" asChild>
+              <Button size="lg" variant="outline" className="rounded-full px-6 sm:px-8 h-11 sm:h-12 text-sm sm:text-base border-gray-200 hover:bg-gray-50 w-full sm:w-auto" asChild>
                 <Link href="/pricing">View Pricing</Link>
               </Button>
             </div>
@@ -154,22 +154,22 @@ export default function FeaturesPage() {
       {/* Sticky Categories Section */}
       <div className="relative bg-white">
         {featureCategories.map((category, index) => (
-          <section key={category.title} className="py-20 border-t border-gray-100">
-            <div className="mx-auto max-w-7xl px-4 md:px-6">
-              <div className="grid lg:grid-cols-12 gap-12 lg:gap-24">
+          <section key={category.title} className="py-12 sm:py-16 md:py-20 border-t border-gray-100">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6">
+              <div className="grid lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-24">
 
                 {/* Sticky Left Column */}
                 <div className="lg:col-span-4">
-                  <div className="sticky top-32">
-                    <div className={`w-12 h-12 rounded-2xl ${category.bg} ${category.color} flex items-center justify-center mb-6`}>
-                      <category.icon className="w-6 h-6" />
+                  <div className="lg:sticky lg:top-32">
+                    <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl ${category.bg} ${category.color} flex items-center justify-center mb-4 sm:mb-6`}>
+                      <category.icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4">{category.title}</h2>
-                    <p className="text-lg text-gray-500 leading-relaxed mb-8">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">{category.title}</h2>
+                    <p className="text-base sm:text-lg text-gray-500 leading-relaxed mb-6 sm:mb-8">
                       {category.description}
                     </p>
                     <Button variant="ghost" className={`p-0 hover:bg-transparent ${category.color} hover:${category.color} group`} asChild>
-                      <Link href="/contact" className="flex items-center gap-2">
+                      <Link href="/contact" className="flex items-center gap-2 text-sm sm:text-base">
                         Learn more <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </Link>
                     </Button>
@@ -178,7 +178,7 @@ export default function FeaturesPage() {
 
                 {/* Scrollable Right Column */}
                 <div className="lg:col-span-8">
-                  <div className="grid gap-6 md:grid-cols-2">
+                  <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
                     {category.features.map((feature, fIndex) => (
                       <motion.div
                         key={feature.title}
@@ -187,17 +187,17 @@ export default function FeaturesPage() {
                         viewport={{ once: true }}
                         transition={{ delay: fIndex * 0.1 }}
                       >
-                        <Card className="h-full p-8 border-gray-100 bg-gray-50/50 hover:bg-white hover:border-gray-200 hover:shadow-xl hover:shadow-gray-200/50 transition-all duration-300 group">
-                          <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                        <Card className="h-full p-6 sm:p-8 border-gray-100 bg-gray-50/50 hover:bg-white hover:border-gray-200 hover:shadow-xl hover:shadow-gray-200/50 transition-all duration-300 group">
+                          <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-blue-600 transition-colors">
                             {feature.title}
                           </h3>
-                          <p className="text-gray-500 mb-6 leading-relaxed">
+                          <p className="text-sm sm:text-base text-gray-500 mb-4 sm:mb-6 leading-relaxed">
                             {feature.description}
                           </p>
-                          <ul className="space-y-3">
+                          <ul className="space-y-2 sm:space-y-3">
                             {feature.benefits.map((benefit) => (
-                              <li key={benefit} className="flex items-center gap-2 text-sm text-gray-600">
-                                <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
+                              <li key={benefit} className="flex items-center gap-2 text-xs sm:text-sm text-gray-600">
+                                <Check className="w-3 h-3 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" />
                                 {benefit}
                               </li>
                             ))}

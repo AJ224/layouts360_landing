@@ -47,7 +47,7 @@ export default function PricingCards() {
       </div>
 
       {/* Pricing Cards */}
-      <div className="grid gap-6 md:grid-cols-3 lg:gap-8">
+      <div className="grid gap-4 sm:gap-6 md:grid-cols-3 lg:gap-8">
         {plans.map((plan, index) => {
           const isPopular = plan.id === "business"
           const isEnterprise = plan.id === "enterprise"
@@ -116,30 +116,30 @@ export default function PricingCards() {
                 </div>
               )} */}
 
-              <CardHeader className="space-y-4 pb-6 pt-6">
+              <CardHeader className="space-y-3 sm:space-y-4 pb-4 sm:pb-6 pt-4 sm:pt-6">
                 <div className="space-y-2">
-                  <CardTitle className="text-2xl font-bold">{plan.name}</CardTitle>
-                  <CardDescription className="text-sm text-muted-foreground">
+                  <CardTitle className="text-xl sm:text-2xl font-bold">{plan.name}</CardTitle>
+                  <CardDescription className="text-xs sm:text-sm text-muted-foreground">
                     {plan.description}
                   </CardDescription>
                 </div>
                 <div className="flex flex-wrap items-baseline gap-1.5 pt-2">
                   {typeof displayPrice === "string" ? (
-                    <span className="text-4xl font-bold tracking-tight">{displayPrice}</span>
+                    <span className="text-3xl sm:text-4xl font-bold tracking-tight">{displayPrice}</span>
                   ) : (
                     displayPrice
                   )}
                 </div>
               </CardHeader>
 
-              <CardContent className="flex-1 space-y-6 pt-0">
-                <ul className="space-y-3">
+              <CardContent className="flex-1 space-y-4 sm:space-y-6 pt-0">
+                <ul className="space-y-2 sm:space-y-3">
                   {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start gap-3">
+                    <li key={featureIndex} className="flex items-start gap-2 sm:gap-3">
                       <div className="mt-0.5 flex-shrink-0 rounded-full bg-primary/10 p-0.5">
-                        <Check className="h-4 w-4 text-primary" strokeWidth={2.5} />
+                        <Check className="h-3 w-3 sm:h-4 sm:w-4 text-primary" strokeWidth={2.5} />
                       </div>
-                      <span className="text-sm leading-relaxed text-foreground">{feature}</span>
+                      <span className="text-xs sm:text-sm leading-relaxed text-foreground">{feature}</span>
                     </li>
                   ))}
                 </ul>
