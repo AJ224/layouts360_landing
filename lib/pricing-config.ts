@@ -20,9 +20,8 @@ export const pricingConfig = {
   // Subscription Duration Discounts
   discounts: {
     1: 0,      // 1 Month = 0% discount (100% price)
-    3: 5,      // 3 Months = 5% off
-    6: 10,     // 6 Months = 10% off
-    12: 20,    // 12 Months = 20% off (Max Discount)
+    6: 5,     // 6 Months = 10% off
+    12: 10,    // 12 Months = 20% off (Max Discount)
   },
 
   // Plot Pricing
@@ -77,7 +76,7 @@ export const pricingConfig = {
   ],
 } as const;
 
-export type SubscriptionPeriod = 1 | 3 | 6 | 12;
+export type SubscriptionPeriod = 1 | 6 | 12;
 
 /**
  * Calculate discounted price based on subscription period
