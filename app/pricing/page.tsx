@@ -14,7 +14,7 @@ import { motion } from "framer-motion"
 const faqs = [
   {
     question: "How does subscription pricing work?",
-    answer: "Platform fee starts at ₹4,000/month. Choose 1, 3, 6, or 12-month plans. Longer plans save up to 20%. All features included."
+    answer: "Platform fee starts at ₹4,000/month. Choose 1, 6, or 12-month plans. Longer plans save up to 20%. All features included."
   },
   {
     question: "What's the plot pricing?",

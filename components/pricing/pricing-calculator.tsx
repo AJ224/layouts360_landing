@@ -62,7 +62,7 @@ export default function PricingCalculator() {
         <div className="space-y-2 sm:space-y-3">
           <Label className="text-sm sm:text-base font-medium">Subscription Period</Label>
           <div className="grid grid-cols-2 sm:flex items-center justify-center gap-2 p-1 rounded-lg bg-muted/50 border w-full">
-            {([1, 3, 6, 12] as SubscriptionPeriod[]).map((p) => (
+            {([1, 6, 12] as SubscriptionPeriod[]).map((p) => (
               <Button
                 key={p}
                 type="button"

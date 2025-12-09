@@ -23,7 +23,7 @@ export default function PricingCards() {
       {/* Period Selector */}
       <div className="flex flex-col items-center space-y-3 w-full max-w-md mx-auto sm:max-w-none">
         <div className="grid grid-cols-2 sm:inline-flex items-center justify-center gap-2 p-1 rounded-lg bg-muted/50 border w-full sm:w-auto">
-          {([1, 3, 6, 12] as SubscriptionPeriod[]).map((p) => (
+          {([1, 6, 12] as SubscriptionPeriod[]).map((p) => (
             <Button
               key={p}
               type="button"
