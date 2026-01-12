@@ -1,0 +1,28 @@
+# Layouts360
+
+## The Essential Real Estate ERP & Digital Layout CRM
+Layouts360 replaces outdated spreadsheets and paper maps with interactive digital layouts and a powerful CRM. It is the operating system for modern plot developers and real estate businesses in India.
+
+## Core Value Proposition
+- **Replace PDFs**: Convert static maps into interactive, satellite-overlaid digital experiences.
+- **Real-Time Inventory**: Track plot availability (Available, Booked, Sold) instantly.
+- **Zero Double-Bookings**: Centralized database ensures data integrity.
+- **Sales Velocity**: Share plot details via WhatsApp with a single tap.
+
+## Pricing Summary
+- **Sales Starter**: ₹2,000/month. Includes Digital Layouts, Plot Management, and Unlimited Users.
+- **Growth Suite**: ₹4,000/month. Adds CRM, Lead Management, Booking Tracking, and Payment Records.
+- **Setup**: One-time digitization fee starting at ₹10,000 (for 150 plots).
+
+## detailed Features
+- **Satellite Overlay**: See plots on actual Google Earth imagery.
+- **Mobile Optimized**: designed for field sales agents.
+- **Lead CRM**: Capture and track leads from initial call to final booking.
+- **Payment Tracking**: Record partial payments and generating payment schedules.
+
+## Documentation & Links
+- **Home**: https://layouts360.com
+- **Pricing**: https://layouts360.com/pricing
+- **Features**: https://layouts360.com/features
+- **Blog**: https://layouts360.com/blog
+- **Contact**: https://layouts360.com/contact

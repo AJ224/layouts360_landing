@@ -1,170 +1,176 @@
 "use client"
 
-import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { pricingConfig, type SubscriptionPeriod, calculateDiscount } from "@/lib/pricing-config"
-import { Check } from "lucide-react"
+import { pricingConfig } from "@/lib/pricing-config"
+import { Check, Layers, Gift, TrendingUp } from "lucide-react"
 import Link from "next/link"
 
 export default function PricingCards() {
-  const [period, setPeriod] = useState<SubscriptionPeriod>(1)
-
-  const discountPercent = pricingConfig.discounts[period]
-  const platformFeeMonthly = pricingConfig.platformFee.monthly
-  const platformFeeDiscounted = calculateDiscount(platformFeeMonthly, period)
-  const domainFeeMonthly = pricingConfig.domainAddon.monthly
-  const domainFeeDiscounted = calculateDiscount(domainFeeMonthly, period)
-
-  const plans = pricingConfig.plans
+  const { plans, plotPricing } = pricingConfig
 
   return (
-    <div className="space-y-6">
-      {/* Period Selector */}
-      <div className="flex flex-col items-center space-y-3 w-full max-w-md mx-auto sm:max-w-none">
-        <div className="grid grid-cols-2 sm:inline-flex items-center justify-center gap-2 p-1 rounded-lg bg-muted/50 border w-full sm:w-auto">
-          {([1, 6, 12] as SubscriptionPeriod[]).map((p) => (
-            <Button
-              key={p}
-              type="button"
-              variant={period === p ? "default" : "ghost"}
-              size="lg"
-              className={`relative w-full sm:w-auto sm:min-w-[100px] transition-all h-auto py-3 sm:py-2 ${period === p
-                ? "shadow-sm"
-                : "hover:bg-background"
-                }`}
-              onClick={() => setPeriod(p)}
-            >
-              <span className="text-sm sm:text-base">{p} {p === 1 ? "Month" : "Months"}</span>
-              {pricingConfig.discounts[p] > 0 && (
-                <span className="absolute -top-2 -right-2 bg-green-500 text-white text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 rounded-full font-semibold shadow-sm z-10">
-                  {pricingConfig.discounts[p]}% off
-                </span>
-              )}
-            </Button>
-          ))}
+    <div className="space-y-16">
+      {/* Subscription Plans Section */}
+      <div className="space-y-8">
+        <div className="text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 border-b-2 border-slate-200 inline-block pb-1">
+            Subscription Plans
+          </h2>
         </div>
-      </div>
 
-      {/* Pricing Cards */}
-      <div className="grid gap-4 sm:gap-6 md:grid-cols-3 lg:gap-8">
-        {plans.map((plan, index) => {
-          const isPopular = plan.id === "business"
-          const isEnterprise = plan.id === "enterprise"
+        <div className="grid gap-8 lg:grid-cols-2 max-w-5xl mx-auto">
+          {plans.map((plan) => {
+            const isDark = plan.theme === "dark"
 
-          let displayPrice: React.ReactNode = ""
-          if (isEnterprise) {
-            displayPrice = "Custom"
-          } else if (plan.id === "basic") {
-            displayPrice = (
-              <>
-                {discountPercent > 0 ? (
-                  <>
-                    <span className="line-through text-muted-foreground text-xl font-medium">
-                      ₹{(platformFeeMonthly * period).toLocaleString("en-IN")}
+            return (
+              <Card
+                key={plan.id}
+                className={`relative flex flex-col border shadow-lg overflow-hidden transition-all hover:shadow-xl ${isDark
+                  ? "bg-[#0B1E3B] text-white border-blue-900"
+                  : "bg-blue-50/30 text-slate-900 border-slate-100"
+                  }`}
+              >
+                {/* Recommended Badge */}
+                {plan.recommended && (
+                  <div className="absolute top-6 right-6">
+                    <span className="bg-[#EAB308] text-[#0B1E3B] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                      Recommended
                     </span>
-                    <span className="text-4xl font-bold tracking-tight">
-                      ₹{(platformFeeDiscounted * period).toLocaleString("en-IN")}
-                    </span>
-                  </>
-                ) : (
-                  <span className="text-4xl font-bold tracking-tight">
-                    ₹{(platformFeeDiscounted * period).toLocaleString("en-IN")}
-                  </span>
+                  </div>
                 )}
-                <span className="text-base text-muted-foreground font-normal">
-                  /{period === 1 ? "month" : `${period} months`}
-                </span>
-              </>
-            )
-          } else if (plan.id === "business") {
-            const totalMonthly = platformFeeDiscounted + domainFeeDiscounted
-            displayPrice = (
-              <>
-                {discountPercent > 0 ? (
-                  <>
-                    <span className="line-through text-muted-foreground text-xl font-medium">
-                      ₹{((platformFeeMonthly + domainFeeMonthly) * period).toLocaleString("en-IN")}
-                    </span>
-                    <span className="text-4xl font-bold tracking-tight">
-                      ₹{(totalMonthly * period).toLocaleString("en-IN")}
-                    </span>
-                  </>
-                ) : (
-                  <span className="text-4xl font-bold tracking-tight">
-                    ₹{(totalMonthly * period).toLocaleString("en-IN")}
-                  </span>
-                )}
-                <span className="text-base text-muted-foreground font-normal">
-                  /{period === 1 ? "month" : `${period} months`}
-                </span>
-              </>
-            )
-          }
 
-          return (
-            <Card
-              key={plan.id}
-              className={`relative flex flex-col transition-all duration-300 hover:scale-105 hover:shadow-xl hover:z-10 ${isPopular
-                ? "border-2 border-primary shadow-lg bg-gradient-to-b from-card to-card/95 mt-4 md:mt-0" // Added margin top for mobile spacing if needed
-                : "border hover:border-primary/30"
-                } ${isEnterprise ? "border-2" : ""}`}
-            >
-              {/* {isPopular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-1 rounded-full text-sm font-medium shadow-lg whitespace-nowrap z-20">
-                  Most Popular
-                </div>
-              )} */}
+                <CardHeader className="space-y-4 pb-6 pt-8 px-8">
+                  <div className="space-y-1">
+                    <CardTitle className={`text-2xl md:text-3xl font-serif font-bold ${isDark ? "text-white" : "text-blue-900"}`}>
+                      {plan.name}
+                    </CardTitle>
+                    {plan.subtitle && (
+                      <span className={`block text-lg ${isDark ? "text-gray-300" : "text-slate-600"}`}>
+                        {plan.subtitle}
+                      </span>
+                    )}
+                  </div>
 
-              <CardHeader className="space-y-3 sm:space-y-4 pb-4 sm:pb-6 pt-4 sm:pt-6">
-                <div className="space-y-2">
-                  <CardTitle className="text-xl sm:text-2xl font-bold">{plan.name}</CardTitle>
-                  <CardDescription className="text-xs sm:text-sm text-muted-foreground">
+                  <div className="pt-2">
+                    <div className="flex items-baseline gap-2 mb-1">
+                      <span className={`text-sm font-bold uppercase tracking-widest ${isDark ? "text-gray-400" : "text-slate-400"}`}>Monthly:</span>
+                      <span className={`text-2xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>₹{plan.monthlyPrice.toLocaleString()}</span>
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      <span className={`text-sm font-bold uppercase tracking-widest ${isDark ? "text-gray-400" : "text-slate-400"}`}>Annual:</span>
+                      <span className={`text-sm line-through ${isDark ? "text-gray-500" : "text-slate-400"}`}>
+                        ₹{plan.annualOriginalPrice.toLocaleString()}
+                      </span>
+                      <span className={`text-2xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>
+                        ₹{plan.annualPrice.toLocaleString()}
+                      </span>
+                      <span className="bg-emerald-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
+                        {plan.saveLabel}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className={`text-sm italic pt-2 ${isDark ? "text-gray-400" : "text-slate-500"}`}>
                     {plan.description}
-                  </CardDescription>
-                </div>
-                <div className="flex flex-wrap items-baseline gap-1.5 pt-2">
-                  {typeof displayPrice === "string" ? (
-                    <span className="text-3xl sm:text-4xl font-bold tracking-tight">{displayPrice}</span>
-                  ) : (
-                    displayPrice
-                  )}
-                </div>
-              </CardHeader>
+                  </div>
 
-              <CardContent className="flex-1 space-y-4 sm:space-y-6 pt-0">
-                <ul className="space-y-2 sm:space-y-3">
-                  {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start gap-2 sm:gap-3">
-                      <div className="mt-0.5 flex-shrink-0 rounded-full bg-primary/10 p-0.5">
-                        <Check className="h-3 w-3 sm:h-4 sm:w-4 text-primary" strokeWidth={2.5} />
-                      </div>
-                      <span className="text-xs sm:text-sm leading-relaxed text-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                  <div className={`h-px w-full ${isDark ? "bg-blue-800" : "bg-slate-200"}`} />
+                </CardHeader>
 
-                <div className="pt-2">
+                <CardContent className="flex-1 space-y-8 px-8 pb-8">
+                  <div className="space-y-4">
+                    <p className={`text-xs font-bold uppercase tracking-widest ${isDark ? "text-gray-400" : "text-slate-500"}`}>
+                      INCLUDES:
+                    </p>
+                    <ul className="space-y-3">
+                      {plan.features.map((feature, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <Check className={`h-5 w-5 flex-shrink-0 ${isDark ? "text-[#EAB308]" : "text-emerald-500"}`} />
+                          <span className={`text-sm ${isDark ? "text-gray-300" : "text-slate-700"}`}>
+                            {feature}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
                   <Button
-                    className={`w-full transition-all ${isPopular
-                      ? "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl"
-                      : "hover:border-primary hover:text-primary"
+                    className={`w-full py-6 text-lg font-bold rounded-lg transition-all ${isDark
+                        ? "bg-white text-[#0B1E3B] hover:bg-gray-100"
+                        : "bg-[#0B1E3B] text-white hover:bg-[#0B1E3B]/90"
                       }`}
-                    size="lg"
-                    variant={isPopular ? "default" : "outline"}
                     asChild
                   >
                     <Link href="/contact#demo-form">
-                      {isEnterprise ? "Contact Sales" : "Get Started"}
+                      Get Started
                     </Link>
                   </Button>
+
+                  {/* Risk Reversal Micro-copy */}
+                  <p className={`text-xs text-center ${isDark ? "text-gray-400" : "text-slate-400"}`}>
+                    {isDark ? "Includes Priority Onboarding" : "No credit card required to start"}
+                  </p>
+                </CardContent>
+              </Card>
+            )
+          })}
+        </div>
+      </div>
+
+      {/* Layout & Plot Setup Pricing Section */}
+      <div className="space-y-8">
+        <div className="text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 border-b-2 border-slate-200 inline-block text-center pb-1">
+            Layout & Plot Setup Pricing
+          </h2>
+        </div>
+
+        <div className="max-w-5xl mx-auto">
+          <Card className="border shadow-md bg-white overflow-hidden">
+            <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-100">
+              {/* Item 1: Base Setup Cost */}
+              <div className="p-8 flex flex-col items-start gap-4 hover:bg-slate-50 transition-colors">
+                <div className="p-3 bg-blue-50 rounded-lg">
+                  <Layers className="w-8 h-8 text-[#0B1E3B]" />
                 </div>
-              </CardContent>
-            </Card>
-          )
-        })}
+                <div>
+                  <h3 className="font-bold text-slate-900 text-lg">Digitization & Onboarding</h3>
+                  <p className="text-3xl font-bold text-[#0B1E3B] mt-1">₹{plotPricing.baseSetupCost.toLocaleString()}</p>
+                  <p className="text-sm text-slate-500 mt-2">One-time fee: We create your digital layout</p>
+                </div>
+              </div>
+
+              {/* Item 2: Plots Included */}
+              <div className="p-8 flex flex-col items-start gap-4 hover:bg-slate-50 transition-colors">
+                <div className="p-3 bg-emerald-50 rounded-lg">
+                  <Gift className="w-8 h-8 text-emerald-600" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-slate-900 text-lg">Plots Included</h3>
+                  <p className="text-3xl font-bold text-emerald-600 mt-1">{plotPricing.baseIncludedPlots} Plots</p>
+                  <p className="text-sm text-slate-500 mt-2">{plotPricing.basePlotBreakdown}</p>
+                </div>
+              </div>
+
+              {/* Item 3: Additional Plots */}
+              <div className="p-8 flex flex-col items-start gap-4 hover:bg-slate-50 transition-colors">
+                <div className="p-3 bg-orange-50 rounded-lg">
+                  <TrendingUp className="w-8 h-8 text-orange-500" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-slate-900 text-lg">Additional Plots</h3>
+                  <p className="text-3xl font-bold text-orange-500 mt-1">₹{plotPricing.additionalPlotCost}<span className="text-lg font-medium text-slate-400">/plot</span></p>
+                  <p className="text-sm text-slate-500 mt-2">After {plotPricing.baseIncludedPlots} plots (beyond bonus)</p>
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
       </div>
     </div>
   )
 }
+
 

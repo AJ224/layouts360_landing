@@ -8,22 +8,22 @@ import "./globals.css"
 
 export const metadata: Metadata = {
   title: {
-    default: "Layouts360 - Professional Real Estate Management Solutions",
-    template: "%s | Layouts360"
+    default: "Layouts360 - The Essential Real Estate ERP & Digital Layout CRM",
+    template: "%s | Layouts360 - Real Estate Operating System"
   },
   description:
-    "Transform your real estate business with our comprehensive suite of digital tools. From interactive layouts to payment management, we help developers scale efficiently.",
+    "The must-have software to operate your real estate business. Combine Digital Layout Visualization with a powerful CRM/ERP. Stop using spreadsheets and start selling with interactive maps.",
   keywords: [
-    "real estate management software",
-    "property management system",
-    "real estate CRM",
-    "plot booking system",
-    "real estate website development",
-    "property management solutions",
-    "real estate analytics",
-    "property sales management",
-    "real estate digital transformation",
-    "property management platform"
+    "Real Estate ERP",
+    "Real Estate CRM",
+    "Digital Layout Visualization",
+    "Plot Booking Software",
+    "Real Estate Business Operation System",
+    "Interactive Property Map",
+    "Real Estate Inventory Management",
+    "Digital Site Visits",
+    "Real Estate Sales Software",
+    "Builder CRM India"
   ],
   authors: [{ name: "Layouts360" }],
   creator: "Layouts360",
@@ -41,22 +41,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://layouts360.com',
-    title: 'Layouts360 - Professional Real Estate Management Solutions',
-    description: 'Transform your real estate business with our comprehensive suite of digital tools. From interactive layouts to payment management, we help developers scale efficiently.',
+    title: 'Layouts360 - The Essential Real Estate ERP & Digital Layout CRM',
+    description: 'The must-have software to operate your real estate business. Combine Digital Layout Visualization with a powerful CRM/ERP.',
     siteName: 'Layouts360',
     images: [
       {
         url: '/herosection.png',
         width: 1200,
         height: 630,
-        alt: 'Layouts360 Real Estate Management Dashboard',
+        alt: 'Layouts360 Real Estate ERP Dashboard',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Layouts360 - Professional Real Estate Management Solutions',
-    description: 'Transform your real estate business with our comprehensive suite of digital tools.',
+    title: 'Layouts360 - The Essential Real Estate ERP',
+    description: 'Operate your real estate business with Digital Layouts & CRM.',
     images: ['/herosection.png'],
   },
   robots: {
@@ -82,33 +82,37 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
   name: 'Layouts360',
-  description: 'Professional real estate management solutions for developers. Interactive layouts, plot booking, payment tracking, and customer portals.',
-  url: 'https://layouts360.com',
   applicationCategory: 'BusinessApplication',
-  operatingSystem: 'Web',
+  operatingSystem: 'Cloud/Web',
+  description: 'The essential Real Estate ERP and CRM for modern developers. Features include Digital Layout Visualization, Inventory Management, and Sales Tracking.',
+  url: 'https://layouts360.com',
   offers: {
-    '@type': 'Offer',
-    price: '20000',
+    '@type': 'AggregateOffer',
     priceCurrency: 'INR',
-    description: 'Website development starting from ₹20,000'
+    lowPrice: '2000',
+    highPrice: '4000',
+    priceValidUntil: '2025-12-31',
+    availability: 'https://schema.org/InStock'
   },
   provider: {
     '@type': 'Organization',
     name: 'Layouts360',
     url: 'https://layouts360.com',
+    logo: 'https://layouts360.com/logo.png',
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: '+91-72764-95199',
-      contactType: 'sales'
+      contactType: 'sales',
+      areaServed: 'IN'
     }
   },
   featureList: [
-    'Interactive Layout Management',
-    'Enterprise CRM System',
-    'Financial Management',
-    'Project Management',
-    'Document Management',
-    'Analytics & Reporting'
+    'Digital Layout Visualization',
+    'Real Estate CRM',
+    'Plot Inventory Management',
+    'Interactive Maps',
+    'Booking & Payment Tracking',
+    'Lead Management ERP'
   ]
 }
 

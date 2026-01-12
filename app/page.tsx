@@ -1,18 +1,35 @@
 import Hero from "@/components/marketing/hero"
-import Stats from "@/components/marketing/stats"
-// import CaseStudies from "@/components/marketing/case-studies"
-// import Testimonials from "@/components/marketing/testimonials"
 import Footer from "@/components/marketing/footer"
-import CtaSection from "@/components/marketing/cta-section"
+import {
+  SoundFamiliarSection,
+  OneSystemSection,
+  RealLocationSection,
+  HowItWorksSection,
+  ManagementGridSection,
+  MultipleLayoutsSection,
+  ResponsiveShowcaseSection,
+  CtaSectionNew
+} from "@/components/marketing/landing-sections"
+
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Real Estate ERP & Digital Layout Software | Layouts360",
+  description: "The complete Real Estate Operating System. Combine Digital Layouts, CRM, and Inventory Management in one must-have tool for builders and developers.",
+}
 
 export default function Page() {
   return (
-    <main className="bg-black min-h-screen">
+    <main className="bg-white min-h-screen">
       <Hero />
-      {/* <Stats /> */}
-      {/* <CaseStudies />
-      <Testimonials /> */}
-      <CtaSection />
+      <SoundFamiliarSection />
+      <OneSystemSection />
+      <RealLocationSection />
+      <HowItWorksSection />
+      <ManagementGridSection />
+      <MultipleLayoutsSection />
+      <ResponsiveShowcaseSection />
+      <CtaSectionNew />
       <Footer />
     </main>
   )

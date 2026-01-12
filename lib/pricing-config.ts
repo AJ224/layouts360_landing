@@ -1,79 +1,75 @@
 /**
  * Pricing Configuration
- * 
+ *
  * This file contains all pricing-related values that can be easily updated
  * as per business requirements.
  */
 
 export const pricingConfig = {
-  // Platform Fee (Base monthly subscription)
-  platformFee: {
-    monthly: 4000, // ₹4,000 per month
-  },
-
-  // Own Domain Deployment Add-on (Optional)
-  // Note: Domain is provided by customer. This fee covers server, hosting, and deployment management.
-  domainAddon: {
-    monthly: 2000, // ₹2,000 per month (includes server, hosting costs)
-  },
-
-  // Subscription Duration Discounts
-  discounts: {
-    1: 0,      // 1 Month = 0% discount (100% price)
-    6: 5,     // 6 Months = 10% off
-    12: 10,    // 12 Months = 20% off (Max Discount)
-  },
-
-  // Plot Pricing
-  plotPricing: {
-    baseLayoutCost: 10000,      // ₹10,000 per layout (up to 150 plots)
-    includedPlots: 150,          // Number of plots included in base cost
-    additionalPlotCost: 100,     // ₹100 per plot after 150 plots
-  },
-
-  // Pricing Plans
+  // Subscription Plans
   plans: [
     {
-      id: "basic",
-      name: "Basic",
-      description: "Platform access",
+      id: "sales-starter",
+      name: "Sales Starter",
+      subtitle: undefined,
+      monthlyPrice: 2000,
+      annualPrice: 21600,
+      annualOriginalPrice: 24000,
+      saveLabel: "Save 10%",
+      description: "Best for: Faster sales with clear visuals",
       features: [
-        "Customer & Booking Management",
-        "Plot Inventory Management & Bulk Entry",
-        "Interactive Digital Layout",
-        "Plot Freezing & Auto Release",
-        "Payment & Installment Management",
-        "Sales Desk & PoS",
-        "Customer Login Portal",
-        "Project Dashboard & Analytics",
+        "Plot / unit management",
+        "Never double-book a plot again",
+        "Impress clients with Live Maps",
+        "Easy viewing for your sales team & clients",
+        "Smooth experience on mobile & desktop",
+        "Unlimited users (Page access management)",
       ],
+      recommended: false,
+      theme: "light",
     },
     {
-      id: "business",
-      name: "Business",
-      description: "Platform + Own Domain Deployment",
+      id: "growth-suite",
+      name: "Growth Suite",
+      subtitle: "(Complete Platform)",
+      monthlyPrice: 4000,
+      annualPrice: 43200,
+      annualOriginalPrice: 48000,
+      saveLabel: "Save 10%",
+      description: "Best for: Full control + faster growth",
       features: [
-        "Everything in Basic",
-        "Deploy on Your Domain",
-        "Server & Hosting Included",
-        "SSL Certificate",
-        "Domain Setup & Configuration",
+        "Everything in Sales Starter, plus:",
+        "Lead & customer management",
+        "Booking & payment tracking",
+        "Booking Document Management",
+        "Sales performance reports",
+        "Priority support",
       ],
-    },
-    {
-      id: "enterprise",
-      name: "Enterprise",
-      description: "Custom pricing",
-      features: [
-        "Everything in Business",
-        "Dedicated Support",
-        "Custom Features",
-        "Priority Updates",
-        "SLA Guarantee",
-        "Custom Integration",
-      ],
+      recommended: true,
+      theme: "dark",
     },
   ],
+
+  // Layout & Plot Pricing
+  plotPricing: {
+    baseSetupCost: 10000,
+    baseIncludedPlots: 150, // 100 base + 50 bonus
+    basePlotBreakdown: "100 base + 50 bonus plots free",
+    additionalPlotCost: 100,
+  },
+
+  // Legacy/Calculator Support Values (Mapped to new values where appropriate)
+  platformFee: {
+    monthly: 2000, // Mapping to Sales Starter for base calc
+  },
+  domainAddon: {
+    monthly: 2000, // Diff between Sales Starter and Growth Suite essentially
+  },
+  discounts: {
+    1: 0,
+    6: 5,
+    12: 10, // Approx match for calculator logic
+  },
 } as const;
 
 export type SubscriptionPeriod = 1 | 6 | 12;
@@ -90,14 +86,14 @@ export function calculateDiscount(price: number, period: SubscriptionPeriod): nu
  * Calculate plot cost based on number of plots
  */
 export function calculatePlotCost(plotCount: number): number {
-  const { baseLayoutCost, includedPlots, additionalPlotCost } = pricingConfig.plotPricing;
-  
-  if (plotCount <= includedPlots) {
-    return baseLayoutCost;
+  const { baseSetupCost, baseIncludedPlots, additionalPlotCost } = pricingConfig.plotPricing;
+
+  if (plotCount <= baseIncludedPlots) {
+    return baseSetupCost;
   }
-  
-  const additionalPlots = plotCount - includedPlots;
-  return baseLayoutCost + (additionalPlots * additionalPlotCost);
+
+  const additionalPlots = plotCount - baseIncludedPlots;
+  return baseSetupCost + additionalPlots * additionalPlotCost;
 }
 
 /**
@@ -107,26 +103,13 @@ export function calculateSubscriptionCost(
   period: SubscriptionPeriod,
   includeDomain: boolean
 ): number {
-  const platformFee = calculateDiscount(pricingConfig.platformFee.monthly, period);
-  const domainFee = includeDomain 
-    ? calculateDiscount(pricingConfig.domainAddon.monthly, period)
-    : 0;
-  
-  return platformFee * period + domainFee * period;
-}
+  // Logic adapted for calculator: Base = Sales Starter, With Domain/Pro = Growth Suite
+  const basePrice = pricingConfig.platformFee.monthly;
+  const upgradePrice = pricingConfig.domainAddon.monthly;
 
-/**
- * Calculate payable today (first payment)
- */
-export function calculatePayableToday(
-  period: SubscriptionPeriod,
-  includeDomain: boolean
-): number {
-  const platformFee = calculateDiscount(pricingConfig.platformFee.monthly, period);
-  const domainFee = includeDomain 
-    ? calculateDiscount(pricingConfig.domainAddon.monthly, period)
-    : 0;
-  
-  return platformFee + domainFee;
+  const platformFee = calculateDiscount(basePrice, period);
+  const additionalFee = includeDomain ? calculateDiscount(upgradePrice, period) : 0;
+
+  return platformFee * period + additionalFee * period;
 }
 

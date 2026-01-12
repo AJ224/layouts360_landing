@@ -1,0 +1,359 @@
+"use client"
+
+import Image from "next/image"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import {
+    Map,
+    Users,
+    CreditCard,
+    Upload,
+    Share2,
+    Snowflake,
+    MessageSquare,
+    Trophy,
+    LayoutDashboard,
+    Smartphone,
+    Globe,
+    Settings,
+    BarChart3,
+    ShieldCheck,
+    CircleAlert,
+    Clock,
+    TrendingDown,
+    FileSpreadsheet,
+    History,
+    ArrowRight
+} from "lucide-react"
+
+// --- Section 1: Sound Familiar? ---
+export function SoundFamiliarSection() {
+    const cards = [
+        {
+            icon: <CircleAlert className="w-6 h-6 text-rose-500" />,
+            title: "Confusion",
+            description: "Scattered data across spreadsheets and papers.",
+            bg: "bg-rose-50"
+        },
+        {
+            icon: <Clock className="w-6 h-6 text-rose-500" />,
+            title: "Slow Follow-ups",
+            description: "Leads slip through without timely action.",
+            bg: "bg-rose-50"
+        },
+        {
+            icon: <TrendingDown className="w-6 h-6 text-rose-500" />,
+            title: "Missed Opportunities",
+            description: "No real-time visibility into what's available.",
+            bg: "bg-rose-50"
+        },
+        {
+            icon: <FileSpreadsheet className="w-6 h-6 text-rose-500" />,
+            title: "Excel Sheet Chaos",
+            description: "Multiple versions, conflicting data, & no one knows which sheet is the latest.",
+            bg: "bg-rose-50"
+        },
+        {
+            icon: <Users className="w-6 h-6 text-rose-500" />,
+            title: "Multiple Customer Handling",
+            description: "Showing the same layout to different customers while juggling between papers.",
+            bg: "bg-rose-50"
+        },
+        {
+            icon: <History className="w-6 h-6 text-rose-500" />,
+            title: "Delayed Updates",
+            description: "By the time your layout is updated, another customer is looking at wrong information.",
+            bg: "bg-rose-50"
+        }
+    ]
+
+    return (
+        <section className="py-20 bg-white">
+            <div className="container mx-auto px-4">
+                <div className="text-center mb-16">
+                    <span className="inline-block px-3 py-1 rounded-full bg-rose-100 text-rose-600 font-medium text-xs tracking-wider uppercase mb-4">
+                        The Challenge
+                    </span>
+                    <h2 className="text-3xl md:text-5xl font-bold text-slate-900">Sound familiar?</h2>
+                </div>
+
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    {cards.map((card, i) => (
+                        <div key={i} className="p-8 rounded-2xl bg-white border border-slate-100 shadow-[0_2px_20px_rgba(0,0,0,0.04)] hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center group">
+                            <div className={`w-14 h-14 rounded-full ${card.bg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                                {card.icon}
+                            </div>
+                            <h3 className="text-lg font-bold text-slate-900 mb-3">{card.title}</h3>
+                            <p className="text-slate-500 text-sm leading-relaxed max-w-xs">{card.description}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    )
+}
+
+// --- Section 2: One System. Complete Control. ---
+export function OneSystemSection() {
+    return (
+        <section className="py-20 bg-slate-50 overflow-hidden">
+            <div className="container mx-auto px-4">
+                <div className="flex flex-col lg:flex-row items-center gap-12 max-w-7xl mx-auto">
+                    <div className="lg:w-1/2 space-y-6">
+                        <span className="text-[#00C29F] font-medium text-sm tracking-wider uppercase">Dashboard</span>
+                        <h2 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
+                            Replace the Chaos <br />
+                            <span className="text-[#00C29F]">with Clarity.</span>
+                        </h2>
+                        <p className="text-lg text-slate-600 leading-relaxed max-w-md">
+                            Stop juggling WhatsApp, Excel, and paper maps. Centralize your entire operation with real-time updates across all devices.
+                        </p>
+
+                        <ul className="space-y-3 mt-4">
+                            {['Live Layout Status', 'Customer Management', 'Team Performance Tracking'].map((item, i) => (
+                                <li key={i} className="flex items-center gap-3 text-slate-700">
+                                    <div className="w-5 h-5 rounded-full bg-[#00C29F]/20 flex items-center justify-center">
+                                        <div className="w-2 h-2 rounded-full bg-[#00C29F]" />
+                                    </div>
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className="lg:w-1/2 relative">
+                        <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-white aspect-[4/3]">
+                            <Image
+                                src="/assets/images/DashboardPreview.png"
+                                alt="Layouts360 Dashboard Interface"
+                                fill
+                                className="object-cover object-top"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
+}
+
+// --- Section 3: Real Location (Parallax/Satellite) ---
+export function RealLocationSection() {
+    return (
+        <section className="relative py-32 bg-slate-900 overflow-hidden">
+            {/* Background Image Placeholder - would be satellite map */}
+            <div className="absolute inset-0 bg-[url('/satellite-map-bg.jpg')] bg-cover bg-center opacity-40 mix-blend-overlay"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-slate-900"></div>
+
+            <div className="container mx-auto px-4 relative z-10 text-center">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm mb-6">
+                    <Map className="w-6 h-6 text-white" />
+                </div>
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                    Build Instant Trust with <br />
+                    <span className="text-blue-400">Satellite Precision</span>
+                </h2>
+                <p className="text-slate-300 max-w-2xl mx-auto text-lg mb-8">
+                    Don't just show a drawing. Show the reality. Prove your location's value instantly by showing plots on actual satellite imagery.
+                </p>
+                <Link href="/features/plot-details" className="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium transition-colors group">
+                    Explore Satellite Features <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Link>
+            </div>
+        </section>
+    )
+}
+
+// --- Section 4: How It Works ---
+export function HowItWorksSection() {
+    const steps = [
+        { icon: <Upload className="w-6 h-6" />, title: "Upload", desc: "Upload layout plan" },
+        { icon: <Share2 className="w-6 h-6" />, title: "Share", desc: "Share link with customers" },
+        { icon: <Snowflake className="w-6 h-6" />, title: "Freeze", desc: "Freeze/Book plots" },
+        { icon: <Users className="w-6 h-6" />, title: "Follow", desc: "Manage Follow-ups" },
+        { icon: <Trophy className="w-6 h-6" />, title: "Wins", desc: "Close more deals" },
+    ]
+
+    return (
+        <section className="py-20 bg-blue-50/50">
+            <div className="container mx-auto px-4">
+                <div className="text-center mb-16">
+                    <span className="text-blue-600 font-medium text-sm tracking-wider uppercase">Process</span>
+                    <h2 className="text-3xl md:text-4xl font-bold mt-2 text-slate-900">
+                        How it works <span className="text-blue-600">for you</span>
+                    </h2>
+                </div>
+
+                <div className="flex flex-wrap justify-center gap-8 md:gap-12 relative">
+                    {/* Connecting Line (Desktop) */}
+                    <div className="hidden md:block absolute top-12 left-[10%] right-[10%] h-0.5 bg-blue-200 -z-10 border-t-2 border-dashed border-blue-200"></div>
+
+                    {steps.map((step, i) => (
+                        <div key={i} className="flex flex-col items-center text-center w-32 md:w-40 relative group">
+                            <div className="w-24 h-24 rounded-2xl bg-white shadow-lg flex flex-col items-center justify-center gap-2 mb-4 group-hover:-translate-y-2 transition-transform duration-300 border border-blue-50">
+                                <div className="nav-icon text-blue-600 bg-blue-50 p-2 rounded-lg">
+                                    {step.icon}
+                                </div>
+                            </div>
+                            <h3 className="font-bold text-slate-900">{step.title}</h3>
+                            <p className="text-sm text-slate-500 mt-1">{step.desc}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    )
+}
+
+// --- Section 5: What You Can Manage ---
+export function ManagementGridSection() {
+    const items = [
+        { label: "Plots", count: "740+", color: "text-blue-600", bg: "bg-blue-50" },
+        { label: "Booked", count: "55+", color: "text-green-600", bg: "bg-green-50" },
+        { label: "Users", count: "115+", color: "text-purple-600", bg: "bg-purple-50" },
+        { label: "Revenue", count: "12Cr+", color: "text-orange-600", bg: "bg-orange-50" },
+    ]
+
+    return (
+        <section className="py-20 bg-white">
+            <div className="container mx-auto px-4">
+                <div className="text-center mb-16">
+                    <span className="text-indigo-600 font-medium text-sm tracking-wider uppercase">Capability</span>
+                    <h2 className="text-3xl md:text-4xl font-bold mt-2 text-slate-900">
+                        Your 24/7 <span className="text-indigo-600">Command Center</span>
+                    </h2>
+                    <p className="text-slate-500 mt-4">Track every rupee and every square foot in real-time.</p>
+                    <Link href="/features/availability" className="inline-flex items-center text-indigo-600 hover:text-indigo-700 font-medium mt-4 transition-colors group">
+                        See Management Tools <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                </div>
+
+                <div className="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
+                    {/* Left: Cards Grid */}
+                    <div className="w-full md:w-1/3 grid grid-cols-2 gap-4">
+                        {items.map((item, i) => (
+                            <div key={i} className="p-6 rounded-2xl bg-white border border-slate-100 shadow-lg flex flex-col items-center justify-center text-center aspect-square">
+                                <div className={`w-12 h-12 rounded-full ${item.bg} flex items-center justify-center mb-3`}>
+                                    <div className={`w-3 h-3 rounded-full ${item.color} bg-current`} />
+                                </div>
+                                <span className="text-2xl font-bold text-slate-900">{item.count}</span>
+                                <span className="text-sm text-slate-500">{item.label}</span>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Right: Feature Graphic/Screenshot */}
+                    <div className="w-full md:w-2/3">
+                        <div className="rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-slate-50 aspect-video relative">
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <span className="text-slate-400 font-medium">Management UI Preview</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
+}
+
+// --- Section 6: Multiple Layouts ---
+export function MultipleLayoutsSection() {
+    return (
+        <section className="py-20 bg-slate-50">
+            <div className="container mx-auto px-4 text-center">
+                <div className="mb-12">
+                    <span className="text-blue-600 font-medium text-sm tracking-wider uppercase">Scalability</span>
+                    <h2 className="text-3xl md:text-4xl font-bold mt-2 text-slate-900 leading-tight">
+                        Multiple layouts,<br />
+                        <span className="text-blue-600">one system</span>
+                    </h2>
+                </div>
+
+                <div className="max-w-5xl mx-auto">
+                    <div className="rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-white aspect-[21/9] relative">
+                        <div className="absolute inset-0 bg-slate-100 flex items-center justify-center">
+                            <span className="text-slate-400 font-medium">Map View of Multiple Projects</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
+}
+
+// --- Section 7: Responsive Showcase ---
+export function ResponsiveShowcaseSection() {
+    return (
+        <section className="py-24 bg-gradient-to-b from-white to-slate-50">
+            <div className="container mx-auto px-4 text-center">
+                <div className="mb-16">
+                    <span className="text-[#00C29F] font-medium text-sm tracking-wider uppercase">Accessibility</span>
+                    <h2 className="text-4xl md:text-5xl font-bold mt-2 text-slate-900">
+                        Close deals <br />
+                        <span className="text-[#00C29F]">from anywhere</span>
+                    </h2>
+                    <p className="text-slate-500 mt-4 max-w-xl mx-auto text-lg mb-8">
+                        Whether you're at the site, in the office, or at home. Your inventory is always in your pocket.
+                    </p>
+                    <Link href="/features/cross-platform" className="inline-flex items-center text-[#00C29F] hover:text-[#00A085] font-medium transition-colors group">
+                        View Mobile Capabilities <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                </div>
+
+                <div className="flex items-end justify-center gap-4 md:gap-8 max-w-5xl mx-auto">
+                    {/* Phone */}
+                    <div className="w-24 md:w-32 h-48 md:h-64 bg-slate-900 rounded-2xl border-4 border-slate-800 shadow-xl relative overflow-hidden">
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-4 bg-slate-800 rounded-b-xl z-10"></div>
+                        <div className="w-full h-full bg-white opacity-90"></div>
+                    </div>
+
+                    {/* Tablet */}
+                    <div className="w-48 md:w-64 h-64 md:h-80 bg-slate-900 rounded-3xl border-8 border-slate-800 shadow-2xl relative overflow-hidden hidden sm:block">
+                        <div className="w-full h-full bg-white opacity-90"></div>
+                    </div>
+
+                    {/* Desktop */}
+                    <div className="w-64 md:w-[500px] h-48 md:h-[350px] bg-slate-900 rounded-t-2xl border-t-8 border-x-8 border-slate-800 shadow-2xl relative overflow-hidden">
+                        <div className="w-full h-full bg-white opacity-90"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
+}
+
+// --- Section 8: CTA Footer Top ---
+export function CtaSectionNew() {
+    return (
+        <section className="py-24 bg-[#0B1221] text-white overflow-hidden relative">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#1e293b_0%,#0B1221_100%)]"></div>
+
+            <div className="container mx-auto px-4 relative z-10 text-center">
+                <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur mx-auto flex items-center justify-center mb-6">
+                    <span className="text-2xl font-bold text-white">P</span>
+                </div>
+
+                <h2 className="text-4xl md:text-6xl font-bold mb-8">Let's see it in action</h2>
+                <p className="text-slate-400 max-w-lg mx-auto mb-10 text-lg">
+                    Transform your real estate sales process today.
+                </p>
+
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <Button size="lg" className="bg-white text-slate-900 hover:bg-slate-100 px-8 py-6 text-lg rounded-full font-bold" asChild>
+                        <Link href="/contact">Start for free</Link>
+                    </Button>
+                    <Button size="lg" variant="outline" className="border-slate-700 text-white hover:bg-slate-800 px-8 py-6 text-lg rounded-full font-medium" asChild>
+                        <Link href="/contact">Talk to sales</Link>
+                    </Button>
+                </div>
+
+                <div className="flex items-center justify-center gap-8 mt-12 text-sm text-slate-500 uppercase tracking-widest font-medium">
+                    <span>No Credit card</span>
+                    <span>•</span>
+                    <span>14 Days Trial</span>
+                    <span>•</span>
+                    <span>Cancel Anytime</span>
+                </div>
+            </div>
+        </section>
+    )
+}

@@ -53,6 +53,9 @@ export default function Header({ theme = "light" }: HeaderProps) {
                         <Link href="/pricing" className="hover:text-[#FFB800] transition-colors">
                             Pricing
                         </Link>
+                        <Link href="/blog" className="hover:text-[#FFB800] transition-colors">
+                            Blog
+                        </Link>
                         <Link href="/contact" className="hover:text-[#FFB800] transition-colors">
                             Contact
                         </Link>
@@ -139,6 +142,13 @@ export default function Header({ theme = "light" }: HeaderProps) {
                                         onClick={toggleMenu}
                                     >
                                         Pricing
+                                    </Link>
+                                    <Link
+                                        href="/blog"
+                                        className="hover:text-[#FFB800] transition-colors"
+                                        onClick={toggleMenu}
+                                    >
+                                        Blog
                                     </Link>
                                     <Link
                                         href="/contact"

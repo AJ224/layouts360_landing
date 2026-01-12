@@ -8,7 +8,7 @@ export default function Footer() {
     return (
         <footer className="bg-black text-white border-t border-white/10 pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-10">
             <div className="container mx-auto px-4 sm:px-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 mb-12 sm:mb-16 justify-between">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 mb-12 sm:mb-16 justify-between">
                     {/* Brand Column */}
                     <div className="space-y-4 sm:space-y-6 max-w-sm">
                         <Link href="/" className="flex items-center gap-2 sm:gap-3">
@@ -40,8 +40,25 @@ export default function Footer() {
                         </div> */}
                     </div>
 
+                    {/* Features Column */}
+                    <div className="space-y-4 sm:space-y-6">
+                        <h3 className="text-base sm:text-lg font-semibold text-white">Features</h3>
+                        <ul className="space-y-3 text-sm sm:text-base text-gray-400">
+                            <li><Link href="/features/availability" className="hover:text-[#FFB800] transition-colors">Real-Time Availability</Link></li>
+                            <li><Link href="/features/plot-details" className="hover:text-[#FFB800] transition-colors">Digital Plot Cards</Link></li>
+                            <li><Link href="/features/gallery" className="hover:text-[#FFB800] transition-colors">Interactive Gallery</Link></li>
+                            <li><Link href="/features/cross-platform" className="hover:text-[#FFB800] transition-colors">Mobile Sales App</Link></li>
+                        </ul>
+                    </div>
+
                     {/* Contact Info */}
                     <div className="md:text-right">
+                        <div className="flex flex-wrap justify-start md:justify-end gap-6 mb-6 text-sm font-medium text-gray-400">
+                            <Link href="/" className="hover:text-[#FFB800] transition-colors">Home</Link>
+                            <Link href="/pricing" className="hover:text-[#FFB800] transition-colors">Pricing</Link>
+                            <Link href="/blog" className="hover:text-[#FFB800] transition-colors">Blog</Link>
+                            <Link href="/contact" className="hover:text-[#FFB800] transition-colors">Contact</Link>
+                        </div>
                         <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Contact Us</h3>
                         <ul className="space-y-4 sm:space-y-6 inline-block text-left md:text-right">
                             <li className="flex md:flex-row-reverse items-start gap-3 text-sm sm:text-base text-gray-400">
@@ -63,8 +80,8 @@ export default function Footer() {
                 <div className="border-t border-white/10 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs sm:text-sm text-gray-500">
                     <p>© {new Date().getFullYear()} Layouts360. All rights reserved.</p>
                     <div className="flex flex-wrap justify-center md:justify-end gap-4 sm:gap-6">
-                        <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-                        <Link href="/terms" className="hover:text-white transition-colors">Terms of Use</Link>
+                        <Link href="/" className="hover:text-white transition-colors">Privacy Policy</Link>
+                        <Link href="/" className="hover:text-white transition-colors">Terms of Use</Link>
                     </div>
                 </div>
             </div>
