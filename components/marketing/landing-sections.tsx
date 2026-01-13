@@ -23,7 +23,9 @@ import {
     TrendingDown,
     FileSpreadsheet,
     History,
-    ArrowRight
+    ArrowRight,
+    Tablet,
+    Monitor
 } from "lucide-react"
 
 // --- Section 1: Sound Familiar? ---
@@ -126,7 +128,7 @@ export function OneSystemSection() {
                                 src="/assets/images/DashboardPreview.png"
                                 alt="Layouts360 Dashboard Interface"
                                 fill
-                                className="object-cover object-top"
+                                className="object-contain bg-slate-100"
                             />
                         </div>
                     </div>
@@ -299,21 +301,61 @@ export function ResponsiveShowcaseSection() {
                     </Link>
                 </div>
 
-                <div className="flex items-end justify-center gap-4 md:gap-8 max-w-5xl mx-auto">
-                    {/* Phone */}
-                    <div className="w-24 md:w-32 h-48 md:h-64 bg-slate-900 rounded-2xl border-4 border-slate-800 shadow-xl relative overflow-hidden">
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-4 bg-slate-800 rounded-b-xl z-10"></div>
-                        <div className="w-full h-full bg-white opacity-90"></div>
+                <div className="flex flex-row flex-wrap items-end justify-center gap-8 md:gap-16 max-w-6xl mx-auto pb-8">
+                    {/* Mobile - Landscape */}
+                    <div className="flex flex-col items-center gap-4 transition-transform hover:-translate-y-2 duration-300">
+                        <div className="relative w-32 sm:w-40 aspect-[16/9] bg-slate-900 rounded-xl border-[6px] border-slate-900 shadow-xl overflow-hidden transform rotate-0">
+                            <Image
+                                src="/assets/images/DashboardPreview.png"
+                                alt="Mobile Dashboard Landscape"
+                                fill
+                                className="object-contain bg-[#f3f4f6]"
+                                sizes="(max-width: 768px) 100vw, 33vw"
+                            />
+                        </div>
+                        <div className="flex items-center gap-2 text-slate-500 text-sm font-medium">
+                            <Smartphone className="w-4 h-4" />
+                            <span>Mobile</span>
+                        </div>
                     </div>
 
-                    {/* Tablet */}
-                    <div className="w-48 md:w-64 h-64 md:h-80 bg-slate-900 rounded-3xl border-8 border-slate-800 shadow-2xl relative overflow-hidden hidden sm:block">
-                        <div className="w-full h-full bg-white opacity-90"></div>
+                    {/* Tablet - Landscape */}
+                    <div className="flex flex-col items-center gap-4 transition-transform hover:-translate-y-2 duration-300">
+                        <div className="relative w-48 sm:w-60 aspect-[4/3] bg-slate-900 rounded-2xl border-[8px] border-slate-900 shadow-xl overflow-hidden">
+                            <Image
+                                src="/assets/images/DashboardPreview.png"
+                                alt="Tablet Dashboard Landscape"
+                                fill
+                                className="object-contain bg-[#f3f4f6]"
+                                sizes="(max-width: 768px) 100vw, 33vw"
+                            />
+                        </div>
+                        <div className="flex items-center gap-2 text-slate-500 text-sm font-medium">
+                            <Tablet className="w-4 h-4" />
+                            <span>Tablet</span>
+                        </div>
                     </div>
 
                     {/* Desktop */}
-                    <div className="w-64 md:w-[500px] h-48 md:h-[350px] bg-slate-900 rounded-t-2xl border-t-8 border-x-8 border-slate-800 shadow-2xl relative overflow-hidden">
-                        <div className="w-full h-full bg-white opacity-90"></div>
+                    <div className="flex flex-col items-center gap-4 transition-transform hover:-translate-y-2 duration-300">
+                        <div className="relative">
+                            <div className="w-64 sm:w-96 aspect-[16/10] bg-slate-900 rounded-lg border-[10px] border-slate-900 shadow-2xl overflow-hidden relative z-10">
+                                <Image
+                                    src="/assets/images/DashboardPreview.png"
+                                    alt="Desktop Dashboard View"
+                                    fill
+                                    className="object-contain bg-[#f3f4f6]"
+                                    sizes="(max-width: 768px) 100vw, 33vw"
+                                />
+                            </div>
+                            {/* Monitor Stand */}
+                            <div className="w-24 h-4 bg-slate-800 mx-auto -mt-1 relative z-0 rounded-b-sm"></div>
+                            <div className="w-32 h-1.5 bg-slate-700 mx-auto rounded-full shadow-lg"></div>
+                        </div>
+                        <div className="flex items-center gap-2 text-slate-500 text-sm font-medium">
+                            <Monitor className="w-4 h-4" />
+                            <span>Desktop</span>
+                        </div>
                     </div>
                 </div>
             </div>
