@@ -177,7 +177,7 @@ export function HowItWorksSection() {
     ]
 
     return (
-        <section className="py-20 bg-blue-50/50">
+        <section id="how-it-works" className="py-20 bg-blue-50/50">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
                     <span className="text-blue-600 font-medium text-sm tracking-wider uppercase">Process</span>

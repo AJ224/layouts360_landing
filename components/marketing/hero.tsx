@@ -61,7 +61,7 @@ export default function Hero() {
               className="bg-slate-100 hover:bg-slate-200 border-transparent text-slate-900 text-base font-medium rounded-lg px-8 h-12 min-w-[160px]"
               asChild
             >
-              <Link href="/how-it-works">
+              <Link href="/#how-it-works">
                 <PlayCircle className="w-4 h-4 mr-2" /> See How It Works
               </Link>
             </Button>
