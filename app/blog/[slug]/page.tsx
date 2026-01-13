@@ -82,7 +82,7 @@ export default function BlogPostPage({ params }: Props) {
                     {/* Content */}
                     <div className="prose prose-lg prose-slate max-w-none prose-headings:font-bold prose-a:text-blue-600 hover:prose-a:text-blue-500">
                         {/* @ts-expect-error Server Component */}
-                        <MDXRemote source={post.content} options={{ parseFrontmatter: true }} />
+                        <MDXRemote source={post.content} />
                     </div>
                 </article>
             </main>
