@@ -7,7 +7,15 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
+    // unoptimized: true, // Disabled to enable Next.js Image Optimization
+  },
+  experimental: {
+    modularizeImports: {
+      "lucide-react": {
+        transform: "lucide-react/dist/esm/icons/{{lowerCase memberName}}",
+        skipDefaultConversion: true,
+      },
+    },
   },
 }
 
