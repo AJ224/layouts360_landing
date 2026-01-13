@@ -25,7 +25,8 @@ import {
     History,
     ArrowRight,
     Tablet,
-    Monitor
+    Monitor,
+    Calendar
 } from "lucide-react"
 
 // --- Section 1: Sound Familiar? ---
@@ -209,21 +210,21 @@ export function HowItWorksSection() {
 // --- Section 5: What You Can Manage ---
 export function ManagementGridSection() {
     const items = [
-        { label: "Plots", count: "740+", color: "text-blue-600", bg: "bg-blue-50" },
-        { label: "Booked", count: "55+", color: "text-green-600", bg: "bg-green-50" },
-        { label: "Users", count: "115+", color: "text-purple-600", bg: "bg-purple-50" },
-        { label: "Revenue", count: "12Cr+", color: "text-orange-600", bg: "bg-orange-50" },
+        { label: "Enquiries", count: "324", growth: "+12%", color: "text-blue-600", bg: "bg-blue-50", icon: Users },
+        { label: "Bookings", count: "89", growth: "+8%", color: "text-emerald-600", bg: "bg-emerald-50", icon: Calendar },
+        { label: "Payments", count: "₹2.4Cr", growth: "+24%", color: "text-emerald-600", bg: "bg-emerald-50", icon: CreditCard },
+        { label: "Documents", count: "156", growth: "+5%", color: "text-amber-600", bg: "bg-amber-50", icon: FileSpreadsheet },
     ]
 
     return (
         <section className="py-20 bg-white">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
-                    <span className="text-indigo-600 font-medium text-sm tracking-wider uppercase">Capability</span>
-                    <h2 className="text-3xl md:text-4xl font-bold mt-2 text-slate-900">
-                        Your 24/7 <span className="text-indigo-600">Command Center</span>
+                    <span className="text-blue-500 font-medium text-sm tracking-wider uppercase bg-blue-50 px-3 py-1 rounded-full">Dashboard</span>
+                    <h2 className="text-3xl md:text-5xl font-bold mt-4 text-slate-900">
+                        What you can <span className="text-blue-500">manage</span>
                     </h2>
-                    <p className="text-slate-500 mt-4">Track every rupee and every square foot in real-time.</p>
+                    <p className="text-slate-500 mt-4 text-lg">Every aspect of your sales pipeline, in one view</p>
                     <Link href="/features/availability" className="inline-flex items-center text-indigo-600 hover:text-indigo-700 font-medium mt-4 transition-colors group">
                         See Management Tools <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                     </Link>
@@ -233,22 +234,30 @@ export function ManagementGridSection() {
                     {/* Left: Cards Grid */}
                     <div className="w-full md:w-1/3 grid grid-cols-2 gap-4">
                         {items.map((item, i) => (
-                            <div key={i} className="p-6 rounded-2xl bg-white border border-slate-100 shadow-lg flex flex-col items-center justify-center text-center aspect-square">
-                                <div className={`w-12 h-12 rounded-full ${item.bg} flex items-center justify-center mb-3`}>
-                                    <div className={`w-3 h-3 rounded-full ${item.color} bg-current`} />
+                            <div key={i} className="p-6 rounded-3xl bg-white shadow-xl shadow-slate-200/50 flex flex-col items-start justify-between aspect-[1.2/1] transition-transform hover:-translate-y-1 duration-300">
+                                <div className={`w-10 h-10 rounded-full ${item.bg} flex items-center justify-center mb-2`}>
+                                    <item.icon className={`w-5 h-5 ${item.color}`} />
                                 </div>
-                                <span className="text-2xl font-bold text-slate-900">{item.count}</span>
-                                <span className="text-sm text-slate-500">{item.label}</span>
+                                <div>
+                                    <span className="text-sm text-slate-500 font-medium block mb-1">{item.label}</span>
+                                    <div className="flex items-baseline gap-2">
+                                        <span className="text-2xl font-bold text-slate-900">{item.count}</span>
+                                        <span className="text-xs font-bold text-emerald-500 bg-emerald-50 px-1.5 py-0.5 rounded-full">{item.growth}</span>
+                                    </div>
+                                </div>
                             </div>
                         ))}
                     </div>
 
                     {/* Right: Feature Graphic/Screenshot */}
                     <div className="w-full md:w-2/3">
-                        <div className="rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-slate-50 aspect-video relative">
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <span className="text-slate-400 font-medium">Management UI Preview</span>
-                            </div>
+                        <div className="rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-white aspect-video relative">
+                            <Image
+                                src="/assets/images/DashboardPreview.png"
+                                alt="Management Dashboard"
+                                fill
+                                className="object-contain bg-slate-50"
+                            />
                         </div>
                     </div>
                 </div>
