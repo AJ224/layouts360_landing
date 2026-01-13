@@ -38,7 +38,7 @@ export default function ContactPage() {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-gray-900 mb-4 sm:mb-6 px-4">
               Let's Start a <br className="md:hidden" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                Conversation
+                Talk to Us
               </span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-4">
@@ -111,25 +111,24 @@ export default function ContactPage() {
               viewport={{ once: true }}
             >
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-gray-900 mb-4 sm:mb-6">
-                Schedule a Personalized Demo
+                See a Free Demo
               </h2>
               <p className="text-base sm:text-lg text-gray-600 mb-8 sm:mb-10 leading-relaxed">
-                Get a customized demonstration of our real estate management solutions.
-                Our experts will show you exactly how Layouts360 can solve your specific business challenges.
+                See how Layouts360 works in real life. We will show you how to solve your daily problems.
               </p>
 
               <div className="space-y-6 sm:space-y-8">
                 {[
                   {
                     title: "Free Consultation",
-                    description: "We'll analyze your current processes and identify optimization opportunities."
+                    description: "We see how you work now and show you a better way."
                   },
                   {
                     title: "Custom Demo",
                     description: "See our platform in action with your specific use cases and requirements."
                   },
                   {
-                    title: "Implementation Plan",
+                    title: "Setup Plan",
                     description: "Get a detailed roadmap for implementing our solutions in your business."
                   }
                 ].map((item, index) => (

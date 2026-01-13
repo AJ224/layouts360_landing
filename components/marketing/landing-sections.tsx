@@ -35,37 +35,37 @@ export function SoundFamiliarSection() {
         {
             icon: <CircleAlert className="w-6 h-6 text-rose-500" />,
             title: "Confusion",
-            description: "Scattered data across spreadsheets and papers.",
+            description: "Messy Data: Numbers in Excel, Maps on Paper. It's a mess.",
             bg: "bg-rose-50"
         },
         {
             icon: <Clock className="w-6 h-6 text-rose-500" />,
             title: "Slow Follow-ups",
-            description: "Leads slip through without timely action.",
+            description: "You forget to call back, they buy somewhere else.",
             bg: "bg-rose-50"
         },
         {
             icon: <TrendingDown className="w-6 h-6 text-rose-500" />,
             title: "Missed Opportunities",
-            description: "No real-time visibility into what's available.",
+            description: "You don't know what is sold and what is free right now.",
             bg: "bg-rose-50"
         },
         {
             icon: <FileSpreadsheet className="w-6 h-6 text-rose-500" />,
             title: "Excel Sheet Chaos",
-            description: "Multiple versions, conflicting data, & no one knows which sheet is the latest.",
+            description: "Which file is the right one? Version 1 or Version 5?",
             bg: "bg-rose-50"
         },
         {
             icon: <Users className="w-6 h-6 text-rose-500" />,
             title: "Multiple Customer Handling",
-            description: "Showing the same layout to different customers while juggling between papers.",
+            description: "Showing the same plot to two people. Embarrassing.",
             bg: "bg-rose-50"
         },
         {
             icon: <History className="w-6 h-6 text-rose-500" />,
             title: "Delayed Updates",
-            description: "By the time your layout is updated, another customer is looking at wrong information.",
+            description: "You think a plot is free, but your partner already sold it.",
             bg: "bg-rose-50"
         }
     ]
@@ -105,11 +105,11 @@ export function OneSystemSection() {
                     <div className="lg:w-1/2 space-y-6">
                         <span className="text-[#00C29F] font-medium text-sm tracking-wider uppercase">Dashboard</span>
                         <h2 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
-                            Replace the Chaos <br />
-                            <span className="text-[#00C29F]">with Clarity.</span>
+                            Stop the Confusion <br />
+                            <span className="text-[#00C29F]">Get Control.</span>
                         </h2>
                         <p className="text-lg text-slate-600 leading-relaxed max-w-md">
-                            Stop juggling WhatsApp, Excel, and paper maps. Centralize your entire operation with real-time updates across all devices.
+                            Stop switching between WhatsApp, Excel, and Paper. Put your whole business in one app. Everyone sees the same thing.
                         </p>
 
                         <ul className="space-y-3 mt-4">
@@ -156,7 +156,7 @@ export function RealLocationSection() {
                     <span className="text-blue-400">Satellite Precision</span>
                 </h2>
                 <p className="text-slate-300 max-w-2xl mx-auto text-lg mb-8">
-                    Don't just show a drawing. Show the reality. Prove your location's value instantly by showing plots on actual satellite imagery.
+                    Don't just show a paper drawing. Show the real land. Show customers exactly where their plot is on Google Earth.
                 </p>
                 <Link href="/features/plot-details" className="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium transition-colors group">
                     Explore Satellite Features <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -222,9 +222,9 @@ export function ManagementGridSection() {
                 <div className="text-center mb-16">
                     <span className="text-blue-500 font-medium text-sm tracking-wider uppercase bg-blue-50 px-3 py-1 rounded-full">Dashboard</span>
                     <h2 className="text-3xl md:text-5xl font-bold mt-4 text-slate-900">
-                        What you can <span className="text-blue-500">manage</span>
+                        See Your <span className="text-blue-500">Whole Business</span>
                     </h2>
-                    <p className="text-slate-500 mt-4 text-lg">Every aspect of your sales pipeline, in one view</p>
+                    <p className="text-slate-500 mt-4 text-lg">Everything happening in your business, on one screen</p>
                     <Link href="/features/availability" className="inline-flex items-center text-indigo-600 hover:text-indigo-700 font-medium mt-4 transition-colors group">
                         See Management Tools <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                     </Link>

@@ -57,6 +57,7 @@ export default function Footer() {
                             <Link href="/" className="hover:text-[#FFB800] transition-colors">Home</Link>
                             <Link href="/pricing" className="hover:text-[#FFB800] transition-colors">Pricing</Link>
                             <Link href="/blog" className="hover:text-[#FFB800] transition-colors">Blog</Link>
+                            <Link href="/faq" className="hover:text-[#FFB800] transition-colors">FAQ</Link>
                             <Link href="/contact" className="hover:text-[#FFB800] transition-colors">Contact</Link>
                         </div>
                         <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Contact Us</h3>

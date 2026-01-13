@@ -86,10 +86,10 @@ export default function PricingCalculator() {
         <div className="flex items-center justify-between rounded-lg border-2 p-3 sm:p-4 bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer" onClick={() => setIncludeDomain(!includeDomain)}>
           <div className="space-y-1 flex-1 pr-3 sm:pr-4">
             <Label htmlFor="domain" className="text-base sm:text-lg font-bold cursor-pointer text-slate-900">
-              Growth Suite
+              Business Plan
             </Label>
             <p className="text-xs sm:text-sm text-slate-500">
-              Includes Lead Management, Booking Tracking & more
+              Includes everything to run your business
             </p>
           </div>
           <Switch
@@ -105,7 +105,7 @@ export default function PricingCalculator() {
           <div className="space-y-3 sm:space-y-4">
             {includeDomain ? (
               <div className="flex justify-between items-center py-1 gap-2">
-                <span className="text-xs sm:text-sm font-medium text-slate-700">Growth Suite Plan</span>
+                <span className="text-xs sm:text-sm font-medium text-slate-700">Business Plan</span>
                 <span className="font-semibold flex items-center gap-1 sm:gap-1.5 text-xs sm:text-sm">
                   <span className="text-xs">₹</span>
                   {discountPercent > 0 ? (
@@ -125,7 +125,7 @@ export default function PricingCalculator() {
               </div>
             ) : (
               <div className="flex justify-between items-center py-1 gap-2">
-                <span className="text-xs sm:text-sm font-medium text-slate-700">Sales Starter Plan</span>
+                <span className="text-xs sm:text-sm font-medium text-slate-700">Sales Plan</span>
                 <span className="font-semibold flex items-center gap-1 sm:gap-1.5 text-xs sm:text-sm">
                   <span className="text-xs">₹</span>
                   {discountPercent > 0 ? (

@@ -1,6 +1,6 @@
 "use client"
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { pricingConfig } from "@/lib/pricing-config"
 import { Check, Layers, Gift, TrendingUp } from "lucide-react"
@@ -15,7 +15,7 @@ export default function PricingCards() {
       <div className="space-y-8">
         <div className="text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 border-b-2 border-slate-200 inline-block pb-1">
-            Subscription Plans
+            Choose Your Plan
           </h2>
         </div>
 
@@ -35,7 +35,7 @@ export default function PricingCards() {
                 {plan.recommended && (
                   <div className="absolute top-6 right-6">
                     <span className="bg-[#EAB308] text-[#0B1E3B] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                      Recommended
+                      Best Value
                     </span>
                   </div>
                 )}
@@ -82,7 +82,7 @@ export default function PricingCards() {
                 <CardContent className="flex-1 space-y-8 px-8 pb-8">
                   <div className="space-y-4">
                     <p className={`text-xs font-bold uppercase tracking-widest ${isDark ? "text-gray-400" : "text-slate-500"}`}>
-                      INCLUDES:
+                      What you get:
                     </p>
                     <ul className="space-y-3">
                       {plan.features.map((feature, i) => (
@@ -98,8 +98,8 @@ export default function PricingCards() {
 
                   <Button
                     className={`w-full py-6 text-lg font-bold rounded-lg transition-all ${isDark
-                        ? "bg-white text-[#0B1E3B] hover:bg-gray-100"
-                        : "bg-[#0B1E3B] text-white hover:bg-[#0B1E3B]/90"
+                      ? "bg-white text-[#0B1E3B] hover:bg-gray-100"
+                      : "bg-[#0B1E3B] text-white hover:bg-[#0B1E3B]/90"
                       }`}
                     asChild
                   >
@@ -110,7 +110,7 @@ export default function PricingCards() {
 
                   {/* Risk Reversal Micro-copy */}
                   <p className={`text-xs text-center ${isDark ? "text-gray-400" : "text-slate-400"}`}>
-                    {isDark ? "Includes Priority Onboarding" : "No credit card required to start"}
+                    {isDark ? "We help you set up fast" : "No credit card required to start"}
                   </p>
                 </CardContent>
               </Card>
@@ -123,7 +123,7 @@ export default function PricingCards() {
       <div className="space-y-8">
         <div className="text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 border-b-2 border-slate-200 inline-block text-center pb-1">
-            Layout & Plot Setup Pricing
+            One Time Setup Cost
           </h2>
         </div>
 
@@ -136,9 +136,9 @@ export default function PricingCards() {
                   <Layers className="w-8 h-8 text-[#0B1E3B]" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-slate-900 text-lg">Digitization & Onboarding</h3>
+                  <h3 className="font-bold text-slate-900 text-lg">Map Creation & Setup</h3>
                   <p className="text-3xl font-bold text-[#0B1E3B] mt-1">₹{plotPricing.baseSetupCost.toLocaleString()}</p>
-                  <p className="text-sm text-slate-500 mt-2">One-time fee: We create your digital layout</p>
+                  <p className="text-sm text-slate-500 mt-2">Pay once. We make your digital map.</p>
                 </div>
               </div>
 
@@ -148,9 +148,9 @@ export default function PricingCards() {
                   <Gift className="w-8 h-8 text-emerald-600" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-slate-900 text-lg">Plots Included</h3>
+                  <h3 className="font-bold text-slate-900 text-lg">Plots in Package</h3>
                   <p className="text-3xl font-bold text-emerald-600 mt-1">{plotPricing.baseIncludedPlots} Plots</p>
-                  <p className="text-sm text-slate-500 mt-2">{plotPricing.basePlotBreakdown}</p>
+                  <p className="text-sm text-slate-500 mt-2">150 plots included</p>
                 </div>
               </div>
 
@@ -160,9 +160,9 @@ export default function PricingCards() {
                   <TrendingUp className="w-8 h-8 text-orange-500" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-slate-900 text-lg">Additional Plots</h3>
+                  <h3 className="font-bold text-slate-900 text-lg">Extra Plots</h3>
                   <p className="text-3xl font-bold text-orange-500 mt-1">₹{plotPricing.additionalPlotCost}<span className="text-lg font-medium text-slate-400">/plot</span></p>
-                  <p className="text-sm text-slate-500 mt-2">After {plotPricing.baseIncludedPlots} plots (beyond bonus)</p>
+                  <p className="text-sm text-slate-500 mt-2">If you have more than {plotPricing.baseIncludedPlots} plots</p>
                 </div>
               </div>
             </div>
@@ -172,5 +172,3 @@ export default function PricingCards() {
     </div>
   )
 }
-
-

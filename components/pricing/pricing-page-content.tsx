@@ -14,15 +14,15 @@ import { motion } from "framer-motion"
 const faqs = [
     {
         question: "How does subscription pricing work?",
-        answer: "Platform fee starts at ₹4,000/month. Choose 1, 6, or 12-month plans. Longer plans save up to 20%. All features included."
+        answer: "Starts at ₹4,000/month. Save 20% on yearly plans. Everything included."
     },
     {
         question: "What's the plot pricing?",
-        answer: "₹10,000 for up to 150 plots, then ₹100 per additional plot. One-time setup cost."
+        answer: "₹10,000 for 150 plots. ₹100 per extra plot. Pay once for setup."
     },
     {
         question: "Do I need my own domain?",
-        answer: "No. Basic plan uses our domain. Business plan: you provide domain, we include server & hosting (₹6,000/month)."
+        answer: "No. You can use our link. If you want your own .com name, we can do it for ₹6,000/month."
     },
     {
         question: "Can I change my plan later?",
@@ -53,12 +53,12 @@ export default function PricingPageContent() {
                     >
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 border border-gray-200 text-xs sm:text-sm font-medium text-gray-600 mb-4 sm:mb-6">
                             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                            High ROI Investment
+                            Best Value for Money
                         </div>
                         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-gray-900 mb-4 sm:mb-6 px-4">
-                            Profitable from your <br className="md:hidden" />
+                            Make Profit from <br className="md:hidden" />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                                very first booking
+                                Day One
                             </span>
                         </h1>
                         <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-4">
@@ -83,8 +83,8 @@ export default function PricingPageContent() {
             {/* Pricing Calculator */}
             <section className="relative mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16 bg-gray-50/50 border-y border-gray-100">
                 <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12 px-4">
-                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">Calculate Your Investment</h2>
-                    <p className="text-base sm:text-lg text-gray-600">Estimate your total cost based on your project size and duration.</p>
+                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">See Your Total Cost</h2>
+                    <p className="text-base sm:text-lg text-gray-600">Check how much you need to invest.</p>
                 </div>
                 <div className="max-w-2xl mx-auto px-4">
                     <PricingCalculator />

@@ -15,7 +15,7 @@ import { ArrowRight, Check, Layout, Database, Smartphone, Shield, BarChart3, Use
 
 const featureCategories = [
   {
-    title: "Layout & Visualization",
+    title: "Maps and Layouts",
     description: "Bring your properties to life with our advanced digital mapping and interactive visualization tools.",
     icon: Layout,
     color: "text-blue-500",
@@ -32,7 +32,7 @@ const featureCategories = [
         benefits: ["Color-coded system", "Instant updates", "Conflict prevention"]
       },
       {
-        title: "Multi-Layout Support",
+        title: "Manage Multiple Projects",
         description: "Manage multiple phases or entirely different projects from a single, centralized dashboard.",
         benefits: ["Unlimited layouts", "Centralized control", "Project isolation"]
       }
@@ -46,12 +46,12 @@ const featureCategories = [
     bg: "bg-emerald-500/10",
     features: [
       {
-        title: "Smart Reservation System",
+        title: "Booking & Holding Plots",
         description: "Prevent double-bookings with temporary plot freezing. Set configurable reservation periods that auto-expire.",
         benefits: ["Auto-expiry timers", "Waitlist management", "Fair booking policy"]
       },
       {
-        title: "Digital Booking Journey",
+        title: "Paperless Booking",
         description: "A completely paperless booking experience. Generate digital contracts, collect payments, and send automated confirmations.",
         benefits: ["Digital contracts", "Payment gateway", "Instant receipts"]
       },
@@ -63,7 +63,7 @@ const featureCategories = [
     ]
   },
   {
-    title: "Customer Experience",
+    title: "Happy Customers",
     description: "Delight your customers with modern, self-service tools and transparent information.",
     icon: Smartphone,
     color: "text-purple-500",
@@ -87,7 +87,7 @@ const featureCategories = [
     ]
   },
   {
-    title: "Analytics & Growth",
+    title: "Reports and Growth",
     description: "Make data-driven decisions with comprehensive reporting and marketing tools.",
     icon: BarChart3,
     color: "text-orange-500",
@@ -128,16 +128,16 @@ export default function FeaturesPage() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 border border-gray-200 text-xs sm:text-sm font-medium text-gray-600 mb-4 sm:mb-6">
               <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-              Feature Rich Platform
+              Packed with Features
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-gray-900 mb-4 sm:mb-6 px-4">
               Everything you need to <br className="hidden sm:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                scale your sales
+                sell faster
               </span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-4">
-              A complete operating system for real estate developers. From the first lead to the final handover, we've digitized every step of the journey.
+              The only software you need to run your plot business. From the first call to the final sale, we do it all.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4">
               <Button size="lg" className="rounded-full px-6 sm:px-8 h-11 sm:h-12 text-sm sm:text-base bg-gray-900 hover:bg-gray-800 text-white w-full sm:w-auto" asChild>

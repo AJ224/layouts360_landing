@@ -21,7 +21,7 @@ export default function Hero() {
           <div className="flex justify-center">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-slate-200 bg-slate-50 text-slate-600 text-sm font-medium">
               <span className="w-2 h-2 rounded-full bg-slate-500"></span>
-              Live Plot Visualization Platform
+              Live Map System for Plot Sales
             </span>
           </div>
 
@@ -32,7 +32,7 @@ export default function Hero() {
 
           {/* Subheadline */}
           <p className="max-w-2xl mx-auto text-lg text-slate-600 leading-relaxed">
-            Replace chart papers and Excel sheets with a real-time digital layout system. Show plot status live, handle multiple customers, and close deals faster.
+            Stop using paper charts and Excel sheets. Use a live digital map instead. Show which plots are free or sold instantly. Handle more customers. Close deals faster.
           </p>
 
           {/* Status Indicators */}
