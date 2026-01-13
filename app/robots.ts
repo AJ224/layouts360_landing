@@ -5,8 +5,9 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: '/private/',
+      disallow: '/api/',
     },
     sitemap: 'https://layouts360.com/sitemap.xml',
+    host: 'https://layouts360.com',
   }
 }

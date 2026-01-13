@@ -170,7 +170,7 @@ export function RealLocationSection() {
 export function HowItWorksSection() {
     const steps = [
         { icon: <Upload className="w-6 h-6" />, title: "Upload", desc: "Upload layout plan" },
-        { icon: <Share2 className="w-6 h-6" />, title: "Share", desc: "Share link with customers" },
+        { icon: <Share2 className="w-6 h-6" />, title: "Share", desc: "Share project link with customers" },
         { icon: <Snowflake className="w-6 h-6" />, title: "Freeze", desc: "Freeze/Book plots" },
         { icon: <Users className="w-6 h-6" />, title: "Follow", desc: "Manage Follow-ups" },
         { icon: <Trophy className="w-6 h-6" />, title: "Wins", desc: "Close more deals" },
