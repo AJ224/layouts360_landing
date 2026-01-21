@@ -96,6 +96,63 @@ export function SoundFamiliarSection() {
     )
 }
 
+// --- Section 1.5: Plot Management Software CTA ---
+export function PlotManagementSoftwareSection() {
+    return (
+        <section className="py-16 bg-gradient-to-br from-blue-50 via-white to-purple-50 border-y border-slate-100">
+            <div className="container mx-auto px-4">
+                <div className="max-w-4xl mx-auto">
+                    <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-8 md:p-12">
+                        <div className="flex flex-col md:flex-row items-center gap-8">
+                            <div className="flex-1">
+                                <span className="inline-block px-3 py-1 rounded-full bg-blue-100 text-blue-700 font-medium text-xs tracking-wider uppercase mb-4">
+                                    Complete Solution
+                                </span>
+                                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                                    Looking for <span className="text-blue-600">Plot Management Software</span>?
+                                </h2>
+                                <p className="text-lg text-slate-600 mb-6 leading-relaxed">
+                                    Layouts360 is a specialized <strong>real estate plot management software</strong> designed for builders and developers. Manage plots, inventory, bookings, and payments—all in one place.
+                                </p>
+                                <ul className="space-y-3 mb-6">
+                                    {[
+                                        'Replace Excel with real-time inventory sync',
+                                        'Prevent double bookings automatically',
+                                        'Interactive digital layouts with satellite view',
+                                        'Mobile-first for field sales teams'
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex items-start gap-3 text-slate-700">
+                                            <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                                <svg className="w-3 h-3 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </div>
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                                <Link
+                                    href="/real-estate-plot-management-software"
+                                    className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors group"
+                                >
+                                    Learn More About Plot Management Software
+                                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                </Link>
+                            </div>
+                            <div className="md:w-1/3 flex flex-col gap-3">
+                                <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 border border-green-200">
+                                    <div className="text-3xl font-bold text-green-700 mb-1">₹2K</div>
+                                    <div className="text-sm text-green-600 font-medium">Starting from /month</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
+}
+
 // --- Section 2: One System. Complete Control. ---
 export function OneSystemSection() {
     return (

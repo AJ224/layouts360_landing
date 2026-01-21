@@ -15,6 +15,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: `${baseUrl}/real-estate-plot-management-software`,
+      lastModified: new Date('2026-01-21'),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/real-estate-inventory-management-software`,
+      lastModified: new Date('2026-01-21'),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/features`,
       lastModified: lastModified,
       changeFrequency: 'monthly' as const,

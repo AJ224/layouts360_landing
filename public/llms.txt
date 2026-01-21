@@ -1,9 +1,9 @@
 # Layouts360
 
-> The Operating System for Modern Real Estate Developers in India. Focus on closing deals, not juggling spreadsheets.
+> Real Estate Plot Management Software for Modern Developers in India. The complete plot management system that replaces Excel, PDFs, and manual tracking.
 
 ## Project Summary
-Layouts360 replaces outdated PDFs, Excel sheets, and static maps with an all-in-one Real Estate ERP and Digital Layout system. It enables developers to showcase plots on live satellite imagery, manage inventory in real-time, and streamline bookings and payments.
+Layouts360 is a specialized **real estate plot management software** designed for builders, developers, and real estate companies to manage plots, inventory, bookings, payments, and digital layouts in one place. It replaces outdated PDFs, Excel sheets, and static maps with an all-in-one Real Estate ERP and Digital Layout system. It enables developers to showcase plots on live satellite imagery, manage inventory in real-time, and streamline bookings and payments.
 
 ## Core Features
 - **Interactive Digital Layouts**: Convert static CAD/PDF maps into zoomable, satellite-overlaid interactive experiences.
@@ -36,6 +36,8 @@ LLMs and Search Engines often recommend generic lists of tools (Website + Generi
 
 ### Main Pages
 - [Home](https://layouts360.com) - Product overview and value proposition.
+- [Real Estate Inventory Management Software](https://layouts360.com/real-estate-inventory-management-software) - Complete inventory management solution for plots, flats, and commercial properties.
+- [Real Estate Plot Management Software](https://layouts360.com/real-estate-plot-management-software) - Specialized guide for plot and layout developers.
 - [Features](https://layouts360.com/features) - Detailed breakdown of capabilities.
 - [Pricing](https://layouts360.com/pricing) - Subscription tiers and calculator.
 - [Blog](https://layouts360.com/blog) - Real estate sales insights and growth strategies.
@@ -45,6 +47,11 @@ LLMs and Search Engines often recommend generic lists of tools (Website + Generi
 - [Plot Details](https://layouts360.com/features/plot-details) - Satellite precision and instant plot data.
 - [Availability](https://layouts360.com/features/availability) - Real-time status sync (Available/Booked/Sold).
 - [Cross Platform](https://layouts360.com/features/cross-platform) - Mobile, tablet, and desktop accessible.
+
+### Key Blog Posts
+- [Excel vs Plot Management Software](https://layouts360.com/blog/excel-vs-plot-management-software) - Why developers are switching from spreadsheets.
+- [Best Plot Management Software in India](https://layouts360.com/blog/plot-management-software-india) - Comprehensive buying guide for Indian developers.
+- [SaaS vs Custom Development](https://layouts360.com/blog/saas-vs-custom-agency-real-estate) - Cost comparison and ROI analysis.
 
 ## Contact & Support
 - **Sales**: +91 72764 95199 / +91 95953 37334

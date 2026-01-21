@@ -2,6 +2,7 @@ import Hero from "@/components/marketing/hero"
 import Footer from "@/components/marketing/footer"
 import {
   SoundFamiliarSection,
+  PlotManagementSoftwareSection,
   OneSystemSection,
   RealLocationSection,
   HowItWorksSection,
@@ -23,6 +24,7 @@ export default function Page() {
     <main className="bg-white min-h-screen">
       <Hero />
       <SoundFamiliarSection />
+      <PlotManagementSoftwareSection />
       <OneSystemSection />
       <RealLocationSection />
       <HowItWorksSection />
