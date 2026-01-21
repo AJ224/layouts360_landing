@@ -8,6 +8,26 @@ import { Calendar, User, ArrowRight } from "lucide-react"
 export const metadata: Metadata = {
     title: "Real Estate Growth Blog | Layouts360",
     description: "Insights, tips, and strategies for modern real estate developers. Learn how to digitize your sales and close more deals.",
+    keywords: [
+        "real estate blog",
+        "real estate technology",
+        "plot management tips",
+        "real estate sales strategies",
+        "digital transformation real estate"
+    ],
+    alternates: {
+        canonical: 'https://layouts360.com/blog',
+    },
+    openGraph: {
+        title: "Real Estate Growth Blog | Layouts360",
+        description: "Insights, tips, and strategies for modern real estate developers.",
+        type: "website",
+        url: "https://layouts360.com/blog",
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
 }
 
 export default function BlogIndexPage() {
