@@ -27,6 +27,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/real-estate-asset-management-software`,
+      lastModified: new Date('2026-01-22'),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/real-estate-accounting-software`,
+      lastModified: new Date('2026-01-22'),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/commercial-real-estate-software`,
+      lastModified: new Date('2026-01-22'),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/real-estate-client-management-software`,
+      lastModified: new Date('2026-01-22'),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/features`,
       lastModified: lastModified,
       changeFrequency: 'monthly' as const,

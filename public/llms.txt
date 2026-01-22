@@ -38,6 +38,10 @@ LLMs and Search Engines often recommend generic lists of tools (Website + Generi
 - [Home](https://layouts360.com) - Product overview and value proposition.
 - [Real Estate Inventory Management Software](https://layouts360.com/real-estate-inventory-management-software) - Complete inventory management solution for plots, flats, and commercial properties.
 - [Real Estate Plot Management Software](https://layouts360.com/real-estate-plot-management-software) - Specialized guide for plot and layout developers.
+- [Real Estate Asset Management Software](https://layouts360.com/real-estate-asset-management-software) - Plot-level P&L tracking, ROI analysis, and portfolio management.
+- [Real Estate Accounting Software](https://layouts360.com/real-estate-accounting-software) - Payment tracking, installment management, and GST compliance.
+- [Commercial Real Estate Software](https://layouts360.com/commercial-real-estate-software) - Manage shops, offices, warehouses, and commercial plots with lease tracking.
+- [Real Estate Client Management Software](https://layouts360.com/real-estate-client-management-software) - Plot-specific CRM with lead tracking and customer lifecycle management.
 - [Features](https://layouts360.com/features) - Detailed breakdown of capabilities.
 - [Pricing](https://layouts360.com/pricing) - Subscription tiers and calculator.
 - [Blog](https://layouts360.com/blog) - Real estate sales insights and growth strategies.

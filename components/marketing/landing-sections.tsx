@@ -201,7 +201,7 @@ export function RealLocationSection() {
     return (
         <section className="relative py-32 bg-slate-900 overflow-hidden">
             {/* Background Image Placeholder - would be satellite map */}
-            <div className="absolute inset-0 bg-[url('/satellite-map-bg.jpg')] bg-cover bg-center opacity-40 mix-blend-overlay"></div>
+            <div className="absolute inset-0 bg-[url('/satellite-map-bg.png')] bg-cover bg-center opacity-40 mix-blend-overlay"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-slate-900"></div>
 
             <div className="container mx-auto px-4 relative z-10 text-center">
