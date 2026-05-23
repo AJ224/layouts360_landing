@@ -41,7 +41,7 @@ export default function PricingCalculator() {
           <div className="p-1.5 sm:p-2 rounded-lg bg-primary/10">
             <Calculator className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
           </div>
-          Calculate Your Cost
+          Request a Quote
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4 sm:space-y-6">
@@ -101,65 +101,30 @@ export default function PricingCalculator() {
         </div>
 
         {/* Calculation Results */}
-        <div className="space-y-3 sm:space-y-4 rounded-xl bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 p-4 sm:p-6 border-2 border-primary/20">
-          <div className="space-y-3 sm:space-y-4">
-            {includeDomain ? (
-              <div className="flex justify-between items-center py-1 gap-2">
-                <span className="text-xs sm:text-sm font-medium text-slate-700">Business Plan</span>
-                <span className="font-semibold flex items-center gap-1 sm:gap-1.5 text-xs sm:text-sm">
-                  <span className="text-xs">₹</span>
-                  {discountPercent > 0 ? (
-                    <span className="flex items-center gap-1 sm:gap-2 flex-wrap justify-end">
-                      <span className="line-through text-muted-foreground text-xs sm:text-sm font-normal">
-                        {((platformFeeMonthly + domainFeeMonthly) * period).toLocaleString("en-IN")}
-                      </span>
-                      <span>{((platformFeeDiscounted + domainFeeDiscounted) * period).toLocaleString("en-IN")}</span>
-                      <span className="text-green-600 dark:text-green-500 text-[10px] sm:text-xs font-semibold bg-green-100 dark:bg-green-900/30 px-1 sm:px-1.5 py-0.5 rounded">
-                        {discountPercent}% off
-                      </span>
-                    </span>
-                  ) : (
-                    <span>{((platformFeeDiscounted + domainFeeDiscounted) * period).toLocaleString("en-IN")}</span>
-                  )}
-                </span>
-              </div>
-            ) : (
-              <div className="flex justify-between items-center py-1 gap-2">
-                <span className="text-xs sm:text-sm font-medium text-slate-700">Sales Plan</span>
-                <span className="font-semibold flex items-center gap-1 sm:gap-1.5 text-xs sm:text-sm">
-                  <span className="text-xs">₹</span>
-                  {discountPercent > 0 ? (
-                    <span className="flex items-center gap-1 sm:gap-2 flex-wrap justify-end">
-                      <span className="line-through text-muted-foreground text-xs sm:text-sm font-normal">
-                        {(platformFeeMonthly * period).toLocaleString("en-IN")}
-                      </span>
-                      <span>{(platformFeeDiscounted * period).toLocaleString("en-IN")}</span>
-                      <span className="text-green-600 dark:text-green-500 text-[10px] sm:text-xs font-semibold bg-green-100 dark:bg-green-900/30 px-1 sm:px-1.5 py-0.5 rounded">
-                        {discountPercent}% off
-                      </span>
-                    </span>
-                  ) : (
-                    <span>{(platformFeeDiscounted * period).toLocaleString("en-IN")}</span>
-                  )}
-                </span>
-              </div>
+        <div className="rounded-xl bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 p-4 sm:p-6 border-2 border-primary/20">
+          <div className="space-y-2">
+            <p className="text-sm sm:text-base font-semibold text-slate-900">
+              Share these details with us and we’ll send pricing on enquiry.
+            </p>
+            <ul className="text-sm text-slate-600 space-y-1">
+              <li>
+                <span className="font-medium text-slate-800">Plots:</span> {plotCount}
+              </li>
+              <li>
+                <span className="font-medium text-slate-800">Period:</span> {period} {period === 1 ? "month" : "months"}
+              </li>
+              <li>
+                <span className="font-medium text-slate-800">Plan:</span> {includeDomain ? "Business Plan" : "Sales Plan"}
+              </li>
+            </ul>
+            <Button className="mt-3 w-full" asChild>
+              <a href="/contact#demo-form">Contact / Enquiry</a>
+            </Button>
+            {discountPercent > 0 && (
+              <p className="text-xs text-slate-500">
+                We’ll apply eligible discounts when we share your quote.
+              </p>
             )}
-
-            <div className="flex justify-between items-center py-1 gap-2">
-              <span className="text-xs sm:text-sm font-medium text-muted-foreground">Plot Cost</span>
-              <span className="font-semibold flex items-center gap-1 sm:gap-1.5 text-xs sm:text-sm">
-                <span className="text-xs">₹</span>
-                <span>{plotCost.toLocaleString("en-IN")}</span>
-              </span>
-            </div>
-
-            <div className="border-t border-primary/20 pt-3 sm:pt-4 mt-2 flex justify-between items-center gap-2">
-              <span className="text-sm sm:text-base font-bold">Total</span>
-              <span className="text-2xl sm:text-3xl font-bold tracking-tight flex items-center gap-1 sm:gap-1.5">
-                <span className="text-xl sm:text-2xl">₹</span>
-                <span>{totalCost.toLocaleString("en-IN")}</span>
-              </span>
-            </div>
           </div>
         </div>
       </CardContent>

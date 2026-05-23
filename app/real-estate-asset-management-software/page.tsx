@@ -9,7 +9,7 @@ import Footer from "@/components/marketing/footer";
 export const metadata: Metadata = {
     title: "Real Estate Asset Management Software | Layouts360",
     description:
-        "Track ₹50 Crore+ in plot inventory with real estate asset management software. Manage plot-level P&L, ROI tracking, holding costs, and asset lifecycle for developers.",
+        "Track 50 Crore+ in plot inventory with real estate asset management software. Manage plot-level P&L, ROI tracking, holding costs, and asset lifecycle for developers.",
     keywords: [
         "real estate asset management software",
         "plot asset management",
@@ -45,7 +45,7 @@ export default function RealEstateAssetManagementSoftwarePage() {
                                 Real Estate Asset Management Software for Developers
                             </h1>
                             <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">
-                                Track ₹50 Crore+ in plot inventory with <strong>real estate asset management software</strong>.
+                                Track 50 Crore+ in plot inventory with <strong>real estate asset management software</strong>.
                                 Manage plot-level P&L, ROI tracking, holding costs, and asset lifecycle—all in one platform.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -55,9 +55,9 @@ export default function RealEstateAssetManagementSoftwarePage() {
                                         <ArrowRight className="ml-2 h-5 w-5" />
                                     </Button>
                                 </Link>
-                                <Link href="/pricing">
+                                <Link href="/contact">
                                     <Button size="lg" variant="outline" className="text-lg px-8 py-6">
-                                        View Pricing
+                                        Contact / Enquiry
                                     </Button>
                                 </Link>
                             </div>
@@ -187,7 +187,7 @@ export default function RealEstateAssetManagementSoftwarePage() {
                                             Track True Profitability Per Plot
                                         </h3>
                                         <p className="text-gray-700">
-                                            You might sell a plot for ₹50 lakhs, but after acquisition cost, development,
+                                            You might sell a plot for 50 lakhs, but after acquisition cost, development,
                                             taxes, and holding costs, what's your actual profit? Asset management shows
                                             you the real numbers, not just the sale price.
                                         </p>
@@ -445,7 +445,7 @@ export default function RealEstateAssetManagementSoftwarePage() {
                                         Is asset management only for large developers?
                                     </h3>
                                     <p className="text-gray-700">
-                                        No. Even if you have 50 plots worth ₹5 crores, knowing your true profit per plot
+                                        No. Even if you have 50 plots worth 5 crores, knowing your true profit per plot
                                         is critical. Asset management helps developers of all sizes make smarter financial
                                         decisions.
                                     </p>
@@ -467,7 +467,7 @@ export default function RealEstateAssetManagementSoftwarePage() {
                                     </h3>
                                     <p className="text-gray-700">
                                         Layouts360 lets you allocate costs proportionally (by area, by plot count, or
-                                        custom allocation). For example, if you spent ₹1 crore on roads, it can split
+                                        custom allocation). For example, if you spent 1 crore on roads, it can split
                                         that across all plots automatically.
                                     </p>
                                 </div>

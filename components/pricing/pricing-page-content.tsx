@@ -1,11 +1,7 @@
 "use client"
 
 import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import Image from "next/image"
 import PricingCards from "@/components/pricing/pricing-cards"
-import PricingCalculator from "@/components/pricing/pricing-calculator"
 import Header from "@/components/marketing/header"
 import Footer from "@/components/marketing/footer"
 import CtaSection from "@/components/marketing/cta-section"
@@ -14,15 +10,15 @@ import { motion } from "framer-motion"
 const faqs = [
     {
         question: "How does subscription pricing work?",
-        answer: "Starts at ₹4,000/month. Save 20% on yearly plans. Everything included."
+        answer: "We share pricing on enquiry after understanding your plot count and requirements."
     },
     {
         question: "What's the plot pricing?",
-        answer: "₹10,000 for 150 plots. ₹100 per extra plot. Pay once for setup."
+        answer: "Setup and plot-based pricing depends on your layout complexity and total plots. Contact us for a quick quote."
     },
     {
         question: "Do I need my own domain?",
-        answer: "No. You can use our link. If you want your own .com name, we can do it for ₹6,000/month."
+        answer: "No. You can use our link. If you want your own domain, we’ll guide you and include it in the quote."
     },
     {
         question: "Can I change my plan later?",
@@ -79,18 +75,6 @@ export default function PricingPageContent() {
                     <PricingCards />
                 </motion.div>
             </section>
-
-            {/* Pricing Calculator */}
-            <section className="relative mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16 bg-gray-50/50 border-y border-gray-100">
-                <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12 px-4">
-                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">See Your Total Cost</h2>
-                    <p className="text-base sm:text-lg text-gray-600">Check how much you need to invest.</p>
-                </div>
-                <div className="max-w-2xl mx-auto px-4">
-                    <PricingCalculator />
-                </div>
-            </section>
-
 
             {/* FAQ Section */}
             <section className="mx-auto max-w-4xl px-4 sm:px-6 py-16 sm:py-20 md:py-24">

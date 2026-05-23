@@ -604,8 +604,8 @@ export default function RealEstateAccountingSoftwarePage() {
                                         How do I handle partial payments and installments?
                                     </h3>
                                     <p className="text-gray-700">
-                                        When you book a plot, create a payment schedule (e.g., ₹10 lakhs booking,
-                                        ₹5 lakhs in 3 months, ₹35 lakhs on registration). As payments come in, record
+                                        When you book a plot, create a payment schedule (e.g., booking amount,
+                                        milestone payments, and final registration amount). As payments come in, record
                                         them against the schedule. The system tracks what's paid and what's pending.
                                     </p>
                                 </div>

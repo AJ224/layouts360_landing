@@ -3,11 +3,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { pricingConfig } from "@/lib/pricing-config"
-import { Check, Layers, Gift, TrendingUp } from "lucide-react"
+import { Check, Layers } from "lucide-react"
 import Link from "next/link"
 
 export default function PricingCards() {
-  const { plans, plotPricing } = pricingConfig
+  const { plans } = pricingConfig
 
   return (
     <div className="space-y-16">
@@ -17,6 +17,9 @@ export default function PricingCards() {
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 border-b-2 border-slate-200 inline-block pb-1">
             Choose Your Plan
           </h2>
+          <p className="mt-3 text-sm sm:text-base text-slate-600">
+            Pricing is shared on enquiry. Tell us your plot count and we’ll recommend the right plan.
+          </p>
         </div>
 
         <div className="grid gap-8 lg:grid-cols-2 max-w-5xl mx-auto">
@@ -53,22 +56,16 @@ export default function PricingCards() {
                   </div>
 
                   <div className="pt-2">
-                    <div className="flex items-baseline gap-2 mb-1">
-                      <span className={`text-sm font-bold uppercase tracking-widest ${isDark ? "text-gray-400" : "text-slate-400"}`}>Monthly:</span>
-                      <span className={`text-2xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>₹{plan.monthlyPrice.toLocaleString()}</span>
-                    </div>
-
-                    <div className="flex items-center gap-3">
-                      <span className={`text-sm font-bold uppercase tracking-widest ${isDark ? "text-gray-400" : "text-slate-400"}`}>Annual:</span>
-                      <span className={`text-sm line-through ${isDark ? "text-gray-500" : "text-slate-400"}`}>
-                        ₹{plan.annualOriginalPrice.toLocaleString()}
-                      </span>
-                      <span className={`text-2xl font-bold ${isDark ? "text-white" : "text-slate-900"}`}>
-                        ₹{plan.annualPrice.toLocaleString()}
-                      </span>
-                      <span className="bg-emerald-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
-                        {plan.saveLabel}
-                      </span>
+                    <div className="rounded-xl border border-slate-200/60 bg-white/60 px-4 py-3">
+                      <div className={`text-xs font-bold uppercase tracking-widest ${isDark ? "text-gray-400" : "text-slate-500"}`}>
+                        Pricing
+                      </div>
+                      <div className={`mt-1 text-lg font-bold ${isDark ? "text-white" : "text-slate-900"}`}>
+                        Contact us for pricing
+                      </div>
+                      <div className={`mt-1 text-sm ${isDark ? "text-gray-400" : "text-slate-600"}`}>
+                        Get a quick quote based on your plot count.
+                      </div>
                     </div>
                   </div>
 
@@ -104,7 +101,7 @@ export default function PricingCards() {
                     asChild
                   >
                     <Link href="/contact#demo-form">
-                      Get Started
+                      Enquire Now
                     </Link>
                   </Button>
 
@@ -123,47 +120,23 @@ export default function PricingCards() {
       <div className="space-y-8">
         <div className="text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 border-b-2 border-slate-200 inline-block text-center pb-1">
-            One Time Setup Cost
+            Setup & Onboarding
           </h2>
+          <p className="mt-3 text-sm sm:text-base text-slate-600">
+            We’ll confirm setup details and share pricing after understanding your layouts and plot count.
+          </p>
         </div>
 
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-xl mx-auto">
           <Card className="border shadow-md bg-white overflow-hidden">
-            <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-100">
-              {/* Item 1: Base Setup Cost */}
-              <div className="p-8 flex flex-col items-start gap-4 hover:bg-slate-50 transition-colors">
-                <div className="p-3 bg-blue-50 rounded-lg">
-                  <Layers className="w-8 h-8 text-[#0B1E3B]" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-900 text-lg">Map Creation & Setup</h3>
-                  <p className="text-3xl font-bold text-[#0B1E3B] mt-1">₹{plotPricing.baseSetupCost.toLocaleString()}</p>
-                  <p className="text-sm text-slate-500 mt-2">Pay once. We make your digital map.</p>
-                </div>
+            <div className="p-8 flex flex-col items-start gap-4 hover:bg-slate-50 transition-colors">
+              <div className="p-3 bg-blue-50 rounded-lg">
+                <Layers className="w-8 h-8 text-[#0B1E3B]" />
               </div>
-
-              {/* Item 2: Plots Included */}
-              <div className="p-8 flex flex-col items-start gap-4 hover:bg-slate-50 transition-colors">
-                <div className="p-3 bg-emerald-50 rounded-lg">
-                  <Gift className="w-8 h-8 text-emerald-600" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-900 text-lg">Plots in Package</h3>
-                  <p className="text-3xl font-bold text-emerald-600 mt-1">{plotPricing.baseIncludedPlots} Plots</p>
-                  <p className="text-sm text-slate-500 mt-2">150 plots included</p>
-                </div>
-              </div>
-
-              {/* Item 3: Additional Plots */}
-              <div className="p-8 flex flex-col items-start gap-4 hover:bg-slate-50 transition-colors">
-                <div className="p-3 bg-orange-50 rounded-lg">
-                  <TrendingUp className="w-8 h-8 text-orange-500" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-900 text-lg">Extra Plots</h3>
-                  <p className="text-3xl font-bold text-orange-500 mt-1">₹{plotPricing.additionalPlotCost}<span className="text-lg font-medium text-slate-400">/plot</span></p>
-                  <p className="text-sm text-slate-500 mt-2">If you have more than {plotPricing.baseIncludedPlots} plots</p>
-                </div>
+              <div>
+                <h3 className="font-bold text-slate-900 text-lg">Map Creation & Setup</h3>
+                <p className="text-2xl font-bold text-[#0B1E3B] mt-1">Contact for quote</p>
+                <p className="text-sm text-slate-500 mt-2">We digitize your layout and set up your project.</p>
               </div>
             </div>
           </Card>

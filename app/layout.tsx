@@ -88,10 +88,6 @@ const jsonLd = {
   url: 'https://layouts360.com',
   offers: {
     '@type': 'AggregateOffer',
-    priceCurrency: 'INR',
-    lowPrice: '2000',
-    highPrice: '4000',
-    priceValidUntil: '2025-12-31',
     availability: 'https://schema.org/InStock'
   },
   provider: {

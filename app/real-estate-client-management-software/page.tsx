@@ -173,8 +173,7 @@ export default function RealEstateClientManagementSoftwarePage() {
                                         <h3 className="text-xl font-semibold text-gray-900">Expensive Per-User Pricing</h3>
                                     </div>
                                     <p className="text-gray-700">
-                                        Generic CRMs charge ₹1,500-₹3,000 per user per month. For a 10-person sales team,
-                                        that's ₹15,000-₹30,000/month!
+                                        Generic CRMs charge per user per month. For a 10-person sales team, costs add up fast.
                                     </p>
                                 </div>
                             </div>
@@ -613,8 +612,8 @@ export default function RealEstateClientManagementSoftwarePage() {
                                         </tr>
                                         <tr>
                                             <td className="p-4 font-medium text-gray-900">Monthly Cost (10 users)</td>
-                                            <td className="p-4 text-center text-gray-700">₹15,000 - ₹30,000</td>
-                                            <td className="p-4 text-center text-gray-700">₹4,000 (unlimited users)</td>
+                                            <td className="p-4 text-center text-gray-700">High (per-user pricing)</td>
+                                            <td className="p-4 text-center text-gray-700">Contact / Enquiry</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -638,7 +637,7 @@ export default function RealEstateClientManagementSoftwarePage() {
                                     </h3>
                                     <p className="text-gray-700">
                                         Basic lead tracking is available in all plans. Full CRM features (follow-up automation,
-                                        site visit tracking, agent performance) are included in the Growth Suite plan (₹4,000/month).
+                                        site visit tracking, agent performance) are included in the Business Plan. Contact us for pricing.
                                     </p>
                                 </div>
 

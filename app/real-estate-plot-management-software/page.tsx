@@ -579,7 +579,7 @@ export default function RealEstatePlotManagementSoftwarePage() {
                                         <tr>
                                             <td className="p-4 font-medium text-gray-900">Monthly Cost</td>
                                             <td className="p-4 text-center text-gray-700">Free (but costly mistakes)</td>
-                                            <td className="p-4 text-center text-gray-700">₹2,000 - ₹4,000</td>
+                                            <td className="p-4 text-center text-gray-700">Contact / Enquiry</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -635,7 +635,7 @@ export default function RealEstatePlotManagementSoftwarePage() {
                                         Is Layouts360 suitable for small developers with limited plots?
                                     </h3>
                                     <p className="text-gray-700">
-                                        Absolutely. Our Sales Starter plan starts at ₹2,000/month and is perfect for
+                                        Absolutely. Our Sales Starter plan is perfect for
                                         developers with 50-200 plots. Even small projects benefit from professional
                                         presentation and real-time inventory management.
                                     </p>

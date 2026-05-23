@@ -185,7 +185,7 @@ export default function RealEstateInventoryManagementPage() {
                                     {
                                         title: "Double Bookings",
                                         description: "Two agents book the same unit because they're working with different Excel files. Result: Angry customers, lost credibility, legal issues.",
-                                        cost: "₹2-5 Lakhs/incident"
+                                        cost: "High cost per incident"
                                     },
                                     {
                                         title: "Inventory Confusion",
@@ -195,7 +195,7 @@ export default function RealEstateInventoryManagementPage() {
                                     {
                                         title: "Payment Tracking Chaos",
                                         description: "Tracking partial payments, installments, and due dates across hundreds of customers in spreadsheets is error-prone.",
-                                        cost: "₹50k-1L/year in reconciliation"
+                                        cost: "High annual reconciliation cost"
                                     },
                                     {
                                         title: "No Real-Time Updates",
@@ -228,10 +228,10 @@ export default function RealEstateInventoryManagementPage() {
 
                             <div className="mt-8 p-6 bg-yellow-50 border-l-4 border-yellow-400 rounded-r-xl">
                                 <p className="text-lg font-semibold text-gray-900 mb-2">
-                                    Hidden Annual Cost of Manual Inventory Management: ₹7-17 Lakhs
+                                    Hidden Annual Cost of Manual Inventory Management: Significant
                                 </p>
                                 <p className="text-gray-700">
-                                    Compare that to ₹24,000-48,000/year for professional inventory management software. The ROI is obvious.
+                                    Compare that to a professional system with predictable pricing. The ROI is obvious.
                                 </p>
                             </div>
                         </div>
@@ -471,10 +471,10 @@ export default function RealEstateInventoryManagementPage() {
                                             <td className="p-4 font-medium text-gray-900">Annual Cost</td>
                                             <td className="p-4 text-center text-gray-700">
                                                 Free<br />
-                                                <span className="text-xs text-red-600">(₹7-17L in hidden costs)</span>
+                                                <span className="text-xs text-red-600">(hidden costs)</span>
                                             </td>
                                             <td className="p-4 text-center text-gray-700">
-                                                ₹24k-48k/year<br />
+                                                Contact / Enquiry<br />
                                                 <span className="text-xs text-green-600">(10x ROI)</span>
                                             </td>
                                         </tr>
