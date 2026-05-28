@@ -1,3 +1,4 @@
+import "./blog-prose.css"
 import Link from "next/link"
 import { MDXRemote } from "next-mdx-remote/rsc"
 import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react"

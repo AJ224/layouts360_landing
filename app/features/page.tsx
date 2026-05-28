@@ -1,17 +1,10 @@
-"use client"
-
 import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Header from "@/components/marketing/header"
 import Footer from "@/components/marketing/footer"
 import CtaSection from "@/components/marketing/cta-section"
-import { motion } from "framer-motion"
-import { ArrowRight, Check, Layout, Database, Smartphone, Shield, BarChart3, Users, FileText, Globe } from "lucide-react"
-
-// Note: Metadata export removed from client component. 
-// In a real Next.js app, you'd move metadata to a separate layout.tsx or keep this page server-side 
-// and make the content a client component. For this refactor, we'll keep it simple.
+import { MarketingButtonLink } from "@/components/ui/marketing-button-link"
+import { ArrowRight, BarChart3, Check, Layout, Smartphone, Users } from "lucide-react"
 
 const featureCategories = [
   {
@@ -23,20 +16,22 @@ const featureCategories = [
     features: [
       {
         title: "Interactive Site Plans",
-        description: "Upload and digitize your site plans. Allow customers to zoom, pan, and explore every detail of your layout from any device.",
-        benefits: ["High-resolution mapping", "Mobile-responsive", "Real-time availability"]
+        description:
+          "Upload and digitize your site plans. Allow customers to zoom, pan, and explore every detail of your layout from any device.",
+        benefits: ["High-resolution mapping", "Mobile-responsive", "Real-time availability"],
       },
       {
         title: "Plot Status Management",
-        description: "Visual status tracking for every plot. Instantly see what's Available, Reserved, Booked, or Sold with automatic color coding.",
-        benefits: ["Color-coded system", "Instant updates", "Conflict prevention"]
+        description:
+          "Visual status tracking for every plot. Instantly see what's Available, Reserved, Booked, or Sold with automatic color coding.",
+        benefits: ["Color-coded system", "Instant updates", "Conflict prevention"],
       },
       {
         title: "Manage Multiple Projects",
         description: "Manage multiple phases or entirely different projects from a single, centralized dashboard.",
-        benefits: ["Unlimited layouts", "Centralized control", "Project isolation"]
-      }
-    ]
+        benefits: ["Unlimited layouts", "Centralized control", "Project isolation"],
+      },
+    ],
   },
   {
     title: "Sales & Booking",
@@ -47,20 +42,23 @@ const featureCategories = [
     features: [
       {
         title: "Booking & Holding Plots",
-        description: "Prevent double-bookings with temporary plot freezing. Set configurable reservation periods that auto-expire.",
-        benefits: ["Auto-expiry timers", "Waitlist management", "Fair booking policy"]
+        description:
+          "Prevent double-bookings with temporary plot freezing. Set configurable reservation periods that auto-expire.",
+        benefits: ["Auto-expiry timers", "Waitlist management", "Fair booking policy"],
       },
       {
         title: "Paperless Booking",
-        description: "A completely paperless booking experience. Generate digital contracts, collect payments, and send automated confirmations.",
-        benefits: ["Digital contracts", "Payment gateway", "Instant receipts"]
+        description:
+          "A completely paperless booking experience. Generate digital contracts, collect payments, and send automated confirmations.",
+        benefits: ["Digital contracts", "Payment gateway", "Instant receipts"],
       },
       {
         title: "CRM Integration",
-        description: "Built-in CRM to manage customer profiles, track communication history, and nurture leads through the funnel.",
-        benefits: ["Customer 360° view", "Lead scoring", "Interaction logs"]
-      }
-    ]
+        description:
+          "Built-in CRM to manage customer profiles, track communication history, and nurture leads through the funnel.",
+        benefits: ["Customer 360° view", "Lead scoring", "Interaction logs"],
+      },
+    ],
   },
   {
     title: "Happy Customers",
@@ -71,20 +69,22 @@ const featureCategories = [
     features: [
       {
         title: "Client Portal",
-        description: "Give buyers their own dedicated space to view documents, track payment history, and see project updates.",
-        benefits: ["Document repository", "Payment tracking", "Project timeline"]
+        description:
+          "Give buyers their own dedicated space to view documents, track payment history, and see project updates.",
+        benefits: ["Document repository", "Payment tracking", "Project timeline"],
       },
       {
         title: "Mobile-First Design",
-        description: "Ensure a flawless experience whether your customers are browsing on a desktop, tablet, or smartphone.",
-        benefits: ["Responsive UI", "Touch-optimized", "Fast loading"]
+        description:
+          "Ensure a flawless experience whether your customers are browsing on a desktop, tablet, or smartphone.",
+        benefits: ["Responsive UI", "Touch-optimized", "Fast loading"],
       },
       {
         title: "Secure Document Vault",
         description: "Bank-grade security for storing sensitive property documents and agreements.",
-        benefits: ["Encrypted storage", "Role-based access", "Audit trails"]
-      }
-    ]
+        benefits: ["Encrypted storage", "Role-based access", "Audit trails"],
+      },
+    ],
   },
   {
     title: "Reports and Growth",
@@ -95,21 +95,24 @@ const featureCategories = [
     features: [
       {
         title: "Sales Intelligence",
-        description: "Deep dive into your sales performance. Track conversion rates, revenue velocity, and team performance.",
-        benefits: ["Real-time dashboard", "Revenue forecasting", "Team metrics"]
+        description:
+          "Deep dive into your sales performance. Track conversion rates, revenue velocity, and team performance.",
+        benefits: ["Real-time dashboard", "Revenue forecasting", "Team metrics"],
       },
       {
         title: "Marketing Landing Pages",
-        description: "Auto-generate SEO-optimized landing pages for each of your projects to capture high-intent leads.",
-        benefits: ["SEO ready", "Lead capture forms", "Pixel integration"]
+        description:
+          "Auto-generate SEO-optimized landing pages for each of your projects to capture high-intent leads.",
+        benefits: ["SEO ready", "Lead capture forms", "Pixel integration"],
       },
       {
         title: "Custom Reporting",
-        description: "Create tailored reports that matter to your stakeholders. Schedule them to be delivered automatically.",
-        benefits: ["Drag-and-drop builder", "Scheduled emails", "Export to PDF/Excel"]
-      }
-    ]
-  }
+        description:
+          "Create tailored reports that matter to your stakeholders. Schedule them to be delivered automatically.",
+        benefits: ["Drag-and-drop builder", "Scheduled emails", "Export to PDF/Excel"],
+      },
+    ],
+  },
 ]
 
 export default function FeaturesPage() {
@@ -117,106 +120,89 @@ export default function FeaturesPage() {
     <div className="min-h-screen bg-white">
       <Header theme="light" />
 
-      {/* Hero Section */}
-      <section className="relative pt-16 sm:pt-20 pb-20 sm:pb-28 md:pb-32 overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 border border-gray-200 text-xs sm:text-sm font-medium text-gray-600 mb-4 sm:mb-6">
-              <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+      <section className="relative overflow-hidden pt-16 pb-20 sm:pt-20 sm:pb-28 md:pb-32">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
+        <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6">
+          <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600 sm:mb-6 sm:text-sm">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-blue-500" />
               Packed with Features
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-gray-900 mb-4 sm:mb-6 px-4">
+            <h1 className="mb-4 px-4 text-3xl font-bold tracking-tight text-gray-900 sm:mb-6 sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
               Everything you need to <br className="hidden sm:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 sell faster
               </span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-4">
+            <p className="mx-auto mb-8 max-w-2xl px-4 text-base leading-relaxed text-gray-600 sm:mb-10 sm:text-lg md:text-xl">
               The only software you need to run your plot business. From the first call to the final sale, we do it all.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4">
-              <Button size="lg" className="rounded-full px-6 sm:px-8 h-11 sm:h-12 text-sm sm:text-base bg-gray-900 hover:bg-gray-800 text-white w-full sm:w-auto" asChild>
-                <Link href="/#demo">Schedule Demo</Link>
-              </Button>
-              <Button size="lg" variant="outline" className="rounded-full px-6 sm:px-8 h-11 sm:h-12 text-sm sm:text-base border-gray-200 hover:bg-gray-50 w-full sm:w-auto" asChild>
-                <Link href="/pricing">View Pricing</Link>
-              </Button>
+            <div className="flex flex-col items-center justify-center gap-3 px-4 sm:flex-row sm:gap-4">
+              <MarketingButtonLink href="/contact#demo-form" className="w-full sm:w-auto">
+                Schedule Demo
+              </MarketingButtonLink>
+              <MarketingButtonLink href="/pricing" variant="outline" className="w-full sm:w-auto">
+                View Pricing
+              </MarketingButtonLink>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Sticky Categories Section */}
       <div className="relative bg-white">
-        {featureCategories.map((category, index) => (
-          <section key={category.title} className="py-12 sm:py-16 md:py-20 border-t border-gray-100">
+        {featureCategories.map((category) => (
+          <section key={category.title} className="border-t border-gray-100 py-12 sm:py-16 md:py-20">
             <div className="mx-auto max-w-7xl px-4 sm:px-6">
-              <div className="grid lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-24">
-
-                {/* Sticky Left Column */}
+              <div className="grid gap-8 sm:gap-12 lg:grid-cols-12 lg:gap-24">
                 <div className="lg:col-span-4">
                   <div className="lg:sticky lg:top-32">
-                    <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl ${category.bg} ${category.color} flex items-center justify-center mb-4 sm:mb-6`}>
-                      <category.icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                    <div
+                      className={`mb-4 flex h-10 w-10 items-center justify-center rounded-xl sm:mb-6 sm:h-12 sm:w-12 sm:rounded-2xl ${category.bg} ${category.color}`}
+                    >
+                      <category.icon className="h-5 w-5 sm:h-6 sm:w-6" />
                     </div>
-                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">{category.title}</h2>
-                    <p className="text-base sm:text-lg text-gray-500 leading-relaxed mb-6 sm:mb-8">
-                      {category.description}
-                    </p>
-                    <Button variant="ghost" className={`p-0 hover:bg-transparent ${category.color} hover:${category.color} group`} asChild>
-                      <Link href="/contact" className="flex items-center gap-2 text-sm sm:text-base">
-                        Learn more <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </Link>
-                    </Button>
+                    <h2 className="mb-3 text-2xl font-bold text-gray-900 sm:mb-4 sm:text-3xl">{category.title}</h2>
+                    <p className="mb-6 text-base leading-relaxed text-gray-500 sm:mb-8 sm:text-lg">{category.description}</p>
+                    <Link
+                      href="/contact"
+                      className={`group inline-flex items-center gap-2 text-sm font-medium sm:text-base ${category.color}`}
+                    >
+                      Learn more
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
                   </div>
                 </div>
 
-                {/* Scrollable Right Column */}
                 <div className="lg:col-span-8">
                   <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
-                    {category.features.map((feature, fIndex) => (
-                      <motion.div
+                    {category.features.map((feature) => (
+                      <Card
                         key={feature.title}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: fIndex * 0.1 }}
+                        className="group h-full border-gray-100 bg-gray-50/50 p-6 transition-all duration-300 hover:border-gray-200 hover:bg-white hover:shadow-xl hover:shadow-gray-200/50 sm:p-8"
                       >
-                        <Card className="h-full p-6 sm:p-8 border-gray-100 bg-gray-50/50 hover:bg-white hover:border-gray-200 hover:shadow-xl hover:shadow-gray-200/50 transition-all duration-300 group">
-                          <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-blue-600 transition-colors">
-                            {feature.title}
-                          </h3>
-                          <p className="text-sm sm:text-base text-gray-500 mb-4 sm:mb-6 leading-relaxed">
-                            {feature.description}
-                          </p>
-                          <ul className="space-y-2 sm:space-y-3">
-                            {feature.benefits.map((benefit) => (
-                              <li key={benefit} className="flex items-center gap-2 text-xs sm:text-sm text-gray-600">
-                                <Check className="w-3 h-3 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" />
-                                {benefit}
-                              </li>
-                            ))}
-                          </ul>
-                        </Card>
-                      </motion.div>
+                        <h3 className="mb-2 text-lg font-bold text-gray-900 transition-colors group-hover:text-blue-600 sm:mb-3 sm:text-xl">
+                          {feature.title}
+                        </h3>
+                        <p className="mb-4 text-sm leading-relaxed text-gray-500 sm:mb-6 sm:text-base">{feature.description}</p>
+                        <ul className="space-y-2 sm:space-y-3">
+                          {feature.benefits.map((benefit) => (
+                            <li key={benefit} className="flex items-center gap-2 text-xs text-gray-600 sm:text-sm">
+                              <Check className="h-3 w-3 shrink-0 text-green-500 sm:h-4 sm:w-4" />
+                              {benefit}
+                            </li>
+                          ))}
+                        </ul>
+                      </Card>
                     ))}
                   </div>
                 </div>
-
               </div>
             </div>
           </section>
         ))}
       </div>
 
-      {/* CTA Section */}
       <CtaSection />
-
       <Footer />
     </div>
   )

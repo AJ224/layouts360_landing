@@ -2,7 +2,6 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { plotManagementBenefits } from "@/components/marketing/landing/data"
 import { CheckList, Section } from "@/components/marketing/landing/ui"
-import { Button } from "@/components/ui/button"
 
 export function PlotManagementSoftwareSection() {
   return (
@@ -34,9 +33,12 @@ export function PlotManagementSoftwareSection() {
           <aside className="rounded-xl border border-emerald-200 bg-gradient-to-br from-emerald-50 to-emerald-100 p-6">
             <p className="text-2xl font-bold text-emerald-900">Contact for pricing</p>
             <p className="mt-1 text-sm font-medium text-emerald-800">Quote on enquiry</p>
-            <Button className="mt-6 w-full bg-emerald-700 hover:bg-emerald-800" asChild>
-              <Link href="/contact#demo-form">Enquire now</Link>
-            </Button>
+            <Link
+              href="/contact#demo-form"
+              className="mt-6 flex h-10 w-full items-center justify-center rounded-md bg-emerald-700 text-sm font-medium text-white transition-colors hover:bg-emerald-800"
+            >
+              Enquire now
+            </Link>
           </aside>
         </div>
       </div>

@@ -1,9 +1,6 @@
-"use client"
-
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
 import Header from "@/components/marketing/header"
-import { Check, ArrowRight, PlayCircle, CheckCircle2 } from "lucide-react"
+import { MarketingButtonLink } from "@/components/ui/marketing-button-link"
+import { ArrowRight, CheckCircle2, PlayCircle } from "lucide-react"
 
 export default function Hero() {
   return (
@@ -44,27 +41,13 @@ export default function Hero() {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8 pb-8">
-            <Button
-              size="lg"
-              className="bg-slate-800 hover:bg-slate-700 text-white text-base font-medium rounded-lg px-8 h-12 min-w-[160px]"
-              asChild
-            >
-              <Link href="/contact">
-                Request Demo <ArrowRight className="w-4 h-4 ml-2" />
-              </Link>
-            </Button>
-
-            <Button
-              size="lg"
-              variant="outline"
-              className="bg-slate-100 hover:bg-slate-200 border-transparent text-slate-900 text-base font-medium rounded-lg px-8 h-12 min-w-[160px]"
-              asChild
-            >
-              <Link href="/#how-it-works">
-                <PlayCircle className="w-4 h-4 mr-2" /> See How It Works
-              </Link>
-            </Button>
+          <div className="flex flex-col items-center justify-center gap-4 pt-8 pb-8 sm:flex-row">
+            <MarketingButtonLink href="/contact">
+              Request Demo <ArrowRight className="ml-2 h-4 w-4" />
+            </MarketingButtonLink>
+            <MarketingButtonLink href="/#how-it-works" variant="outline">
+              <PlayCircle className="mr-2 h-4 w-4" /> See How It Works
+            </MarketingButtonLink>
           </div>
 
           {/* Bottom Trust/Features Badges */}

@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
 
 const trustPoints = ["No credit card", "14-day trial", "Cancel anytime"]
 
@@ -19,20 +18,18 @@ export function CtaSectionNew() {
         </p>
 
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Button
-            size="lg"
-            className="rounded-full bg-white px-8 py-6 text-lg font-bold text-slate-900 hover:bg-slate-100"
-            asChild
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-lg font-bold text-slate-900 transition-colors hover:bg-slate-100"
           >
-            <Link href="/contact">Start for free</Link>
-          </Button>
-          <Button
-            size="lg"
-            className="rounded-full border border-white/40 bg-transparent px-8 py-6 text-lg font-medium text-white hover:bg-white/10"
-            asChild
+            Start for free
+          </Link>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center rounded-full border border-white/40 bg-transparent px-8 py-4 text-lg font-medium text-white transition-colors hover:bg-white/10"
           >
-            <Link href="/contact">Talk to sales</Link>
-          </Button>
+            Talk to sales
+          </Link>
         </div>
 
         <p className="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm font-medium uppercase tracking-widest text-slate-500">

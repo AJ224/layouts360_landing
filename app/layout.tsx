@@ -2,9 +2,14 @@ import type React from "react"
 import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
-import { Analytics } from "@vercel/analytics/next"
+import dynamic from "next/dynamic"
 import { Suspense } from "react"
 import "./globals.css"
+
+const Analytics = dynamic(
+  () => import("@vercel/analytics/react").then((mod) => mod.Analytics),
+  { ssr: false },
+)
 
 export const metadata: Metadata = {
   title: {

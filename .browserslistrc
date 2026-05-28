@@ -1,0 +1,5 @@
+# Modern browsers only — avoids legacy polyfills in client bundles (PageSpeed / Lighthouse).
+chrome >= 111
+edge >= 111
+firefox >= 111
+safari >= 16.4

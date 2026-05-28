@@ -29,6 +29,12 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {},
+  experimental: {
+    optimizeCss: true,
+  },
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production" ? { exclude: ["error", "warn"] } : false,
+  },
   modularizeImports: {
     "lucide-react": {
       transform: "lucide-react/dist/esm/icons/{{lowerCase memberName}}",
@@ -49,6 +55,16 @@ const nextConfig = {
       },
       ...getCompareRedirects(),
     ]
+  },
+  webpack(config, { isServer }) {
+    if (!isServer) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        "../build/polyfills/polyfill-module": false,
+        "next/dist/build/polyfills/polyfill-module": false,
+      }
+    }
+    return config
   },
 }
 
