@@ -1,5 +1,6 @@
 import { getAllPosts } from "@/lib/blog"
 import { getAllCompares } from "@/lib/compare"
+import { shouldIndexArticle, shouldIndexStaticPath } from "@/lib/indexing-policy"
 import { servicesConfig } from "@/lib/services-config"
 import type { SitemapEntry, SitemapPageConfig } from "@/types/sitemap"
 
@@ -62,22 +63,23 @@ function toEntry(config: SitemapPageConfig): SitemapEntry {
 
 function contentEntries(
   basePath: "blog" | "compare",
-  posts: Array<{ slug: string; date: string }>,
+  posts: Array<{ slug: string; date: string; content: string }>,
 ): SitemapEntry[] {
-  return posts.map((post) => ({
-    url: `${SITE_URL}/${basePath}/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: "monthly",
-    priority: 0.6,
-  }))
+  return posts
+    .filter((post) => shouldIndexArticle(post.content))
+    .map((post) => ({
+      url: `${SITE_URL}/${basePath}/${post.slug}`,
+      lastModified: new Date(post.date),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    }))
 }
 
 export function getSitemapEntries(): SitemapEntry[] {
+  const staticEntries = STATIC_PAGES.filter((p) => shouldIndexStaticPath(p.path)).map(toEntry)
+
   return [
-    ...STATIC_PAGES.map(toEntry),
-    ...servicesConfig.map((service) =>
-      toEntry(page(`/features/${service.id}`, LAST_MOD.baseline, 0.6)),
-    ),
+    ...staticEntries,
     ...contentEntries("compare", getAllCompares()),
     ...contentEntries("blog", getAllPosts()),
   ]

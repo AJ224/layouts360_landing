@@ -12,8 +12,9 @@ Internal project docs (not served on the public site).
 | [SEO_SUMMARY.md](./seo/SEO_SUMMARY.md) | Implementation summary |
 | [SEO_PAGES_SUMMARY.md](./seo/SEO_PAGES_SUMMARY.md) | Landing pages overview |
 | [SEO_INVENTORY_MANAGEMENT.md](./seo/SEO_INVENTORY_MANAGEMENT.md) | Inventory page SEO notes |
+| [INDEXING_POLICY.md](./seo/INDEXING_POLICY.md) | What to index vs noindex (thin/duplicate pages) |
 
-Code: keyword constants live in [`lib/seo-keywords.ts`](../lib/seo-keywords.ts). Sitemap/robots/llms: [`lib/site-seo.ts`](../lib/site-seo.ts).
+Code: keywords [`lib/seo-keywords.ts`](../lib/seo-keywords.ts) · sitemap [`lib/site-seo.ts`](../lib/site-seo.ts) · indexing [`lib/indexing-policy.ts`](../lib/indexing-policy.ts).
 
 ## Guides
 

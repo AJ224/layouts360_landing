@@ -4,6 +4,7 @@ import Header from "@/components/marketing/header"
 import Footer from "@/components/marketing/footer"
 import { BlogArticle } from "@/components/blog/blog-article"
 import { getCompareBySlug, getAllCompares } from "@/lib/compare"
+import { robotsForArticle } from "@/lib/indexing-policy"
 import { keywordsForArticle } from "@/lib/seo-keywords"
 
 interface Props {
@@ -29,6 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${post.title} | Layouts360 Compare`,
     description: post.excerpt,
     keywords: keywordsForArticle(post.tags),
+    robots: robotsForArticle(post.content),
     alternates: {
       canonical: `https://layouts360.com/compare/${post.slug}`,
     },
