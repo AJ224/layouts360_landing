@@ -223,8 +223,8 @@ Legend:
 1. `/app/real-estate-plot-management-software/page.tsx` - Main landing page
 2. `/content/blog/excel-vs-plot-management-software.mdx` - Blog post #1
 3. `/content/blog/plot-management-software-india.mdx` - Blog post #2
-4. `/SEO_STRATEGY.md` - Comprehensive strategy document
-5. `/SEO_CHECKLIST.md` - Actionable checklist
+4. [SEO_STRATEGY.md](./SEO_STRATEGY.md) - Comprehensive strategy document
+5. [SEO_CHECKLIST.md](./SEO_CHECKLIST.md) - Actionable checklist
 
 ### Modified Files:
 1. `/app/sitemap.ts` - Added new landing page
@@ -277,8 +277,8 @@ Legend:
 ## 📞 Support Resources
 
 ### Documentation:
-- `SEO_STRATEGY.md` - Full strategy and timeline
-- `SEO_CHECKLIST.md` - Week-by-week action items
+- [SEO_STRATEGY.md](./SEO_STRATEGY.md) - Full strategy and timeline
+- [SEO_CHECKLIST.md](./SEO_CHECKLIST.md) - Week-by-week action items
 - This file - Executive summary
 
 ### Monitoring:
@@ -287,7 +287,7 @@ Legend:
 - Weekly check-ins on keyword positions
 
 ### Questions?
-Refer to SEO_STRATEGY.md for detailed explanations of any tactic or timeline.
+Refer to [SEO_STRATEGY.md](./SEO_STRATEGY.md) for detailed explanations of any tactic or timeline.
 
 ---
 

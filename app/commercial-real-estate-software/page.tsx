@@ -6,21 +6,18 @@ import { Check, X, ArrowRight, Building2, Store, MapPin } from "lucide-react";
 import Header from "@/components/marketing/header";
 import Footer from "@/components/marketing/footer";
 
+import { PAGE_KEYWORDS } from "@/lib/seo-keywords";
+
 export const metadata: Metadata = {
-    title: "Commercial Plot Management Software | Layouts360",
+    title: "Commercial Real Estate Software | Plot & Shop Sales | Layouts360",
     description:
-        "Sell commercial plots, shops, and office spaces faster with digital layouts. Commercial plot management software for developers selling commercial properties.",
-    keywords: [
-        "commercial plot management software",
-        "commercial plot sales",
-        "shop plot management",
-        "office space sales software",
-        "commercial property sales",
-        "commercial plot inventory",
-        "commercial real estate sales software",
-    ],
+        "Commercial real estate software for selling shops, office plots, and commercial layouts in India. Digital maps, live inventory, and sales CRM in one platform.",
+    keywords: [...PAGE_KEYWORDS.commercial],
+    alternates: {
+        canonical: "https://layouts360.com/commercial-real-estate-software",
+    },
     openGraph: {
-        title: "Commercial Plot Management Software | Layouts360",
+        title: "Commercial Real Estate Software | Layouts360",
         description:
             "Manage and sell commercial plots, shops, and office spaces with digital layouts and real-time inventory tracking.",
         type: "website",

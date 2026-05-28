@@ -13,10 +13,22 @@ import {
 } from "@/components/marketing/landing-sections"
 
 import { Metadata } from "next"
+import { PAGE_KEYWORDS } from "@/lib/seo-keywords"
 
 export const metadata: Metadata = {
-  title: "Real Estate ERP & Digital Layout Software | Layouts360",
-  description: "The complete Real Estate Operating System. Combine Digital Layouts, CRM, and Inventory Management in one must-have tool for builders and developers.",
+  title: "Real Estate Software & Plot Management | Layouts360",
+  description:
+    "All-in-one real estate software for Indian developers—plot management, inventory, real estate CRM, accounting, and interactive digital layouts. From ₹2,000/month.",
+  keywords: [...PAGE_KEYWORDS.home],
+  alternates: {
+    canonical: "https://layouts360.com",
+  },
+  openGraph: {
+    title: "Real Estate Software for Layout Developers | Layouts360",
+    description:
+      "Plot management software with live inventory, CRM, payment tracking, and satellite layout maps.",
+    url: "https://layouts360.com",
+  },
 }
 
 export default function Page() {

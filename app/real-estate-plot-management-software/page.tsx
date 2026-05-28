@@ -5,21 +5,16 @@ import { Button } from "@/components/ui/button";
 import { Check, X, ArrowRight, Play } from "lucide-react";
 import Header from "@/components/marketing/header";
 import Footer from "@/components/marketing/footer";
+import { PAGE_KEYWORDS } from "@/lib/seo-keywords";
 
 export const metadata: Metadata = {
     title: "Real Estate Plot Management Software | Layouts360",
     description:
         "Layouts360 is a real estate plot management software designed for builders, developers, and real estate companies to manage plots, inventory, bookings, payments, and digital layouts in one place.",
-    keywords: [
-        "real estate plot management software",
-        "plot management system",
-        "digital layout software",
-        "real estate inventory software",
-        "plot booking software",
-        "real estate ERP",
-        "plot management software for builders",
-        "plot management software in India",
-    ],
+    keywords: [...PAGE_KEYWORDS.plot],
+    alternates: {
+        canonical: "https://layouts360.com/real-estate-plot-management-software",
+    },
     openGraph: {
         title: "Real Estate Plot Management Software | Layouts360",
         description:

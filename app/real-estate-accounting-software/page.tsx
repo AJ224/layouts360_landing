@@ -6,21 +6,18 @@ import { Check, X, ArrowRight, Calculator, Receipt, FileText } from "lucide-reac
 import Header from "@/components/marketing/header";
 import Footer from "@/components/marketing/footer";
 
+import { PAGE_KEYWORDS } from "@/lib/seo-keywords";
+
 export const metadata: Metadata = {
-    title: "Real Estate Payment Tracking Software | Layouts360",
+    title: "Real Estate Accounting Software | Payment Tracking | Layouts360",
     description:
-        "Stop losing money to manual payment tracking. Track booking amounts, installments, and payments for plot sales with automated payment schedules and GST compliance.",
-    keywords: [
-        "real estate payment tracking software",
-        "plot payment tracking software",
-        "booking payment management",
-        "real estate payment software",
-        "plot sales payment tracking",
-        "installment tracking software",
-        "real estate GST software",
-    ],
+        "Real estate accounting software for plot sales—booking amounts, installments, refunds, and GST-friendly payment schedules. Stop losing money to manual tracking.",
+    keywords: [...PAGE_KEYWORDS.accounting],
+    alternates: {
+        canonical: "https://layouts360.com/real-estate-accounting-software",
+    },
     openGraph: {
-        title: "Real Estate Payment Tracking Software | Layouts360",
+        title: "Real Estate Accounting Software | Layouts360",
         description:
             "Track bookings, installments, and payments for plot sales. Automated payment schedules, GST compliance, and financial reports for developers.",
         type: "website",

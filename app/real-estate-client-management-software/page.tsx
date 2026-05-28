@@ -6,19 +6,16 @@ import { Check, X, ArrowRight, Users, MessageSquare, Target } from "lucide-react
 import Header from "@/components/marketing/header";
 import Footer from "@/components/marketing/footer";
 
+import { PAGE_KEYWORDS } from "@/lib/seo-keywords";
+
 export const metadata: Metadata = {
-    title: "Real Estate Client Management Software | Layouts360",
+    title: "Real Estate CRM Software & Client Management | Layouts360",
     description:
-        "From lead to deed: manage buyers without losing track. Real estate client management software with plot-specific CRM, lead tracking, and customer lifecycle management.",
-    keywords: [
-        "real estate client management software",
-        "real estate CRM",
-        "customer management for real estate",
-        "lead management software",
-        "plot buyer tracking",
-        "real estate customer lifecycle",
-        "property client management",
-    ],
+        "Real estate CRM software and client management for plot developers—from lead to deed. Plot-specific leads, follow-ups, bookings, and buyer lifecycle in one system.",
+    keywords: [...PAGE_KEYWORDS.client],
+    alternates: {
+        canonical: "https://layouts360.com/real-estate-client-management-software",
+    },
     openGraph: {
         title: "Real Estate Client Management Software | Layouts360",
         description:

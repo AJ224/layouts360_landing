@@ -68,7 +68,7 @@
 ---
 
 ### ✅ 4. Created Implementation Guide
-**File**: `/SCHEMA_IMPLEMENTATION_GUIDE.md`
+**File**: [SCHEMA_IMPLEMENTATION_GUIDE.md](./SCHEMA_IMPLEMENTATION_GUIDE.md)
 
 **What's included:**
 - Step-by-step instructions for adding schema to pages
@@ -85,9 +85,9 @@
 
 ### New Files:
 1. `/components/seo/schema.tsx` - Reusable schema components
-2. `/SCHEMA_IMPLEMENTATION_GUIDE.md` - How to add schema to pages
-3. `/SEO_PAGES_SUMMARY.md` - Overview of all SEO pages
-4. `/GOOGLE_INDEXING_GUIDE.md` - How to submit to Google
+2. [SCHEMA_IMPLEMENTATION_GUIDE.md](./SCHEMA_IMPLEMENTATION_GUIDE.md) - How to add schema to pages
+3. [SEO_PAGES_SUMMARY.md](../seo/SEO_PAGES_SUMMARY.md) - Overview of all SEO pages
+4. [GOOGLE_INDEXING_GUIDE.md](./GOOGLE_INDEXING_GUIDE.md) - How to submit to Google
 
 ### Modified Files:
 1. `/app/robots.ts` - Added llms.txt reference
@@ -108,7 +108,7 @@
 - Schema markup components (ready to use)
 
 ### ⏳ Next Steps (30 minutes):
-1. Add schema markup to all 4 new pages (follow SCHEMA_IMPLEMENTATION_GUIDE.md)
+1. Add schema markup to all 4 new pages (follow [SCHEMA_IMPLEMENTATION_GUIDE.md](./SCHEMA_IMPLEMENTATION_GUIDE.md))
 2. Test schema with Google's Rich Results Test
 3. Deploy to production
 4. Submit sitemap to Google Search Console
@@ -205,9 +205,9 @@
 ## 📞 Support Resources
 
 ### Documentation Created:
-1. `SEO_PAGES_SUMMARY.md` - Overview of all pages and strategy
-2. `GOOGLE_INDEXING_GUIDE.md` - How to submit to Google
-3. `SCHEMA_IMPLEMENTATION_GUIDE.md` - How to add schema markup
+1. [SEO_PAGES_SUMMARY.md](../seo/SEO_PAGES_SUMMARY.md) - Overview of all pages and strategy
+2. [GOOGLE_INDEXING_GUIDE.md](./GOOGLE_INDEXING_GUIDE.md) - How to submit to Google
+3. [SCHEMA_IMPLEMENTATION_GUIDE.md](./SCHEMA_IMPLEMENTATION_GUIDE.md) - How to add schema markup
 
 ### External Resources:
 - Google Rich Results Test: https://search.google.com/test/rich-results

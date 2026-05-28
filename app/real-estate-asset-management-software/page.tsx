@@ -5,20 +5,16 @@ import { Button } from "@/components/ui/button";
 import { Check, X, ArrowRight, TrendingUp, DollarSign, BarChart3 } from "lucide-react";
 import Header from "@/components/marketing/header";
 import Footer from "@/components/marketing/footer";
+import { PAGE_KEYWORDS } from "@/lib/seo-keywords";
 
 export const metadata: Metadata = {
     title: "Real Estate Asset Management Software | Layouts360",
     description:
         "Track 50 Crore+ in plot inventory with real estate asset management software. Manage plot-level P&L, ROI tracking, holding costs, and asset lifecycle for developers.",
-    keywords: [
-        "real estate asset management software",
-        "plot asset management",
-        "real estate asset tracking",
-        "property asset management system",
-        "land asset management software",
-        "real estate portfolio management",
-        "plot inventory asset tracking",
-    ],
+    keywords: [...PAGE_KEYWORDS.asset],
+    alternates: {
+        canonical: "https://layouts360.com/real-estate-asset-management-software",
+    },
     openGraph: {
         title: "Real Estate Asset Management Software | Layouts360",
         description:

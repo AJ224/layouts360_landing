@@ -6,20 +6,16 @@ import { Check, X, ArrowRight, Building2, Home, Store } from "lucide-react";
 import Header from "@/components/marketing/header";
 import Footer from "@/components/marketing/footer";
 
+import { PAGE_KEYWORDS } from "@/lib/seo-keywords";
+
 export const metadata: Metadata = {
     title: "Real Estate Inventory Management Software | Layouts360",
     description:
-        "Complete real estate inventory management software for plots, flats, and commercial properties. Manage availability, bookings, payments, and sales teams in one platform. Built for Indian developers.",
-    keywords: [
-        "real estate inventory management software",
-        "real estate inventory management",
-        "property inventory software",
-        "real estate inventory system",
-        "inventory management for real estate",
-        "real estate stock management",
-        "plot and flat inventory software",
-        "real estate ERP",
-    ],
+        "Real estate inventory management software for plots, flats, and commercial units—live availability, bookings, and one source of truth for Indian developers.",
+    keywords: [...PAGE_KEYWORDS.inventory],
+    alternates: {
+        canonical: "https://layouts360.com/real-estate-inventory-management-software",
+    },
     openGraph: {
         title: "Real Estate Inventory Management Software | Layouts360",
         description:

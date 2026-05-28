@@ -12,18 +12,20 @@ export const metadata: Metadata = {
     template: "%s | Layouts360 - Real Estate Operating System"
   },
   description:
-    "The must-have software to operate your real estate business. Combine Digital Layout Visualization with a powerful CRM/ERP. Stop using spreadsheets and start selling with interactive maps.",
+    "Real estate software for Indian layout developers—plot management, inventory, CRM, accounting, and digital layouts in one platform. Stop Excel chaos and double bookings.",
   keywords: [
-    "Real Estate ERP",
-    "Real Estate CRM",
-    "Digital Layout Visualization",
-    "Plot Booking Software",
-    "Real Estate Business Operation System",
-    "Interactive Property Map",
-    "Real Estate Inventory Management",
-    "Digital Site Visits",
-    "Real Estate Sales Software",
-    "Builder CRM India"
+    "real estate software",
+    "real estate management software",
+    "real estate crm software",
+    "real estate inventory management software",
+    "real estate plot management software",
+    "real estate asset management software",
+    "real estate accounting software",
+    "commercial real estate software",
+    "plot management software India",
+    "real estate client management software",
+    "digital layout software",
+    "real estate transaction management software",
   ],
   authors: [{ name: "Layouts360" }],
   creator: "Layouts360",
@@ -35,7 +37,10 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL('https://layouts360.com'),
   alternates: {
-    canonical: '/',
+    canonical: "/",
+    types: {
+      "text/plain": [{ url: "/llms.txt", title: "LLMs.txt" }],
+    },
   },
   openGraph: {
     type: 'website',

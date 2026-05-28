@@ -1,106 +1,161 @@
-import Link from "next/link"
 import { Metadata } from "next"
 import Header from "@/components/marketing/header"
 import Footer from "@/components/marketing/footer"
-import { getAllPosts } from "@/lib/blog"
-import { Calendar, User, ArrowRight } from "lucide-react"
+import { BlogCard } from "@/components/marketing/blog-card"
+import {
+  getAllFeedItemsSorted,
+  getBlogFeedItems,
+  getCompareFeedItems,
+} from "@/lib/content-feed"
+import { PAGE_KEYWORDS, TIER_2_KEYWORDS } from "@/lib/seo-keywords"
 
 export const metadata: Metadata = {
-    title: "Real Estate Growth Blog | Layouts360",
-    description: "Insights, tips, and strategies for modern real estate developers. Learn how to digitize your sales and close more deals.",
-    keywords: [
-        "real estate blog",
-        "real estate technology",
-        "plot management tips",
-        "real estate sales strategies",
-        "digital transformation real estate"
-    ],
-    alternates: {
-        canonical: 'https://layouts360.com/blog',
-    },
-    openGraph: {
-        title: "Real Estate Growth Blog | Layouts360",
-        description: "Insights, tips, and strategies for modern real estate developers.",
-        type: "website",
-        url: "https://layouts360.com/blog",
-    },
-    robots: {
-        index: true,
-        follow: true,
-    },
+  title: "Real Estate Blog & Software Comparisons | Layouts360",
+  description:
+    "Guides on real estate software, CRM, accounting, and asset management—plus comparisons of Excel, WhatsApp, and paper workflows vs Layouts360.",
+  keywords: [
+    ...PAGE_KEYWORDS.blog,
+    ...TIER_2_KEYWORDS,
+    "real estate asset management software",
+    "real estate accounting software",
+    "commercial real estate software",
+    "real estate client management software",
+  ],
+  alternates: {
+    canonical: "https://layouts360.com/blog",
+  },
+  openGraph: {
+    title: "Blog & Comparisons | Layouts360",
+    description:
+      "Guides and old-workflow vs Layouts360 comparisons for Indian plot developers.",
+    type: "website",
+    url: "https://layouts360.com/blog",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function BlogIndexPage() {
-    const posts = getAllPosts()
+  const guides = getBlogFeedItems()
+  const comparisons = getCompareFeedItems()
+  const allSorted = getAllFeedItemsSorted()
+  const featured = allSorted[0]
 
-    return (
-        <div className="min-h-screen bg-gray-50 flex flex-col">
-            <Header theme="light" />
+  const totalCount = guides.length + comparisons.length
 
-            <main className="flex-grow">
-                {/* Header Section */}
-                <section className="bg-white border-b py-12 sm:py-16 pt-20">
-                    <div className="container mx-auto px-4 sm:px-6 text-center">
-                        <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
-                            The <span className="text-[#00C29F]">Growth</span> Blog
-                        </h1>
-                        <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-                            Strategies to modernize your real estate business. Sales, technology, and operations insights.
-                        </p>
+  return (
+    <div className="flex min-h-screen flex-col bg-slate-50">
+      <Header theme="light" />
+
+      <main className="flex-grow">
+        <section className="relative overflow-hidden border-b border-slate-200 bg-white pt-20">
+          <div
+            className="pointer-events-none absolute inset-0 opacity-40"
+            aria-hidden
+            style={{
+              backgroundImage:
+                "radial-gradient(circle at 1px 1px, rgb(226 232 240) 1px, transparent 0)",
+              backgroundSize: "28px 28px",
+            }}
+          />
+          <div className="pointer-events-none absolute -right-20 top-10 h-64 w-64 rounded-full bg-teal-400/10 blur-3xl" />
+          <div className="pointer-events-none absolute -left-20 bottom-0 h-48 w-48 rounded-full bg-amber-400/10 blur-3xl" />
+
+          <div className="container relative mx-auto px-4 py-12 sm:px-6 sm:py-16">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-[#00C29F]">
+                Layouts360 Resources
+              </p>
+              <h1 className="mb-5 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+                Guides &{" "}
+                <span className="text-[#00C29F]">comparisons</span>
+              </h1>
+              <p className="text-lg leading-relaxed text-slate-600">
+                Growth guides plus honest side-by-side looks at Excel, WhatsApp,
+                and paper workflows vs Layouts360.
+              </p>
+              {totalCount > 0 && (
+                <p className="mt-6 text-sm text-slate-500">
+                  {guides.length} guides · {comparisons.length} comparisons
+                </p>
+              )}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-10 sm:py-14">
+          <div className="container mx-auto px-4 sm:px-6">
+            {totalCount === 0 ? (
+              <div className="rounded-2xl border border-dashed border-slate-300 bg-white py-20 text-center">
+                <p className="text-slate-500">No posts yet. Check back soon.</p>
+              </div>
+            ) : (
+              <div className="space-y-14">
+                {featured && (
+                  <div>
+                    <h2 className="mb-5 text-sm font-semibold uppercase tracking-wider text-slate-500">
+                      Featured
+                    </h2>
+                    <BlogCard
+                      post={featured}
+                      featured
+                      badge={
+                        featured.kind === "compare" ? "Comparison" : "Guide"
+                      }
+                    />
+                  </div>
+                )}
+
+                {comparisons.length > 0 && (
+                  <div id="comparisons">
+                    <h2 className="mb-2 text-sm font-semibold uppercase tracking-wider text-slate-500">
+                      Comparisons
+                    </h2>
+                    <p className="mb-6 max-w-2xl text-sm text-slate-600">
+                      Old workflow vs Layouts360—inventory, CRM, payments,
+                      launches, and broker sales.
+                    </p>
+                    <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 xl:grid-cols-3">
+                      {comparisons.map((post) => (
+                        <BlogCard
+                          key={post.slug}
+                          post={post}
+                          badge="Comparison"
+                        />
+                      ))}
                     </div>
-                </section>
+                  </div>
+                )}
 
-                {/* Blog Grid */}
-                <section className="py-12">
-                    <div className="container mx-auto px-4 sm:px-6">
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {posts.map((post) => (
-                                <Link key={post.slug} href={`/blog/${post.slug}`} className="group">
-                                    <article className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col">
-                                        {/* Placeholder for Cover Image if I had one, currently using a gradient fallback */}
-                                        <div className="h-48 bg-gradient-to-br from-slate-800 to-slate-900 relative p-6 flex items-center justify-center">
-                                            <span className="text-4xl">📄</span>
-                                        </div>
-
-                                        <div className="p-6 flex flex-col flex-grow">
-                                            <div className="flex items-center gap-4 text-sm text-slate-500 mb-4">
-                                                <span className="flex items-center gap-1">
-                                                    <Calendar className="w-4 h-4" />
-                                                    {post.date}
-                                                </span>
-                                                <span className="flex items-center gap-1">
-                                                    <User className="w-4 h-4" />
-                                                    {post.author}
-                                                </span>
-                                            </div>
-
-                                            <h2 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#00C29F] transition-colors">
-                                                {post.title}
-                                            </h2>
-
-                                            <p className="text-slate-600 mb-6 line-clamp-3 flex-grow">
-                                                {post.excerpt}
-                                            </p>
-
-                                            <div className="flex items-center text-[#00C29F] font-semibold text-sm mt-auto">
-                                                Read Article <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                                            </div>
-                                        </div>
-                                    </article>
-                                </Link>
-                            ))}
-                        </div>
-
-                        {posts.length === 0 && (
-                            <div className="text-center py-20">
-                                <p className="text-gray-500">No posts found. Check back soon!</p>
-                            </div>
-                        )}
+                {guides.length > 0 && (
+                  <div id="guides">
+                    <h2 className="mb-2 text-sm font-semibold uppercase tracking-wider text-slate-500">
+                      Guides
+                    </h2>
+                    <p className="mb-6 max-w-2xl text-sm text-slate-600">
+                      Longer reads on digitizing plot sales and choosing the
+                      right tools.
+                    </p>
+                    <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 xl:grid-cols-3">
+                      {guides.map((post) => (
+                        <BlogCard
+                          key={post.slug}
+                          post={post}
+                          badge="Guide"
+                        />
+                      ))}
                     </div>
-                </section>
-            </main>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </section>
+      </main>
 
-            <Footer />
-        </div>
-    )
+      <Footer />
+    </div>
+  )
 }

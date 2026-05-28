@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -174,4 +175,18 @@
 
 .animate-fade-in-up {
   animation: fade-in-up 0.8s ease-out forwards;
+}
+
+/* Blog article: first paragraph lead style */
+.blog-article > p:first-of-type {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: oklch(0.35 0.02 260);
+}
+
+@media (min-width: 640px) {
+  .blog-article > p:first-of-type {
+    font-size: 1.1875rem;
+    line-height: 1.8;
+  }
 }

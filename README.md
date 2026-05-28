@@ -22,6 +22,10 @@ Continue building your app on:
 
 **[https://v0.app/chat/projects/vC9TDHf3Yfa](https://v0.app/chat/projects/vC9TDHf3Yfa)**
 
+## Documentation
+
+Project docs (SEO, indexing, setup) live in [`docs/`](./docs/README.md).
+
 ## How It Works
 
 1. Create and modify your project using [v0.app](https://v0.app)
