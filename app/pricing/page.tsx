@@ -1,6 +1,7 @@
 import { Metadata } from "next"
 import PricingPageContent from "@/components/pricing/pricing-page-content"
 import { PAGE_KEYWORDS } from "@/lib/seo-keywords"
+import { absoluteUrl } from "@/lib/site-seo"
 
 export const metadata: Metadata = {
   title: "Pricing | Real Estate Software for Developers | Layouts360",
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
     "Transparent real estate software pricing in India—from ₹2,000/month. Plot management, CRM, and inventory plans for layout developers.",
   keywords: [...PAGE_KEYWORDS.pricing],
   alternates: {
-    canonical: "https://layouts360.com/pricing",
+    canonical: absoluteUrl("/pricing"),
   },
 }
 

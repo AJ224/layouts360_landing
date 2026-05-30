@@ -7,6 +7,7 @@ import Header from "@/components/marketing/header";
 import Footer from "@/components/marketing/footer";
 
 import { PAGE_KEYWORDS } from "@/lib/seo-keywords";
+import { absoluteUrl } from "@/lib/site-seo";
 
 export const metadata: Metadata = {
     title: "Real Estate Accounting Software | Payment Tracking | Layouts360",
@@ -14,14 +15,14 @@ export const metadata: Metadata = {
         "Real estate accounting software for plot sales—booking amounts, installments, refunds, and GST-friendly payment schedules. Stop losing money to manual tracking.",
     keywords: [...PAGE_KEYWORDS.accounting],
     alternates: {
-        canonical: "https://layouts360.com/real-estate-accounting-software",
+        canonical: absoluteUrl("/real-estate-accounting-software"),
     },
     openGraph: {
         title: "Real Estate Accounting Software | Layouts360",
         description:
             "Track bookings, installments, and payments for plot sales. Automated payment schedules, GST compliance, and financial reports for developers.",
         type: "website",
-        url: "https://layouts360.com/real-estate-accounting-software",
+        url: absoluteUrl("/real-estate-accounting-software"),
     },
 };
 

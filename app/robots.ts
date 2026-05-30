@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next"
-import { DISCOVERY_URLS } from "@/lib/site-seo"
+import { DISCOVERY_URLS, SITE_URL } from "@/lib/site-seo"
 
 const ALLOW_ALL = {
   allow: "/",
@@ -22,6 +22,6 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "cohere-ai", ...ALLOW_ALL },
     ],
     sitemap: DISCOVERY_URLS.sitemap,
-    host: "https://layouts360.com",
+    host: SITE_URL,
   }
 }

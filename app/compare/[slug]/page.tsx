@@ -6,6 +6,7 @@ import { BlogArticle } from "@/components/blog/blog-article"
 import { getCompareBySlug, getAllCompares } from "@/lib/compare"
 import { robotsForArticle } from "@/lib/indexing-policy"
 import { keywordsForArticle } from "@/lib/seo-keywords"
+import { absoluteUrl } from "@/lib/site-seo"
 
 interface Props {
   params: {
@@ -32,13 +33,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: keywordsForArticle(post.tags),
     robots: robotsForArticle(post.content),
     alternates: {
-      canonical: `https://layouts360.com/compare/${post.slug}`,
+      canonical: absoluteUrl(`/compare/${post.slug}`),
     },
     openGraph: {
       title: post.title,
       description: post.excerpt,
       type: "article",
-      url: `https://layouts360.com/compare/${post.slug}`,
+      url: absoluteUrl(`/compare/${post.slug}`),
     },
   }
 }

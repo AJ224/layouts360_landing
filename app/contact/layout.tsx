@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { absoluteUrl } from "@/lib/site-seo"
 
 export const metadata: Metadata = {
   title: "Contact & Demo | Real Estate Software | Layouts360",
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
     "real estate crm demo",
   ],
   alternates: {
-    canonical: "https://layouts360.com/contact",
+    canonical: absoluteUrl("/contact"),
   },
 }
 

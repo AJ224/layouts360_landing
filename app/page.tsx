@@ -14,6 +14,7 @@ import {
 
 import { Metadata } from "next"
 import { PAGE_KEYWORDS } from "@/lib/seo-keywords"
+import { SITE_URL, absoluteUrl } from "@/lib/site-seo"
 
 export const metadata: Metadata = {
   title: "Real Estate Software & Plot Management | Layouts360",
@@ -21,13 +22,13 @@ export const metadata: Metadata = {
     "All-in-one real estate software for Indian developers—plot management, inventory, real estate CRM, accounting, and interactive digital layouts. From ₹2,000/month.",
   keywords: [...PAGE_KEYWORDS.home],
   alternates: {
-    canonical: "https://layouts360.com",
+    canonical: absoluteUrl("/"),
   },
   openGraph: {
     title: "Real Estate Software for Layout Developers | Layouts360",
     description:
       "Plot management software with live inventory, CRM, payment tracking, and satellite layout maps.",
-    url: "https://layouts360.com",
+    url: SITE_URL,
   },
 }
 

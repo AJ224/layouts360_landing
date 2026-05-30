@@ -25,6 +25,15 @@ Code: [`lib/indexing-policy.ts`](../../lib/indexing-policy.ts), [`lib/content-qu
 |------|-----------|
 | `/api/*` | `robots.txt` disallow |
 
+## Canonical host (www)
+
+Production canonical is **non-www**: `https://layouts360.com`
+
+- `www.layouts360.com` → 301 → `layouts360.com` (middleware + `next.config.mjs`)
+- Sitemap, `metadataBase`, and all `canonical` tags use `lib/site-seo.ts` → `absoluteUrl()`
+
+In Vercel: set **Primary Domain** to `layouts360.com` and redirect `www` to apex.
+
 ## Duplicates handled elsewhere
 
 - `/blog/{compare-slug}` → 301 → `/compare/{compare-slug}`

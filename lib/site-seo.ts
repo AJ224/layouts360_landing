@@ -2,9 +2,10 @@ import { getAllPosts } from "@/lib/blog"
 import { getAllCompares } from "@/lib/compare"
 import { shouldIndexArticle, shouldIndexStaticPath } from "@/lib/indexing-policy"
 import { servicesConfig } from "@/lib/services-config"
+import { SITE_URL, absoluteUrl } from "@/lib/site-url"
 import type { SitemapEntry, SitemapPageConfig } from "@/types/sitemap"
 
-export const SITE_URL = "https://layouts360.com"
+export { SITE_HOST, SITE_URL, absoluteUrl } from "@/lib/site-url"
 
 export const DISCOVERY_URLS = {
   sitemap: `${SITE_URL}/sitemap.xml`,
@@ -54,7 +55,7 @@ const STATIC_PAGES: SitemapPageConfig[] = [
 
 function toEntry(config: SitemapPageConfig): SitemapEntry {
   return {
-    url: `${SITE_URL}${config.path}`,
+    url: absoluteUrl(config.path || "/"),
     lastModified: config.lastModified,
     changeFrequency: config.changeFrequency,
     priority: config.priority,
@@ -68,7 +69,7 @@ function contentEntries(
   return posts
     .filter((post) => shouldIndexArticle(post.content))
     .map((post) => ({
-      url: `${SITE_URL}/${basePath}/${post.slug}`,
+      url: absoluteUrl(`/${basePath}/${post.slug}`),
       lastModified: new Date(post.date),
       changeFrequency: "monthly" as const,
       priority: 0.6,

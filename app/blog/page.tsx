@@ -8,6 +8,7 @@ import {
   getCompareFeedItems,
 } from "@/lib/content-feed"
 import { PAGE_KEYWORDS, TIER_2_KEYWORDS } from "@/lib/seo-keywords"
+import { absoluteUrl } from "@/lib/site-seo"
 
 export const metadata: Metadata = {
   title: "Real Estate Blog & Software Comparisons | Layouts360",
@@ -22,14 +23,14 @@ export const metadata: Metadata = {
     "real estate client management software",
   ],
   alternates: {
-    canonical: "https://layouts360.com/blog",
+    canonical: absoluteUrl("/blog"),
   },
   openGraph: {
     title: "Blog & Comparisons | Layouts360",
     description:
       "Guides and old-workflow vs Layouts360 comparisons for Indian plot developers.",
     type: "website",
-    url: "https://layouts360.com/blog",
+    url: absoluteUrl("/blog"),
   },
   robots: {
     index: true,

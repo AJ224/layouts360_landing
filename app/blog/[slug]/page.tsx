@@ -6,6 +6,7 @@ import { BlogArticle } from "@/components/blog/blog-article"
 import { getPostBySlug, getAllPosts } from "@/lib/blog"
 import { robotsForArticle } from "@/lib/indexing-policy"
 import { keywordsForArticle } from "@/lib/seo-keywords"
+import { absoluteUrl } from "@/lib/site-seo"
 
 interface Props {
   params: {
@@ -35,13 +36,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: keywordsForArticle(post.tags),
     robots: robotsForArticle(post.content),
     alternates: {
-      canonical: `https://layouts360.com/blog/${post.slug}`,
+      canonical: absoluteUrl(`/blog/${post.slug}`),
     },
     openGraph: {
       title: post.title,
       description: post.excerpt,
       type: "article",
-      url: `https://layouts360.com/blog/${post.slug}`,
+      url: absoluteUrl(`/blog/${post.slug}`),
     },
   }
 }

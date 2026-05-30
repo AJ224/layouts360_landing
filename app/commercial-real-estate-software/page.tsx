@@ -7,6 +7,7 @@ import Header from "@/components/marketing/header";
 import Footer from "@/components/marketing/footer";
 
 import { PAGE_KEYWORDS } from "@/lib/seo-keywords";
+import { absoluteUrl } from "@/lib/site-seo";
 
 export const metadata: Metadata = {
     title: "Commercial Real Estate Software | Plot & Shop Sales | Layouts360",
@@ -14,14 +15,14 @@ export const metadata: Metadata = {
         "Commercial real estate software for selling shops, office plots, and commercial layouts in India. Digital maps, live inventory, and sales CRM in one platform.",
     keywords: [...PAGE_KEYWORDS.commercial],
     alternates: {
-        canonical: "https://layouts360.com/commercial-real-estate-software",
+        canonical: absoluteUrl("/commercial-real-estate-software"),
     },
     openGraph: {
         title: "Commercial Real Estate Software | Layouts360",
         description:
             "Manage and sell commercial plots, shops, and office spaces with digital layouts and real-time inventory tracking.",
         type: "website",
-        url: "https://layouts360.com/commercial-real-estate-software",
+        url: absoluteUrl("/commercial-real-estate-software"),
     },
 };
 

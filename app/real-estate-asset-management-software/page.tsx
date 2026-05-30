@@ -6,6 +6,7 @@ import { Check, X, ArrowRight, TrendingUp, DollarSign, BarChart3 } from "lucide-
 import Header from "@/components/marketing/header";
 import Footer from "@/components/marketing/footer";
 import { PAGE_KEYWORDS } from "@/lib/seo-keywords";
+import { absoluteUrl } from "@/lib/site-seo";
 
 export const metadata: Metadata = {
     title: "Real Estate Asset Management Software | Layouts360",
@@ -13,14 +14,14 @@ export const metadata: Metadata = {
         "Track 50 Crore+ in plot inventory with real estate asset management software. Manage plot-level P&L, ROI tracking, holding costs, and asset lifecycle for developers.",
     keywords: [...PAGE_KEYWORDS.asset],
     alternates: {
-        canonical: "https://layouts360.com/real-estate-asset-management-software",
+        canonical: absoluteUrl("/real-estate-asset-management-software"),
     },
     openGraph: {
         title: "Real Estate Asset Management Software | Layouts360",
         description:
             "Manage plot inventory as assets with P&L tracking, ROI analysis, and lifecycle management. Purpose-built for land developers.",
         type: "website",
-        url: "https://layouts360.com/real-estate-asset-management-software",
+        url: absoluteUrl("/real-estate-asset-management-software"),
     },
 };
 

@@ -7,6 +7,7 @@ import Header from "@/components/marketing/header";
 import Footer from "@/components/marketing/footer";
 
 import { PAGE_KEYWORDS } from "@/lib/seo-keywords";
+import { absoluteUrl } from "@/lib/site-seo";
 
 export const metadata: Metadata = {
     title: "Real Estate CRM Software & Client Management | Layouts360",
@@ -14,14 +15,14 @@ export const metadata: Metadata = {
         "Real estate CRM software and client management for plot developers—from lead to deed. Plot-specific leads, follow-ups, bookings, and buyer lifecycle in one system.",
     keywords: [...PAGE_KEYWORDS.client],
     alternates: {
-        canonical: "https://layouts360.com/real-estate-client-management-software",
+        canonical: absoluteUrl("/real-estate-client-management-software"),
     },
     openGraph: {
         title: "Real Estate Client Management Software | Layouts360",
         description:
             "Manage leads, follow-ups, and customer relationships tied to specific plots. Purpose-built CRM for real estate developers.",
         type: "website",
-        url: "https://layouts360.com/real-estate-client-management-software",
+        url: absoluteUrl("/real-estate-client-management-software"),
     },
 };
 

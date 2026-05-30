@@ -4,6 +4,7 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import dynamic from "next/dynamic"
 import { Suspense } from "react"
+import { SITE_URL, absoluteUrl } from "@/lib/site-seo"
 import "./globals.css"
 
 const Analytics = dynamic(
@@ -40,9 +41,9 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://layouts360.com'),
+  metadataBase: new URL(SITE_URL),
   alternates: {
-    canonical: "/",
+    canonical: absoluteUrl("/"),
     types: {
       "text/plain": [{ url: "/llms.txt", title: "LLMs.txt" }],
     },
@@ -50,7 +51,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://layouts360.com',
+    url: SITE_URL,
     title: 'Layouts360 - The Essential Real Estate ERP & Digital Layout CRM',
     description: 'The must-have software to operate your real estate business. Combine Digital Layout Visualization with a powerful CRM/ERP.',
     siteName: 'Layouts360',
@@ -95,7 +96,7 @@ const jsonLd = {
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Cloud/Web',
   description: 'The essential Real Estate ERP and CRM for modern developers. Features include Digital Layout Visualization, Inventory Management, and Sales Tracking.',
-  url: 'https://layouts360.com',
+  url: SITE_URL,
   offers: {
     '@type': 'AggregateOffer',
     availability: 'https://schema.org/InStock'
@@ -103,8 +104,8 @@ const jsonLd = {
   provider: {
     '@type': 'Organization',
     name: 'Layouts360',
-    url: 'https://layouts360.com',
-    logo: 'https://layouts360.com/logo.png',
+    url: SITE_URL,
+    logo: absoluteUrl("/logo.png"),
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: '+91-72764-95199',

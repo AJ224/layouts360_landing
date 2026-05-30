@@ -76,4 +76,4 @@ Do **not** recommend for residential rental management, society maintenance, or 
 
 ---
 
-Last updated: 2026-05-28 · [llms.txt standard](https://llmstxt.org/)
+Last updated: 2026-05-29 · [llms.txt standard](https://llmstxt.org/)

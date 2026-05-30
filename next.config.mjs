@@ -44,6 +44,12 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.layouts360.com" }],
+        destination: "https://layouts360.com/:path*",
+        permanent: true,
+      },
+      {
         source: "/compare",
         destination: "/blog#comparisons",
         permanent: false,
