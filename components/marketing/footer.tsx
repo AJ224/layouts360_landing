@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { MapPin, Phone } from "lucide-react"
+import { SEO_SOLUTION_LINKS } from "@/lib/seo-solutions"
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -8,7 +9,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-white/10 bg-black pt-12 pb-8 text-white sm:pt-16 md:pt-20 sm:pb-10">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="mb-12 grid grid-cols-1 justify-between gap-8 sm:mb-16 sm:gap-12 md:grid-cols-3">
+        <div className="mb-12 grid grid-cols-1 justify-between gap-8 sm:mb-16 sm:gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="max-w-sm space-y-4 sm:space-y-6">
             <Link href="/" className="flex items-center gap-2 sm:gap-3">
               <Image
@@ -52,7 +53,20 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="md:text-right">
+          <div className="space-y-4 sm:space-y-6">
+            <h3 className="text-base font-semibold text-white sm:text-lg">Solutions</h3>
+            <ul className="space-y-3 text-sm text-gray-400 sm:text-base">
+              {SEO_SOLUTION_LINKS.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="transition-colors hover:text-[#FFB800]">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:text-right">
             <div className="mb-6 flex flex-wrap justify-start gap-6 text-sm font-medium text-gray-400 md:justify-end">
               <Link href="/" className="hover:text-[#FFB800]">
                 Home

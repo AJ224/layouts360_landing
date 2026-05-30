@@ -91,6 +91,28 @@ export const PAGE_KEYWORDS = {
     "real estate client management",
     "plot buyer tracking",
   ],
+  crm: [
+    "real estate crm software",
+    "real estate crm",
+    "crm for real estate",
+    "crm software for real estate agents",
+    "crm for builders and developers",
+    "real estate CRM India",
+  ],
+  lead: [
+    "real estate lead management software",
+    "real estate lead management",
+    "how real estate companies manage leads",
+    "lead tracking software real estate",
+    "property lead management India",
+  ],
+  bestCrm: [
+    "best real estate crm",
+    "best real estate crm software",
+    "best real estate crm software in India",
+    "best crm for real estate developers",
+    "real estate crm comparison",
+  ],
   commercial: [
     "commercial real estate software",
     "commercial plot management software",

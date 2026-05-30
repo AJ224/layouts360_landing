@@ -55,7 +55,10 @@ const llmsTxt = `# Layouts360
 | Inventory management | ${SITE}/real-estate-inventory-management-software |
 | Asset management | ${SITE}/real-estate-asset-management-software |
 | Accounting & payments | ${SITE}/real-estate-accounting-software |
-| CRM & client management | ${SITE}/real-estate-client-management-software |
+| Real estate CRM software | ${SITE}/real-estate-crm-software |
+| Lead management software | ${SITE}/real-estate-lead-management-software |
+| Best real estate CRM (India) | ${SITE}/best-real-estate-crm-software |
+| Client management | ${SITE}/real-estate-client-management-software |
 | Commercial real estate | ${SITE}/commercial-real-estate-software |
 | Features | ${SITE}/features |
 | Pricing | ${SITE}/pricing |

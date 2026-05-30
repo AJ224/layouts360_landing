@@ -54,11 +54,6 @@ const nextConfig = {
         destination: "/blog#comparisons",
         permanent: false,
       },
-      {
-        source: "/real-estate-crm-software",
-        destination: "/real-estate-client-management-software",
-        permanent: true,
-      },
       ...getCompareRedirects(),
     ]
   },

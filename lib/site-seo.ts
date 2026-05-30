@@ -19,6 +19,7 @@ const LAST_MOD = {
   baseline: new Date("2026-01-13"),
   seoJan21: new Date("2026-01-21"),
   seoJan22: new Date("2026-01-22"),
+  crmCluster: new Date("2026-05-30"),
 } as const
 
 const SEO_JAN_21 = [
@@ -31,6 +32,12 @@ const SEO_JAN_22 = [
   "/real-estate-accounting-software",
   "/commercial-real-estate-software",
   "/real-estate-client-management-software",
+] as const
+
+const SEO_CRM_CLUSTER = [
+  "/real-estate-crm-software",
+  "/real-estate-lead-management-software",
+  "/best-real-estate-crm-software",
 ] as const
 
 function page(
@@ -46,6 +53,7 @@ const STATIC_PAGES: SitemapPageConfig[] = [
   page("", LAST_MOD.baseline, 1),
   ...SEO_JAN_21.map((path) => page(path, LAST_MOD.seoJan21, 0.9)),
   ...SEO_JAN_22.map((path) => page(path, LAST_MOD.seoJan22, 0.9)),
+  ...SEO_CRM_CLUSTER.map((path) => page(path, LAST_MOD.crmCluster, 0.9)),
   page("/features", LAST_MOD.baseline, 0.8),
   page("/pricing", LAST_MOD.baseline, 0.8),
   page("/blog", LAST_MOD.baseline, 0.7, "weekly"),

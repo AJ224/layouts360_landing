@@ -21,13 +21,21 @@ export function PlotManagementSoftwareSection() {
               <strong>real estate CRM</strong>, and payment tracking in one platform.
             </p>
             <CheckList items={plotManagementBenefits} />
-            <Link
-              href="/real-estate-plot-management-software"
-              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-blue-700 group"
-            >
-              Learn more
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href="/real-estate-plot-management-software"
+                className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-blue-700 group"
+              >
+                Plot management
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <Link
+                href="/real-estate-crm-software"
+                className="inline-flex items-center gap-2 rounded-lg border border-blue-200 bg-white px-6 py-3 font-semibold text-blue-700 transition-colors hover:bg-blue-50"
+              >
+                Real estate CRM
+              </Link>
+            </div>
           </div>
 
           <aside className="rounded-xl border border-emerald-200 bg-gradient-to-br from-emerald-50 to-emerald-100 p-6">

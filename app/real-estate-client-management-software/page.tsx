@@ -89,14 +89,33 @@ export default function RealEstateClientManagementSoftwarePage() {
                                 <strong> who's interested in what</strong>, which agent is handling them, and where they are
                                 in the sales pipeline.
                             </p>
-                            <div className="mt-6 p-4 bg-blue-50 border-l-4 border-blue-500 rounded-r-lg">
-                                <p className="text-gray-700">
-                                    <strong>Need broader inventory management?</strong> Check out our{" "}
-                                    <Link href="/real-estate-inventory-management-software" className="text-blue-600 hover:text-blue-700 font-semibold underline">
-                                        real estate inventory management software
-                                    </Link>
-                                    {" "}that handles plots, flats, and commercial units.
-                                </p>
+                            <div className="mt-6 space-y-4">
+                                <div className="rounded-r-lg border-l-4 border-blue-500 bg-blue-50 p-4">
+                                    <p className="text-gray-700">
+                                        <strong>Looking for CRM-focused pages?</strong> See{" "}
+                                        <Link href="/real-estate-crm-software" className="font-semibold text-blue-600 underline hover:text-blue-700">
+                                            real estate CRM software
+                                        </Link>
+                                        ,{" "}
+                                        <Link href="/real-estate-lead-management-software" className="font-semibold text-blue-600 underline hover:text-blue-700">
+                                            lead management software
+                                        </Link>
+                                        , and{" "}
+                                        <Link href="/best-real-estate-crm-software" className="font-semibold text-blue-600 underline hover:text-blue-700">
+                                            best real estate CRM in India
+                                        </Link>
+                                        .
+                                    </p>
+                                </div>
+                                <div className="rounded-r-lg border-l-4 border-blue-500 bg-blue-50 p-4">
+                                    <p className="text-gray-700">
+                                        <strong>Need broader inventory management?</strong> Check out our{" "}
+                                        <Link href="/real-estate-inventory-management-software" className="font-semibold text-blue-600 underline hover:text-blue-700">
+                                            real estate inventory management software
+                                        </Link>
+                                        {" "}that handles plots, flats, and commercial units.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>

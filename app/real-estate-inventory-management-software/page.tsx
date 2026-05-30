@@ -159,7 +159,10 @@ export default function RealEstateInventoryManagementPage() {
                                     <p className="text-gray-700 mb-4">
                                         Manage shops, offices, showrooms, and warehouses. Track square footage, pricing, and tenant information.
                                     </p>
-                                    <span className="text-gray-500 text-sm">Ideal for commercial projects</span>
+                                    <Link href="/commercial-real-estate-software" className="text-indigo-600 font-semibold hover:text-indigo-700 inline-flex items-center gap-2">
+                                        Learn more about commercial sales
+                                        <ArrowRight className="w-4 h-4" />
+                                    </Link>
                                 </div>
                             </div>
                         </div>
