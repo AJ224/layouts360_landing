@@ -8,17 +8,20 @@ import type { BlogPost } from "@/lib/blog"
 import type { ComparePost } from "@/lib/compare"
 
 type ArticlePost = BlogPost | ComparePost
+import { RelatedArticles } from "@/components/blog/related-articles"
 import {
   estimateReadingTime,
   formatBlogDate,
   getPrimaryTag,
 } from "@/lib/blog-display"
+import type { ContentKind } from "@/lib/content-feed"
 
 interface BlogArticleProps {
   post: ArticlePost
   backHref?: string
   backLabel?: string
   categoryBadge?: string
+  contentKind?: ContentKind
 }
 
 export function BlogArticle({
@@ -26,6 +29,7 @@ export function BlogArticle({
   backHref = "/blog",
   backLabel = "Back to blog",
   categoryBadge,
+  contentKind = "blog",
 }: BlogArticleProps) {
   const readingTime = estimateReadingTime(post.content)
   const primaryTag = getPrimaryTag(post.tags)
@@ -87,6 +91,8 @@ export function BlogArticle({
             />
           </article>
         </div>
+
+        <RelatedArticles slug={post.slug} kind={contentKind} tags={post.tags} />
 
         <div className="mx-auto mt-10 max-w-3xl rounded-2xl border border-teal-100 bg-gradient-to-br from-teal-50 to-white p-6 sm:p-8">
           <h2 className="text-lg font-bold text-slate-900 sm:text-xl">

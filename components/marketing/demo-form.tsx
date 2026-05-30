@@ -90,8 +90,9 @@ export default function DemoForm() {
       // Show confirmation popup
       setShowConfirmation(true)
       setFormData({ email: "", mobile: "", company: "", description: "" })
-    } catch (err: any) {
-      toast({ title: "Could not send request", description: err.message, variant: "destructive" })
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Failed to send request"
+      toast({ title: "Could not send request", description: message, variant: "destructive" })
     } finally {
       setPending(false)
     }

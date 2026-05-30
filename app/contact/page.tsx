@@ -4,6 +4,7 @@ import Header from "@/components/marketing/header"
 import Footer from "@/components/marketing/footer"
 import CtaSection from "@/components/marketing/cta-section"
 import { CheckCircle2, MessageCircle, Phone } from "lucide-react"
+import { WHATSAPP_CHAT_URL } from "@/lib/whatsapp"
 
 export default function ContactPage() {
   return (
@@ -66,7 +67,7 @@ export default function ContactPage() {
               <p className="text-sm text-gray-600 sm:text-base">Chat with us for quick responses and instant support.</p>
               <div className="space-y-2 pt-2">
                 <a
-                  href="https://wa.me/917276495199"
+                  href={WHATSAPP_CHAT_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block text-base font-semibold text-gray-900 transition-colors hover:text-green-600 sm:text-lg"

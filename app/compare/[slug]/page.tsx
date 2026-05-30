@@ -60,6 +60,7 @@ export default function ComparePostPage({ params }: Props) {
           backHref="/blog#comparisons"
           backLabel="Back to blog"
           categoryBadge="Comparison"
+          contentKind="compare"
         />
       </main>
       <Footer />

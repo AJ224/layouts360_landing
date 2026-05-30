@@ -78,6 +78,16 @@ export default function FeaturePage({ params }: { params: { slug: string } }) {
                                         </ul>
                                     </div>
                                 )}
+
+                                {service.extendedCopy && (
+                                    <div className="space-y-4 border-t border-white/10 pt-6">
+                                        {service.extendedCopy.map((paragraph) => (
+                                            <p key={paragraph.slice(0, 48)} className="text-sm sm:text-base leading-relaxed text-gray-400">
+                                                {paragraph}
+                                            </p>
+                                        ))}
+                                    </div>
+                                )}
                             </div>
 
                             <div className="pt-2 sm:pt-4">

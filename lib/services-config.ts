@@ -22,6 +22,8 @@ export interface ServiceConfig {
   description: string
   longDescription?: string
   benefits?: string[]
+  /** Extra paragraphs for SEO depth on feature detail pages */
+  extendedCopy?: string[]
   image?: string
   color: string // Tailwind gradient class (e.g., "from-pink-500 to-rose-500")
   href: string
@@ -43,6 +45,10 @@ export const servicesConfig: ServiceConfig[] = [
       "Facing",
       "Area Details"
     ],
+    extendedCopy: [
+      "Buyers and agents tap a plot on your digital layout and see dimensions, facing, area, and current status without opening a PDF or calling the back office. That speed matters on site visits when decisions are made in minutes.",
+      "Plot details stay synced with inventory: when a unit moves from available to blocked or sold, the plot card updates for everyone—sales, partners, and customer-facing layout links.",
+    ],
     image: "/assets/images/plotdetailsontap.gif",
     color: "from-pink-500 to-rose-500",
     href: "/features/plot-details",
@@ -56,6 +62,10 @@ export const servicesConfig: ServiceConfig[] = [
       "Live color-coded status (Available, Blocked, Sold)",
       "Instant synchronization across all sales channels",
       "Size wise filtering"
+    ],
+    extendedCopy: [
+      "Real-time availability is the difference between a confident site visit and an awkward callback. Color-coded plots on your layout show what is open, on hold, or sold so agents never promise the same unit twice.",
+      "Status changes propagate instantly to mobile apps, office dashboards, and shared customer links—critical during launch weekends when multiple brokers sell the same phase.",
     ],
     image: "/assets/images/availabilitystatus.png",
     color: "from-emerald-500 to-green-500",
@@ -72,6 +82,10 @@ export const servicesConfig: ServiceConfig[] = [
       "360-degree panoramic view support",
       "Categorized albums for amenities, interiors, and exteriors"
     ],
+    extendedCopy: [
+      "High-quality visuals help NRIs and out-of-town buyers evaluate a layout before travelling. Group photos and videos by amenity, phase, or interior type so agents send the right story for each buyer segment.",
+      "Gallery content sits alongside live plot data, so marketing and sales stay aligned—no outdated brochure claiming availability that no longer exists.",
+    ],
     image: "/assets/images/gallery.png",
     color: "from-purple-500 to-violet-500",
     href: "/features/gallery",
@@ -85,6 +99,10 @@ export const servicesConfig: ServiceConfig[] = [
       "Responsive design optimized for all screen sizes",
       "Touch-friendly interface for tablets and kiosks",
       "Consistent experience across iOS, Android, and Web",
+    ],
+    extendedCopy: [
+      "Sales happen on phones at the site office, on tablets during partner meetings, and on desktops at HQ. Layouts360 keeps layout, CRM, and inventory usable on every screen size without a separate native app project.",
+      "Touch-friendly controls help agents zoom plots, block units, and log follow-ups during walkthroughs—without pinching through a PDF designed for print.",
     ],
     image: "/assets/images/allscreensupport.png",
     color: "from-blue-500 to-cyan-500",

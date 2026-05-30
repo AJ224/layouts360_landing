@@ -80,11 +80,11 @@ export async function POST(req: Request) {
       ok: true, 
       message: "Demo request submitted successfully" 
     })
-  } catch (e: any) {
+  } catch (e: unknown) {
     console.error("Error sending email:", e)
-    return Response.json({ 
-      error: e?.message || "Failed to send email. Please try again or contact us directly." 
-    }, { status: 500 })
+    const message =
+      e instanceof Error ? e.message : "Failed to send email. Please try again or contact us directly."
+    return Response.json({ error: message }, { status: 500 })
   }
 }
 

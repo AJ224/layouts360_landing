@@ -1,7 +1,6 @@
 import { getAllPosts } from "@/lib/blog"
 import { getAllCompares } from "@/lib/compare"
 import { shouldIndexArticle, shouldIndexStaticPath } from "@/lib/indexing-policy"
-import { servicesConfig } from "@/lib/services-config"
 import { SITE_URL, absoluteUrl } from "@/lib/site-url"
 import type { SitemapEntry, SitemapPageConfig } from "@/types/sitemap"
 

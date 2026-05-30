@@ -1,4 +1,5 @@
-import Script from 'next/script';
+import Script from "next/script"
+import { SITE_URL, absoluteUrl } from "@/lib/site-url"
 
 interface FAQItem {
     question: string;
@@ -117,39 +118,63 @@ export function BreadcrumbSchema({ items }: BreadcrumbSchemaProps) {
     );
 }
 
+/**
+ * Google Software App rich results require aggregateRating OR review in addition to offers.
+ * Only use when you have real, verifiable ratings — do not fabricate values.
+ */
 export function SoftwareApplicationSchema({
     name,
     description,
     url,
     price,
     priceCurrency = "INR",
+    aggregateRating,
+    review,
 }: {
-    name: string;
-    description: string;
-    url: string;
-    price: string;
-    priceCurrency?: string;
+    name: string
+    description: string
+    url: string
+    price: string
+    priceCurrency?: string
+    aggregateRating?: { ratingValue: number; ratingCount: number }
+    review?: { author: string; reviewBody: string; datePublished: string }
 }) {
-    const schema = {
+    if (!aggregateRating && !review) {
+        return null
+    }
+
+    const schema: Record<string, unknown> = {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": name,
-        "description": description,
-        "url": url,
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Web Browser",
-        "offers": {
+        name,
+        description,
+        url,
+        applicationCategory: "BusinessApplication",
+        operatingSystem: "Web Browser",
+        offers: {
             "@type": "Offer",
-            "price": price,
-            "priceCurrency": priceCurrency,
-            "availability": "https://schema.org/InStock"
+            price,
+            priceCurrency,
+            availability: "https://schema.org/InStock",
         },
-        "aggregateRating": {
+    }
+
+    if (aggregateRating) {
+        schema.aggregateRating = {
             "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "ratingCount": "50"
+            ratingValue: aggregateRating.ratingValue,
+            ratingCount: aggregateRating.ratingCount,
         }
-    };
+    }
+
+    if (review) {
+        schema.review = {
+            "@type": "Review",
+            author: { "@type": "Person", name: review.author },
+            reviewBody: review.reviewBody,
+            datePublished: review.datePublished,
+        }
+    }
 
     return (
         <Script
@@ -158,4 +183,37 @@ export function SoftwareApplicationSchema({
             dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
     );
+}
+
+/** Site-wide: valid on every page without ratings/reviews. */
+export function OrganizationWebSiteSchema() {
+    const schema = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                name: "Layouts360",
+                url: SITE_URL,
+                logo: absoluteUrl("/logo.png"),
+                contactPoint: {
+                    "@type": "ContactPoint",
+                    telephone: "+91-72764-95199",
+                    contactType: "sales",
+                    areaServed: "IN",
+                },
+            },
+            {
+                "@type": "WebSite",
+                name: "Layouts360",
+                url: SITE_URL,
+            },
+        ],
+    }
+
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+    )
 }

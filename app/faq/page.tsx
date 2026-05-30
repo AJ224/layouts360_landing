@@ -4,7 +4,9 @@ import { Card } from "@/components/ui/card"
 import Header from "@/components/marketing/header"
 import Footer from "@/components/marketing/footer"
 import CtaSection from "@/components/marketing/cta-section"
+import { FAQSchema } from "@/components/seo/schema"
 import { MessageCircle, HelpCircle, ShieldCheck, Zap, Smartphone, Globe, Layers, UserCheck } from "lucide-react"
+import { WHATSAPP_CHAT_URL } from "@/lib/whatsapp"
 
 // Added icons to data structure for "Direct Cards"
 const faqs = [
@@ -70,9 +72,17 @@ const faqs = [
     // }
 ]
 
+const faqSchemaItems = faqs.flatMap((section) =>
+  section.items.map((item) => ({
+    question: item.question,
+    answer: item.answer,
+  })),
+)
+
 export default function FAQPage() {
     return (
         <div className="min-h-screen bg-slate-50">
+            <FAQSchema faqs={faqSchemaItems} />
             <Header theme="light" />
 
             {/* Hero Content */}
@@ -132,7 +142,7 @@ export default function FAQPage() {
                         Sometimes it's easier to just talk. Chat comfortably with our team on WhatsApp.
                     </p>
                     <a
-                        href="https://wa.me/917276495199"
+                        href={WHATSAPP_CHAT_URL}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-green-200 hover:-translate-y-1"

@@ -4,6 +4,7 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import dynamic from "next/dynamic"
 import { Suspense } from "react"
+import { OrganizationWebSiteSchema } from "@/components/seo/schema"
 import { SITE_URL, absoluteUrl } from "@/lib/site-seo"
 import "./globals.css"
 
@@ -88,40 +89,6 @@ export const metadata: Metadata = {
   },
 }
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: 'Layouts360',
-  applicationCategory: 'BusinessApplication',
-  operatingSystem: 'Cloud/Web',
-  description: 'The essential Real Estate ERP and CRM for modern developers. Features include Digital Layout Visualization, Inventory Management, and Sales Tracking.',
-  url: SITE_URL,
-  offers: {
-    '@type': 'AggregateOffer',
-    availability: 'https://schema.org/InStock'
-  },
-  provider: {
-    '@type': 'Organization',
-    name: 'Layouts360',
-    url: SITE_URL,
-    logo: absoluteUrl("/logo.png"),
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: '+91-72764-95199',
-      contactType: 'sales',
-      areaServed: 'IN'
-    }
-  },
-  featureList: [
-    'Digital Layout Visualization',
-    'Real Estate CRM',
-    'Plot Inventory Management',
-    'Interactive Maps',
-    'Booking & Payment Tracking',
-    'Lead Management ERP'
-  ]
-}
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -130,10 +97,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <OrganizationWebSiteSchema />
       </head>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
         <Suspense fallback={null}>{children}</Suspense>

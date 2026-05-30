@@ -4,7 +4,7 @@ import { DISCOVERY_URLS, SITE_HOST, SITE_URL } from "@/lib/site-seo"
 const ALLOW_ALL = {
   allow: "/",
   disallow: ["/api/"],
-} as const
+}
 
 export default function robots(): MetadataRoute.Robots {
   return {
