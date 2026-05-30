@@ -86,7 +86,6 @@ export const metadata: Metadata = {
     shortcut: '/favicon.ico',
     apple: '/favicon.ico',
   },
-  generator: "v0.app",
 }
 
 const jsonLd = {

@@ -1,34 +1,78 @@
-# Real estate landing page
+# Layouts360 — Marketing Website
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+Public marketing site for [Layouts360](https://layouts360.com): real estate plot management software for Indian layout developers.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/aj224s-projects/v0-real-estate-landing-page)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/vC9TDHf3Yfa)
+**Production:** https://layouts360.com  
+**Canonical host:** `layouts360.com` (www redirects via Vercel + middleware)
 
-## Overview
+## What this repo contains
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+- Marketing pages (home, features, pricing, contact, FAQ)
+- SEO landing pages (plot management, inventory, CRM, accounting, etc.)
+- Blog guides and comparison articles (`/blog`, `/compare/[slug]`)
+- Demo form API, sitemap, robots.txt, and `llms.txt` for AI discovery
 
-## Deployment
+## Tech stack
 
-Your project is live at:
+- [Next.js 14](https://nextjs.org/) (App Router)
+- React 18, TypeScript, Tailwind CSS 4
+- MDX content (`content/blog`, `content/compare`)
+- Deployed on [Vercel](https://vercel.com)
 
-**[https://vercel.com/aj224s-projects/v0-real-estate-landing-page](https://vercel.com/aj224s-projects/v0-real-estate-landing-page)**
+## Getting started
 
-## Build your app
+```bash
+npm install
+npm run dev
+```
 
-Continue building your app on:
+Open [http://localhost:3000](http://localhost:3000).
 
-**[https://v0.app/chat/projects/vC9TDHf3Yfa](https://v0.app/chat/projects/vC9TDHf3Yfa)**
+### Environment variables
 
-## Documentation
+Create `.env.local` for local demo form / email (see [`docs/guides/EMAIL_SETUP.md`](./docs/guides/EMAIL_SETUP.md)):
 
-Project docs (SEO, indexing, setup) live in [`docs/`](./docs/README.md).
+```env
+RESEND_API_KEY=
+DEMO_FORM_TO_EMAIL=
+```
 
-## How It Works
+## Scripts
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start dev server |
+| `npm run build` | Regenerate `llms.txt`, then production build |
+| `npm run start` | Run production server locally |
+| `npm run lint` | ESLint |
+
+## Project structure
+
+```
+app/                 # Routes (pages, layouts, API)
+components/          # UI and marketing sections
+content/blog/        # Guide articles (MDX)
+content/compare/     # Comparison articles (MDX)
+lib/                 # SEO, blog/compare loaders, pricing config
+docs/                # Internal SEO & setup documentation
+public/              # Static assets, llms.txt
+scripts/             # llms.txt generator, blog tooling
+```
+
+## SEO & domains
+
+- URL helpers: [`lib/site-url.ts`](./lib/site-url.ts)
+- Sitemap / indexing: [`lib/site-seo.ts`](./lib/site-seo.ts), [`lib/indexing-policy.ts`](./lib/indexing-policy.ts)
+- Internal docs: [`docs/README.md`](./docs/README.md)
+
+**Vercel domains:** set `layouts360.com` as Production; redirect `www.layouts360.com` → apex (301).
+
+## Content
+
+- Add guides: `content/blog/*.mdx`
+- Add comparisons: `content/compare/*.mdx` (or `node scripts/generate-compare-blogs.mjs`)
+- Regenerate AI index: `node scripts/generate-llms-txt.mjs` (runs automatically on `npm run build`)
+
+## License
+
+Private — Layouts360. All rights reserved.
