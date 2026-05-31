@@ -4,6 +4,7 @@
 import fs from "fs"
 import path from "path"
 import { buildLandingBody } from "./landing-body-builder.mjs"
+import { getLandingExtraSection } from "./landing-extra-sections.mjs"
 import { LANDING_CONFIGS } from "./landing-page-configs.mjs"
 
 const root = process.cwd()
@@ -48,7 +49,9 @@ function toFrontmatter(doc) {
 
 let written = 0
 for (const cfg of LANDING_CONFIGS) {
-  const body = buildLandingBody(cfg)
+  const extraTail = getLandingExtraSection(cfg.pageKey)
+  const extraSection = [cfg.extraSection, extraTail].filter(Boolean).join("\n\n")
+  const body = buildLandingBody({ ...cfg, extraSection: extraSection || undefined })
   const frontmatter = {
     pageKey: cfg.pageKey,
     path: cfg.path,

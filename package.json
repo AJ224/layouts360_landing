@@ -5,6 +5,7 @@
   "scripts": {
     "build": "node scripts/validate-landings.mjs && node scripts/generate-llms-txt.mjs && next build",
     "validate:landings": "node scripts/validate-landings.mjs",
+    "expand:blogs": "node scripts/expand-thin-blogs.mjs",
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start"

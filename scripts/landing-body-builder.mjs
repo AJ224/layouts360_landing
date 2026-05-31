@@ -1,4 +1,7 @@
 /** Shared long-form landing body builder for generate-landing-mdx.mjs */
+import { getLandingDeepDive } from "./landing-deep-dive-snippets.mjs"
+import { getRolloutPlaybook } from "./landing-rollout-playbooks.mjs"
+import { getTopicGeoBlock } from "./landing-topic-geo-blocks.mjs"
 
 const BRAND =
   "Real estate plot & inventory management software with built-in CRM and booking — for Indian layout developers."
@@ -59,6 +62,8 @@ Field agents need mobile access at the site office. Managers need pipeline and i
 If brokers sell your inventory, they need a live portal—not PDFs in WhatsApp. Partner workflows belong in the same platform as your internal sales desk.
 
 Across India, layout developers in Tier-2 and Tier-3 cities scale broker networks faster than back-office headcount. ${c.categoryTerm} should scale partner access without scaling spreadsheet chaos.
+
+${getTopicGeoBlock(c.pageKey)}
 
 ## Problems teams face
 
@@ -158,59 +163,14 @@ Explore the [solutions hub](https://layouts360.com/solutions) or read related gu
 
 ${buildExtendedSections(c)}
 
+${getRolloutPlaybook(c.pageKey)}
+
 ${c.extraSection ?? ""}
 `.trim()
 }
 
 function buildExtendedSections(c) {
-  const kw = c.primaryKeyword
-  return `
-## Deep dive: ${c.categoryShort} workflows in practice
-
-When a buyer walks into your site office, the first questions are usually about a specific unit—is it available, what is the facing, and what is the booking amount today. **${kw}** should answer all three from one screen. Layouts360 ties enquiry capture, timed blocks, and payment schedules to the exact plot or unit on the digital layout so agents are not switching between WhatsApp, Excel, and a generic CRM.
-
-### Day-in-the-life for site office staff
-
-Morning inventory review shows overnight blocks and partner requests. Agents carry tablets on rounds; status changes sync before the next walk-in. Finance reconciles token receipts against plot records without re-keying buyer names. Leadership checks sold percentage before the broker coordination call—without waiting for end-of-day email roll-ups.
-
-### Day-in-the-life for channel partners
-
-Partners log into a project portal, filter available inventory, and submit structured booking requests. Your desk approves against the same live map internal agents use—reducing screenshot arguments and stale PDF lists. Performance conversations align to confirmed bookings on the layout, not verbal promises in group chats.
-
-## Governance, accuracy, and audit trails
-
-Inventory disputes often start with "who changed this plot?" Mature ${c.categoryShort} workflows log status transitions, hold expiry, and booking confirmations. Layouts360 keeps plot and unit history visible to authorized roles so launch weekends and broker escalations resolve with data—not memory.
-
-Role-based access means site staff, partners, and leadership see appropriate views. Partners typically cannot alter base pricing; managers release holds when buyers decline. That separation protects margin and prevents unauthorized discounts during high-pressure sales windows.
-
-## Migrating from Excel and paper
-
-Most Indian layout developers begin with color-coded spreadsheets and paper charts at the site cabin. Migration is incremental: digitize the master layout, import plot attributes, configure roles, then train agents on mobile during a quieter week—not on launch morning.
-
-You can run parallel for one phase if needed—Excel for historical reference while Layouts360 becomes the system of record for new bookings. Cut over fully before the next broker push or launch event, when duplicate systems create the highest double-booking risk.
-
-## Reporting leadership actually uses
-
-Beyond contact lists, leadership needs sold versus available by phase, collections against booking amounts, and partner velocity. **${kw}** is most valuable when inventory and payment truth stay connected. Layouts360 dashboards reflect live layout status—when a unit books, reports update without manual consolidation.
-
-Export-friendly outputs support finance teams who post statutory accounts in Tally or similar tools. Sales-side installment tracking stays on the plot record; full general ledger can remain where your chartered accountant already works.
-
-## Choosing the right plan and rollout
-
-Sales Starter from ₹2,000/month suits focused plot and layout sales teams. Growth Suite at ₹4,000/month supports broader module rollouts across inventory, CRM, partners, and payments. Setup from ₹10,000 typically covers layout digitization and role training. Unlimited users on tiers help growing broker networks avoid per-seat surprises common in global CRMs.
-
-Book a demo with your layout file ready—many teams see their project on a satellite-backed map in the first session. Implementation commonly completes in a few days per project once master data is shared.
-
-## Operational questions teams ask
-
-**Do we need a full ERP replacement?** Many developers prioritize sales-side scope—inventory, bookings, installments—while statutory accounting stays in existing tools. Layouts360 aligns with that pattern unless you explicitly need broader ERP on the dedicated sales ERP page.
-
-**Can NRIs evaluate before travel?** Share live project links so buyers verify availability remotely; pair with CRM follow-up for documentation and site visits.
-
-**What about high-volume launch days?** Timed blocks, expiry rules, and single-map truth scale better than paper charts when hundreds of buyers compete for limited plots.
-
-**How do we onboard brokers?** Partner portals with live status reduce training to structured requests instead of interpreting PDF legends sent in WhatsApp.
-`
+  return getLandingDeepDive(c.pageKey)
 }
 
 export function standardPlatformLinks(overrides = []) {
