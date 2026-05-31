@@ -43,13 +43,14 @@ export const ALL_TARGET_KEYWORDS = [
 
 export const PAGE_KEYWORDS = {
   home: [
-    "real estate software",
-    "real estate management software",
-    "real estate crm software",
-    "plot management software",
+    "real estate plot management software",
     "real estate inventory management software",
+    "plot management software India",
+    "real estate crm software",
+    "booking management software",
+    "channel partner management software",
+    "property inventory management platform",
     "digital layout software",
-    "real estate ERP",
     "builder CRM India",
   ],
   inventory: [
@@ -147,7 +148,106 @@ export const PAGE_KEYWORDS = {
     "real estate CRM India",
     "layout software for developers",
   ],
+  channelPartner: [
+    "channel partner management software",
+    "real estate channel partner management",
+    "broker portal real estate",
+    "real estate agent management software",
+    "channel partner software India",
+    "broker commission software real estate",
+  ],
+  booking: [
+    "booking management software",
+    "real estate booking management software",
+    "plot booking software",
+    "real estate booking system",
+    "property booking management software",
+    "plot booking management India",
+  ],
+  erp: [
+    "real estate ERP",
+    "real estate ERP software",
+    "real estate ERP software India",
+    "ERP for real estate developers",
+    "real estate sales ERP",
+    "property sales ERP software",
+  ],
+  salesAutomation: [
+    "real estate sales automation",
+    "real estate sales automation software",
+    "sales automation for real estate",
+    "plot sales automation",
+    "real estate pipeline automation",
+  ],
+  launchDay: [
+    "launch day plot sales software",
+    "real estate launch CRM",
+    "project launch software real estate",
+    "plot launch management software",
+    "real estate launch day software",
+  ],
+  onlineBooking: [
+    "online plot booking software",
+    "online plot booking",
+    "real estate online booking software",
+    "plot booking online India",
+    "digital plot booking system",
+    "e-commerce plot booking",
+  ],
+  apartment: [
+    "apartment inventory management software",
+    "apartment inventory management",
+    "flat inventory management software",
+    "tower inventory management real estate",
+    "apartment booking software India",
+  ],
+  backOffice: [
+    "real estate back office software",
+    "real estate back office",
+    "property back office software",
+    "real estate document management software",
+    "installment tracking real estate",
+  ],
+  propertyInventory: [
+    "property inventory management platform",
+    "property inventory management software",
+    "real estate inventory platform",
+    "property sales inventory system",
+  ],
+  about: [
+    "Layouts360 company",
+    "real estate software company India",
+    "plot management software company",
+  ],
+  caseStudies: [
+    "Layouts360 case studies",
+    "plot management software results",
+    "real estate software customer stories",
+  ],
+  solutions: [
+    "real estate software solutions",
+    "plot management software India",
+    "real estate inventory management software",
+    "real estate ERP software",
+    "channel partner management software",
+    "booking management software real estate",
+  ],
 } as const
+
+/** GEO / category landing pages for sitemap and llms.txt */
+export const GEO_SOLUTION_PATHS = [
+  "/real-estate-channel-partner-management-software",
+  "/real-estate-booking-management-software",
+  "/real-estate-erp-software",
+  "/real-estate-sales-automation-software",
+  "/launch-day-plot-sales-software",
+  "/online-plot-booking-software",
+  "/apartment-inventory-management-software",
+  "/real-estate-back-office-software",
+  "/property-inventory-management-platform",
+] as const
+
+export const TRUST_PAGES = ["/about", "/case-studies"] as const
 
 /** Merge page keywords with post tags for article pages */
 export function keywordsForArticle(tags?: string[]): string[] {

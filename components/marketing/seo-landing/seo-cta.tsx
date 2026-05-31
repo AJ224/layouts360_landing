@@ -25,7 +25,7 @@ export function SeoCta({ title, description }: SeoCtaProps) {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white px-8 py-6 text-lg text-white hover:bg-white hover:text-blue-600"
+                className="border-2 border-white bg-transparent px-8 py-6 text-lg font-semibold text-white shadow-none hover:bg-white hover:text-blue-700"
               >
                 View Pricing Plans
               </Button>

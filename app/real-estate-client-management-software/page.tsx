@@ -1,8 +1,8 @@
-import { SeoProductLanding } from "@/components/marketing/seo-landing/seo-product-landing"
-import { createSeoLandingMetadata } from "@/lib/seo-landing-pages"
+import { SeoMdxLanding } from "@/components/marketing/seo-landing/seo-mdx-landing"
+import { createLandingMetadata } from "@/lib/landings"
 
-export const metadata = createSeoLandingMetadata("client")
+export const metadata = createLandingMetadata("client")
 
-export default function RealEstateClientManagementSoftwarePage() {
-  return <SeoProductLanding pageKey="client" />
+export default function Page() {
+  return <SeoMdxLanding pageKey="client" />
 }

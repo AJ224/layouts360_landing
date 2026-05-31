@@ -16,9 +16,8 @@ export function PlotManagementSoftwareSection() {
               Looking for <span className="text-blue-600">Plot Management Software</span>?
             </h2>
             <p className="mb-6 text-lg leading-relaxed text-slate-600">
-              Layouts360 is specialized{" "}
-              <strong>real estate plot management software</strong> for builders in India—plots, bookings,{" "}
-              <strong>real estate CRM</strong>, and payment tracking in one platform.
+              <strong>Real estate plot & inventory management software</strong> with built-in CRM and booking for
+              Indian layout developers—live maps, channel partners, and payment tracking in one platform.
             </p>
             <CheckList items={plotManagementBenefits} />
             <div className="mt-8 flex flex-wrap gap-3">

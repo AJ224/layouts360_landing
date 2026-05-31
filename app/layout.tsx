@@ -15,11 +15,11 @@ const Analytics = dynamic(
 
 export const metadata: Metadata = {
   title: {
-    default: "Layouts360 - The Essential Real Estate ERP & Digital Layout CRM",
+    default: "Layouts360 - Plot & Inventory Management Software for Developers",
     template: "%s | Layouts360 - Real Estate Operating System"
   },
   description:
-    "Real estate software for Indian layout developers—plot management, inventory, CRM, accounting, and digital layouts in one platform. Stop Excel chaos and double bookings.",
+    "Real estate plot & inventory management software with built-in CRM and booking for Indian layout developers. Live digital layouts, channel partners, and payment tracking.",
   keywords: [
     "real estate software",
     "real estate management software",
@@ -53,8 +53,9 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: SITE_URL,
-    title: 'Layouts360 - The Essential Real Estate ERP & Digital Layout CRM',
-    description: 'The must-have software to operate your real estate business. Combine Digital Layout Visualization with a powerful CRM/ERP.',
+    title: 'Layouts360 - Plot & Inventory Management for Developers',
+    description:
+      'Plot & inventory management with CRM and booking for Indian layout developers. Live maps, partners, and payments in one platform.',
     siteName: 'Layouts360',
     images: [
       {
@@ -67,8 +68,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Layouts360 - The Essential Real Estate ERP',
-    description: 'Operate your real estate business with Digital Layouts & CRM.',
+    title: 'Layouts360 - Plot & Inventory Management',
+    description: 'Live layouts, inventory, CRM, and booking for Indian developers.',
     images: ['/herosection.png'],
   },
   robots: {

@@ -1,5 +1,6 @@
 import Header from "@/components/marketing/header"
 import { MarketingButtonLink } from "@/components/ui/marketing-button-link"
+import { PRIMARY_TAGLINE } from "@/lib/brand"
 import { ArrowRight, CheckCircle2, PlayCircle } from "lucide-react"
 
 export default function Hero() {
@@ -18,18 +19,18 @@ export default function Hero() {
           <div className="flex justify-center">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-slate-200 bg-slate-50 text-slate-600 text-sm font-medium">
               <span className="w-2 h-2 rounded-full bg-slate-500"></span>
-              Live Map System for Plot Sales
+              Plot & inventory management · India
             </span>
           </div>
 
           {/* Main Headline */}
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-6">
-            Show Layouts Live. <span className="text-[#34D399]">Sell Faster.</span>
+            Sell plots with <span className="text-[#34D399]">live inventory</span> & CRM
           </h1>
 
-          {/* Subheadline */}
           <p className="max-w-2xl mx-auto text-lg text-slate-600 leading-relaxed">
-            Stop using paper charts and Excel sheets. Use a live digital map instead. Show which plots are free or sold instantly. Handle more customers. Close deals faster.
+            {PRIMARY_TAGLINE} Live digital maps, booking management, and payment tracking—without Excel or
+            WhatsApp chaos.
           </p>
 
           {/* Status Indicators */}

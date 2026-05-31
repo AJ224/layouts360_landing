@@ -1,5 +1,8 @@
 import Hero from "@/components/marketing/hero"
 import Footer from "@/components/marketing/footer"
+import { ProductSuiteSection } from "@/components/marketing/home/product-suite-section"
+import { TrustStrip } from "@/components/marketing/home/trust-strip"
+import { PRIMARY_TAGLINE } from "@/lib/brand"
 import {
   SoundFamiliarSection,
   PlotManagementSoftwareSection,
@@ -17,9 +20,8 @@ import { PAGE_KEYWORDS } from "@/lib/seo-keywords"
 import { SITE_URL, absoluteUrl } from "@/lib/site-seo"
 
 export const metadata: Metadata = {
-  title: "Real Estate Software & Plot Management | Layouts360",
-  description:
-    "All-in-one real estate software for Indian developers—plot management, inventory, real estate CRM, accounting, and interactive digital layouts. From ₹2,000/month.",
+  title: "Real Estate Plot & Inventory Management Software | Layouts360",
+  description: `${PRIMARY_TAGLINE} From ₹2,000/month.`,
   keywords: [...PAGE_KEYWORDS.home],
   alternates: {
     canonical: absoluteUrl("/"),
@@ -36,6 +38,8 @@ export default function Page() {
   return (
     <main className="bg-white min-h-screen">
       <Hero />
+      <TrustStrip />
+      <ProductSuiteSection />
       <SoundFamiliarSection />
       <PlotManagementSoftwareSection />
       <OneSystemSection />

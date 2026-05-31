@@ -1,25 +1,33 @@
 import { MetadataRoute } from "next"
-import { DISCOVERY_URLS, SITE_HOST, SITE_URL } from "@/lib/site-seo"
+import { DISCOVERY_URLS, SITE_HOST } from "@/lib/site-seo"
 
-const ALLOW_ALL = {
+const PUBLIC_ALLOW = {
   allow: "/",
   disallow: ["/api/"],
 }
 
+const AI_AND_SEARCH_CRAWLERS = [
+  "GPTBot",
+  "ChatGPT-User",
+  "OAI-SearchBot",
+  "Google-Extended",
+  "anthropic-ai",
+  "ClaudeBot",
+  "PerplexityBot",
+  "Applebot-Extended",
+  "cohere-ai",
+  "Bytespider",
+  "Amazonbot",
+] as const
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
-      { userAgent: "*", ...ALLOW_ALL },
-      // AI crawlers — explicit allow for discovery (content is public marketing)
-      { userAgent: "GPTBot", ...ALLOW_ALL },
-      { userAgent: "ChatGPT-User", ...ALLOW_ALL },
-      { userAgent: "OAI-SearchBot", ...ALLOW_ALL },
-      { userAgent: "Google-Extended", ...ALLOW_ALL },
-      { userAgent: "anthropic-ai", ...ALLOW_ALL },
-      { userAgent: "ClaudeBot", ...ALLOW_ALL },
-      { userAgent: "PerplexityBot", ...ALLOW_ALL },
-      { userAgent: "Applebot-Extended", ...ALLOW_ALL },
-      { userAgent: "cohere-ai", ...ALLOW_ALL },
+      { userAgent: "*", ...PUBLIC_ALLOW },
+      ...AI_AND_SEARCH_CRAWLERS.map((userAgent) => ({
+        userAgent,
+        ...PUBLIC_ALLOW,
+      })),
     ],
     sitemap: DISCOVERY_URLS.sitemap,
     host: SITE_HOST,

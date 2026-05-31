@@ -1,5 +1,11 @@
 # SEO Strategy for Layouts360
 
+## SEO landing pages (MDX)
+
+All **18** product landing URLs are authored in `content/landings/*.mdx` (1,500+ words, 12–20 FAQs, standardized H2 outline). Routes use `SeoMdxLanding` and `createLandingMetadata` from `lib/landings.ts`. Validate before release: `npm run validate:landings`. Regenerate `public/llms.txt` via `npm run build` (runs `scripts/generate-llms-txt.mjs`).
+
+---
+
 ## Primary Target Keyword: "Real Estate Plot Management Software"
 
 ### Current Implementation Status ✅
