@@ -26,9 +26,12 @@ const LAST_MOD = {
 
 const HIGH_PRIORITY_LANDING_PATHS = new Set([
   "/real-estate-plot-management-software",
+  "/real-estate-inventory-management",
   "/real-estate-inventory-management-software",
   "/real-estate-booking-management-software",
+  "/real-estate-crm",
   "/real-estate-crm-software",
+  "/best-real-estate-crm-software",
 ])
 
 const TRUST_PAGES = ["/about", "/case-studies"] as const

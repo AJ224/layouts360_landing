@@ -23,6 +23,11 @@ export const SOLUTION_HUB_GROUPS: SolutionHubGroup[] = [
         description: "Digital layouts, plot data, and booking workflows for layout developers.",
       },
       {
+        href: "/real-estate-inventory-management",
+        label: "Inventory management guide",
+        description: "Metrics, practices, and bottlenecks for plot and layout inventory in India.",
+      },
+      {
         href: "/real-estate-inventory-management-software",
         label: "Inventory management software",
         description: "Real-time availability across plots, flats, and commercial units.",

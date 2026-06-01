@@ -8,11 +8,13 @@ import {
 export type CoreLandingPageKey =
   | "plot"
   | "inventory"
+  | "inventoryManagement"
   | "asset"
   | "accounting"
   | "commercial"
   | "client"
   | "crm"
+  | "crmGuide"
   | "lead"
   | "bestCrm"
 

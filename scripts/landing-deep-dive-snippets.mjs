@@ -14,6 +14,16 @@ Digitize before the next broker weekend. Import plot numbers, areas, and base pr
 When a hold expires, the plot returns to available automatically—fair for buyers waiting and honest for brokers who did not convert. That single discipline prevents most double-booking stories teams blame on "system failure" when the real issue was verbal holds without timers.
 `,
 
+  inventoryManagement: `
+## Managing inventory before you buy more software
+
+**Real estate inventory management** starts with definitions everyone agrees on: what counts as available, how long a block lasts, and who may approve a partner request. Software amplifies good policy; it cannot fix three competing master spreadsheets.
+
+Track **months of inventory** and **absorption** only from status changes that happen in real time. If sold plots update tomorrow morning, your metrics are storytelling.
+
+Leadership reviews should combine unsold count, sold percentage, and collection lag per phase—then decide broker incentives and releases. That rhythm beats quarterly panic when Excel finally gets consolidated.
+`,
+
   inventory: `
 ## Inventory truth across phases and projects
 
@@ -32,6 +42,16 @@ Leadership reviews should focus on available versus blocked versus sold by phase
 Tokens without timers hoard inventory and anger buyers who were told a plot was "theirs until tomorrow." Configure expiry rules before launch, publish them to brokers, and enforce in software—not in a site manager's memory.
 
 Finance should see booking amount and installment schedule on the same record sales created. When payment collection integrates, reconciliation shifts from matching UPI screenshots to verifying booking IDs—a faster month-end for growing teams.
+`,
+
+  crmGuide: `
+## Real estate CRM as a discipline
+
+**Real estate CRM** starts with capture rules: every walk-in, portal enquiry, and partner intro includes project and plot interest. Pipeline meetings discuss units and blocks, not only call counts.
+
+Compare PropTech CRM demos ([LeadSquared](https://www.leadsquared.com/real-estate-crm/), [Sell.do](https://www.sell.do/real-estate-crm)) on whether they block a plot on your map—not only WhatsApp nurture templates.
+
+When CRM graduates to software, choose [real estate CRM software](https://layouts360.com/real-estate-crm-software) that shares inventory with the site office the same hour.
 `,
 
   crm: `

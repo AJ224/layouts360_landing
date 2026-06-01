@@ -11,7 +11,25 @@ No—WhatsApp stays for conversation. Availability and bookings should not be ne
 One phase, one map, unlimited users on entry tiers. Prove block-to-book discipline before importing the entire township master.
 `,
 
+  inventoryManagement: `
+### Should we calculate metrics in Excel?
+
+You can model months of inventory in sheets for planning—but operational decisions need live sold counts. Otherwise absorption looks smooth while site office sells stale plots.
+
+### How do launches affect inventory policy?
+
+Publish hold timers and approvers before broker weekend. Debrief with booking IDs to improve policy, not only anecdotes.
+`,
+
   inventory: `
+### Is Layouts360 a real estate inventory app?
+
+Yes—mobile-first web access for site office and partners on phones and tablets, with live layout and plot status.
+
+### Is there free inventory management software?
+
+Free templates and trials are common; plot launches need live maps and blocks. Layouts360 offers a free demo and entry plans from ₹2,000/month—not a misleading “free forever” SKU.
+
 ### How often should status change in the system?
 
 Whenever a plot or unit moves—block, book, sell, release—update software first. Evening batch updates recreate the Excel problem you left.
@@ -29,6 +47,16 @@ Define roles before launch. Extensions without audit logs recreate verbal favori
 ### What belongs on the booking record?
 
 Token, agreement, installments, and receipts—one deal file finance and sales both reference.
+`,
+
+  crmGuide: `
+### Is free real estate CRM enough?
+
+Free contact CRMs rarely include live plot maps and partner portals needed at launch.
+
+### Do I need a CRM download?
+
+Cloud CRM on mobile browsers fits site offices; downloaded sheet masters recreate broker PDF problems.
 `,
 
   crm: `

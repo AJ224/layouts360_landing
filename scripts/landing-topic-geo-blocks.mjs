@@ -28,6 +28,30 @@ Yes. INR plans from ₹2,000/month with unlimited users on tiers suit teams with
 Partners should sell from a live portal reading the same map as your desk, not PDFs forwarded in WhatsApp. Partner access scales better than hiring one coordinator per twenty brokers.
 `,
 
+  inventoryManagement: `
+## Common questions about real estate inventory management
+
+### What is real estate inventory?
+
+The unsold sellable units a developer still markets—plots, flats, shops—tracked with status and phase, not warehouse goods.
+
+### What is months of inventory?
+
+Estimated months to sell current unsold units at recent booking pace, excluding unreleased phases. Use live counts or the metric misleads.
+
+### What is absorption rate?
+
+How fast available units convert to bookings. Flat absorption with high inventory may need pricing, product mix, or broker focus.
+
+### How do brokers fit inventory management?
+
+Partners should sell from live inventory, not PDF cycles. Policy on holds and lead ownership must be written before broker count scales.
+
+### When should we adopt software?
+
+When Excel risk at launches or partner scale exceeds comfort—typically past twenty active brokers or multi-phase portfolios.
+`,
+
   inventory: `
 ## Common questions about inventory management software
 
@@ -74,6 +98,30 @@ Yes. Structured partner requests approved against the live map reduce screenshot
 ### What documents belong on the booking?
 
 Agreements, receipts, and installment schedules should live on the booking record so finance and sales reference one deal file—not scattered folders.
+`,
+
+  crmGuide: `
+## Common questions about real estate CRM
+
+### What is real estate CRM?
+
+Relationship and pipeline management for property sales—from enquiry to booking—with tasks, visits, and reporting.
+
+### Why do plot developers need different CRM?
+
+They must tie every lead to plot IDs and live availability, not generic deal stages copied from other industries.
+
+### Is CRM the same as lead management?
+
+Lead management is capture and routing; CRM adds pipeline discipline through booking. Inventory should connect to both.
+
+### What about CRM pricing and free trials in India?
+
+Compare INR tiers and team size; avoid free contact-only tools that ignore layout inventory. See pricing guide on our blog.
+
+### Best CRM in India?
+
+For layouts, best means block-to-book on your map in demo—see best CRM software page and top-10 checklist.
 `,
 
   crm: `

@@ -1,6 +1,20 @@
 /** Optional tail sections for landings that need a few more unique words (topic-tuned). */
 
 export const LANDING_EXTRA_SECTIONS = {
+  crmGuide: `
+## From CRM practices to CRM software
+
+When follow-ups reference real plots and partners use live inventory, [real estate CRM software](https://layouts360.com/real-estate-crm-software) enforces what policy already demands. Read [what is CRM software](/blog/what-is-real-estate-crm-software), [top 10 CRM India](/blog/top-10-real-estate-crm-software-india), and [pricing](/blog/real-estate-crm-pricing-and-free-trials-india) before signing a PropTech contract.
+`,
+
+  inventoryManagement: `
+## From practices to software
+
+Many teams master policy first—hold timers, partner rules, weekly exposure reviews—then adopt [real estate inventory management software](https://layouts360.com/real-estate-inventory-management-software) when launches or broker scale break Excel. Skipping straight to software without status discipline recreates the same disputes inside a login screen.
+
+Read the full [what is real estate inventory management](/blog/what-is-real-estate-inventory-management) guide for metrics and FAQs, or compare [Excel versus live inventory](/compare/real-estate-inventory-management-excel-vs-live-inventory) before your next phase release.
+`,
+
   apartment: `
 ## Apartment phases beside plotted land
 

@@ -2,7 +2,7 @@
 
 > Extended catalog for AI agents. Summary: https://layouts360.com/llms.txt · Sitemap: https://layouts360.com/sitemap.xml
 
-## SEO landing pages (18 MDX)
+## SEO landing pages (20 MDX)
 
 ### Real Estate Plot Management Software for Developers & Builders
 - URL: https://layouts360.com/real-estate-plot-management-software
@@ -10,7 +10,7 @@
 - Summary: Real estate plot management software for builders in India—digital maps, live inventory, CRM, bookings, and payments. Stop Excel chaos and double bookings.
 - Updated: 2026-06-01
 
-### Real Estate Inventory Management Software
+### Real Estate Inventory Management Software for Plot & Layout Developers
 - URL: https://layouts360.com/real-estate-inventory-management-software
 - Keyword: real estate inventory management software
 - Summary: Real estate inventory management software for plots, flats, and commercial units—live availability, prevent double bookings, sync sales across teams in India.
@@ -112,6 +112,18 @@
 - Summary: Real estate back office software for documents, commissions, installments, and booking operations tied to live inventory.
 - Updated: 2026-06-01
 
+### Real Estate CRM for Layout Developers in India
+- URL: https://layouts360.com/real-estate-crm
+- Keyword: real estate crm
+- Summary: What real estate CRM is, why plot developers need inventory-linked CRM, and how to choose CRM software in India—before you buy Sell.do or generic tools.
+- Updated: 2026-06-01
+
+### Real Estate Inventory Management for Layout Developers (India)
+- URL: https://layouts360.com/real-estate-inventory-management
+- Keyword: real estate inventory management
+- Summary: Learn real estate inventory management for Indian layout developers—metrics, bottlenecks, broker discipline, and live inventory practices. Software when you are ready to digitize.
+- Updated: 2026-06-01
+
 
 ## Support & marketing pages
 
@@ -124,11 +136,35 @@
 - FAQ: https://layouts360.com/faq
 - Contact / demo: https://layouts360.com/contact
 
-## All guides (28)
+## All guides (34)
+
+### What Is Real Estate Inventory Management? (Guide for Indian Developers)
+- URL: https://layouts360.com/blog/what-is-real-estate-inventory-management
+- Summary: What real estate inventory means, how to measure it, why Excel fails, and how layout developers manage plots and units with live inventory—not generic CRM alone.
+
+### What Is Real Estate CRM Software? (Guide for Indian Layout Developers)
+- URL: https://layouts360.com/blog/what-is-real-estate-crm-software
+- Summary: What real estate CRM software does, why plot developers need inventory-linked CRM, and how it differs from generic contact tools and apartment-first PropTech CRMs.
+
+### Top 10 Real Estate CRM Software in India (2026) — What Plot Developers Should Check
+- URL: https://layouts360.com/blog/top-10-real-estate-crm-software-india
+- Summary: A practical top-10 style checklist for real estate CRM software in India—plot-linked inventory, mobile site office, partners, and pricing—not generic broker rankings.
 
 ### Real Estate Sales Automation for Layout Launches
 - URL: https://layouts360.com/blog/real-estate-sales-automation-layout-launches
 - Summary: Automate follow-ups, pipeline stages, and inventory-backed actions during high-velocity layout launches.
+
+### Real Estate Inventory Template (Excel): Why Layout Developers Outgrow It
+- URL: https://layouts360.com/blog/real-estate-inventory-template-excel-alternative
+- Summary: Searching for a real estate inventory template in Excel? See what spreadsheets cover, where they fail on launches and broker PDFs, and what to use instead in India.
+
+### Real Estate CRM With Inventory Management: What Plot Developers Should Demand
+- URL: https://layouts360.com/blog/real-estate-crm-with-inventory-management
+- Summary: CRM plus inventory sounds complete—until brokers still sell from PDFs. What to require from real estate CRM inventory modules for Indian layout and plot sales.
+
+### Real Estate CRM Pricing & Free Trials in India (What Plot Developers Pay For)
+- URL: https://layouts360.com/blog/real-estate-crm-pricing-and-free-trials-india
+- Summary: Real estate CRM software pricing in India, what “free” and “download” searches mean, and how to compare cost against Excel and double-booking risk.
 
 ### Plot Token, Hold, and Blocking Policy: Best Practices for Developers
 - URL: https://layouts360.com/blog/plot-token-hold-blocking-policy-best-practices
@@ -239,7 +275,15 @@
 - Summary: Sending a static PDF layout to a client is the fastest way to kill their excitement. Learn why digital, interactive maps are the new standard for closing deals.
 
 
-## All comparisons (23)
+## All comparisons (25)
+
+### Real Estate Inventory Management: Excel vs Live Inventory Software
+- URL: https://layouts360.com/compare/real-estate-inventory-management-excel-vs-live-inventory
+- Summary: Compare spreadsheet inventory management with live plot and unit inventory for Indian developers—double bookings, broker PDFs, and leadership reporting.
+
+### Real Estate CRM in India: PropTech CRMs vs Layout-First Software
+- URL: https://layouts360.com/compare/real-estate-crm-software-india-leadsquared-selldo-vs-layouts360
+- Summary: How Indian PropTech CRMs (LeadSquared, Sell.do style) compare to layout-first CRM for plot developers—inventory, launches, and site office reality.
 
 ### Layouts360 vs Blindersoe: Factual Feature Comparison for Indian Developers
 - URL: https://layouts360.com/compare/layouts360-vs-blindersoe
@@ -343,4 +387,4 @@
 
 ---
 
-Generated 2026-05-31T08:26:04.006Z
+Generated 2026-06-01T18:09:21.145Z

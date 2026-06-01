@@ -15,6 +15,18 @@ const PLAYBOOKS = {
 **Red flags:** Agents still maintain a shadow Excel for "real" availability; brokers forward PDF maps; holds never expire. Each indicates rollout paused too early—retrain before the next phase release.
 `,
 
+  inventoryManagement: `
+## Rollout playbook for inventory management practices
+
+**Week 1:** Agree status vocabulary and who may extend blocks. Document partner lead rules before portal invites.
+
+**Week 2:** Baseline months of inventory and absorption per active phase from live counts—not last month's corrected sheet.
+
+**Month 1:** Weekly leadership review: unsold exposure, sold %, collection lag. Adjust broker focus on slow phases with data.
+
+**Red flags:** Marketing claims scarcity while map shows inventory; brokers on PDFs while portal exists; CRM pipeline without plot IDs.
+`,
+
   inventory: `
 ## Rollout playbook for inventory management
 
@@ -37,6 +49,18 @@ const PLAYBOOKS = {
 **Month 1:** Audit expired blocks weekly; measure conversion from block to confirmed booking by agent and partner. Stalled blocks surface coaching opportunities before launch pressure returns.
 
 **Red flags:** Bookings recorded in WhatsApp before system entry; payments logged without booking ID; partner requests approved without map check. Booking discipline is the lock on inventory—treat exceptions as incidents.
+`,
+
+  crmGuide: `
+## Rollout playbook for CRM practices
+
+**Week 1:** Mandatory plot interest on capture forms—kiosk, portal, partner.
+
+**Week 2:** Pipeline stages mapped to block, token, booked—not generic SaaS stages.
+
+**Month 1:** Manager reviews use map view for stalled blocks and partner queue.
+
+**Red flags:** CRM adopted only by coordinator; agents sell from Excel; sold plots still in pipeline.
 `,
 
   crm: `
@@ -234,6 +258,16 @@ Review sold percentage by phase every Monday from the digital layout—not from 
 Day 1: map navigation and plot cards. Day 3: block, expire, book on tablet. Day 5: partner portal read-only tour. Refresher before each launch: timed holds and who may extend. New hires shadow one live booking on the map before taking walk-ins alone.
 `,
 
+  inventoryManagement: `
+### Handoff to leadership
+
+Review months of inventory and absorption using live sold counts—not Friday email attachments. Phase release meetings should name unsold plot and flat IDs at risk, not only percentages without context.
+
+### Training rhythm
+
+Managers coach from map views: stalled blocks, partner queue, plots without follow-up. New hires learn status vocabulary before taking walk-ins.
+`,
+
   inventory: `
 ### Handoff to leadership
 
@@ -252,6 +286,16 @@ Booking conversion rate from block to confirmed should be a standing metric—no
 ### Training rhythm
 
 Finance attends one session on booking-linked installments before go-live. Agents practice release and re-block when buyers delay token. Partners learn request-versus-confirm distinction—requests are not sales until desk approves on the map.
+`,
+
+  crmGuide: `
+### Handoff to leadership
+
+Review conversion by source and by phase weekly—portal vs broker vs walk-in—with plot context, not lead count alone.
+
+### Training rhythm
+
+Agents log plots shown on every visit; managers reject pipelines missing unit IDs.
 `,
 
   crm: `

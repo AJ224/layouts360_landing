@@ -3,9 +3,13 @@
 export const DEEP_DIVE_CLOSINGS = {
   plot: `Mature plot operations treat the digital layout as the only availability source during business hours. Marketing, desk, partners, and leadership may disagree on strategy—but not on whether Plot 88 is green. When disputes arise, booking IDs and timestamps on the map settle arguments faster than cabin debates. That discipline is what buyers and brokers notice as professionalism, even if they never name "plot management software."`,
 
+  inventoryManagement: `Inventory management maturity is when marketing scarcity claims, broker portals, and site office maps always match. Directors stop asking "how many are left?" in meetings that pause for someone to open the right file. The next step is often software—but policy and partner rules come first.`,
+
   inventory: `Inventory maturity means a buyer can call at 4 p.m. and hear the same answer the site office gives at 4:05 p.m. Portfolio teams stop merging CSVs before investor updates because roll-ups already live in the platform. The shift is cultural: status changes happen in software first, then WhatsApp celebrates the booking—not the other way around.`,
 
   booking: `Booking maturity is visible when finance and sales reference one deal file per plot. Agents stop saying "I told them it's booked" without a system record. Partners learn that approval on the map is the only confirmation that counts. Buyers trust developers who can show token, agreement, and installment history without searching email threads.`,
+
+  crmGuide: `CRM maturity is when marketing, desk, and partners reference the same buyer journey on real units—before software automates it. Directors stop rewarding contact volume while inventory truth lives in Excel.`,
 
   crm: `CRM maturity for plot sales means managers never ask "did you call?" without also asking "which plots did you show?" Pipeline hygiene is deleting leads that reference sold units and prioritizing blocks nearing expiry. The CRM earns adoption when it saves agents time on site—not when it adds evening data entry for HQ reports alone.`,
 

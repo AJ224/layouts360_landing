@@ -139,16 +139,20 @@ export const LANDING_CONFIGS = [
     pageKey: "inventory",
     path: "/real-estate-inventory-management-software",
     primaryKeyword: "real estate inventory management software",
-    title: "Real Estate Inventory Management Software",
+    title: "Real Estate Inventory Management Software for Plot & Layout Developers",
     description:
       "Real estate inventory management software for plots, flats, and commercial units—live availability, prevent double bookings, sync sales across teams in India.",
     keywords: [
       "real estate inventory management software",
+      "real estate inventory management",
+      "real estate inventory app",
+      "real estate software India",
       "property inventory management platform",
       "plot management software",
     ],
     ogTitle: "Real Estate Inventory Management Software | Layouts360",
-    ogDescription: "Centralized inventory for plots, flats, and commercial units with real-time availability.",
+    ogDescription:
+      "Inventory app for Indian layout developers—live plots, flats, and commercial units. Mobile site office, broker portal, from ₹2,000/month. Free demo.",
     breadcrumbLabel: "Inventory Management Software",
     softwareDescription: "Real estate inventory management for plots, flats, and commercial units with live availability.",
     categoryTerm: "real estate inventory management software",
@@ -187,6 +191,11 @@ export const LANDING_CONFIGS = [
       },
     ],
     features: [
+      {
+        name: "Inventory app for field sales",
+        benefit: "Mobile-first layout and status on phones and tablets at site office.",
+        outcome: "Agents block and book where buyers stand—no evening sheet updates.",
+      },
       {
         name: "Live availability",
         benefit: "Instant sync web and mobile.",
@@ -229,11 +238,198 @@ export const LANDING_CONFIGS = [
     ]),
     platformOverrides: [{ href: "/property-inventory-management-platform", label: "Property inventory platform" }],
     relatedLinks: [
+      { href: "/real-estate-inventory-management", label: "What is inventory management" },
+      { href: "/blog/what-is-real-estate-inventory-management", label: "Inventory management guide" },
+      { href: "/blog/real-estate-inventory-template-excel-alternative", label: "Excel template alternative" },
       { href: "/blog/best-real-estate-inventory-management-software-india-2026", label: "Best inventory software India" },
-      { href: "/compare/single-source-of-truth-plot-inventory", label: "Single source of truth" },
+      { href: "/compare/real-estate-inventory-management-excel-vs-live-inventory", label: "Excel vs live inventory" },
     ],
+    faqExtra: [
+      {
+        question: "Is there free real estate inventory management software?",
+        answer:
+          "Free Excel templates and rental CRM trials are common, but plot layout sales need live maps, timed blocks, and broker portals. Layouts360 offers a free demo and plans from ₹2,000/month with unlimited users on tiers—not a fake “free forever” inventory tool that breaks at launch.",
+      },
+      {
+        question: "Does Layouts360 work as a real estate inventory app?",
+        answer:
+          "Yes. Layouts360 is mobile-first: agents and partners use the layout and inventory on phones and tablets at the site office. It is a web app—no separate install required for field sales.",
+      },
+      {
+        question: "Can I use an Excel inventory template instead?",
+        answer:
+          "Templates help plan a phase; they do not sync desk, agents, and brokers in real time. See our guide on Excel inventory templates and migrate to live inventory before launch weekends or large partner networks.",
+      },
+      {
+        question: "How does this relate to lead management and CRM in India?",
+        answer:
+          "Inventory should connect to real estate lead management and CRM on the same plot or unit ID. Layouts360 unifies inventory, CRM, bookings, and channel partners for Indian layout developers.",
+      },
+    ],
+    extraSection: `
+## Real estate inventory app for site office and brokers
+
+Buyers searching for a **real estate inventory app** usually need field teams to see live plot or unit status—not another desktop CRM. Layouts360 runs in the browser on phones and tablets: digital layout, plot cards, block-to-book, and partner portal access without maintaining a separate “app” export from Excel.
+
+Site agents answer availability on the map at the cabin. Brokers sell from the same live inventory as your desk. Leadership checks sold percentage from the same dashboard—**real estate software for India** that matches how layout sales actually happen.
+
+If you are comparing **real estate inventory management software free** listings, validate live blocking on your layout in the demo—not feature checklists alone.
+`,
     ctaTitle: "Ready to transform your inventory management?",
     ctaDescription: "See your inventory on an interactive layout in a free demo.",
+  }),
+
+  page({
+    pageKey: "inventoryManagement",
+    path: "/real-estate-inventory-management",
+    primaryKeyword: "real estate inventory management",
+    title: "Real Estate Inventory Management for Layout Developers (India)",
+    description:
+      "Learn real estate inventory management for Indian layout developers—metrics, bottlenecks, broker discipline, and live inventory practices. Software when you are ready to digitize.",
+    keywords: [
+      "real estate inventory management",
+      "real estate inventory",
+      "property inventory management",
+      "inventory management real estate India",
+    ],
+    ogTitle: "Real Estate Inventory Management Guide | Layouts360",
+    ogDescription:
+      "Months of inventory, absorption rate, and live unit status for plot and layout sales in India—without Excel chaos.",
+    breadcrumbLabel: "Real Estate Inventory Management",
+    softwareDescription:
+      "Practices and software for real estate inventory management on plotted layouts and mixed projects in India.",
+    categoryTerm: "real estate inventory management",
+    categoryShort: "inventory management",
+    heroIntro: [
+      "**Real estate inventory management** is how Indian layout developers track unsold plots, flats, and commercial units so sales, brokers, and leadership share one availability truth.",
+      "This page covers what inventory means, metrics like months of inventory and absorption rate, where Excel and PDF brokers fail, and how to manage inventory before you buy software.",
+      "When you are ready to digitize, Layouts360 connects live maps, bookings, CRM, and partner portals on the same unit records.",
+    ],
+    definition:
+      "**Real estate inventory management** is the discipline of tracking sellable units, updating status when buyers block or book, and reporting sold percentage and exposure across phases and projects. For layout developers, inventory is plot and unit IDs on a plan—not warehouse stock.",
+    definitionExtra:
+      "Educational guides on [what is real estate inventory management](/blog/what-is-real-estate-inventory-management) and [CRM with inventory](/blog/real-estate-crm-with-inventory-management) go deeper; [inventory management software](https://layouts360.com/real-estate-inventory-management-software) is the product path when operations outgrow spreadsheets.",
+    faqDefinition:
+      "The practice and systems used to track, sell, and report on unsold property units with accurate availability across sales, partners, and leadership.",
+    solutionBullets: [
+      "Define status rules: available, blocked, booking in progress, sold",
+      "Measure months of inventory and absorption by phase",
+      "Replace PDF broker cycles with live partner portals",
+      "Connect inventory to CRM, bookings, and installments on one record",
+    ],
+    solutionExtra:
+      "Layouts360 implements these practices as **real estate inventory management software** with digital layouts—see the software page when you need block-to-book on a live map.",
+    problems: [
+      {
+        title: "Metrics without live data",
+        body: "Months of inventory and absorption are calculated in Excel while field status lags by a day—decisions look precise but rest on stale counts.",
+      },
+      {
+        title: "Broker PDF inventory",
+        body: "Partners forward brochures faster than you update availability; high-value disputes start with wrong green cells on a map.",
+      },
+      {
+        title: "Phase release guesswork",
+        body: "Phase 2 launches while Phase 1 still has slow-moving plots because leadership lacks one portfolio view of exposure.",
+      },
+      {
+        title: "CRM without unit context",
+        body: "Pipeline lists buyer names while inventory lives elsewhere—follow-ups ignore which plots are actually available this week.",
+      },
+    ],
+    features: [
+      {
+        name: "Inventory metrics that matter",
+        benefit: "Track months of inventory, absorption, and absolute unsold count per phase.",
+        outcome: "Release timing and broker incentives use evidence, not anecdotes.",
+      },
+      {
+        name: "Single status vocabulary",
+        benefit: "Everyone uses the same available / blocked / sold meanings.",
+        outcome: "Fewer arguments between marketing, desk, and finance.",
+      },
+      {
+        name: "Partner discipline",
+        benefit: "Brokers sell from live inventory, not forwarded PDFs.",
+        outcome: "Scale past twenty partners without a full-time PDF coordinator.",
+      },
+      {
+        name: "Launch-ready blocking",
+        benefit: "Timed holds during high-demand weekends.",
+        outcome: "Fair queues; less hoarding and double allotment.",
+      },
+      {
+        name: "Software when ready",
+        benefit: "Digitize layout, import units, go live in days per project.",
+        outcome: "Move from practices on paper to enforced status in software.",
+      },
+    ],
+    useCases: [
+      {
+        title: "Director reviewing exposure",
+        body: "Roll up unsold plots and flats across five active layouts before pricing or phase release.",
+      },
+      {
+        title: "Pre-launch policy",
+        body: "Publish hold duration and partner rules the week before brokers arrive.",
+      },
+      {
+        title: "Mixed plot and tower",
+        body: "One inventory language for open plots and apartment floors in the same brand.",
+      },
+      {
+        title: "Post-launch debrief",
+        body: "Use booking IDs and block logs to tune policy before the next phase—not memory alone.",
+      },
+    ],
+    workflow: wf([
+      { title: "Define units and phases", body: "Number every sellable plot or flat; isolate unreleased phases." },
+      { title: "Set metrics baseline", body: "Record unsold count and recent booking pace for absorption." },
+      { title: "Fix status discipline", body: "Update availability in one system when blocks and bookings happen." },
+      { title: "Align brokers", body: "Portal or live links replace PDF inventory cycles." },
+      { title: "Review weekly", body: "Leadership checks sold %, exposure, and collection lag per phase." },
+      { title: "Digitize", body: "Adopt layout-native software when Excel risk exceeds comfort." },
+    ]),
+    platformOverrides: [
+      { href: "/real-estate-inventory-management-software", label: "Inventory management software" },
+      { href: "/property-inventory-management-platform", label: "Property inventory platform" },
+    ],
+    relatedLinks: [
+      { href: "/blog/what-is-real-estate-inventory-management", label: "What is inventory management" },
+      { href: "/blog/real-estate-inventory-template-excel-alternative", label: "Excel template guide" },
+      { href: "/blog/real-estate-crm-with-inventory-management", label: "CRM with inventory" },
+      { href: "/real-estate-inventory-management-software", label: "Inventory software" },
+      { href: "/compare/real-estate-inventory-management-excel-vs-live-inventory", label: "Excel vs live inventory" },
+    ],
+    faqExtra: [
+      {
+        question: "What is months of inventory in real estate?",
+        answer:
+          "Estimated months to sell current unsold units at recent sales pace, excluding unreleased phases. Useful for phase release and broker planning when counts are live.",
+      },
+      {
+        question: "What is absorption rate?",
+        answer:
+          "How quickly available units convert to bookings or sales. Rising absorption may support the next release; flat absorption with high inventory may need pricing or broker review.",
+      },
+      {
+        question: "How is inventory management different from inventory software?",
+        answer:
+          "Management is process and policy; software enforces status in real time. End-of-day sheet updates are still manual management with extra steps.",
+      },
+      {
+        question: "Do I need CRM if I fix inventory?",
+        answer:
+          "Inventory without CRM loses lead and visit context; CRM without inventory loses unit truth. Plot developers need both on the same plot or flat ID.",
+      },
+      {
+        question: "Should I start from an Excel inventory template?",
+        answer:
+          "Templates are fine for planning; they fail as the daily master when brokers and multiple agents sell the same phase. Move to live status before scale—see the Excel template alternative guide on our blog.",
+      },
+    ],
+    ctaTitle: "Ready to manage inventory on a live layout?",
+    ctaDescription: "See real estate inventory management software with maps, blocks, and partner portals in a free demo.",
   }),
 
   page({
@@ -308,9 +504,16 @@ export const LANDING_CONFIGS = [
     title: "Real Estate CRM Software for Builders & Developers",
     description:
       "Real estate CRM software built for plot developers in India—plot-linked leads, pipeline, follow-ups, and live inventory in one system.",
-    keywords: ["real estate crm software", "crm for real estate", "real estate CRM India"],
-    ogTitle: "Real Estate CRM Software | Layouts360",
-    ogDescription: "Purpose-built CRM for layout developers with plot-linked leads and live inventory.",
+    keywords: [
+      "real estate crm software",
+      "real estate CRM software India",
+      "crm for real estate",
+      "real estate CRM India",
+      "real estate crm app",
+    ],
+    ogTitle: "Real Estate CRM Software India | Layouts360",
+    ogDescription:
+      "Plot-linked real estate CRM software for India—mobile site office, live inventory, partners. Free demo. From ₹2,000/month.",
     breadcrumbLabel: "Real Estate CRM Software",
     softwareDescription: "Real estate CRM with plot-linked leads, pipeline, and live inventory for Indian developers.",
     categoryTerm: "real estate CRM software",
@@ -363,11 +566,170 @@ export const LANDING_CONFIGS = [
       { href: "/best-real-estate-crm-software", label: "Best CRM India" },
     ],
     relatedLinks: [
+      { href: "/real-estate-crm", label: "What is real estate CRM" },
+      { href: "/blog/what-is-real-estate-crm-software", label: "CRM software guide" },
+      { href: "/blog/top-10-real-estate-crm-software-india", label: "Top 10 CRM India" },
+      { href: "/blog/real-estate-crm-pricing-and-free-trials-india", label: "CRM pricing & free demo" },
       { href: "/blog/real-estate-crm-for-builders", label: "CRM for builders" },
       { href: "/compare/purpose-built-real-estate-software-vs-generic-crm", label: "vs generic CRM" },
     ],
+    faqExtra: [
+      {
+        question: "Is there free real estate CRM software?",
+        answer:
+          "Free tiers are usually contact-limited or rental CRMs—not plot layouts with live maps and broker portals. Layouts360 offers a free demo and plans from ₹2,000/month with unlimited users on tiers.",
+      },
+      {
+        question: "Can I download real estate CRM software?",
+        answer:
+          "Layouts360 is cloud CRM and inventory in the browser on phone, tablet, and desktop—no separate master file to download. Agents always use live data.",
+      },
+      {
+        question: "What is real estate CRM pricing in India?",
+        answer:
+          "Compare per-seat global CRMs vs INR tiers for growing teams. See our pricing and free trials guide; total cost should include eliminating parallel Excel inventory.",
+      },
+      {
+        question: "Is there open-source real estate CRM on GitHub?",
+        answer:
+          "GitHub projects lack supported launch workflows for Indian plot sales. Layouts360 is commercial cloud software built for layout developers.",
+      },
+    ],
+    extraSection: `
+## Real estate CRM app for site office and brokers
+
+**Real estate CRM software** must work as a **mobile CRM app** at the site cabin—plot cards, follow-ups, and blocks on phone and tablet. Layouts360 is mobile-first web CRM tied to live inventory, not a desktop-only contact database agents ignore in the field.
+
+Partners use the same system for lead submit and booking requests instead of forwarding PDF maps in WhatsApp.
+`,
     ctaTitle: "Ready for a real estate CRM that understands plots?",
     ctaDescription: "See CRM, leads, and inventory in one demo walkthrough.",
+  }),
+
+  page({
+    pageKey: "crmGuide",
+    path: "/real-estate-crm",
+    primaryKeyword: "real estate crm",
+    title: "Real Estate CRM for Layout Developers in India",
+    description:
+      "What real estate CRM is, why plot developers need inventory-linked CRM, and how to choose CRM software in India—before you buy Sell.do or generic tools.",
+    keywords: [
+      "real estate crm",
+      "real estate CRM India",
+      "real estate crm software India",
+      "best real estate crm software in India",
+      "crm for real estate developers",
+    ],
+    ogTitle: "Real Estate CRM Guide India | Layouts360",
+    ogDescription:
+      "CRM practices for Indian layout developers—plot-linked leads, partners, mobile site office, vs generic CRM.",
+    breadcrumbLabel: "Real Estate CRM",
+    softwareDescription: "Guide to real estate CRM for plot and layout sales teams in India.",
+    categoryTerm: "real estate CRM",
+    categoryShort: "real estate CRM",
+    variant: "crm",
+    heroIntro: [
+      "**Real estate CRM** for layout developers is more than contact storage—it is follow-ups, site visits, and pipeline tied to **specific plots** on a live map.",
+      "This page explains what CRM should do for Indian plot sales, how it differs from apartment-first PropTech CRMs, and when to adopt software.",
+      "Layouts360 connects CRM, inventory, booking, and channel partners for teams outgrowing Excel and WhatsApp pipelines.",
+    ],
+    definition:
+      "**Real estate CRM** organizes buyer and partner relationships from enquiry through booking. For plotted land sales, CRM must reference plot numbers, phases, blocks, and live availability—not only names and phone numbers.",
+    definitionExtra:
+      "Product depth: [real estate CRM software](https://layouts360.com/real-estate-crm-software). Comparisons: [what is CRM software](/blog/what-is-real-estate-crm-software), [top 10 in India](/blog/top-10-real-estate-crm-software-india), [pricing & free demo](/blog/real-estate-crm-pricing-and-free-trials-india).",
+    faqDefinition:
+      "Systems and practices to capture leads, manage follow-ups and site visits, and connect buyers to sellable units for real estate developers.",
+    solutionBullets: [
+      "Plot-linked leads and pipeline stages",
+      "Mobile follow-up at site office",
+      "Lead source and partner ownership rules",
+      "Same CRM record through booking and installments",
+    ],
+    solutionExtra:
+      "When CRM is ready to become software, use [real estate CRM software](https://layouts360.com/real-estate-crm-software) with live inventory—not CRM plus a shadow Excel map.",
+    problems: [
+      {
+        title: "Contact-only CRM",
+        body: "Pipeline grows while agents still sell from spreadsheets without plot context.",
+      },
+      {
+        title: "Missed follow-ups",
+        body: "Hot walk-ins cool because reminders live on personal phones, not the unit they viewed.",
+      },
+      {
+        title: "Broker lead fights",
+        body: "No system of record for partner introductions before payout day.",
+      },
+      {
+        title: "Marketing CRM mismatch",
+        body: "Email automation scores high while launch still runs on paper charts.",
+      },
+    ],
+    features: [
+      {
+        name: "Plot-context pipeline",
+        benefit: "Stages reflect block, token, booked.",
+        outcome: "Honest manager reviews.",
+      },
+      {
+        name: "Site visit logging",
+        benefit: "Plots shown recorded on mobile.",
+        outcome: "Better return visits.",
+      },
+      {
+        name: "Partner CRM rules",
+        benefit: "Ownership windows in software.",
+        outcome: "Fewer disputes.",
+      },
+      {
+        name: "Inventory alignment",
+        benefit: "CRM reads live map.",
+        outcome: "No sold-plot follow-ups.",
+      },
+      {
+        name: "Software path",
+        benefit: "CRM + map + booking stack.",
+        outcome: "One adoption curve.",
+      },
+    ],
+    useCases: [
+      { title: "Portal lead surge", body: "Assign and call with plot interest captured." },
+      { title: "Walk-in at cabin", body: "Block while buyer is present." },
+      { title: "Broker weekend", body: "Partner leads tagged fairly." },
+      { title: "Director pipeline", body: "Weekly map-based coaching." },
+    ],
+    workflow: wf([
+      { title: "Capture", body: "Source + plot interest required." },
+      { title: "Assign", body: "Rules by project." },
+      { title: "Follow up", body: "Tasks tied to units." },
+      { title: "Visit", body: "Log plots shown." },
+      { title: "Block/book", body: "Inventory updates." },
+      { title: "Software", body: "Adopt CRM with live layout." },
+    ]),
+    platformOverrides: [
+      { href: "/real-estate-crm-software", label: "CRM software" },
+      { href: "/best-real-estate-crm-software", label: "Best CRM India" },
+      { href: "/real-estate-lead-management-software", label: "Lead management" },
+    ],
+    relatedLinks: [
+      { href: "/blog/what-is-real-estate-crm-software", label: "What is CRM software" },
+      { href: "/blog/top-10-real-estate-crm-software-india", label: "Top 10 CRM India" },
+      { href: "/compare/real-estate-crm-software-india-leadsquared-selldo-vs-layouts360", label: "PropTech CRM comparison" },
+    ],
+    faqExtra: [
+      {
+        question: "What is the best real estate CRM in India?",
+        answer:
+          "For plot developers, the best CRM links leads to live layout inventory and bookings. Compare block-to-book in demo with your map—not only marketing features.",
+      },
+      {
+        question: "How is CRM different from lead management?",
+        answer:
+          "Lead management focuses on capture and assignment; CRM adds pipeline, visits, and conversion through booking. Plot sales need both plus inventory.",
+      },
+    ],
+    ctaTitle: "Ready for CRM software built for plots?",
+    ctaDescription: "Book a demo—CRM, inventory, and partners on one layout.",
   }),
 
   page({
@@ -731,7 +1093,12 @@ export const LANDING_CONFIGS = [
     title: "Best Real Estate CRM Software in India (2026)",
     description:
       "Looking for the best real estate CRM software in India? Compare plot-linked CRM vs generic tools for layout developers.",
-    keywords: ["best real estate crm software", "best real estate crm software in India"],
+    keywords: [
+      "best real estate crm software",
+      "best real estate crm software in India",
+      "top 10 crm for real estate",
+      "real estate CRM software India",
+    ],
     ogTitle: "Best Real Estate CRM Software in India | Layouts360",
     ogDescription: "Buyer's guide to the best real estate CRM for builders and layout developers.",
     breadcrumbLabel: "Best Real Estate CRM (India)",
@@ -785,8 +1152,23 @@ export const LANDING_CONFIGS = [
     extraSection:
       "## Comparison snapshot\n\n| Capability | Generic CRM | Layouts360 |\n| --- | --- | --- |\n| Plot-level leads | Custom fields | Native |\n| Layout selling | Not included | Built-in |\n| Double-booking prevention | Manual | Live inventory |\n| India pricing | USD per seat | From ₹2,000/mo |",
     relatedLinks: [
-      { href: "/real-estate-crm-software", label: "Real estate CRM software" },
+      { href: "/real-estate-crm", label: "Real estate CRM guide" },
+      { href: "/blog/top-10-real-estate-crm-software-india", label: "Top 10 CRM checklist" },
+      { href: "/blog/real-estate-crm-pricing-and-free-trials-india", label: "Pricing & free demo" },
+      { href: "/real-estate-crm-software", label: "CRM software product" },
       { href: "/compare/purpose-built-real-estate-software-vs-generic-crm", label: "vs generic CRM" },
+    ],
+    faqExtra: [
+      {
+        question: "Is Layouts360 the best real estate CRM software in India?",
+        answer:
+          "It is built for layout and plot developers needing live maps, inventory, CRM, and partners—not every apartment marketer. Validate with your layout in a demo against your checklist.",
+      },
+      {
+        question: "How does pricing compare to global CRMs?",
+        answer:
+          "INR tiers from ₹2,000/month with unlimited users on tiers often beat per-seat USD pricing for large Indian sales teams.",
+      },
     ],
     ctaTitle: "See if Layouts360 is the best fit for your project",
     ctaDescription: "Book a demo comparing lead management, CRM, and plot selling.",

@@ -4,11 +4,13 @@ import type { SeoLandingPageKey } from "@/lib/seo-landing-pages"
 export const LANDING_PAGE_PATHS: Record<SeoLandingPageKey, string> = {
   plot: "/real-estate-plot-management-software",
   inventory: "/real-estate-inventory-management-software",
+  inventoryManagement: "/real-estate-inventory-management",
   asset: "/real-estate-asset-management-software",
   accounting: "/real-estate-accounting-software",
   commercial: "/commercial-real-estate-software",
   client: "/real-estate-client-management-software",
   crm: "/real-estate-crm-software",
+  crmGuide: "/real-estate-crm",
   lead: "/real-estate-lead-management-software",
   bestCrm: "/best-real-estate-crm-software",
   channelPartner: "/real-estate-channel-partner-management-software",
