@@ -48,11 +48,11 @@ export default function ContactPage() {
               <h3 className="text-xl font-bold text-gray-900 sm:text-2xl">Call Us</h3>
               <p className="text-sm text-gray-600 sm:text-base">Speak directly with our sales team for immediate assistance.</p>
               <div className="space-y-2 pt-2">
+                <a href="tel:+919021018080" className="block text-base font-semibold text-gray-900 transition-colors hover:text-blue-600 sm:text-lg">
+                  +91 90210 18080
+                </a>
                 <a href="tel:+917276495199" className="block text-base font-semibold text-gray-900 transition-colors hover:text-blue-600 sm:text-lg">
                   +91 72764 95199
-                </a>
-                <a href="tel:+919595337334" className="block text-base font-semibold text-gray-900 transition-colors hover:text-blue-600 sm:text-lg">
-                  +91 95953 37334
                 </a>
               </div>
             </div>
