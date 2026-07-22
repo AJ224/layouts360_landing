@@ -44,13 +44,14 @@ export const ALL_TARGET_KEYWORDS = [
 export const PAGE_KEYWORDS = {
   home: [
     "real estate plot management software",
+    "plot booking software",
     "real estate inventory management software",
     "plot management software India",
     "real estate crm software",
+    "township management software",
     "booking management software",
     "channel partner management software",
-    "property inventory management platform",
-    "digital layout software",
+    "digital layout maps",
     "builder CRM India",
   ],
   inventory: [

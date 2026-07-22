@@ -29,7 +29,13 @@ export type GeoLandingPageKey =
   | "backOffice"
   | "propertyInventory"
 
-export type SeoLandingPageKey = CoreLandingPageKey | GeoLandingPageKey
+export type CategoryLandingPageKey =
+  | "townshipManagement"
+  | "layoutManagement"
+  | "digitalLayoutMaps"
+  | "siteVisitManagement"
+
+export type SeoLandingPageKey = CoreLandingPageKey | GeoLandingPageKey | CategoryLandingPageKey
 
 /** @deprecated Use createLandingMetadata from @/lib/landings */
 export const createSeoLandingMetadata = createLandingMetadata

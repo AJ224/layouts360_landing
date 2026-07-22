@@ -1,7 +1,15 @@
 import Header from "@/components/marketing/header"
 import { MarketingButtonLink } from "@/components/ui/marketing-button-link"
-import { PRIMARY_TAGLINE } from "@/lib/brand"
-import { ArrowRight, CheckCircle2, PlayCircle } from "lucide-react"
+import { ArrowRight, PlayCircle } from "lucide-react"
+
+const CAPABILITIES = [
+  "Interactive Digital Layout Maps",
+  "Plot Inventory Management",
+  "Plot Booking & Reservation",
+  "Real Estate CRM",
+  "Payment Tracking",
+  "Channel Partner Management",
+] as const
 
 export default function Hero() {
   return (
@@ -13,36 +21,41 @@ export default function Hero() {
       <Header theme="light" />
 
       {/* Hero Content */}
-      <section className="relative z-10 flex flex-col items-center justify-center px-4 sm:px-6 pt-20 pb-32 text-center">
+      <section className="relative z-10 flex flex-col items-center justify-center px-4 sm:px-6 pt-20 pb-24 text-center">
         <div className="max-w-5xl mx-auto space-y-8">
           {/* Badge */}
           <div className="flex justify-center">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-slate-200 bg-slate-50 text-slate-600 text-sm font-medium">
               <span className="w-2 h-2 rounded-full bg-slate-500"></span>
-              Plot & inventory management · India
+              Real estate plot management software · India
             </span>
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-6">
-            Sell plots with <span className="text-[#34D399]">live inventory</span> & CRM
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-4">
+            India&apos;s Real Estate <span className="text-[#34D399]">Plot Management Software</span>
           </h1>
 
-          <p className="max-w-2xl mx-auto text-lg text-slate-600 leading-relaxed">
-            {PRIMARY_TAGLINE} Live digital maps, booking management, and payment tracking—without Excel or
-            WhatsApp chaos.
+          <p className="max-w-3xl mx-auto text-lg text-slate-600 leading-relaxed">
+            Layouts360 is plot management and inventory management software for real estate developers, builders,
+            and township projects—built to run the full sales lifecycle from one platform: live digital layout
+            maps, plot inventory, booking, a real estate CRM, payment tracking, and channel partner management.
           </p>
 
-          {/* Status Indicators */}
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-medium text-slate-700">
-            <span className="flex items-center gap-2"><span className="w-3 h-3 bg-[#34D399] rounded-sm"></span> Available</span>
-            <span className="flex items-center gap-2"><span className="w-3 h-3 bg-[#FBBF24] rounded-sm"></span> Booked</span>
-            <span className="flex items-center gap-2"><span className="w-3 h-3 bg-[#EF4444] rounded-sm"></span> Sold</span>
-            <span className="flex items-center gap-2"><span className="w-3 h-3 bg-[#64748B] rounded-sm"></span> Freeze</span>
+          {/* Capability chips — explain the product within the first screen */}
+          <div className="flex flex-wrap items-center justify-center gap-2.5 pt-2">
+            {CAPABILITIES.map((item) => (
+              <span
+                key={item}
+                className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3.5 py-1.5 text-sm font-medium text-slate-700"
+              >
+                {item}
+              </span>
+            ))}
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col items-center justify-center gap-4 pt-8 pb-8 sm:flex-row">
+          <div className="flex flex-col items-center justify-center gap-4 pt-6 pb-6 sm:flex-row">
             <MarketingButtonLink href="/contact">
               Request Demo <ArrowRight className="ml-2 h-4 w-4" />
             </MarketingButtonLink>
@@ -51,11 +64,12 @@ export default function Hero() {
             </MarketingButtonLink>
           </div>
 
-          {/* Bottom Trust/Features Badges */}
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-slate-500">
-            <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-slate-400" /> No setup required</span>
-            <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-slate-400" /> Real-time sync</span>
-            <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-slate-400" /> Mobile ready</span>
+          {/* Live plot status legend — shows the product, not just claims */}
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-medium text-slate-700">
+            <span className="flex items-center gap-2"><span className="w-3 h-3 bg-[#34D399] rounded-sm"></span> Available</span>
+            <span className="flex items-center gap-2"><span className="w-3 h-3 bg-[#FBBF24] rounded-sm"></span> Booked</span>
+            <span className="flex items-center gap-2"><span className="w-3 h-3 bg-[#EF4444] rounded-sm"></span> Sold</span>
+            <span className="flex items-center gap-2"><span className="w-3 h-3 bg-[#64748B] rounded-sm"></span> Freeze</span>
           </div>
         </div>
       </section>

@@ -23,6 +23,21 @@ export const SOLUTION_HUB_GROUPS: SolutionHubGroup[] = [
         description: "Digital layouts, plot data, and booking workflows for layout developers.",
       },
       {
+        href: "/layout-management-software",
+        label: "Layout management software",
+        description: "Digitize site plans and manage phase-wise plot release on a live layout.",
+      },
+      {
+        href: "/digital-layout-maps",
+        label: "Digital layout maps",
+        description: "Interactive, satellite-backed maps with live plot-level detail.",
+      },
+      {
+        href: "/township-management-software",
+        label: "Township management software",
+        description: "Multi-phase inventory and reporting for large plotted townships.",
+      },
+      {
         href: "/real-estate-inventory-management",
         label: "Inventory management guide",
         description: "Metrics, practices, and bottlenecks for plot and layout inventory in India.",
@@ -67,6 +82,11 @@ export const SOLUTION_HUB_GROUPS: SolutionHubGroup[] = [
         href: "/real-estate-client-management-software",
         label: "Client management",
         description: "Buyer lifecycle from enquiry to booking and handover.",
+      },
+      {
+        href: "/site-visit-management",
+        label: "Site visit management",
+        description: "Schedule, log, and follow up on site visits tied to real plots.",
       },
       {
         href: "/real-estate-sales-automation-software",

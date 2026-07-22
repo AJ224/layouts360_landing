@@ -2,9 +2,13 @@ import { CRM_CLUSTER_LINKS } from "@/lib/crm-cluster-links"
 
 const PRODUCT_SOLUTION_LINKS = [
   { href: "/real-estate-plot-management-software", label: "Plot Management" },
+  { href: "/layout-management-software", label: "Layout Management" },
+  { href: "/digital-layout-maps", label: "Digital Layout Maps" },
+  { href: "/township-management-software", label: "Township Management" },
   { href: "/real-estate-inventory-management-software", label: "Inventory Management" },
   { href: "/real-estate-booking-management-software", label: "Booking Management" },
   { href: "/online-plot-booking-software", label: "Online Plot Booking" },
+  { href: "/site-visit-management", label: "Site Visit Management" },
   { href: "/real-estate-channel-partner-management-software", label: "Channel Partners" },
   { href: "/real-estate-sales-automation-software", label: "Sales Automation" },
   { href: "/launch-day-plot-sales-software", label: "Launch Day Sales" },
@@ -34,8 +38,12 @@ export const FOOTER_SOLUTION_GROUPS = [
     title: "Sales & inventory",
     links: [
       { href: "/real-estate-plot-management-software", label: "Plot Management" },
+      { href: "/layout-management-software", label: "Layout Management" },
+      { href: "/digital-layout-maps", label: "Digital Layout Maps" },
+      { href: "/township-management-software", label: "Township Management" },
       { href: "/real-estate-inventory-management-software", label: "Inventory" },
       { href: "/real-estate-booking-management-software", label: "Bookings" },
+      { href: "/site-visit-management", label: "Site Visits" },
       { href: "/real-estate-channel-partner-management-software", label: "Channel Partners" },
       { href: "/real-estate-accounting-software", label: "Payment Tracking" },
     ],

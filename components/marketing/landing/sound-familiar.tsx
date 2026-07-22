@@ -3,11 +3,12 @@ import { IconCard, Section, SectionHeader } from "@/components/marketing/landing
 
 export function SoundFamiliarSection() {
   return (
-    <Section>
+    <Section id="problems">
       <SectionHeader
-        eyebrow="The Challenge"
+        eyebrow="Problems developers face"
         eyebrowClassName="bg-rose-100 text-rose-600"
-        title="Sound familiar?"
+        title="Selling plots without plot management software gets expensive"
+        description="Most real estate developers don't lose sales to competitors—they lose them to disorganized inventory, slow follow-ups, and double bookings."
       />
       <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
         {painPoints.map((card) => (

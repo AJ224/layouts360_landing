@@ -2,7 +2,7 @@
 
 > Extended catalog for AI agents. Summary: https://layouts360.com/llms.txt · Sitemap: https://layouts360.com/sitemap.xml
 
-## SEO landing pages (20 MDX)
+## SEO landing pages (24 MDX)
 
 ### Real Estate Plot Management Software for Developers & Builders
 - URL: https://layouts360.com/real-estate-plot-management-software
@@ -112,6 +112,18 @@
 - Summary: Real estate back office software for documents, commissions, installments, and booking operations tied to live inventory.
 - Updated: 2026-06-01
 
+### Digital Layout Maps for Real Estate | Interactive Plot Maps
+- URL: https://layouts360.com/digital-layout-maps
+- Keyword: digital layout maps
+- Summary: Digital layout maps with satellite view, deep zoom, and tap-to-view plot details—replace flat PDF site plans with an interactive map buyers can explore online.
+- Updated: 2026-07-22
+
+### Layout Management Software for Real Estate Developers
+- URL: https://layouts360.com/layout-management-software
+- Keyword: layout management software
+- Summary: Layout management software to digitize site plans, manage phase-wise plot release, and run sales on a live layout—built for Indian land and plot developers.
+- Updated: 2026-07-22
+
 ### Real Estate CRM for Layout Developers in India
 - URL: https://layouts360.com/real-estate-crm
 - Keyword: real estate crm
@@ -123,6 +135,18 @@
 - Keyword: real estate inventory management
 - Summary: Learn real estate inventory management for Indian layout developers—metrics, bottlenecks, broker discipline, and live inventory practices. Software when you are ready to digitize.
 - Updated: 2026-06-01
+
+### Site Visit Management Software for Real Estate
+- URL: https://layouts360.com/site-visit-management
+- Keyword: site visit management software
+- Summary: Site visit management software to schedule, track, and follow up on plot site visits—logged against real inventory, with conversion tracking from visit to booking.
+- Updated: 2026-07-22
+
+### Township Management Software for Real Estate Developers
+- URL: https://layouts360.com/township-management-software
+- Keyword: township management software
+- Summary: Township management software for multi-phase plotted townships—live inventory across phases, plot & villa sales, channel partners, and payment tracking in one platform.
+- Updated: 2026-07-22
 
 
 ## Support & marketing pages
@@ -387,4 +411,4 @@
 
 ---
 
-Generated 2026-06-01T18:09:21.145Z
+Generated 2026-07-22T07:18:08.378Z

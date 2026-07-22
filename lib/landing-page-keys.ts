@@ -22,6 +22,10 @@ export const LANDING_PAGE_PATHS: Record<SeoLandingPageKey, string> = {
   apartment: "/apartment-inventory-management-software",
   backOffice: "/real-estate-back-office-software",
   propertyInventory: "/property-inventory-management-platform",
+  townshipManagement: "/township-management-software",
+  layoutManagement: "/layout-management-software",
+  digitalLayoutMaps: "/digital-layout-maps",
+  siteVisitManagement: "/site-visit-management",
 }
 
 export const ALL_LANDING_PAGE_KEYS = Object.keys(LANDING_PAGE_PATHS) as SeoLandingPageKey[]
