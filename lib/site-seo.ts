@@ -14,7 +14,6 @@ export const DISCOVERY_URLS = {
   sitemap: `${SITE_URL}/sitemap.xml`,
   robots: `${SITE_URL}/robots.txt`,
   llms: `${SITE_URL}/llms.txt`,
-  llmsFull: `${SITE_URL}/llms-full.txt`,
 } as const
 
 /** Fixed dates — bump only when a URL’s content meaningfully changes. */
