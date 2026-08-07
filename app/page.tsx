@@ -3,21 +3,16 @@ import Footer from "@/components/marketing/footer"
 import { TrustStrip } from "@/components/marketing/home/trust-strip"
 import { CoreCapabilitiesSection } from "@/components/marketing/home/core-capabilities-section"
 import { WhyToolsFailSection } from "@/components/marketing/home/why-tools-fail-section"
-import { IndustriesServedSection } from "@/components/marketing/home/industries-served-section"
 import { WhoShouldUseSection } from "@/components/marketing/home/who-should-use-section"
 import { CustomerWorkflowSection } from "@/components/marketing/home/customer-workflow-section"
 import { HomeFaqSection } from "@/components/marketing/home/home-faq-section"
 import { ProofSection } from "@/components/marketing/home/proof-section"
 import {
   SoundFamiliarSection,
-  PlotManagementSoftwareSection,
   OneSystemSection,
   RealLocationSection,
   HowItWorksSection,
-  ManagementGridSection,
-  MultipleLayoutsSection,
-  ResponsiveShowcaseSection,
-  CtaSectionNew
+  CtaSectionNew,
 } from "@/components/marketing/landing-sections"
 
 import { Metadata } from "next"
@@ -43,43 +38,33 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <main className="bg-white min-h-screen">
+      {/* 1. Promise */}
       <Hero />
       <TrustStrip />
 
-      {/* Problems developers face */}
+      {/* 2. Pain */}
       <SoundFamiliarSection />
 
-      {/* Why Excel, WhatsApp, and generic CRM fail */}
+      {/* 3. Why status quo fails */}
       <WhyToolsFailSection />
 
-      {/* How Layouts360 works */}
+      {/* 4. How Layouts360 works — setup, then sales journey */}
       <HowItWorksSection />
-
-      {/* Features — full capability list */}
-      <CoreCapabilitiesSection />
-      <PlotManagementSoftwareSection />
-
-      {/* Benefits / proof */}
-      <OneSystemSection />
-      <ManagementGridSection />
-      <RealLocationSection />
-      <MultipleLayoutsSection />
-      <ResponsiveShowcaseSection />
-
-      {/* Industries served & who should use it */}
-      <IndustriesServedSection />
-      <WhoShouldUseSection />
-
-      {/* Customer workflow */}
       <CustomerWorkflowSection />
 
-      {/* FAQ */}
-      <HomeFaqSection />
+      {/* 5. Product proof — one system + real maps */}
+      <OneSystemSection />
+      <RealLocationSection />
 
-      {/* Testimonials / proof */}
+      {/* 6. Capabilities (highlights → full features page) */}
+      <CoreCapabilitiesSection />
+
+      {/* 7. Who it's for */}
+      <WhoShouldUseSection />
+
+      {/* 8. Proof → FAQ → CTA */}
       <ProofSection />
-
-      {/* Call to action */}
+      <HomeFaqSection />
       <CtaSectionNew />
       <Footer />
     </main>

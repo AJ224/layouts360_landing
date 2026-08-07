@@ -1,6 +1,19 @@
 import Link from "next/link"
 import type { LucideIcon } from "lucide-react"
-import { ArrowRight, Briefcase, HardHat, Handshake, LineChart, Map } from "lucide-react"
+import {
+  ArrowRight,
+  Briefcase,
+  Building2,
+  HardHat,
+  Handshake,
+  Home,
+  Landmark,
+  LineChart,
+  Map,
+  MapPinned,
+  Store,
+  Trees,
+} from "lucide-react"
 import { Section, SectionHeader } from "@/components/marketing/landing/ui"
 
 interface Persona {
@@ -9,6 +22,11 @@ interface Persona {
   description: string
   href: string
   label: string
+}
+
+interface Industry {
+  icon: LucideIcon
+  title: string
 }
 
 const PERSONAS: Persona[] = [
@@ -49,14 +67,37 @@ const PERSONAS: Persona[] = [
   },
 ]
 
+const INDUSTRIES: Industry[] = [
+  { icon: MapPinned, title: "Plotted layouts" },
+  { icon: Landmark, title: "Townships" },
+  { icon: Home, title: "Villas & row houses" },
+  { icon: Trees, title: "Farmland plots" },
+  { icon: Store, title: "Commercial plots" },
+  { icon: Building2, title: "Multi-project portfolios" },
+]
+
 export function WhoShouldUseSection() {
   return (
     <Section className="py-20">
       <SectionHeader
-        eyebrow="Who should use Layouts360"
+        eyebrow="Who it's for"
         eyebrowClassName="bg-indigo-100 text-indigo-700"
-        title="One platform, five teams, no version conflicts"
+        title="Built for layout sales teams—not generic PropTech"
+        description="One platform for the people who sell plots and the project types they run."
       />
+
+      <div className="mx-auto mb-12 flex max-w-4xl flex-wrap items-center justify-center gap-2">
+        {INDUSTRIES.map((industry) => (
+          <span
+            key={industry.title}
+            className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3.5 py-1.5 text-sm font-medium text-slate-700"
+          >
+            <industry.icon className="h-3.5 w-3.5 text-teal-700" aria-hidden />
+            {industry.title}
+          </span>
+        ))}
+      </div>
+
       <div className="mx-auto grid max-w-6xl gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {PERSONAS.map((persona) => (
           <Link

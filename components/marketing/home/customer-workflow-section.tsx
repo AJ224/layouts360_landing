@@ -39,7 +39,7 @@ const WORKFLOW: WorkflowStep[] = [
   {
     icon: Wallet2,
     title: "Payments & installments tracked",
-    description: "Token, milestone, and installment payments are recorded against the booking with GST support.",
+    description: "Token, milestone, and installment payments are recorded against the booking with tax support where applicable.",
   },
   {
     icon: FileSignature,

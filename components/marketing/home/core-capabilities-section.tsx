@@ -1,19 +1,12 @@
 import Link from "next/link"
 import type { LucideIcon } from "lucide-react"
 import {
+  ArrowRight,
   Building2,
   CalendarCheck,
-  ClipboardList,
-  FileText,
   Handshake,
-  LayoutDashboard,
   LayoutGrid,
   Map,
-  PieChart,
-  Radar,
-  Share2,
-  UserCog,
-  UserPlus,
   Users,
   Wallet,
 } from "lucide-react"
@@ -26,7 +19,8 @@ interface Capability {
   href: string
 }
 
-const CAPABILITIES: Capability[] = [
+/** Homepage highlights only — full catalogue lives on /features and SEO landings. */
+const HIGHLIGHTS: Capability[] = [
   {
     icon: Map,
     title: "Interactive Digital Layout Maps",
@@ -52,34 +46,10 @@ const CAPABILITIES: Capability[] = [
     href: "/real-estate-crm-software",
   },
   {
-    icon: UserPlus,
-    title: "Lead Management",
-    description: "Capture, assign, and route enquiries from every source.",
-    href: "/real-estate-lead-management-software",
-  },
-  {
     icon: Wallet,
     title: "Payment Tracking",
-    description: "Booking amounts, installments, GST, and outstanding balances.",
+    description: "Booking amounts, installments, and outstanding balances on each plot.",
     href: "/real-estate-accounting-software",
-  },
-  {
-    icon: FileText,
-    title: "Document Management",
-    description: "Allotment letters, agreements, and receipts against each plot.",
-    href: "/real-estate-back-office-software",
-  },
-  {
-    icon: ClipboardList,
-    title: "Site Visit Management",
-    description: "Schedule, log, and follow up on visits tied to real plots shown.",
-    href: "/site-visit-management",
-  },
-  {
-    icon: UserCog,
-    title: "Sales Team Management",
-    description: "Territory, targets, and performance visibility by agent.",
-    href: "/real-estate-sales-automation-software",
   },
   {
     icon: Handshake,
@@ -87,49 +57,19 @@ const CAPABILITIES: Capability[] = [
     description: "Broker portals, lead ownership rules, and commission clarity.",
     href: "/real-estate-channel-partner-management-software",
   },
-  {
-    icon: LayoutDashboard,
-    title: "Project Dashboard",
-    description: "Sold %, collections, and pipeline on one leadership screen.",
-    href: "/features",
-  },
-  {
-    icon: Radar,
-    title: "Real-Time Plot Availability",
-    description: "Available, blocked, booked, sold—synced instantly for everyone.",
-    href: "/real-estate-plot-management-software",
-  },
-  {
-    icon: Share2,
-    title: "Public Live Layout Sharing",
-    description: "Shareable project links for buyers, NRIs, and brokers—no login.",
-    href: "/digital-layout-maps",
-  },
-  {
-    icon: Building2,
-    title: "Multi Project Management",
-    description: "Run every phase and project from one account with roll-ups.",
-    href: "/property-inventory-management-platform",
-  },
-  {
-    icon: PieChart,
-    title: "Reporting & Analytics",
-    description: "Sales velocity, collections, and partner performance, live.",
-    href: "/features",
-  },
 ]
 
 export function CoreCapabilitiesSection() {
   return (
     <Section id="features" className="py-20">
       <SectionHeader
-        eyebrow="Features"
+        eyebrow="Capabilities"
         eyebrowClassName="bg-blue-50 text-blue-600"
-        title="Every capability a plot management platform needs"
-        description="Not a layout viewer—a complete real estate plot management and inventory management platform covering the full sales lifecycle."
+        title="What Layouts360 covers"
+        description="The core stack for layout sales—maps, inventory, booking, CRM, payments, and partners. Explore the full feature set when you need depth."
       />
       <div className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {CAPABILITIES.map((item) => (
+        {HIGHLIGHTS.map((item) => (
           <Link
             key={item.title}
             href={item.href}
@@ -144,6 +84,16 @@ export function CoreCapabilitiesSection() {
             </span>
           </Link>
         ))}
+      </div>
+      <div className="mt-10 text-center">
+        <Link
+          href="/features"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:underline"
+        >
+          <Building2 className="h-4 w-4" aria-hidden />
+          See all features
+          <ArrowRight className="h-4 w-4" aria-hidden />
+        </Link>
       </div>
     </Section>
   )
