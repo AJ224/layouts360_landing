@@ -5,7 +5,7 @@ import { absoluteUrl } from "@/lib/site-seo"
 export const metadata: Metadata = {
   title: "Features | Real Estate Plot Management & CRM Software",
   description:
-    "Explore Layouts360 features: interactive digital layouts, real estate inventory management, CRM, plot booking, and payment tracking—built for Indian layout developers.",
+    "Explore Layouts360 features: interactive digital layouts, real estate inventory management, CRM, plot booking, and payment tracking—built for layout developers.",
   keywords: [...PAGE_KEYWORDS.features],
   alternates: {
     canonical: absoluteUrl("/features"),

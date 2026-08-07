@@ -24,7 +24,7 @@ export default function Footer() {
               <span className="text-lg font-bold sm:text-xl">Layouts360</span>
             </Link>
             <p className="max-w-xs text-sm leading-relaxed text-gray-400">
-              Plot and inventory software with CRM and booking for Indian layout developers.
+              Plot and inventory software with CRM and booking for layout developers.
             </p>
           </div>
 

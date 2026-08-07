@@ -15,7 +15,7 @@ export function SolutionsHubContent() {
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
             Explore Layouts360 by category—inventory, CRM, booking management, channel partners,
-            sales automation, and real estate ERP—built for Indian layout developers.
+            sales automation, and real estate ERP—built for layout and plot developers.
           </p>
           <Link
             href="/contact#demo-form"

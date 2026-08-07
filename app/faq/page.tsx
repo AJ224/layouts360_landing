@@ -19,6 +19,11 @@ const faqs = [
                 answer: "Think of it as a 'Google Maps' for your project. Send a link instead of a PDF. Customers open it, see the layout on satellite maps, and can instantly see if a plot is Available or Sold."
             },
             {
+                icon: HelpCircle,
+                question: "Is Layouts360 the same as Plotforms or floor-plan PDF sites?",
+                answer: "No. Plotforms.com and similar sites sell downloadable house floor plans and elevations as PDFs. Layouts360 is software for layout developers to manage live plot inventory, bookings, channel partners, and payments — Available / Blocked / Sold on a digital layout map. Different category: layouts360.com/compare/layouts360-vs-plotforms"
+            },
+            {
                 icon: UserCheck,
                 question: "Do I need technical skills?",
                 answer: "Zero. If you can use WhatsApp, you can use Layouts360. We designed it for non-technical staff. Marking a plot as 'Booked' takes just two clicks."

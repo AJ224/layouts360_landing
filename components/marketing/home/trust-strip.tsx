@@ -2,7 +2,7 @@ import { COMPANY } from "@/lib/company"
 import { MapPin, Phone } from "lucide-react"
 
 const TRUST_ITEMS = [
-  "Built for Indian layout developers",
+  "Built for layout developers",
   "Live inventory on every device",
   "Plans from ₹2,000/month",
   "Unlimited users on tiers",

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | Layouts360 - Real Estate Operating System"
   },
   description:
-    "Real estate plot & inventory management software with built-in CRM and booking for Indian layout developers. Live digital layouts, channel partners, and payment tracking.",
+    "Real estate plot & inventory management software with built-in CRM and booking for layout developers. Live digital layouts, channel partners, and payment tracking.",
   keywords: [
     "real estate software",
     "real estate management software",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     title: 'Layouts360 - Plot & Inventory Management for Developers',
     description:
-      'Plot & inventory management with CRM and booking for Indian layout developers. Live maps, partners, and payments in one platform.',
+      'Plot & inventory management with CRM and booking for layout developers. Live maps, partners, and payments in one platform.',
     siteName: 'Layouts360',
     images: [
       {

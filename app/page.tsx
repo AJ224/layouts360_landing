@@ -27,7 +27,7 @@ import { SITE_URL, absoluteUrl } from "@/lib/site-seo"
 export const metadata: Metadata = {
   title: "Plot Management Software for Real Estate Developers | Layouts360",
   description:
-    "Layouts360 is India's real estate plot management software—interactive layout maps, plot inventory, booking, CRM, and payment tracking for developers, builders, and townships. From ₹2,000/month.",
+    "Layouts360 is real estate plot management software—interactive layout maps, plot inventory, booking, CRM, and payment tracking for developers, builders, and townships. From ₹2,000/month.",
   keywords: [...PAGE_KEYWORDS.home],
   alternates: {
     canonical: absoluteUrl("/"),
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Plot Management Software for Real Estate Developers | Layouts360",
     description:
-      "Interactive layout maps, live plot inventory, CRM, booking, and payment tracking for Indian real estate developers, builders, and township projects.",
+      "Interactive layout maps, live plot inventory, CRM, booking, and payment tracking for real estate developers, builders, and township projects.",
     url: SITE_URL,
   },
 }
