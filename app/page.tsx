@@ -22,7 +22,7 @@ import { SITE_URL, absoluteUrl } from "@/lib/site-seo"
 export const metadata: Metadata = {
   title: "Plot Management Software for Real Estate Developers | Layouts360",
   description:
-    "Layouts360 is real estate plot management software—interactive layout maps, plot inventory, booking, CRM, and payment tracking for developers, builders, and townships. From ₹2,000/month.",
+    "Layouts360 is real estate plot management software—interactive layout maps, plot inventory, booking, CRM, and payment tracking for developers, builders, and townships. Visualize from ₹10,000 + ₹150/plot (one-time); Sales Platform from ₹2,000/month.",
   keywords: [...PAGE_KEYWORDS.home],
   alternates: {
     canonical: absoluteUrl("/"),

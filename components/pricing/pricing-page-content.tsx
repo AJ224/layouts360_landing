@@ -1,85 +1,111 @@
-import { Card } from "@/components/ui/card"
 import PricingCards from "@/components/pricing/pricing-cards"
 import Header from "@/components/marketing/header"
 import Footer from "@/components/marketing/footer"
-import CtaSection from "@/components/marketing/cta-section"
+import { Button } from "@/components/ui/button"
+import { pricingConfig } from "@/lib/pricing-config"
+import { COMPANY } from "@/lib/company"
+import Link from "next/link"
 
 const faqs = [
   {
-    question: "How does subscription pricing work?",
-    answer: "We share pricing on enquiry after understanding your plot count and requirements.",
+    question: "Is mapping the same as a redesign?",
+    answer:
+      "No. Mapping moves your existing plan into Layout360 so you can sell on a live map. Beautification is optional and quoted separately.",
   },
   {
-    question: "What's the plot pricing?",
-    answer: "Setup and plot-based pricing depends on your layout complexity and total plots. Contact us for a quick quote.",
+    question: "What do I pay for Layouts?",
+    answer:
+      "One-time: ₹10,000 setup plus ₹150 per plot. There’s no monthly fee for Layouts alone. You get a live layout your team and buyers can open on phone or web.",
   },
   {
-    question: "Do I need my own domain?",
-    answer: "No. You can use our link. If you want your own domain, we'll guide you and include it in the quote.",
+    question: "When should I pick Layouts360?",
+    answer:
+      "When you’re actively taking enquiries and bookings. For ₹2,000/month plus ₹150 per plot (one-time mapping), you get freeze, booking, payments, documents, and customer tracking on the same map—so WhatsApp and Excel stop being your CRM.",
   },
   {
-    question: "Can I change my plan later?",
-    answer: "Yes. Upgrade or modify anytime with prorated billing. Contact support for assistance.",
+    question: "Who is Layouts360+ for?",
+    answer:
+      "Multi-project teams who need roles, partners, ledgers, deeper reports, and custom workflows. We’ll scope a clear quote after a short call.",
   },
 ]
 
 export default function PricingPageContent() {
   return (
-    <div className="relative min-h-screen bg-white selection:bg-blue-100">
-      <div className="pointer-events-none fixed inset-0 z-0">
-        <div className="absolute top-0 left-1/2 h-[400px] w-[1000px] -translate-x-1/2 rounded-full bg-blue-500/5 blur-[120px]" />
-        <div className="absolute right-0 bottom-0 h-[600px] w-[800px] rounded-full bg-purple-500/5 blur-[120px]" />
+    <div className="relative min-h-screen bg-white selection:bg-amber-100">
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
+        <div className="absolute -top-24 left-1/2 h-[420px] w-[900px] -translate-x-1/2 rounded-full bg-[#0B1E3B]/[0.035] blur-[100px]" />
       </div>
 
       <Header theme="light" />
 
-      <section className="relative z-10 overflow-hidden pt-16 sm:pt-20">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
-        <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6">
-          <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600 sm:mb-6 sm:text-sm">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-green-500" />
-              Best Value for Money
-            </div>
-            <h1 className="mb-4 px-4 text-3xl font-bold tracking-tight text-gray-900 sm:mb-6 sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
-              Make Profit from <br className="md:hidden" />
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Day One
-              </span>
-            </h1>
-            <p className="mx-auto mb-8 max-w-2xl px-4 text-base leading-relaxed text-gray-600 sm:mb-10 sm:text-lg md:text-xl">
-              Software that pays for itself. Manage your entire layout for less than the cost of a few site visits.
-            </p>
+      <section className="relative z-10 overflow-hidden pt-20 sm:pt-24">
+        <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6">
+          <div className="mx-auto mb-6 inline-flex max-w-full items-center justify-center gap-2 rounded-full border border-slate-200 bg-white/70 px-4 py-2 text-xs font-semibold tracking-wide text-slate-700">
+            {pricingConfig.trustLine}
+          </div>
+
+          <h1 className="mx-auto max-w-3xl text-balance text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl md:text-[2.6rem] md:leading-[1.15]">
+            Clear packages, confirmed on a live demo
+          </h1>
+
+        </div>
+      </section>
+
+      <section id="packages" className="relative z-10 mx-auto max-w-7xl scroll-mt-24 px-4 py-14 sm:px-6 sm:py-20">
+        <PricingCards />
+      </section>
+
+      <section className="relative z-10 border-y border-slate-200/80 bg-white">
+        <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+              Quick answers
+            </h2>
+            <p className="mt-3 text-base text-slate-600">Short, direct answers before you book.</p>
+          </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {faqs.map((faq) => (
+              <div
+                key={faq.question}
+                className="rounded-2xl border border-slate-200 bg-[#F7F8FA]/60 p-6 sm:p-7"
+              >
+                <h3 className="text-base font-semibold text-slate-900 sm:text-lg">{faq.question}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600 sm:text-[15px]">{faq.answer}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="relative z-10 mx-auto max-w-7xl px-4 pb-12 sm:px-6 sm:pb-16">
-        <PricingCards />
-      </section>
-
-      <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-20 md:py-24">
-        <div className="mb-12 px-4 text-center sm:mb-16">
-          <h2 className="mb-3 text-2xl font-bold tracking-tight text-gray-900 sm:mb-4 sm:text-3xl">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-base text-gray-600 sm:text-lg">Quick answers to common questions about our pricing and plans.</p>
-        </div>
-
-        <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
-          {faqs.map((faq) => (
-            <Card
-              key={faq.question}
-              className="h-full border-gray-100 bg-white p-6 transition-all duration-300 hover:border-blue-100 hover:shadow-lg sm:p-8"
+      <section className="relative z-10 overflow-hidden bg-[#0B1E3B] py-16 text-white sm:py-20">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(234,179,8,0.12),_transparent_55%)]" />
+        <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Book a quick demo</h2>
+          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
+            We’ll open a live map of your project and confirm the right package for your plot count.
+          </p>
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Button
+              size="lg"
+              className="h-12 w-full rounded-full bg-[#EAB308] px-8 text-base font-bold text-[#0B1E3B] hover:bg-[#f0c43a] sm:w-auto"
+              asChild
             >
-              <h3 className="mb-2 text-base font-bold text-gray-900 sm:mb-3 sm:text-lg">{faq.question}</h3>
-              <p className="text-sm leading-relaxed text-gray-600 sm:text-base">{faq.answer}</p>
-            </Card>
-          ))}
+              <Link href="/contact#demo-form">Book a free demo</Link>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="h-12 w-full rounded-full border-white/25 bg-transparent px-8 text-base font-semibold text-white hover:bg-white/10 sm:w-auto"
+              asChild
+            >
+              <a href={`tel:${COMPANY.phoneTel}`}>Call {COMPANY.phone}</a>
+            </Button>
+          </div>
         </div>
       </section>
 
-      <CtaSection />
       <Footer />
     </div>
   )

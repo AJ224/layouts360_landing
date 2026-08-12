@@ -50,12 +50,12 @@ const HOME_FAQS = [
   {
     question: "How long does it take to go live?",
     answer:
-      "Most teams go live in three to five days per project after sharing layout plans and plot data—digitizing the map, importing plots, and configuring roles and pricing.",
+      "Most teams go live in three to five days per project after sharing layout plans and plot data—we map your existing design into Layout360, import plots, and configure roles and pricing.",
   },
   {
     question: "What does Layouts360 cost?",
     answer:
-      "Plans start from ₹2,000/month with unlimited users on tiers, which fits teams with 50–200 plots. Larger multi-phase or multi-project portfolios move to higher tiers—contact us for a quote based on your project scope.",
+      "Layouts is one-time: ₹10,000 setup plus ₹150 per plot. Layouts360 is ₹2,000/month plus ₹150 per plot (one-time mapping)—and adds enquiries, freeze, booking, and payments. Layouts360+ for multi-project portfolios is custom—book a demo for a quote on your layout.",
   },
   {
     question: "Is Layouts360 suitable for a small developer with one layout?",

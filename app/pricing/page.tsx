@@ -4,9 +4,9 @@ import { PAGE_KEYWORDS } from "@/lib/seo-keywords"
 import { absoluteUrl } from "@/lib/site-seo"
 
 export const metadata: Metadata = {
-  title: "Pricing | Real Estate Software for Developers | Layouts360",
+  title: "Pricing | Visualize → Sell → Manage | Layouts360",
   description:
-    "Transparent real estate software pricing in India—from ₹2,000/month. Plot management, CRM, and inventory plans for layout developers.",
+    "Layouts360 Visualize from ₹10,000 + ₹150/plot (one-time). Sales Platform from ₹2,000/month. Transparent packages for layout developers—book a free demo with your project map.",
   keywords: [...PAGE_KEYWORDS.pricing],
   alternates: {
     canonical: absoluteUrl("/pricing"),

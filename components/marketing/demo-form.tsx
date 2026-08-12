@@ -2,24 +2,46 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { useToast } from "@/components/ui/use-toast"
+import { pricingConfig, type PackageId } from "@/lib/pricing-config"
+
+const PACKAGE_OPTIONS = [
+  { id: "", label: "Not sure yet — recommend for me" },
+  ...pricingConfig.packages.map((pkg) => ({
+    id: pkg.id,
+    label: `${pkg.name} (${pkg.pricePrimary})`,
+  })),
+] as const
+
+const EMPTY_FORM = {
+  email: "",
+  mobile: "",
+  company: "",
+  plotCount: "",
+  packageInterest: "" as PackageId | "",
+  description: "",
+}
 
 export default function DemoForm() {
   const { toast } = useToast()
   const [pending, setPending] = useState(false)
   const [showConfirmation, setShowConfirmation] = useState(false)
-  const [formData, setFormData] = useState({
-    email: "",
-    mobile: "",
-    company: "",
-    description: ""
-  })
+  const [formData, setFormData] = useState(EMPTY_FORM)
   const [errors, setErrors] = useState<Record<string, string>>({})
+
+  useEffect(() => {
+    if (typeof window === "undefined") return
+    const packageParam = new URLSearchParams(window.location.search).get("package")
+    const match = pricingConfig.packages.find((pkg) => pkg.id === packageParam)
+    if (match) {
+      setFormData((prev) => ({ ...prev, packageInterest: match.id }))
+    }
+  }, [])
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -31,41 +53,40 @@ export default function DemoForm() {
     return mobileRegex.test(mobile)
   }
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
-    
-    // Clear error when user starts typing
+    setFormData((prev) => ({ ...prev, [name]: value }))
+
     if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: "" }))
+      setErrors((prev) => ({ ...prev, [name]: "" }))
     }
   }
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    
-    // Reset errors
+
     setErrors({})
-    
-    // Validate required fields
+
     const newErrors: Record<string, string> = {}
-    
+
     if (!formData.email.trim()) {
       newErrors.email = "Email is required"
     } else if (!validateEmail(formData.email)) {
       newErrors.email = "Please enter a valid email address"
     }
-    
+
     if (!formData.mobile.trim()) {
       newErrors.mobile = "Mobile number is required"
     } else if (!validateMobile(formData.mobile)) {
       newErrors.mobile = "Please enter a valid mobile number"
     }
-    
+
     if (!formData.company.trim()) {
       newErrors.company = "Company name is required"
     }
-    
+
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors)
       toast({ title: "Please fix the errors below", variant: "destructive" })
@@ -74,6 +95,9 @@ export default function DemoForm() {
 
     setPending(true)
     try {
+      const selectedPackage = pricingConfig.packages.find(
+        (pkg) => pkg.id === formData.packageInterest
+      )
       const res = await fetch("/api/demo", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -81,15 +105,16 @@ export default function DemoForm() {
           email: formData.email.trim(),
           mobile: formData.mobile.trim(),
           company: formData.company.trim(),
+          plotCount: formData.plotCount.trim(),
+          packageInterest: selectedPackage?.name || "Not specified",
           description: formData.description.trim(),
         }),
       })
       const data = await res.json()
       if (!res.ok) throw new Error(data?.error || "Failed to send request")
-      
-      // Show confirmation popup
+
       setShowConfirmation(true)
-      setFormData({ email: "", mobile: "", company: "", description: "" })
+      setFormData(EMPTY_FORM)
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : "Failed to send request"
       toast({ title: "Could not send request", description: message, variant: "destructive" })
@@ -213,6 +238,44 @@ export default function DemoForm() {
               )}
             </div>
 
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="plotCount" className="text-sm font-semibold text-gray-800">
+                  Approx. plot count
+                </Label>
+                <Input
+                  id="plotCount"
+                  name="plotCount"
+                  type="number"
+                  min={1}
+                  value={formData.plotCount}
+                  onChange={handleInputChange}
+                  placeholder="e.g. 120"
+                  className="h-11 px-4 text-sm border-2 rounded-xl border-gray-200 bg-gray-50 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 hover:bg-white"
+                  style={{ color: "#1f2937" }}
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="packageInterest" className="text-sm font-semibold text-gray-800">
+                  Package interest
+                </Label>
+                <select
+                  id="packageInterest"
+                  name="packageInterest"
+                  value={formData.packageInterest}
+                  onChange={handleInputChange}
+                  className="h-11 w-full rounded-xl border-2 border-gray-200 bg-gray-50 px-3 text-sm text-gray-800 transition-all duration-300 hover:bg-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                >
+                  {PACKAGE_OPTIONS.map((option) => (
+                    <option key={option.id || "none"} value={option.id}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
             {/* Project Details */}
             <div className="space-y-2">
               <Label htmlFor="description" className="text-sm font-semibold text-gray-800 flex items-center gap-1">
@@ -226,7 +289,7 @@ export default function DemoForm() {
                 name="description" 
                 value={formData.description}
                 onChange={handleInputChange}
-                placeholder="Tell us about your projects..."
+                placeholder="City, layout name, or anything we should prepare for the demo..."
                 rows={3}
                 className="px-4 py-3 text-sm border-2 border-gray-200 rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 bg-gray-50 hover:bg-white resize-none"
                 style={{ color: '#1f2937' }}

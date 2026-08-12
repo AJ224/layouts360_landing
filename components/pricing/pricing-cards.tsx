@@ -1,145 +1,209 @@
 "use client"
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { pricingConfig } from "@/lib/pricing-config"
-import { Check, Layers } from "lucide-react"
+import { pricingConfig, type PricingPackage } from "@/lib/pricing-config"
+import {
+  ArrowRight,
+  Satellite,
+  Navigation,
+  Search,
+  BarChart3,
+  Images,
+  Ruler,
+  Tags,
+  Link2,
+  Download,
+  MapPinned,
+  Users,
+  Lock,
+  FileText,
+  Building2,
+  ShieldCheck,
+} from "lucide-react"
 import Link from "next/link"
 
-export default function PricingCards() {
-  const { plans } = pricingConfig
+function packageHref(pkg: PricingPackage) {
+  const params = new URLSearchParams({ package: pkg.id })
+  return `/contact?${params.toString()}#demo-form`
+}
+
+function getFeatureIcon(feature: string) {
+  const f = feature.toLowerCase()
+
+  if (f.includes("satellite")) return Satellite
+  if (f.includes("gps") || f.includes("direction")) return Navigation
+  if (f.includes("search") || f.includes("filter")) return Search
+  if (f.includes("inventory") || f.includes("real-time")) return BarChart3
+  if (f.includes("gallery") || f.includes("images") || f.includes("videos")) return Images
+  if (f.includes("dimension") || f.includes("unit")) return Ruler
+  if (f.includes("label")) return Tags
+  if (f.includes("link") || f.includes("share")) return Link2
+  if (f.includes("download")) return Download
+  if (f.includes("map")) return MapPinned
+  if (f.includes("enquir") || f.includes("customer")) return Users
+  if (f.includes("freeze") || f.includes("lock")) return Lock
+  if (f.includes("booking") || f.includes("document")) return FileText
+  if (f.includes("project") || f.includes("role") || f.includes("workflow")) return Building2
+
+  return ShieldCheck
+}
+
+function PackageCard({ pkg }: Readonly<{ pkg: PricingPackage }>) {
+  const isFeatured = pkg.recommended
+  const isDark = pkg.theme === "dark" || pkg.theme === "accent"
+  const isLayoutsPackage = pkg.id === "visual"
+  const visibleFeatures = isLayoutsPackage ? pkg.features : pkg.features.slice(0, 4)
+  const articleClassName = (() => {
+    if (isFeatured) {
+      return "border-[#EAB308]/50 bg-[#0B1E3B] text-white shadow-2xl shadow-[#0B1E3B]/20 ring-1 ring-[#EAB308]/30 md:-translate-y-2"
+    }
+
+    if (pkg.theme === "accent") {
+      return "border-slate-800 bg-slate-900 text-white shadow-lg"
+    }
+
+    return "border-slate-200/80 bg-white text-slate-900 shadow-sm hover:border-slate-300 hover:shadow-md"
+  })()
+
+  const featureBgClass = (() => {
+    if (isFeatured) return "bg-[#EAB308]/15"
+    if (isDark) return "bg-white/10"
+    return "bg-emerald-50"
+  })()
+
+  const featureCheckColorClass = (() => {
+    if (isFeatured) return "text-[#EAB308]"
+    if (isDark) return "text-emerald-300"
+    return "text-emerald-600"
+  })()
+
+  const ctaButtonClass = (() => {
+    if (isFeatured) {
+      return "bg-[#EAB308] text-[#0B1E3B] hover:bg-[#f0c43a]"
+    }
+    if (isDark) {
+      return "bg-white text-slate-900 hover:bg-slate-100"
+    }
+    return "bg-[#0B1E3B] text-white hover:bg-[#0B1E3B]/90"
+  })()
 
   return (
-    <div className="space-y-16">
-      {/* Subscription Plans Section */}
-      <div className="space-y-8">
-        <div className="text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 border-b-2 border-slate-200 inline-block pb-1">
-            Choose Your Plan
-          </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-600">
-            Pricing is shared on enquiry. Tell us your plot count and we’ll recommend the right plan.
+    <article
+      className={`relative flex h-full flex-col overflow-hidden rounded-3xl border transition-all duration-300 ${articleClassName}`}
+    >
+      {isFeatured && (
+        <div className="bg-[#EAB308] px-4 py-2 text-center text-[11px] font-bold uppercase tracking-[0.18em] text-[#0B1E3B]">
+          Most teams choose this
+        </div>
+      )}
+
+      <div className="flex flex-1 flex-col px-6 pb-7 pt-7 sm:px-8">
+        <div className="space-y-1">
+          <p
+            className={[
+              "text-[11px] font-semibold uppercase tracking-[0.2em]",
+              isDark ? "text-slate-400" : "text-slate-500",
+            ].join(" ")}
+          >
+            {pkg.stage}
+          </p>
+          <h3 className={`text-2xl font-bold tracking-tight ${isDark ? "text-white" : "text-[#0B1E3B]"}`}>
+            {pkg.name}
+          </h3>
+          <p className={`text-sm leading-snug ${isDark ? "text-slate-300" : "text-slate-600"}`}>
+            {pkg.tagline}
           </p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-2 max-w-5xl mx-auto">
-          {plans.map((plan) => {
-            const isDark = plan.theme === "dark"
+        <div className={`mt-6 border-t pt-6 ${isDark ? "border-white/10" : "border-slate-100"}`}>
+          <p className={`text-3xl font-bold tracking-tight ${isDark ? "text-white" : "text-slate-900"}`}>
+            {pkg.pricePrimary}
+          </p>
+          <p className={`mt-1 text-sm font-medium ${isDark ? "text-slate-300" : "text-slate-700"}`}>
+            {pkg.priceSecondary}
+          </p>
+          <p className={`mt-2 text-xs leading-relaxed ${isDark ? "text-slate-400" : "text-slate-500"}`}>
+            {pkg.priceNote}
+          </p>
+        </div>
 
-            return (
-              <Card
-                key={plan.id}
-                className={`relative flex flex-col border shadow-lg overflow-hidden transition-all hover:shadow-xl ${isDark
-                  ? "bg-[#0B1E3B] text-white border-blue-900"
-                  : "bg-blue-50/30 text-slate-900 border-slate-100"
-                  }`}
-              >
-                {/* Recommended Badge */}
-                {plan.recommended && (
-                  <div className="absolute top-6 right-6">
-                    <span className="bg-[#EAB308] text-[#0B1E3B] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                      Best Value
-                    </span>
-                  </div>
-                )}
-
-                <CardHeader className="space-y-4 pb-6 pt-8 px-8">
-                  <div className="space-y-1">
-                    <CardTitle className={`text-2xl md:text-3xl font-serif font-bold ${isDark ? "text-white" : "text-blue-900"}`}>
-                      {plan.name}
-                    </CardTitle>
-                    {plan.subtitle && (
-                      <span className={`block text-lg ${isDark ? "text-gray-300" : "text-slate-600"}`}>
-                        {plan.subtitle}
-                      </span>
-                    )}
-                  </div>
-
-                  <div className="pt-2">
-                    <div className="rounded-xl border border-slate-200/60 bg-white/60 px-4 py-3">
-                      <div className={`text-xs font-bold uppercase tracking-widest ${isDark ? "text-gray-400" : "text-slate-500"}`}>
-                        Pricing
-                      </div>
-                      <div className={`mt-1 text-lg font-bold ${isDark ? "text-white" : "text-slate-900"}`}>
-                        Contact us for pricing
-                      </div>
-                      <div className={`mt-1 text-sm ${isDark ? "text-gray-400" : "text-slate-600"}`}>
-                        Get a quick quote based on your plot count.
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className={`text-sm italic pt-2 ${isDark ? "text-gray-400" : "text-slate-500"}`}>
-                    {plan.description}
-                  </div>
-
-                  <div className={`h-px w-full ${isDark ? "bg-blue-800" : "bg-slate-200"}`} />
-                </CardHeader>
-
-                <CardContent className="flex-1 space-y-8 px-8 pb-8">
-                  <div className="space-y-4">
-                    <p className={`text-xs font-bold uppercase tracking-widest ${isDark ? "text-gray-400" : "text-slate-500"}`}>
-                      What you get:
-                    </p>
-                    <ul className="space-y-3">
-                      {plan.features.map((feature, i) => (
-                        <li key={i} className="flex items-start gap-3">
-                          <Check className={`h-5 w-5 flex-shrink-0 ${isDark ? "text-[#EAB308]" : "text-emerald-500"}`} />
-                          <span className={`text-sm ${isDark ? "text-gray-300" : "text-slate-700"}`}>
-                            {feature}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <Button
-                    className={`w-full py-6 text-lg font-bold rounded-lg transition-all ${isDark
-                      ? "bg-white text-[#0B1E3B] hover:bg-gray-100"
-                      : "bg-[#0B1E3B] text-white hover:bg-[#0B1E3B]/90"
-                      }`}
-                    asChild
+        <ul className="mt-4 space-y-3">
+          {visibleFeatures.map((feature) => (
+            <li key={feature} className="flex items-start gap-3">
+              {(() => {
+                const Icon = getFeatureIcon(feature)
+                return (
+                  <span
+                    className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${featureBgClass}`}
                   >
-                    <Link href="/contact#demo-form">
-                      Enquire Now
-                    </Link>
-                  </Button>
+                    <Icon
+                      className={`h-3 w-3 ${featureCheckColorClass}`}
+                      aria-hidden
+                    />
+                  </span>
+                )
+              })()}
+              <span className={`text-sm leading-snug ${isDark ? "text-slate-200" : "text-slate-700"}`}>
+                {feature}
+              </span>
+            </li>
+          ))}
+        </ul>
 
-                  {/* Risk Reversal Micro-copy */}
-                  <p className={`text-xs text-center ${isDark ? "text-gray-400" : "text-slate-400"}`}>
-                    {isDark ? "We help you set up fast" : "No credit card required to start"}
-                  </p>
-                </CardContent>
-              </Card>
-            )
-          })}
+        {isLayoutsPackage && (
+          <a
+            href="https://demo3.layouts360.com/s/MTf0e8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`mt-5 inline-flex items-center text-sm font-semibold underline underline-offset-4 ${isDark ? "text-slate-200" : "text-[#0B1E3B]"}`}
+          >
+            Live sample demo: what you get
+          </a>
+        )}
+
+        <div className="mt-auto pt-8">
+          <Button
+            className={`h-12 w-full rounded-xl text-base font-semibold ${ctaButtonClass}`}
+            asChild
+          >
+            <Link href={packageHref(pkg)}>
+              {pkg.ctaLabel}
+              <ArrowRight className="ml-2 h-4 w-4" aria-hidden />
+            </Link>
+          </Button>
         </div>
       </div>
+    </article>
+  )
+}
 
-      {/* Layout & Plot Setup Pricing Section */}
-      <div className="space-y-8">
+export default function PricingCards() {
+  const { packages, addons } = pricingConfig
+
+  return (
+    <div className="space-y-14">
+
+      <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-3 lg:items-stretch">
+        {packages.map((pkg) => (
+          <PackageCard key={pkg.id} pkg={pkg} />
+        ))}
+      </div>
+
+      <div className="mx-auto max-w-4xl space-y-6">
         <div className="text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 border-b-2 border-slate-200 inline-block text-center pb-1">
-            Setup & Onboarding
-          </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-600">
-            We’ll confirm setup details and share pricing after understanding your layouts and plot count.
-          </p>
+          <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Optional extras</h2>
         </div>
 
-        <div className="max-w-xl mx-auto">
-          <Card className="border shadow-md bg-white overflow-hidden">
-            <div className="p-8 flex flex-col items-start gap-4 hover:bg-slate-50 transition-colors">
-              <div className="p-3 bg-blue-50 rounded-lg">
-                <Layers className="w-8 h-8 text-[#0B1E3B]" />
-              </div>
-              <div>
-                <h3 className="font-bold text-slate-900 text-lg">Map Creation & Setup</h3>
-                <p className="text-2xl font-bold text-[#0B1E3B] mt-1">Contact for quote</p>
-                <p className="text-sm text-slate-500 mt-2">We digitize your layout and set up your project.</p>
-              </div>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {addons.map((addon) => (
+            <div
+              key={addon.id}
+              className="rounded-2xl border border-slate-200 bg-gradient-to-b from-white to-slate-50/80 p-6 sm:p-7"
+            >
+              <h3 className="text-lg font-semibold text-[#0B1E3B]">{addon.name}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">{addon.description}</p>
             </div>
-          </Card>
+          ))}
         </div>
       </div>
     </div>

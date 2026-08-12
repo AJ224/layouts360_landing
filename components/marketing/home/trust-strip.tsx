@@ -4,8 +4,8 @@ import { MapPin, Phone } from "lucide-react"
 const TRUST_ITEMS = [
   "Built for layout developers",
   "Live inventory on every device",
-  "Plans from ₹2,000/month",
-  "Unlimited users on tiers",
+  "Layouts ₹10,000 + ₹150/plot (one-time)",
+  "Layouts360 from ₹2,000/month",
 ] as const
 
 export function TrustStrip() {

@@ -2,7 +2,7 @@ import { Resend } from "resend"
 
 export async function POST(req: Request) {
   try {
-    const { email, mobile, company, description } = await req.json()
+    const { email, mobile, company, description, plotCount, packageInterest } = await req.json()
 
     // Validate required fields
     if (!email || !mobile || !company) {
@@ -44,6 +44,8 @@ export async function POST(req: Request) {
           <p><strong>Company:</strong> ${escapeHtml(company)}</p>
           <p><strong>Email:</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></p>
           <p><strong>Mobile:</strong> <a href="tel:${escapeHtml(mobile)}">${escapeHtml(mobile)}</a></p>
+          ${plotCount ? `<p><strong>Approx. plots:</strong> ${escapeHtml(String(plotCount))}</p>` : ""}
+          ${packageInterest ? `<p><strong>Package interest:</strong> ${escapeHtml(String(packageInterest))}</p>` : ""}
         </div>
         
         ${description ? `
