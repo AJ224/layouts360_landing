@@ -2,6 +2,7 @@ import Link from "next/link"
 import type { ContentKind } from "@/lib/content-feed"
 import { getRelatedFeedItems } from "@/lib/related-content"
 import { SEO_SOLUTION_LINKS } from "@/lib/seo-solutions"
+import { TOOLS } from "@/lib/tools"
 
 interface RelatedArticlesProps {
   slug: string
@@ -29,6 +30,23 @@ export function RelatedArticles({ slug, kind, tags }: RelatedArticlesProps) {
             </li>
           ))}
         </ul>
+        <div className="mt-6 border-t border-slate-100 pt-4">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-400">
+            Plot tools
+          </p>
+          <ul className="flex flex-wrap gap-2">
+            {TOOLS.map((tool) => (
+              <li key={tool.href}>
+                <Link
+                  href={tool.href}
+                  className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-sm font-medium text-slate-700 transition-colors hover:border-teal-200 hover:text-teal-800"
+                >
+                  {tool.shortTitle}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">

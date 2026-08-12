@@ -48,6 +48,11 @@ const nextConfig = {
         destination: "/blog#comparisons",
         permanent: false,
       },
+      {
+        source: "/land-converter",
+        destination: "/tools/land-converter",
+        permanent: true,
+      },
       // Short/alternate slugs → canonical landing pages (avoid duplicate content)
       {
         source: "/plot-management-software",
