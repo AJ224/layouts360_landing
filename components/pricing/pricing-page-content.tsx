@@ -10,7 +10,7 @@ const faqs = [
   {
     question: "Is mapping the same as a redesign?",
     answer:
-      "No. Mapping moves your existing plan into Layout360 so you can sell on a live map. Beautification is optional and quoted separately.",
+      "No. Mapping moves your existing plan into Layout360 so your real estate company can sell on a live map. Beautification is optional and quoted separately.",
   },
   {
     question: "What do I pay for Layouts?",
@@ -20,12 +20,12 @@ const faqs = [
   {
     question: "When should I pick Layouts360?",
     answer:
-      "When you’re actively taking enquiries and bookings. For ₹2,000/month plus ₹150 per plot (one-time mapping), you get freeze, booking, payments, documents, and customer tracking on the same map—so WhatsApp and Excel stop being your CRM.",
+      "When your real estate company is actively taking enquiries and bookings. For ₹2,000/month plus ₹150 per plot (one-time mapping), you get freeze, booking, payments, documents, and customer tracking on the same map—so WhatsApp and Excel stop being your CRM.",
   },
   {
     question: "Who is Layouts360+ for?",
     answer:
-      "Multi-project teams who need roles, partners, ledgers, deeper reports, and custom workflows. We’ll scope a clear quote after a short call.",
+      "Multi-project real estate companies that need roles, partners, ledgers, deeper reports, and custom workflows. We’ll scope a clear quote after a short call.",
   },
 ]
 
@@ -46,7 +46,7 @@ export default function PricingPageContent() {
           </div>
 
           <h1 className="mx-auto max-w-3xl text-balance text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl md:text-[2.6rem] md:leading-[1.15]">
-            Clear packages, confirmed on a live demo
+            Pricing for real estate companies selling layouts
           </h1>
 
         </div>
@@ -84,7 +84,7 @@ export default function PricingPageContent() {
         <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Book a quick demo</h2>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
-            We’ll open a live map of your project and confirm the right package for your plot count.
+            We’ll open a live map of your project and confirm the right package for your real estate company’s plot count.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button

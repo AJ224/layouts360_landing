@@ -34,7 +34,7 @@ export function ProofSection() {
           </h2>
           <p className="mt-4 text-slate-600">
             We publish named case studies with verified metrics only after customer approval. Until then, here are
-            the workflow patterns we hear most often from developers who switch.
+            the workflow patterns we hear most often from real estate companies that switch.
           </p>
         </div>
 

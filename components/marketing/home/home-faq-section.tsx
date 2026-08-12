@@ -5,7 +5,7 @@ const HOME_FAQS = [
   {
     question: "What is Layouts360?",
     answer:
-      "Layouts360 is real estate plot management and inventory management software for developers, builders, and township projects in India. It combines interactive digital layout maps, plot inventory, booking, a real estate CRM, payment tracking, and channel partner management in one platform—covering the full sales lifecycle, not just layout viewing.",
+      "Layouts360 is plot management and inventory software for real estate companies—layout developers, builders, and township projects. It combines interactive layout maps, live plot inventory, booking, CRM, payment tracking, and channel partner management in one sales platform—not just a map viewer.",
   },
   {
     question: "Is Layouts360 just an interactive layout viewer?",
@@ -25,17 +25,17 @@ const HOME_FAQS = [
   {
     question: "How is Layouts360 different from a generic CRM like HubSpot, Zoho, or Salesforce?",
     answer:
-      "Generic CRMs manage contacts and deal stages but have no concept of a plot, a layout, a booking hold, or a commission slab. Layouts360 is purpose-built around the plot—every lead, visit, and booking ties to a specific unit on a live layout.",
+      "Generic CRMs manage contacts and deal stages but have no concept of a plot, a layout, a booking hold, or a commission slab. Layouts360 is purpose-built for real estate companies selling plots—every lead, visit, and booking ties to a specific unit on a live layout.",
   },
   {
     question: "Does Layouts360 work for township and multi-phase projects?",
     answer:
-      "Yes. Multi-project and multi-phase support lets you run several active phases—or several independent projects—from one account, with phase-level control and a project-wide roll-up view for leadership.",
+      "Yes. Multi-project and multi-phase support lets real estate companies run several active phases—or several independent projects—from one account, with phase-level control and a project-wide roll-up view for leadership.",
   },
   {
     question: "Who typically uses Layouts360?",
     answer:
-      "Real estate developers, township developers, plotting and land development businesses, builders running mixed plot and villa inventory, and the sales and channel partner teams who sell on their behalf.",
+      "Real estate companies selling plotted inventory: layout and land developers, township developers, builders with mixed plot and villa stock, and the sales and channel partner teams who sell on their behalf. Not rental managers, society software, or homeowner tools.",
   },
   {
     question: "Can channel partners and brokers access live inventory?",
@@ -50,7 +50,7 @@ const HOME_FAQS = [
   {
     question: "How long does it take to go live?",
     answer:
-      "Most teams go live in three to five days per project after sharing layout plans and plot data—we map your existing design into Layout360, import plots, and configure roles and pricing.",
+      "Most real estate companies go live in three to five days per project after sharing layout plans and plot data—we map your existing design into Layout360, import plots, and configure roles and pricing.",
   },
   {
     question: "What does Layouts360 cost?",
@@ -58,9 +58,9 @@ const HOME_FAQS = [
       "Layouts is one-time: ₹10,000 setup plus ₹150 per plot. Layouts360 is ₹2,000/month plus ₹150 per plot (one-time mapping)—and adds enquiries, freeze, booking, and payments. Layouts360+ for multi-project portfolios is custom—book a demo for a quote on your layout.",
   },
   {
-    question: "Is Layouts360 suitable for a small developer with one layout?",
+    question: "Is Layouts360 suitable for a small real estate company with one layout?",
     answer:
-      "Yes. Entry plans are built for smaller teams that still want a professional, live digital layout, plot inventory, and booking discipline without enterprise overhead.",
+      "Yes. Entry plans are built for smaller real estate companies that still want a professional live layout, plot inventory, and booking discipline without enterprise overhead.",
   },
 ]
 

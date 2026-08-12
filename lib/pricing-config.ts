@@ -42,7 +42,7 @@ export const pricingConfig = {
     },
   ] as const,
 
-  trustLine: "Transparent starting prices · Free demo on your layout",
+  trustLine: "For real estate companies · Transparent prices · Free demo on your layout",
 
   packages: [
     {
@@ -50,12 +50,12 @@ export const pricingConfig = {
       stage: "Visualize",
       name: "Layouts",
       tagline: "Your layout, live on every phone",
-      audience: "Best when you need a professional map first",
+      audience: "Best when your real estate company needs a professional map first",
       pricePrimary: "₹10,000",
       priceSecondary: "+ ₹150 per plot",
       priceNote: "One-time for the project · not a monthly fee",
       description:
-        "We map your existing plan into Layout360 so your team can show live availability on site visits—no WhatsApp photo of a printed chart.",
+        "We map your existing plan into Layout360 so your sales team can show live availability on site visits—no WhatsApp photo of a printed chart.",
       features: [
         "Interactive layout map with satellite view",
         "Live GPS location and directions",
@@ -77,7 +77,7 @@ export const pricingConfig = {
       stage: "Sell",
       name: "Layouts360",
       tagline: "The map that sells with you",
-      audience: "Recommended for teams actively booking plots",
+      audience: "Recommended for real estate companies actively booking plots",
       pricePrimary: "₹2,000/month",
       priceSecondary: "+ ₹150 per plot (one-time mapping)",
       priceNote: "Stop double bookings. Track every enquiry to payment.",
@@ -98,13 +98,13 @@ export const pricingConfig = {
       id: "enterprise",
       stage: "Manage",
       name: "Layouts360+",
-      tagline: "Built for multi-project developers",
+      tagline: "Built for multi-project real estate companies",
       audience: "For portfolios, CPs, and custom operations",
       pricePrimary: "Custom",
       priceSecondary: "Scoped to your projects & team",
       priceNote: "We’ll propose a clear quote after a short discovery call",
       description:
-        "Run multiple layouts with roles, channel partners, expense and ledger, advanced reports, integrations, and workflows that match how you already sell.",
+        "Run multiple layouts with roles, channel partners, expense and ledger, advanced reports, integrations, and workflows that match how your company already sells.",
       features: [
         "Full Sales Platform included",
         "Multi-project control with roles",

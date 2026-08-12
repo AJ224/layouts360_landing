@@ -134,7 +134,7 @@ export default function DemoForm() {
             </svg>
           </div>
           <h3 className="text-xl font-bold mb-2">Get Your Free Demo</h3>
-          <p className="text-white/90 text-sm">Transform your real estate business</p>
+          <p className="text-white/90 text-sm">For real estate companies selling layouts &amp; plots</p>
         </div>
 
         {/* Form Section */}
@@ -220,7 +220,7 @@ export default function DemoForm() {
                 type="text" 
                 value={formData.company}
                 onChange={handleInputChange}
-                placeholder="Your Company Pvt Ltd" 
+                placeholder="Your real estate company name" 
                 className={`h-11 px-4 text-sm border-2 rounded-xl focus:ring-2 focus:ring-primary/20 transition-all duration-300 ${
                   errors.company 
                     ? 'border-red-400 bg-red-50 focus:border-red-500' 
@@ -289,7 +289,7 @@ export default function DemoForm() {
                 name="description" 
                 value={formData.description}
                 onChange={handleInputChange}
-                placeholder="City, layout name, or anything we should prepare for the demo..."
+                placeholder="Project type, plot count, Excel/CRM pain points—or anything we should prepare for the demo..."
                 rows={3}
                 className="px-4 py-3 text-sm border-2 border-gray-200 rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 bg-gray-50 hover:bg-white resize-none"
                 style={{ color: '#1f2937' }}
@@ -325,7 +325,7 @@ export default function DemoForm() {
                 <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span>Free consultation</span>
+                <span>Free demo for real estate companies</span>
               </div>
             </div>
           </form>

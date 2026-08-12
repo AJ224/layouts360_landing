@@ -17,7 +17,7 @@ export default function Hero() {
           <div className="flex justify-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-sm font-medium text-slate-600">
               <span className="h-2 w-2 rounded-full bg-slate-500"></span>
-              Real estate plot management software
+              For real estate companies
             </span>
           </div>
 
@@ -26,8 +26,8 @@ export default function Hero() {
           </h1>
 
           <p className="mx-auto max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
-            Layouts360 replaces Excel, PDFs, and WhatsApp updates with live plot maps, booking, and CRM—in one
-            platform for layout developers.
+            Layouts360 helps real estate companies replace Excel, PDFs, and WhatsApp with live plot maps,
+            booking, CRM, and channel partner tools—purpose-built for layout and township sales.
           </p>
 
           <div className="flex flex-col items-center justify-center gap-4 pt-2 sm:flex-row">

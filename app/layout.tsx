@@ -15,11 +15,11 @@ const Analytics = dynamic(
 
 export const metadata: Metadata = {
   title: {
-    default: "Layouts360 - Plot & Inventory Management Software for Developers",
-    template: "%s | Layouts360 - Real Estate Operating System"
+    default: "Layouts360 - Plot Management Software for Real Estate Companies",
+    template: "%s | Layouts360"
   },
   description:
-    "Real estate plot & inventory management software with built-in CRM and booking for layout developers. Live digital layouts, channel partners, and payment tracking.",
+    "Plot & inventory management software with built-in CRM and booking for real estate companies. Live digital layouts, channel partners, and payment tracking—not generic PropTech.",
   keywords: [
     "real estate software",
     "real estate management software",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     "real estate asset management software",
     "real estate accounting software",
     "commercial real estate software",
-    "plot management software India",
+    "plot management software for real estate companies",
     "real estate client management software",
     "digital layout software",
     "real estate transaction management software",
@@ -53,9 +53,9 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: SITE_URL,
-    title: 'Layouts360 - Plot & Inventory Management for Developers',
+    title: 'Layouts360 - Plot Management Software for Real Estate Companies',
     description:
-      'Plot & inventory management with CRM and booking for layout developers. Live maps, partners, and payments in one platform.',
+      'Plot & inventory management with CRM and booking for real estate companies. Live maps, partners, and payments in one platform.',
     siteName: 'Layouts360',
     images: [
       {
@@ -68,8 +68,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Layouts360 - Plot & Inventory Management',
-    description: 'Live layouts, inventory, CRM, and booking for Indian developers.',
+    title: 'Layouts360 - Plot Management for Real Estate Companies',
+    description: 'Live layouts, inventory, CRM, and booking for real estate companies selling plots.',
     images: ['/herosection.png'],
   },
   robots: {

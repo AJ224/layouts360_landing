@@ -17,18 +17,19 @@ export function AboutContent() {
         <section className="prose prose-slate max-w-none">
           <h2 className="text-2xl font-bold text-slate-900">What we build</h2>
           <p className="text-slate-600 leading-relaxed">
-            {COMPANY.productName} is real estate software for layout developers, builders, and sales teams
-            selling plots, apartments, and commercial units in India. We replace Excel inventory, WhatsApp PDF
+            {COMPANY.productName} is software for real estate companies—layout developers, builders, and sales teams
+            selling plots, apartments, and commercial units. We replace Excel inventory, WhatsApp PDF
             updates, and paper layouts with live digital maps, booking workflows, CRM, and payment tracking.
           </p>
           <p className="text-slate-600 leading-relaxed">{SALES_ERP_DEFINITION}</p>
 
           <h2 className="mt-12 text-2xl font-bold text-slate-900">Who we serve</h2>
           <ul className="list-disc space-y-2 pl-6 text-slate-600">
-            <li>Layout and plot developers with phased releases</li>
+            <li>Real estate companies with layout and plot projects</li>
+            <li>Township developers with phased releases</li>
             <li>Builders running plotted layouts alongside apartment towers</li>
             <li>Sales teams and channel partner networks that need live inventory</li>
-            <li>Developers preparing for high-velocity launch days</li>
+            <li>Companies preparing for high-velocity launch days</li>
           </ul>
 
           <h2 className="mt-12 text-2xl font-bold text-slate-900">What we are not</h2>

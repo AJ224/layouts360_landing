@@ -25,7 +25,8 @@ export function CtaSectionNew() {
           </h2>
 
           <p className="mx-auto mb-8 max-w-lg text-base leading-relaxed text-slate-300 sm:text-lg">
-            Book a walkthrough of live layouts, inventory, and CRM—built for Indian plot developers.
+            Book a walkthrough of live layouts, inventory, and CRM—built for real estate companies selling
+            plots and townships.
           </p>
 
           <div className="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:justify-center sm:gap-4">

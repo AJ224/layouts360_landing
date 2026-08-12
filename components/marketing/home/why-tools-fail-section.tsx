@@ -47,7 +47,7 @@ export function WhyToolsFailSection() {
         eyebrow="How is Layouts360 different"
         eyebrowClassName="bg-amber-100 text-amber-700"
         title="Excel, WhatsApp, and generic CRM were never built for plot sales"
-        description="Each tool solves a different problem well. None of them was designed to track a plot, prevent a double booking, or scale a broker network. Plot management software was."
+        description="Each tool solves a different problem well. None of them was designed for real estate companies that track plots, prevent double bookings, or scale a broker network. Plot management software was."
       />
 
       <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">

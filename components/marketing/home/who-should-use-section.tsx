@@ -32,7 +32,7 @@ interface Industry {
 const PERSONAS: Persona[] = [
   {
     icon: Map,
-    title: "Real estate developers & land promoters",
+    title: "Real estate companies & land promoters",
     description: "Digitize layouts, manage plot inventory, and give leadership one live view of every project.",
     href: "/real-estate-plot-management-software",
     label: "Plot management software",
@@ -82,8 +82,8 @@ export function WhoShouldUseSection() {
       <SectionHeader
         eyebrow="Who it's for"
         eyebrowClassName="bg-indigo-100 text-indigo-700"
-        title="Built for layout sales teams—not generic PropTech"
-        description="One platform for the people who sell plots and the project types they run."
+        title="Built for real estate companies—not generic PropTech"
+        description="One platform for companies that sell plots and the project types they run."
       />
 
       <div className="mx-auto mb-12 flex max-w-4xl flex-wrap items-center justify-center gap-2">
