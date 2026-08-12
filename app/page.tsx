@@ -20,15 +20,15 @@ import { PAGE_KEYWORDS } from "@/lib/seo-keywords"
 import { SITE_URL, absoluteUrl } from "@/lib/site-seo"
 
 export const metadata: Metadata = {
-  title: "Plot Management Software for Real Estate Companies | Layouts360",
+  title: "Layouts360 | Live Plot Maps, Inventory & CRM for Real Estate Companies",
   description:
-    "Layouts360 is plot management software for real estate companies—live layout maps, inventory, booking, CRM, and channel partner tools. Replace Excel and WhatsApp. From ₹10,000 + ₹150/plot; Sales Platform from ₹2,000/month.",
+    "Layouts360 is the sales platform for real estate companies—live layout maps, inventory, booking, CRM, and channel partner tools. Replace Excel and WhatsApp. Sales Platform from ₹2,000/month.",
   keywords: [...PAGE_KEYWORDS.home],
   alternates: {
     canonical: absoluteUrl("/"),
   },
   openGraph: {
-    title: "Plot Management Software for Real Estate Companies | Layouts360",
+    title: "Layouts360 | Live Plot Maps, Inventory & CRM for Real Estate Companies",
     description:
       "Live layout maps, plot inventory, CRM, booking, and payments for real estate companies selling layouts and townships—not generic PropTech.",
     url: SITE_URL,

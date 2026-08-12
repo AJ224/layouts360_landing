@@ -1,3 +1,4 @@
+import Link from "next/link"
 import Header from "@/components/marketing/header"
 import { MarketingButtonLink } from "@/components/ui/marketing-button-link"
 import { ArrowRight, PlayCircle } from "lucide-react"
@@ -22,12 +23,17 @@ export default function Hero() {
           </div>
 
           <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-slate-900 sm:text-5xl md:text-6xl">
-            Real Estate <span className="text-[#34D399]">Plot Management Software</span>
+            Live plot maps, inventory, and CRM{" "}
+            <span className="text-[#34D399]">for layout sales</span>
           </h1>
 
           <p className="mx-auto max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
-            Layouts360 helps real estate companies replace Excel, PDFs, and WhatsApp with live plot maps,
-            booking, CRM, and channel partner tools—purpose-built for layout and township sales.
+            Layouts360 helps real estate companies replace Excel, PDFs, and WhatsApp with live maps,
+            booking, CRM, and channel partner tools. See our{" "}
+            <Link href="/real-estate-plot-management-software" className="font-semibold text-slate-900 underline decoration-slate-300 underline-offset-2 hover:decoration-[#34D399]">
+              plot management software
+            </Link>{" "}
+            for layout and township sales.
           </p>
 
           <div className="flex flex-col items-center justify-center gap-4 pt-2 sm:flex-row">

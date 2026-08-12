@@ -25,6 +25,7 @@ const LAST_MOD = {
 
 const HIGH_PRIORITY_LANDING_PATHS = new Set([
   "/real-estate-plot-management-software",
+  "/digital-layout-maps",
   "/real-estate-inventory-management",
   "/real-estate-inventory-management-software",
   "/real-estate-booking-management-software",

@@ -5,7 +5,7 @@ const HOME_FAQS = [
   {
     question: "What is Layouts360?",
     answer:
-      "Layouts360 is plot management and inventory software for real estate companies—layout developers, builders, and township projects. It combines interactive layout maps, live plot inventory, booking, CRM, payment tracking, and channel partner management in one sales platform—not just a map viewer.",
+      "Layouts360 is a sales platform for real estate companies—layout developers, builders, and township projects. It combines interactive layout maps, live plot inventory, booking, CRM, payment tracking, and channel partner management—not just a map viewer.",
   },
   {
     question: "Is Layouts360 just an interactive layout viewer?",

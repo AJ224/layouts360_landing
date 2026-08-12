@@ -21,7 +21,13 @@ export default function Header({ theme = "light" }: HeaderProps) {
 
   return (
     <header className="relative z-50 w-full pt-4 sm:pt-6 md:pt-8">
-      <input id="mobile-nav-toggle" type="checkbox" className="peer sr-only" aria-hidden />
+      <input
+        id="mobile-nav-toggle"
+        type="checkbox"
+        className="peer sr-only"
+        aria-hidden
+        tabIndex={-1}
+      />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div

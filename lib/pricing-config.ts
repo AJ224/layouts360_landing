@@ -1,7 +1,7 @@
 /**
  * Pricing Configuration
  *
- * Visualize → Sell → Manage package structure.
+ * Map → Desk → Custom package structure.
  * Public site shows starting prices; beautification & migration quoted on request.
  */
 
@@ -9,7 +9,7 @@ export type PackageId = "visual" | "sales-platform" | "enterprise"
 
 export type PricingPackage = {
   id: PackageId
-  stage: "Visualize" | "Sell" | "Manage"
+  stage: "Map" | "Desk" | "Custom"
   name: string
   tagline: string
   pricePrimary: string
@@ -26,19 +26,19 @@ export type PricingPackage = {
 export const pricingConfig = {
   journey: [
     {
-      stage: "Visualize",
-      label: "See the layout live",
-      detail: "Buyers and brokers open the same map on site visits.",
+      stage: "Map",
+      label: "Just the map",
+      detail: "Live layout. Colors. A link you can send.",
     },
     {
-      stage: "Sell",
-      label: "Close without chaos",
-      detail: "Freeze, book, collect money—one source of truth.",
+      stage: "Desk",
+      label: "Map and the desk",
+      detail: "Freeze, book, collect, brokers, CRM.",
     },
     {
-      stage: "Manage",
-      label: "Run the portfolio",
-      detail: "Roles, partners, and reports across projects.",
+      stage: "Custom",
+      label: "More than one project",
+      detail: "Same software, quoted for how you run.",
     },
   ] as const,
 
@@ -47,70 +47,71 @@ export const pricingConfig = {
   packages: [
     {
       id: "visual",
-      stage: "Visualize",
+      stage: "Map",
       name: "Layouts",
-      tagline: "Your layout, live on every phone",
-      audience: "Best when your real estate company needs a professional map first",
+      tagline: "The live map. Nothing else.",
+      audience: "If you mainly need a map the site office can open on a phone",
       pricePrimary: "₹10,000",
       priceSecondary: "+ ₹150 per plot",
-      priceNote: "One-time for the project · not a monthly fee",
+      priceNote: "One-time. No monthly fee.",
       description:
-        "We map your existing plan into Layout360 so your sales team can show live availability on site visits—no WhatsApp photo of a printed chart.",
+        "Your plan on a live map: colours for available, frozen, booked, sold. Staff tap a plot instead of opening Excel. No CRM, no payments, no booking flow.",
       features: [
-        "Interactive layout map with satellite view",
-        "Live GPS location and directions",
-        "Search plot and filter by status",
-        "Real-time inventory updates",
-        "Gallery for images and videos",
-        "Dynamic dimensions and unit options",
-        "Custom plot labels and info panel",
-        "Shareable one-link presentation",
-        "No app download required",
-        "We map and deploy your project for you",
+        "Color-coded map: available, frozen, booked, sold",
+        "Pan, zoom, tap a plot on site",
+        "Upload CAD or SVG, or cut plots on the keymap",
+        "Same plots on Google Maps (scale and rotate)",
+        "Public link — buyers can enquire from the map",
+        "Photos, YouTube, nearby schools, hospitals, roads",
+        "You choose the labels: plot no, area, facing, rate, survey",
+        "Club neighbouring plots into one sale",
       ],
-      ctaLabel: "Book a free demo",
+      ctaLabel: "Book a demo",
       recommended: false,
       theme: "light",
     },
     {
       id: "sales-platform",
-      stage: "Sell",
+      stage: "Desk",
       name: "Layouts360",
-      tagline: "The map that sells with you",
-      audience: "Recommended for real estate companies actively booking plots",
+      tagline: "The map, plus the desk that sells on it.",
+      audience: "If agents are taking tokens and bookings",
       pricePrimary: "₹2,000/month",
-      priceSecondary: "+ ₹150 per plot (one-time mapping)",
-      priceNote: "Stop double bookings. Track every enquiry to payment.",
+      priceSecondary: "+ ₹150 per plot (mapping, one-time)",
+      priceNote: "This is what most projects run.",
       description:
-        "Everything in Layouts, plus the sales desk: enquiries, customer records, plot freeze, booking, payment tracking, and documents—on the same live map.",
+        "Same map as Layouts. On top of it: freeze, booking, CRM, money, brokers, and who on the team can do what.",
       features: [
         "Everything in Layouts",
-        "Capture enquiries from the live layout",
-        "Freeze a plot so two agents can’t sell it",
-        "Bookings, payments, and documents in one place",
-        "Full sales workflow your team actually uses",
+        "Freeze a plot, book it, register, mark sold",
+        "One booking for several plots or joint buyers",
+        "Leads, site visits, follow-ups, and My Day on the map",
+        "Facebook and Instagram leads come into CRM",
+        "Cash, UPI, cheque, loan — receipts and what’s overdue",
+        "Ledger split: land owner, developer, money partner",
+        "Broker portal on the same map",
+        "Roles and GPS attendance",
       ],
-      ctaLabel: "Book a free demo",
+      ctaLabel: "Book a demo",
       recommended: true,
       theme: "dark",
     },
     {
       id: "enterprise",
-      stage: "Manage",
+      stage: "Custom",
       name: "Layouts360+",
-      tagline: "Built for multi-project real estate companies",
-      audience: "For portfolios, CPs, and custom operations",
+      tagline: "Several projects. We set it up around you.",
+      audience: "If you run more than one layout, or need something custom",
       pricePrimary: "Custom",
-      priceSecondary: "Scoped to your projects & team",
-      priceNote: "We’ll propose a clear quote after a short discovery call",
+      priceSecondary: "Quoted for your projects",
+      priceNote: "We’ll price it after we see the work.",
       description:
-        "Run multiple layouts with roles, channel partners, expense and ledger, advanced reports, integrations, and workflows that match how your company already sells.",
+        "Layouts360 across multiple layouts, with extra workflow or integrations if you need them.",
       features: [
-        "Full Sales Platform included",
-        "Multi-project control with roles",
-        "Channel partner management",
-        "Expense, ledger, and deeper reports",
-        "Integrations and custom workflows",
+        "Everything in Layouts360",
+        "More than one project in the same account",
+        "Custom workflow or integrations if you need them",
+        "We stay on the setup with you",
       ],
       ctaLabel: "Talk to us",
       recommended: false,
@@ -121,15 +122,15 @@ export const pricingConfig = {
   addons: [
     {
       id: "beautification",
-      name: "Layout Beautification",
+      name: "Make the map look finished",
       description:
-        "Want a premium presentation? We can redesign branding, landscaping art, and visual polish",
+        "If the CAD looks rough on a phone, we can redraw branding and landscaping so the map looks like something you’d show a buyer.",
     },
     {
       id: "migration",
-      name: "Custom Setup / Migration",
+      name: "Move your data in",
       description:
-        "Moving from Excel, another CRM, or scattered documents? We’ll help bring data and workflows across so your team doesn’t start from zero.",
+        "Coming from Excel or another CRM? We’ll bring plots and customers across so the team isn’t typing it all again.",
     },
   ],
 

@@ -27,32 +27,33 @@ function packageHref(pkg: PricingPackage) {
   return `/contact?${params.toString()}#demo-form`
 }
 
+const FEATURE_ICONS: Array<{ test: (f: string) => boolean; icon: typeof Satellite }> = [
+  { test: (f) => f.includes("satellite") || f.includes("google maps"), icon: Satellite },
+  { test: (f) => f.includes("gps") || f.includes("attendance") || f.includes("direction"), icon: Navigation },
+  { test: (f) => f.includes("search") || f.includes("filter") || f.includes("digitize") || f.includes("cad"), icon: Search },
+  { test: (f) => f.includes("inventory") || f.includes("real-time") || f.includes("dashboard") || f.includes("report"), icon: BarChart3 },
+  { test: (f) => f.includes("gallery") || f.includes("photos") || f.includes("youtube") || f.includes("nearby"), icon: Images },
+  { test: (f) => f.includes("label") || f.includes("sq ft") || f.includes("facing") || f.includes("group"), icon: Tags },
+  { test: (f) => f.includes("dimension") || f.includes("unit") || f.includes("scale"), icon: Ruler },
+  { test: (f) => f.includes("share") || f.includes("public") || f.includes("link"), icon: Link2 },
+  { test: (f) => f.includes("download"), icon: Download },
+  { test: (f) => f.includes("map") || f.includes("pan") || f.includes("zoom") || f.includes("layout"), icon: MapPinned },
+  { test: (f) => f.includes("crm") || f.includes("enquir") || f.includes("follow-up") || f.includes("facebook") || f.includes("instagram") || f.includes("my day") || f.includes("joint") || f.includes("team"), icon: Users },
+  { test: (f) => f.includes("freeze") || f.includes("lock") || f.includes("hold") || f.includes("sold"), icon: Lock },
+  { test: (f) => f.includes("payment") || f.includes("receipt") || f.includes("ledger") || f.includes("upi") || f.includes("booking") || f.includes("register"), icon: FileText },
+  { test: (f) => f.includes("partner") || f.includes("role") || f.includes("workflow") || f.includes("portfolio") || f.includes("project"), icon: Building2 },
+]
+
 function getFeatureIcon(feature: string) {
   const f = feature.toLowerCase()
-
-  if (f.includes("satellite")) return Satellite
-  if (f.includes("gps") || f.includes("direction")) return Navigation
-  if (f.includes("search") || f.includes("filter")) return Search
-  if (f.includes("inventory") || f.includes("real-time")) return BarChart3
-  if (f.includes("gallery") || f.includes("images") || f.includes("videos")) return Images
-  if (f.includes("dimension") || f.includes("unit")) return Ruler
-  if (f.includes("label")) return Tags
-  if (f.includes("link") || f.includes("share")) return Link2
-  if (f.includes("download")) return Download
-  if (f.includes("map")) return MapPinned
-  if (f.includes("enquir") || f.includes("customer")) return Users
-  if (f.includes("freeze") || f.includes("lock")) return Lock
-  if (f.includes("booking") || f.includes("document")) return FileText
-  if (f.includes("project") || f.includes("role") || f.includes("workflow")) return Building2
-
-  return ShieldCheck
+  return FEATURE_ICONS.find((entry) => entry.test(f))?.icon ?? ShieldCheck
 }
 
 function PackageCard({ pkg }: Readonly<{ pkg: PricingPackage }>) {
   const isFeatured = pkg.recommended
   const isDark = pkg.theme === "dark" || pkg.theme === "accent"
   const isLayoutsPackage = pkg.id === "visual"
-  const visibleFeatures = isLayoutsPackage ? pkg.features : pkg.features.slice(0, 4)
+  const visibleFeatures = pkg.features
   const articleClassName = (() => {
     if (isFeatured) {
       return "border-[#EAB308]/50 bg-[#0B1E3B] text-white shadow-2xl shadow-[#0B1E3B]/20 ring-1 ring-[#EAB308]/30 md:-translate-y-2"
@@ -93,7 +94,7 @@ function PackageCard({ pkg }: Readonly<{ pkg: PricingPackage }>) {
     >
       {isFeatured && (
         <div className="bg-[#EAB308] px-4 py-2 text-center text-[11px] font-bold uppercase tracking-[0.18em] text-[#0B1E3B]">
-          Most teams choose this
+          Most sites run this
         </div>
       )}
 
@@ -112,6 +113,9 @@ function PackageCard({ pkg }: Readonly<{ pkg: PricingPackage }>) {
           </h3>
           <p className={`text-sm leading-snug ${isDark ? "text-slate-300" : "text-slate-600"}`}>
             {pkg.tagline}
+          </p>
+          <p className={`pt-2 text-sm leading-relaxed ${isDark ? "text-slate-400" : "text-slate-500"}`}>
+            {pkg.description}
           </p>
         </div>
 
@@ -157,7 +161,7 @@ function PackageCard({ pkg }: Readonly<{ pkg: PricingPackage }>) {
             rel="noopener noreferrer"
             className={`mt-5 inline-flex items-center text-sm font-semibold underline underline-offset-4 ${isDark ? "text-slate-200" : "text-[#0B1E3B]"}`}
           >
-            Live sample demo: what you get
+            See a live sample
           </a>
         )}
 
@@ -191,7 +195,7 @@ export default function PricingCards() {
 
       <div className="mx-auto max-w-4xl space-y-6">
         <div className="text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Optional extras</h2>
+          <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">If you need extra</h2>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2">

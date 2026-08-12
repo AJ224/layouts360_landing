@@ -85,7 +85,18 @@ export function CoreCapabilitiesSection() {
           </Link>
         ))}
       </div>
-      <div className="mt-10 text-center">
+      <div className="mt-10 flex flex-col items-center gap-4 text-center">
+        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm font-semibold text-slate-700">
+          <Link href="/real-estate-plot-management-software" className="hover:text-blue-700 hover:underline">
+            Plot management software
+          </Link>
+          <Link href="/real-estate-inventory-management-software" className="hover:text-blue-700 hover:underline">
+            Inventory management software
+          </Link>
+          <Link href="/digital-layout-maps" className="hover:text-blue-700 hover:underline">
+            Digital layout map
+          </Link>
+        </div>
         <Link
           href="/features"
           className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:underline"

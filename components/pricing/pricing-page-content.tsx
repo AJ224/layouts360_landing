@@ -1,4 +1,5 @@
 import PricingCards from "@/components/pricing/pricing-cards"
+import PricingFeatures from "@/components/pricing/pricing-features"
 import Header from "@/components/marketing/header"
 import Footer from "@/components/marketing/footer"
 import { Button } from "@/components/ui/button"
@@ -8,24 +9,24 @@ import Link from "next/link"
 
 const faqs = [
   {
-    question: "Is mapping the same as a redesign?",
+    question: "Do you redraw my plan?",
     answer:
-      "No. Mapping moves your existing plan into Layout360 so your real estate company can sell on a live map. Beautification is optional and quoted separately.",
+      "Mapping puts your existing CAD or PDF on a live map. If you want it to look like a brochure, that’s a separate drawing job and we quote it.",
   },
   {
-    question: "What do I pay for Layouts?",
+    question: "What does Layouts cost?",
     answer:
-      "One-time: ₹10,000 setup plus ₹150 per plot. There’s no monthly fee for Layouts alone. You get a live layout your team and buyers can open on phone or web.",
+      "₹10,000 plus ₹150 a plot, once. No monthly. You get the live map and inventory. You don’t get freeze, booking, or CRM.",
   },
   {
-    question: "When should I pick Layouts360?",
+    question: "When do I need Layouts360?",
     answer:
-      "When your real estate company is actively taking enquiries and bookings. For ₹2,000/month plus ₹150 per plot (one-time mapping), you get freeze, booking, payments, documents, and customer tracking on the same map—so WhatsApp and Excel stop being your CRM.",
+      "When people are actually booking. ₹2,000 a month after mapping. Freeze, CRM, payments, broker portal, ledger — on the same map.",
   },
   {
-    question: "Who is Layouts360+ for?",
+    question: "What’s Layouts360+?",
     answer:
-      "Multi-project real estate companies that need roles, partners, ledgers, deeper reports, and custom workflows. We’ll scope a clear quote after a short call.",
+      "More than one project, or something we have to build around how you already work. We quote after we see the layouts.",
   },
 ]
 
@@ -56,13 +57,16 @@ export default function PricingPageContent() {
         <PricingCards />
       </section>
 
+      <section className="relative z-10 border-t border-slate-200/80 bg-[#F7F8FA]/80">
+        <PricingFeatures />
+      </section>
+
       <section className="relative z-10 border-y border-slate-200/80 bg-white">
         <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-              Quick answers
+              Common questions
             </h2>
-            <p className="mt-3 text-base text-slate-600">Short, direct answers before you book.</p>
           </div>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2">
@@ -82,9 +86,9 @@ export default function PricingPageContent() {
       <section className="relative z-10 overflow-hidden bg-[#0B1E3B] py-16 text-white sm:py-20">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(234,179,8,0.12),_transparent_55%)]" />
         <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Book a quick demo</h2>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Bring a plan. We’ll put it on a map.</h2>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
-            We’ll open a live map of your project and confirm the right package for your real estate company’s plot count.
+            Demo is on your project, not a fake layout. We’ll tell you which package fits the plot count.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button
@@ -92,7 +96,7 @@ export default function PricingPageContent() {
               className="h-12 w-full rounded-full bg-[#EAB308] px-8 text-base font-bold text-[#0B1E3B] hover:bg-[#f0c43a] sm:w-auto"
               asChild
             >
-              <Link href="/contact#demo-form">Book a free demo</Link>
+              <Link href="/contact#demo-form">Book a demo</Link>
             </Button>
             <Button
               size="lg"

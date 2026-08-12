@@ -15,7 +15,7 @@ const Analytics = dynamic(
 
 export const metadata: Metadata = {
   title: {
-    default: "Layouts360 - Plot Management Software for Real Estate Companies",
+    default: "Layouts360 | Live Plot Maps, Inventory & CRM for Real Estate Companies",
     template: "%s | Layouts360"
   },
   description:
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: SITE_URL,
-    title: 'Layouts360 - Plot Management Software for Real Estate Companies',
+    title: 'Layouts360 | Live Plot Maps, Inventory & CRM for Real Estate Companies',
     description:
       'Plot & inventory management with CRM and booking for real estate companies. Live maps, partners, and payments in one platform.',
     siteName: 'Layouts360',
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Layouts360 - Plot Management for Real Estate Companies',
+    title: 'Layouts360 | Live Plot Maps, Inventory & CRM for Real Estate Companies',
     description: 'Live layouts, inventory, CRM, and booking for real estate companies selling plots.',
     images: ['/herosection.png'],
   },
