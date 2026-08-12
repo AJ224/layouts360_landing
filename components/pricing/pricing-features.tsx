@@ -1,142 +1,109 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { CheckCircle2, Map, Store } from "lucide-react"
-
 const visualization = [
   {
     title: "Live map",
-    description: "Every plot on the real layout. Green, frozen, booked, sold — same colours the site office uses.",
+    description: "Every plot on the real layout. Available, frozen, booked, sold.",
   },
   {
     title: "Work from the map",
-    description: "Pan, zoom, tap a plot. Nobody should be selling from a spreadsheet on site.",
+    description: "Pan, zoom, tap. No spreadsheet on site.",
   },
   {
     title: "Your plan, digitized",
-    description: "CAD or SVG in, or we cut plots on the keymap.",
+    description: "CAD or SVG in, or plots cut on the keymap.",
   },
   {
-    title: "On Google Maps too",
-    description: "Same plots on satellite. Scale and rotate until they sit on the land.",
+    title: "On satellite",
+    description: "Same plots on Google Maps. Scale and rotate to the land.",
   },
   {
     title: "A link you can send",
-    description: "Buyer opens it in the browser and can enquire from the plot. No app.",
+    description: "Opens in the browser. Buyers enquire from the plot.",
   },
   {
     title: "Photos and nearby",
-    description: "Gallery, YouTube, schools, hospitals, roads.",
+    description: "Gallery, video, schools, hospitals, roads.",
   },
   {
     title: "Your labels",
     description: "Plot no, area, facing, rate, survey. Sq ft or sq m.",
   },
   {
-    title: "Club plots",
-    description: "Sell two or three neighbouring plots as one deal.",
+    title: "Group plots",
+    description: "Neighbouring plots as one deal.",
   },
 ]
 
 const platform = [
   {
-    title: "Freeze, book, register, sold",
-    description: "Hold the plot, take the token, collect, close. One record.",
+    title: "Freeze to sold",
+    description: "Hold, token, collect, close. One record.",
   },
   {
-    title: "Several plots, joint buyers",
-    description: "One booking can cover more than one plot, and more than one name.",
+    title: "Multi-plot, joint buyers",
+    description: "One booking. Several plots. More than one name.",
   },
   {
     title: "CRM on the map",
-    description: "Leads, site visits, follow-ups, My Day — tied to the plot they asked about.",
+    description: "Leads, visits, follow-ups, My Day — on the plot they asked about.",
   },
   {
     title: "Ads into CRM",
-    description: "Facebook and Instagram leads show up in the pipeline, not in someone’s WhatsApp.",
+    description: "Facebook and Instagram leads arrive in the pipeline.",
   },
   {
-    title: "Money in",
-    description: "Cash, UPI, cheque, loan. You can see what’s due and what’s late.",
+    title: "Collections",
+    description: "Cash, UPI, cheque, loan. Due and overdue in view.",
   },
   {
-    title: "Who gets what",
-    description: "Ledger split for land owner, developer, and money partner.",
+    title: "Ledger",
+    description: "Split for land owner, developer, and money partner.",
   },
   {
     title: "Broker portal",
-    description: "CPs freeze and enquire on the same map your desk uses.",
+    description: "Partners freeze and enquire on the same map.",
   },
   {
-    title: "Team and attendance",
-    description: "Decide who can freeze, book, or see money. GPS attendance if you need it.",
+    title: "Team",
+    description: "Who can freeze, book, or see money. GPS attendance if needed.",
   },
 ]
 
 export default function PricingFeatures() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-12 md:py-20 md:px-6">
-      <div className="mb-12 text-center">
-        <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
+    <section className="mx-auto max-w-5xl px-4 py-20 sm:px-6 md:py-24">
+      <div className="mx-auto max-w-xl text-center">
+        <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-slate-400">Compare</p>
+        <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 md:text-[2rem]">
           Map only, or map plus the desk
         </h2>
-        <p className="mx-auto mt-3 max-w-2xl text-lg text-muted-foreground">
-          Layouts stops at the layout. Layouts360 keeps going through booking and money.
-        </p>
       </div>
 
-      <div className="grid gap-8 lg:grid-cols-2">
-        <Card className="border-2">
-          <CardHeader>
-            <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-slate-800">
-              <Map className="h-5 w-5" aria-hidden />
-            </div>
-            <CardTitle className="text-xl">Layouts</CardTitle>
-            <p className="text-sm text-muted-foreground">
-              Live map and inventory. No freeze, no CRM, no payments. Also included inside Layouts360.
-            </p>
-          </CardHeader>
-          <CardContent>
-            <ul className="space-y-4">
-              {visualization.map((item) => (
-                <li key={item.title} className="flex gap-3">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" aria-hidden />
-                  <span>
-                    <span className="block font-semibold text-slate-900">{item.title}</span>
-                    <span className="mt-0.5 block text-sm leading-relaxed text-muted-foreground">
-                      {item.description}
-                    </span>
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </CardContent>
-        </Card>
+      <div className="mt-14 grid gap-12 md:grid-cols-2 md:gap-16">
+        <div>
+          <h3 className="text-lg font-semibold tracking-tight text-slate-900">Layouts</h3>
+          <p className="mt-1 text-sm text-slate-500">Live map and inventory. Included in Layouts360.</p>
+          <ul className="mt-8 space-y-5">
+            {visualization.map((item) => (
+              <li key={item.title}>
+                <p className="text-sm font-medium text-slate-900">{item.title}</p>
+                <p className="mt-0.5 text-sm leading-relaxed text-slate-500">{item.description}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-        <Card className="border-2 border-[#EAB308]/40">
-          <CardHeader>
-            <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-[#EAB308]/15 text-[#0B1E3B]">
-              <Store className="h-5 w-5" aria-hidden />
-            </div>
-            <CardTitle className="text-xl">Layouts360</CardTitle>
-            <p className="text-sm text-muted-foreground">
-              Same map. Then freeze, booking, CRM, money, brokers, and roles.
-            </p>
-          </CardHeader>
-          <CardContent>
-            <ul className="space-y-4">
-              {platform.map((item) => (
-                <li key={item.title} className="flex gap-3">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" aria-hidden />
-                  <span>
-                    <span className="block font-semibold text-slate-900">{item.title}</span>
-                    <span className="mt-0.5 block text-sm leading-relaxed text-muted-foreground">
-                      {item.description}
-                    </span>
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </CardContent>
-        </Card>
+        <div>
+          <h3 className="text-lg font-semibold tracking-tight text-slate-900">Layouts360</h3>
+          <p className="mt-1 text-sm text-slate-500">Same map. Then booking, CRM, money, and brokers.</p>
+          <ul className="mt-8 space-y-5">
+            {platform.map((item) => (
+              <li key={item.title}>
+                <p className="text-sm font-medium text-slate-900">{item.title}</p>
+                <p className="mt-0.5 text-sm leading-relaxed text-slate-500">{item.description}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   )
