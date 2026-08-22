@@ -65,7 +65,8 @@ export default function FeaturePage({ params }: { params: { slug: string } }) {
                                     width={504}
                                     height={331}
                                     className="object-contain w-full h-full rounded-xl sm:rounded-2xl"
-                                    priority
+                                    sizes="(max-width: 1024px) 100vw, 504px"
+                                    loading="lazy"
                                 />
                             ) : (
                                 <div className={`w-full h-full bg-gradient-to-br ${service.color} rounded-xl sm:rounded-2xl`} />

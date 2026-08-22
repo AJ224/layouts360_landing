@@ -1,15 +1,11 @@
 import type { Metadata } from "next"
+import { OG_IMAGE } from "@/lib/media"
 import { absoluteUrl } from "@/lib/site-url"
 
 export const SITE_NAME = "Layouts360" as const
 export const OG_LOCALE = "en_IN" as const
 
-export const DEFAULT_OG_IMAGE = {
-  url: "/herosection.png",
-  width: 1200,
-  height: 630,
-  alt: "Layouts360 — live plot maps, inventory, and CRM for real estate developers in India",
-} as const
+export const DEFAULT_OG_IMAGE = OG_IMAGE
 
 const BRAND_SUFFIX = /\s*\|\s*Layouts360\s*$/i
 

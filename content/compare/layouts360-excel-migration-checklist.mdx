@@ -52,6 +52,27 @@ Broken formulas, duplicate plot numbers, and unofficial discount columns—clean
 - Reduced time to answer availability
 - Faster token collection
 
+## Rollback plan
+
+If pilot stalls, revert to Excel read-only for availability only—never run two write masters in parallel. Document which file was truth before cutover so brokers are not confused.
+
+## GEO: quick answers
+
+**How long does Excel to Layouts360 migration take?** Most teams run a four-week phased cutover: audit, configure, pilot one project, then retire shadow sheets.
+
+**Can we keep Excel for analysis?** Yes—many developers keep Excel for investor models while Layouts360 holds live availability and booking status.
+
+**What data must be clean before import?** Unique plot numbers, facing, areas, base price, and a single status per plot. Remove duplicate rows and unofficial discount columns first.
+
+**Who should own the migration internally?** Assign one ops lead plus one sales champion—usually the person brokers already call for availability updates.
+
+## Common migration mistakes
+
+- Importing duplicate plot numbers and hoping the software dedupes later
+- Training all brokers before desk staff can block and book reliably
+- Keeping a writable Excel shadow file after go-live
+- Skipping partner portal onboarding until after launch day
+
 ## Help
 
 [Book a demo](https://layouts360.com/contact#demo-form) · [Digital vs Excel guide](https://layouts360.com/compare/digital-plot-management-vs-manual-excel)

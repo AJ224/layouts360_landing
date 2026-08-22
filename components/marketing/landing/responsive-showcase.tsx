@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { Monitor, Smartphone, Tablet } from "lucide-react"
+import { DASHBOARD_PREVIEW } from "@/lib/media"
 import { Section, TextLink } from "@/components/marketing/landing/ui"
 
 const devices = [
@@ -33,7 +34,7 @@ export function ResponsiveShowcaseSection() {
               className={`relative ${device.width} ${device.aspect} overflow-hidden border-slate-900 bg-slate-900 shadow-xl ${device.border}`}
             >
               <Image
-                src="/assets/images/DashboardPreview.png"
+                src={DASHBOARD_PREVIEW}
                 alt={`${device.label} dashboard`}
                 fill
                 className="object-contain bg-slate-100"

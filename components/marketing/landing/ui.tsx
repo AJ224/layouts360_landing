@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { DASHBOARD_PREVIEW } from "@/lib/media"
 import Link from "next/link"
 import type { LucideIcon } from "lucide-react"
 import { ArrowRight, Check } from "lucide-react"
@@ -114,7 +115,7 @@ export function IconCard({
 export function DashboardImage({ alt, className = "aspect-[4/3]" }: { alt: string; className?: string }) {
   return (
     <div className={`relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl ${className}`}>
-      <Image src="/assets/images/DashboardPreview.png" alt={alt} fill className="object-contain bg-slate-50" />
+      <Image src={DASHBOARD_PREVIEW} alt={alt} fill className="object-contain bg-slate-50" sizes="(max-width: 768px) 100vw, 50vw" loading="lazy" />
     </div>
   )
 }

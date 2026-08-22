@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { managementStats } from "@/components/marketing/landing/data"
+import { DASHBOARD_PREVIEW } from "@/lib/media"
 import { Section, SectionHeader, TextLink } from "@/components/marketing/landing/ui"
 
 export function ManagementGridSection() {
@@ -46,10 +47,12 @@ export function ManagementGridSection() {
 
         <div className="relative aspect-video w-full overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-2xl md:w-2/3">
           <Image
-            src="/assets/images/DashboardPreview.png"
+            src={DASHBOARD_PREVIEW}
             alt="Management dashboard"
             fill
             className="object-contain bg-slate-50"
+            sizes="(max-width: 768px) 100vw, 66vw"
+            loading="lazy"
           />
         </div>
       </div>

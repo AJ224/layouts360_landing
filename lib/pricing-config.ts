@@ -7,55 +7,41 @@
 
 export type PackageId = "visual" | "sales-platform" | "enterprise"
 
+export type PriceRow = {
+  label: string
+  value: string
+  detail?: string
+}
+
 export type PricingPackage = {
   id: PackageId
-  stage: "Map" | "Desk" | "Custom"
   name: string
   tagline: string
-  pricePrimary: string
-  priceSecondary: string
-  priceNote: string
-  description: string
+  priceRows: PriceRow[]
+  priceExample: string
   features: string[]
   ctaLabel: string
   recommended: boolean
-  theme: "light" | "dark" | "accent"
-  audience: string
+  /** @deprecated Use priceRows — kept for demo form label */
+  pricePrimary: string
 }
 
 export const pricingConfig = {
-  journey: [
-    {
-      stage: "Map",
-      label: "Just the map",
-      detail: "Live layout. Colors. A link you can send.",
-    },
-    {
-      stage: "Desk",
-      label: "Map and the desk",
-      detail: "Freeze, book, collect, brokers, CRM.",
-    },
-    {
-      stage: "Custom",
-      label: "More than one project",
-      detail: "Same software, quoted for how you run.",
-    },
-  ] as const,
+  trustLine: "Demo on your layout",
 
-  trustLine: "Starting prices · Demo on your layout",
+  examplePlotCount: 120,
 
   packages: [
     {
       id: "visual",
-      stage: "Map",
       name: "Layouts",
-      tagline: "Live layout. Inventory. A link.",
-      audience: "If you mainly need a map the site office can open on a phone",
+      tagline: "Live plot map. Replace Excel for inventory.",
+      priceRows: [
+        { label: "Setup", value: "₹10,000 (up to 150 plots)" },
+        { label: "More plots", value: "₹150 each" },
+      ],
       pricePrimary: "₹10,000",
-      priceSecondary: "+ ₹150 / plot",
-      priceNote: "One-time. No monthly fee.",
-      description:
-        "Your plan on a live map. Staff tap a plot instead of opening Excel. No CRM, payments, or booking.",
+      priceExample: "",
       features: [
         "Color-coded: available, frozen, booked, sold",
         "Pan, zoom, tap a plot",
@@ -68,19 +54,17 @@ export const pricingConfig = {
       ],
       ctaLabel: "Book a demo",
       recommended: false,
-      theme: "light",
     },
     {
       id: "sales-platform",
-      stage: "Desk",
       name: "Layouts360",
-      tagline: "Sell on the same map.",
-      audience: "If agents are taking tokens and bookings",
+      tagline: "When you freeze plots, take bookings, and run CRM.",
+      priceRows: [
+        { label: "Map your layout", value: "₹150 / plot" },
+        { label: "Software", value: "₹2,000 / month" },
+      ],
       pricePrimary: "₹2,000",
-      priceSecondary: "/ month + ₹150 / plot mapping",
-      priceNote: "The usual choice once bookings start.",
-      description:
-        "The Layouts map, plus freeze, booking, CRM, collections, brokers, and roles.",
+      priceExample: "",
       features: [
         "Everything in Layouts",
         "Freeze, book, register, sold",
@@ -94,19 +78,14 @@ export const pricingConfig = {
       ],
       ctaLabel: "Book a demo",
       recommended: true,
-      theme: "dark",
     },
     {
       id: "enterprise",
-      stage: "Custom",
       name: "Layouts360+",
-      tagline: "Several layouts. Built around you.",
-      audience: "If you run more than one layout, or need something custom",
+      tagline: "Multiple layouts or custom setup.",
+      priceRows: [{ label: "Pricing", value: "Quoted" }],
       pricePrimary: "Custom",
-      priceSecondary: "Quoted for your projects",
-      priceNote: "Priced after we see the work.",
-      description:
-        "Layouts360 across multiple projects, with workflow or integrations if you need them.",
+      priceExample: "Tell us your projects — we quote after a call.",
       features: [
         "Everything in Layouts360",
         "Multiple projects, one account",
@@ -115,7 +94,6 @@ export const pricingConfig = {
       ],
       ctaLabel: "Talk to us",
       recommended: false,
-      theme: "light",
     },
   ] satisfies PricingPackage[],
 
@@ -214,6 +192,28 @@ export function calculatePlotCost(plotCount: number): number {
 
   const additionalPlots = plotCount - baseIncludedPlots
   return baseSetupCost + additionalPlots * additionalPlotCost
+}
+
+/** One-time Layouts (map-only) total for a plot count */
+export function formatLayoutsOneTime(plotCount: number): string {
+  return `₹${calculatePlotCost(plotCount).toLocaleString("en-IN")} once`
+}
+
+/** Layouts360: mapping (per plot) + monthly desk fee */
+export function formatLayouts360Example(plotCount: number): string {
+  const mapping = plotCount * pricingConfig.plotPricing.perPlotCost
+  const monthly = pricingConfig.platformFee.monthly
+  return `₹${mapping.toLocaleString("en-IN")} mapping + ₹${monthly.toLocaleString("en-IN")}/mo`
+}
+
+export function getPackagePriceExample(pkg: PricingPackage, plotCount = pricingConfig.examplePlotCount): string {
+  if (pkg.id === "visual") {
+    return `${plotCount} plots → ${formatLayoutsOneTime(plotCount)}`
+  }
+  if (pkg.id === "sales-platform") {
+    return `${plotCount} plots → ${formatLayouts360Example(plotCount)}`
+  }
+  return pkg.priceExample
 }
 
 export function calculateSubscriptionCost(
