@@ -5,6 +5,7 @@ import { GeistMono } from "geist/font/mono"
 import dynamic from "next/dynamic"
 import { Suspense } from "react"
 import { OrganizationWebSiteSchema } from "@/components/seo/schema"
+import { DEFAULT_OG_IMAGE, OG_LOCALE, SITE_NAME } from "@/lib/page-metadata"
 import { SITE_URL, absoluteUrl } from "@/lib/site-seo"
 import "./globals.css"
 
@@ -51,26 +52,19 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    locale: 'en_US',
+    locale: OG_LOCALE,
     url: SITE_URL,
     title: 'Layouts360 | Live Plot Maps, Inventory & CRM for Real Estate Companies',
     description:
       'Plot & inventory management with CRM and booking for real estate companies. Live maps, partners, and payments in one platform.',
-    siteName: 'Layouts360',
-    images: [
-      {
-        url: '/herosection.png',
-        width: 1200,
-        height: 630,
-        alt: 'Layouts360 Real Estate ERP Dashboard',
-      },
-    ],
+    siteName: SITE_NAME,
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Layouts360 | Live Plot Maps, Inventory & CRM for Real Estate Companies',
     description: 'Live layouts, inventory, CRM, and booking for real estate companies selling plots.',
-    images: ['/herosection.png'],
+    images: [DEFAULT_OG_IMAGE.url],
   },
   robots: {
     index: true,
@@ -96,7 +90,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-IN">
       <head>
         <OrganizationWebSiteSchema />
       </head>

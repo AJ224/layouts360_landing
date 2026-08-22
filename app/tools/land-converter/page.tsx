@@ -3,15 +3,15 @@ import { ConversionFaqs } from "@/components/tools/conversion-faqs"
 import { LandConverter } from "@/components/tools/land-converter"
 import { ToolsPageShell } from "@/components/tools/tools-page-shell"
 import { getTool, LAND_CONVERTER_FAQS } from "@/lib/tools"
-import { absoluteUrl } from "@/lib/site-seo"
+import { buildPageMetadata } from "@/lib/page-metadata"
 
 const tool = getTool("land-converter")
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: tool.title,
-  description: tool.description,
-  alternates: { canonical: absoluteUrl(tool.href) },
-}
+  description: tool.metaDescription,
+  path: tool.href,
+})
 
 export default function LandConverterPage() {
   return (

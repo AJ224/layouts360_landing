@@ -8,12 +8,13 @@ import {
   getCompareFeedItems,
 } from "@/lib/content-feed"
 import { PAGE_KEYWORDS, TIER_2_KEYWORDS } from "@/lib/seo-keywords"
-import { absoluteUrl } from "@/lib/site-seo"
+import { buildPageMetadata } from "@/lib/page-metadata"
 
-export const metadata: Metadata = {
-  title: "Real Estate Blog & Software Comparisons | Layouts360",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Blog & Software Comparisons",
   description:
     "Guides on real estate software, CRM, accounting, and asset management—plus comparisons of Excel, WhatsApp, and paper workflows vs Layouts360.",
+  path: "/blog",
   keywords: [
     ...PAGE_KEYWORDS.blog,
     ...TIER_2_KEYWORDS,
@@ -22,21 +23,9 @@ export const metadata: Metadata = {
     "commercial real estate software",
     "real estate client management software",
   ],
-  alternates: {
-    canonical: absoluteUrl("/blog"),
-  },
-  openGraph: {
-    title: "Blog & Comparisons | Layouts360",
-    description:
-      "Guides and old-workflow vs Layouts360 comparisons for Indian plot developers.",
-    type: "website",
-    url: absoluteUrl("/blog"),
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-}
+  ogTitle: "Blog & Comparisons",
+  ogDescription: "Guides and workflow comparisons for Indian plot developers.",
+})
 
 export default function BlogIndexPage() {
   const guides = getBlogFeedItems()

@@ -3,7 +3,7 @@ import Link from "next/link"
 import { ArrowLeftRight, ArrowRight, Building2, LayoutGrid, type LucideIcon } from "lucide-react"
 import { ToolsPageShell } from "@/components/tools/tools-page-shell"
 import { TOOLS, TOOLS_HUB_BLOG_SLUGS, type ToolId } from "@/lib/tools"
-import { absoluteUrl } from "@/lib/site-seo"
+import { buildPageMetadata } from "@/lib/page-metadata"
 
 const TOOL_ICONS: Record<ToolId, LucideIcon> = {
   "layout-calculator": LayoutGrid,
@@ -11,12 +11,12 @@ const TOOL_ICONS: Record<ToolId, LucideIcon> = {
   "fsi-calculator": Building2,
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Plot Planning Tools",
   description:
-    "Land area converter, layout yield calculator, and FSI / plot coverage tools for Indian layout developers.",
-  alternates: { canonical: absoluteUrl("/tools") },
-}
+    "Free land area converter, layout yield calculator, and FSI / plot coverage tools for Indian layout developers.",
+  path: "/tools",
+})
 
 export default function ToolsHubPage() {
   return (

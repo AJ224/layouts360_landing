@@ -1,4 +1,5 @@
 import Script from "next/script"
+import { DEFAULT_OG_IMAGE } from "@/lib/page-metadata"
 import { SITE_URL, absoluteUrl } from "@/lib/site-url"
 
 interface FAQItem {
@@ -36,7 +37,7 @@ export function ArticleSchema({
     dateModified,
     authorName = "Layouts360 Team",
     url,
-    imageUrl = "https://layouts360.com/og-image.jpg",
+    imageUrl = absoluteUrl(DEFAULT_OG_IMAGE.url),
 }: ArticleSchemaProps) {
     const schema = {
         "@context": "https://schema.org",
@@ -206,6 +207,9 @@ export function OrganizationWebSiteSchema() {
                 "@type": "WebSite",
                 name: "Layouts360",
                 url: SITE_URL,
+                description:
+                    "Plot and inventory management software with CRM and booking for real estate developers in India.",
+                inLanguage: "en-IN",
             },
         ],
     }

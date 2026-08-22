@@ -119,11 +119,11 @@ export default function Footer() {
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-gray-500 sm:flex-row sm:text-sm">
           <p>© {year} Layouts360. All rights reserved.</p>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-            <Link href="/" className="transition-colors hover:text-white">
-              Privacy Policy
+            <Link href="/faq" className="transition-colors hover:text-white">
+              Privacy & Data
             </Link>
-            <Link href="/" className="transition-colors hover:text-white">
-              Terms of Use
+            <Link href="/contact" className="transition-colors hover:text-white">
+              Terms & Contact
             </Link>
           </div>
         </div>

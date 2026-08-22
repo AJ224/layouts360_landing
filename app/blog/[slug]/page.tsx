@@ -6,7 +6,7 @@ import { BlogArticle } from "@/components/blog/blog-article"
 import { getPostBySlug, getAllPosts } from "@/lib/blog"
 import { robotsForArticle } from "@/lib/indexing-policy"
 import { keywordsForArticle } from "@/lib/seo-keywords"
-import { absoluteUrl } from "@/lib/site-seo"
+import { buildPageMetadata } from "@/lib/page-metadata"
 
 interface Props {
   params: {
@@ -30,21 +30,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
   }
 
-  return {
-    title: `${post.title} | Layouts360 Blog`,
+  return buildPageMetadata({
+    title: post.title,
     description: post.excerpt,
+    path: `/blog/${post.slug}`,
     keywords: keywordsForArticle(post.tags),
     robots: robotsForArticle(post.content),
-    alternates: {
-      canonical: absoluteUrl(`/blog/${post.slug}`),
-    },
-    openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      type: "article",
-      url: absoluteUrl(`/blog/${post.slug}`),
-    },
-  }
+    ogType: "article",
+  })
 }
 
 export default function BlogPostPage({ params }: Props) {

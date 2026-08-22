@@ -1,22 +1,17 @@
 import type { Metadata } from "next"
 import { PAGE_KEYWORDS } from "@/lib/seo-keywords"
-import { absoluteUrl } from "@/lib/site-seo"
+import { buildPageMetadata } from "@/lib/page-metadata"
 
-export const metadata: Metadata = {
-  title: "Features | Real Estate Plot Management & CRM Software",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Features",
   description:
     "Explore Layouts360 features: interactive digital layouts, real estate inventory management, CRM, plot booking, and payment tracking—built for layout developers.",
+  path: "/features",
   keywords: [...PAGE_KEYWORDS.features],
-  alternates: {
-    canonical: absoluteUrl("/features"),
-  },
-  openGraph: {
-    title: "Layouts360 Features | Real Estate Software",
-    description:
-      "Digital layouts, live inventory, real estate CRM, and payment tracking in one platform.",
-    url: absoluteUrl("/features"),
-  },
-}
+  ogTitle: "Layouts360 Features",
+  ogDescription:
+    "Digital layouts, live inventory, real estate CRM, and payment tracking in one platform.",
+})
 
 export default function FeaturesLayout({
   children,

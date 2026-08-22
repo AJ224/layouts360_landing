@@ -6,7 +6,7 @@ import { BlogArticle } from "@/components/blog/blog-article"
 import { getCompareBySlug, getAllCompares } from "@/lib/compare"
 import { robotsForArticle } from "@/lib/indexing-policy"
 import { keywordsForArticle } from "@/lib/seo-keywords"
-import { absoluteUrl } from "@/lib/site-seo"
+import { buildPageMetadata } from "@/lib/page-metadata"
 
 interface Props {
   params: {
@@ -27,21 +27,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: "Comparison Not Found" }
   }
 
-  return {
-    title: `${post.title} | Layouts360 Compare`,
+  return buildPageMetadata({
+    title: post.title,
     description: post.excerpt,
+    path: `/compare/${post.slug}`,
     keywords: keywordsForArticle(post.tags),
     robots: robotsForArticle(post.content),
-    alternates: {
-      canonical: absoluteUrl(`/compare/${post.slug}`),
-    },
-    openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      type: "article",
-      url: absoluteUrl(`/compare/${post.slug}`),
-    },
-  }
+    ogType: "article",
+  })
 }
 
 export default function ComparePostPage({ params }: Props) {

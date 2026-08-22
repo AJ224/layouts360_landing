@@ -1,15 +1,14 @@
 import type { Metadata } from "next"
 import { redirect } from "next/navigation"
 import { NOINDEX_FOLLOW_ROBOTS } from "@/lib/indexing-policy"
-import { absoluteUrl } from "@/lib/site-seo"
+import { buildPageMetadata } from "@/lib/page-metadata"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Comparisons",
+  description: "Software comparisons for Indian plot developers — see the blog for guides and side-by-side reviews.",
+  path: "/blog",
   robots: NOINDEX_FOLLOW_ROBOTS,
-  alternates: {
-    canonical: absoluteUrl("/blog"),
-  },
-}
+})
 
 /** Compare listings live on /blog; articles stay at /compare/[slug] */
 export default function CompareIndexPage() {

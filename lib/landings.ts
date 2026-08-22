@@ -9,7 +9,7 @@ import {
   landingSlugFromPath,
 } from "@/lib/landing-page-keys"
 import type { SeoLandingPageKey } from "@/lib/seo-landing-pages"
-import { absoluteUrl } from "@/lib/site-url"
+import { buildPageMetadata } from "@/lib/page-metadata"
 import type { LandingMdxDocument, LandingMdxFrontmatter } from "@/types/landing-mdx"
 
 const landingsDirectory = path.join(process.cwd(), "content/landings")
@@ -67,18 +67,14 @@ export function createLandingMetadata(pageKey: SeoLandingPageKey): Metadata {
     throw new Error(`Missing landing MDX for pageKey: ${pageKey}`)
   }
 
-  return {
+  return buildPageMetadata({
     title: landing.title,
     description: landing.description,
+    path: landing.path,
     keywords: [...landing.keywords],
-    alternates: { canonical: absoluteUrl(landing.path) },
-    openGraph: {
-      title: landing.ogTitle,
-      description: landing.ogDescription,
-      type: "website",
-      url: absoluteUrl(landing.path),
-    },
-  }
+    ogTitle: landing.ogTitle,
+    ogDescription: landing.ogDescription,
+  })
 }
 
 export function getLandingPageKeysWithMdx(): SeoLandingPageKey[] {

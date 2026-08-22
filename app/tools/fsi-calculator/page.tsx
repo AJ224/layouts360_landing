@@ -2,15 +2,15 @@ import type { Metadata } from "next"
 import { FsiCoverageCalculator } from "@/components/tools/fsi-coverage-calculator"
 import { ToolsPageShell } from "@/components/tools/tools-page-shell"
 import { getTool } from "@/lib/tools"
-import { absoluteUrl } from "@/lib/site-seo"
+import { buildPageMetadata } from "@/lib/page-metadata"
 
 const tool = getTool("fsi-calculator")
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: tool.title,
-  description: tool.description,
-  alternates: { canonical: absoluteUrl(tool.href) },
-}
+  description: tool.metaDescription,
+  path: tool.href,
+})
 
 export default function FsiCalculatorPage() {
   return (

@@ -68,7 +68,7 @@ export function SolutionsHubContent() {
               </Link>
             </li>
             <li>
-              <Link href="/compare" className="text-blue-600 hover:underline">
+              <Link href="/blog#comparisons" className="text-blue-600 hover:underline">
                 Comparisons
               </Link>
             </li>

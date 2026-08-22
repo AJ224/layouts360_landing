@@ -6,6 +6,7 @@ export type ToolDefinition = {
   title: string
   shortTitle: string
   description: string
+  metaDescription: string
   blogSlugs: readonly string[]
 }
 
@@ -16,6 +17,8 @@ export const TOOLS: readonly ToolDefinition[] = [
     title: "Layout yield calculator",
     shortTitle: "Layout yield",
     description: "Land in, saleable plots out—after roads and open space.",
+    metaDescription:
+      "Free layout yield calculator for Indian developers. Estimate saleable plots from land area after roads, open space, and setbacks.",
     blogSlugs: [
       "start-real-estate-business-digital-layout-management",
       "plot-management-software-india",
@@ -29,6 +32,8 @@ export const TOOLS: readonly ToolDefinition[] = [
     title: "Land area converter",
     shortTitle: "Land converter",
     description: "Sq ft, guntha, acre, cent, sq m, and other Indian plot units.",
+    metaDescription:
+      "Convert Indian land units—sq ft, guntha, acre, cent, hectare, and gaj. Free land area converter for layout and plot developers.",
     blogSlugs: [
       "plot-management-software-india",
       "farmland-plot-management-software-india",
@@ -42,6 +47,8 @@ export const TOOLS: readonly ToolDefinition[] = [
     title: "FSI / plot coverage calculator",
     shortTitle: "FSI / coverage",
     description: "Coverage % and FSI used on a plot. Optional local limits.",
+    metaDescription:
+      "Calculate FSI and plot coverage for Indian layouts. Check built-up area against local limits before planning roads and saleable plots.",
     blogSlugs: [
       "what-is-tdr-real-estate-layout-maps",
       "commercial-plot-inventory-software-india",

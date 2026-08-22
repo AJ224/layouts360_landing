@@ -1,17 +1,15 @@
 import { Metadata } from "next"
 import PricingPageContent from "@/components/pricing/pricing-page-content"
 import { PAGE_KEYWORDS } from "@/lib/seo-keywords"
-import { absoluteUrl } from "@/lib/site-seo"
+import { buildPageMetadata } from "@/lib/page-metadata"
 
-export const metadata: Metadata = {
-  title: "Pricing | Layouts360",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Pricing",
   description:
     "Layouts: ₹10,000 + ₹150/plot, one-time — live map and inventory. Layouts360: ₹2,000/month for freeze, booking, CRM, and collections on that map.",
+  path: "/pricing",
   keywords: [...PAGE_KEYWORDS.pricing],
-  alternates: {
-    canonical: absoluteUrl("/pricing"),
-  },
-}
+})
 
 export default function PricingPage() {
   return <PricingPageContent />

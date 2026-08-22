@@ -17,23 +17,19 @@ import {
 
 import { Metadata } from "next"
 import { PAGE_KEYWORDS } from "@/lib/seo-keywords"
-import { SITE_URL, absoluteUrl } from "@/lib/site-seo"
+import { buildPageMetadata } from "@/lib/page-metadata"
 
-export const metadata: Metadata = {
-  title: "Layouts360 | Live Plot Maps, Inventory & CRM for Real Estate Companies",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Live Plot Maps, Inventory & CRM for Real Estate Companies",
   description:
-    "Layouts360 is the sales platform for real estate companies—live layout maps, inventory, booking, CRM, and channel partner tools. Replace Excel and WhatsApp. Sales Platform from ₹2,000/month.",
+    "Layouts360 is the sales platform for real estate companies—live layout maps, inventory, booking, CRM, and channel partner tools. Replace Excel and WhatsApp. From ₹2,000/month.",
+  path: "/",
   keywords: [...PAGE_KEYWORDS.home],
-  alternates: {
-    canonical: absoluteUrl("/"),
-  },
-  openGraph: {
-    title: "Layouts360 | Live Plot Maps, Inventory & CRM for Real Estate Companies",
-    description:
-      "Live layout maps, plot inventory, CRM, booking, and payments for real estate companies selling layouts and townships—not generic PropTech.",
-    url: SITE_URL,
-  },
-}
+  titleAbsolute: true,
+  ogTitle: "Layouts360 | Live Plot Maps, Inventory & CRM for Real Estate Companies",
+  ogDescription:
+    "Live layout maps, plot inventory, CRM, booking, and payments for real estate companies selling layouts and townships.",
+})
 
 export default function Page() {
   return (

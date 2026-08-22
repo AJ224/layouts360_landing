@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation"
+import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -6,12 +7,29 @@ import Footer from "@/components/marketing/footer"
 import Header from "@/components/marketing/header"
 import CtaSection from "@/components/marketing/cta-section"
 import { servicesConfig } from "@/lib/services-config"
+import { NOINDEX_FOLLOW_ROBOTS } from "@/lib/indexing-policy"
+import { buildPageMetadata } from "@/lib/page-metadata"
 import { ArrowLeft } from "lucide-react"
 
 export function generateStaticParams() {
     return servicesConfig.map((service) => ({
         slug: service.id,
     }))
+}
+
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+    const service = servicesConfig.find((s) => s.id === params.slug || s.href.endsWith(`/${params.slug}`))
+
+    if (!service) {
+        return { title: "Feature Not Found" }
+    }
+
+    return buildPageMetadata({
+        title: service.title,
+        description: service.longDescription ?? service.description,
+        path: `/features/${service.id}`,
+        robots: NOINDEX_FOLLOW_ROBOTS,
+    })
 }
 
 export default function FeaturePage({ params }: { params: { slug: string } }) {
