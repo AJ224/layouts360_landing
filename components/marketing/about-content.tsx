@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { COMPANY } from "@/lib/company"
 import { PRIMARY_TAGLINE, SALES_ERP_DEFINITION } from "@/lib/brand"
+import { CompanyEmailLink } from "@/components/marketing/company-email-link"
 import { MapPin, Phone, Mail } from "lucide-react"
 
 export function AboutContent() {
@@ -58,9 +59,7 @@ export function AboutContent() {
             </li>
             <li className="flex items-center gap-3">
               <Mail className="h-5 w-5 shrink-0 text-[#FFB800]" aria-hidden />
-              <a href={`mailto:${COMPANY.email}`} className="font-medium text-blue-600 hover:underline">
-                {COMPANY.email}
-              </a>
+              <CompanyEmailLink className="font-medium text-blue-600 hover:underline" />
             </li>
           </ul>
           <Link
