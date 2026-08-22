@@ -34,9 +34,6 @@ export default function PricingPageContent() {
           <h1 className="mt-4 text-3xl font-semibold tracking-tight text-[#0B1E3B] sm:text-4xl">
             Pricing for layout developers
           </h1>
-          <p className="mx-auto mt-3 text-sm text-slate-500">
-            Map-only or full sales software. Pay once to map, monthly only if you need booking and CRM.
-          </p>
         </div>
       </section>
 
