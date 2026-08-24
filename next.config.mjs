@@ -63,6 +63,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/plot-layout-software",
+        destination: "/layout-management-software",
+        permanent: true,
+      },
+      {
         source: "/plot-inventory-management",
         destination: "/real-estate-inventory-management",
         permanent: true,

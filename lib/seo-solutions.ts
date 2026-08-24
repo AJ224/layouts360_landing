@@ -1,13 +1,9 @@
 import { CRM_CLUSTER_LINKS } from "@/lib/crm-cluster-links"
+import { PLOT_CLUSTER_LINKS } from "@/lib/plot-cluster-links"
 
 const PRODUCT_SOLUTION_LINKS = [
-  { href: "/real-estate-plot-management-software", label: "Plot Management" },
-  { href: "/layout-management-software", label: "Layout Management" },
-  { href: "/digital-layout-maps", label: "Digital Layout Maps" },
   { href: "/township-management-software", label: "Township Management" },
-  { href: "/real-estate-inventory-management-software", label: "Inventory Management" },
   { href: "/real-estate-booking-management-software", label: "Booking Management" },
-  { href: "/online-plot-booking-software", label: "Online Plot Booking" },
   { href: "/site-visit-management", label: "Site Visit Management" },
   { href: "/real-estate-channel-partner-management-software", label: "Channel Partners" },
   { href: "/real-estate-sales-automation-software", label: "Sales Automation" },
@@ -19,10 +15,25 @@ const PRODUCT_SOLUTION_LINKS = [
   { href: "/real-estate-asset-management-software", label: "Asset Management" },
   { href: "/real-estate-accounting-software", label: "Payment Tracking" },
   { href: "/commercial-real-estate-software", label: "Commercial Real Estate" },
+  { href: "/real-estate-lead-management-software", label: "Lead Management" },
+  { href: "/real-estate-client-management-software", label: "Client Management" },
 ] as const
 
-/** Footer + discovery: CRM cluster first, then product solutions. */
-export const SEO_SOLUTION_LINKS = [...CRM_CLUSTER_LINKS, ...PRODUCT_SOLUTION_LINKS] as const
+function dedupeByHref<T extends { href: string }>(items: readonly T[]): T[] {
+  const seen = new Set<string>()
+  return items.filter((item) => {
+    if (seen.has(item.href)) return false
+    seen.add(item.href)
+    return true
+  })
+}
+
+/** Footer + discovery: CRM cluster, plot cluster, then other product solutions. */
+export const SEO_SOLUTION_LINKS = dedupeByHref([
+  ...CRM_CLUSTER_LINKS,
+  ...PLOT_CLUSTER_LINKS,
+  ...PRODUCT_SOLUTION_LINKS,
+])
 
 /** Compact, deduplicated groups for site footer (not every landing URL). */
 export const FOOTER_SOLUTION_GROUPS = [
@@ -30,21 +41,26 @@ export const FOOTER_SOLUTION_GROUPS = [
     title: "CRM",
     links: [
       { href: "/real-estate-crm-software", label: "Real Estate CRM" },
-      { href: "/real-estate-lead-management-software", label: "Lead Management" },
-      { href: "/real-estate-client-management-software", label: "Client Management" },
+      { href: "/real-estate-crm", label: "What is CRM" },
+      { href: "/best-real-estate-crm-software", label: "Best CRM (India)" },
     ],
   },
   {
-    title: "Sales & inventory",
+    title: "Plot management",
     links: [
       { href: "/real-estate-plot-management-software", label: "Plot Management" },
-      { href: "/layout-management-software", label: "Layout Management" },
+      { href: "/online-plot-booking-software", label: "Plot Booking" },
+      { href: "/layout-management-software", label: "Plot Layout" },
       { href: "/digital-layout-maps", label: "Digital Layout Maps" },
-      { href: "/township-management-software", label: "Township Management" },
-      { href: "/real-estate-inventory-management-software", label: "Inventory" },
-      { href: "/real-estate-booking-management-software", label: "Bookings" },
+      { href: "/real-estate-inventory-management-software", label: "Plot Inventory" },
+    ],
+  },
+  {
+    title: "Sales & ops",
+    links: [
       { href: "/site-visit-management", label: "Site Visits" },
       { href: "/real-estate-channel-partner-management-software", label: "Channel Partners" },
+      { href: "/real-estate-booking-management-software", label: "Bookings" },
       { href: "/real-estate-accounting-software", label: "Payment Tracking" },
     ],
   },

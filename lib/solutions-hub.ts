@@ -14,8 +14,8 @@ export interface SolutionHubGroup {
 
 export const SOLUTION_HUB_GROUPS: SolutionHubGroup[] = [
   {
-    title: "Inventory & plots",
-    description: "Live maps, plot management, and property inventory for Indian developers.",
+    title: "Plot management",
+    description: "Live maps, plot booking, layout digitization, and inventory for Indian developers.",
     items: [
       {
         href: "/real-estate-plot-management-software",
@@ -23,14 +23,24 @@ export const SOLUTION_HUB_GROUPS: SolutionHubGroup[] = [
         description: "Digital layouts, plot data, and booking workflows for layout developers.",
       },
       {
+        href: "/online-plot-booking-software",
+        label: "Plot booking software",
+        description: "Customer booking flows with payments and live availability.",
+      },
+      {
         href: "/layout-management-software",
-        label: "Layout management software",
+        label: "Plot layout / layout management",
         description: "Digitize site plans and manage phase-wise plot release on a live layout.",
       },
       {
         href: "/digital-layout-maps",
         label: "Digital layout maps",
         description: "Interactive, satellite-backed maps with live plot-level detail.",
+      },
+      {
+        href: "/real-estate-inventory-management-software",
+        label: "Plot inventory software",
+        description: "Real-time availability across plots, flats, and commercial units.",
       },
       {
         href: "/township-management-software",
@@ -41,11 +51,6 @@ export const SOLUTION_HUB_GROUPS: SolutionHubGroup[] = [
         href: "/real-estate-inventory-management",
         label: "Inventory management guide",
         description: "Metrics, practices, and bottlenecks for plot and layout inventory in India.",
-      },
-      {
-        href: "/real-estate-inventory-management-software",
-        label: "Inventory management software",
-        description: "Real-time availability across plots, flats, and commercial units.",
       },
       {
         href: "/commercial-real-estate-software",
@@ -61,22 +66,27 @@ export const SOLUTION_HUB_GROUPS: SolutionHubGroup[] = [
   },
   {
     title: "CRM & sales",
-    description: "Leads, pipeline, automation, and launch-day selling.",
+    description: "Plot-linked CRM, leads, automation, and launch-day selling.",
     items: [
       {
         href: "/real-estate-crm-software",
         label: "Real estate CRM software",
-        description: "Plot-linked CRM for builders and layout developers.",
+        description: "Plot-linked CRM product for builders and layout developers.",
       },
       {
-        href: "/real-estate-lead-management-software",
-        label: "Lead management software",
-        description: "Capture, assign, and convert portal and walk-in leads.",
+        href: "/real-estate-crm",
+        label: "What is real estate CRM",
+        description: "Practices guide: inventory-linked CRM for Indian plot sales.",
       },
       {
         href: "/best-real-estate-crm-software",
         label: "Best real estate CRM (India)",
         description: "Buyer's guide for plot developers evaluating CRM options.",
+      },
+      {
+        href: "/real-estate-lead-management-software",
+        label: "Lead management software",
+        description: "Capture, assign, and convert portal and walk-in leads.",
       },
       {
         href: "/real-estate-client-management-software",
@@ -108,11 +118,6 @@ export const SOLUTION_HUB_GROUPS: SolutionHubGroup[] = [
         href: "/real-estate-booking-management-software",
         label: "Booking management software",
         description: "Holds, confirmations, and booking records tied to live plots.",
-      },
-      {
-        href: "/online-plot-booking-software",
-        label: "Online plot booking software",
-        description: "Customer booking flows with payments and live availability.",
       },
       {
         href: "/real-estate-accounting-software",

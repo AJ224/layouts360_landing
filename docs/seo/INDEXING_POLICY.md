@@ -37,8 +37,20 @@ In Vercel: set **Primary Domain** to `layouts360.com` and redirect `www` to apex
 ## Duplicates handled elsewhere
 
 - `/blog/{compare-slug}` → 301 → `/compare/{compare-slug}`
-- `/real-estate-crm-software` → 301 → `/real-estate-client-management-software`
-- `/compare` → 302 → `/blog#comparisons`
+- `/compare` → 301 → `/blog#comparisons`
+- Short aliases → canonical landings (e.g. `/plot-management-software` → `/real-estate-plot-management-software`, `/plot-booking-software` → `/online-plot-booking-software`, `/plot-layout-software` → `/layout-management-software`)
+
+## CRM URL roles (avoid cannibalization)
+
+| URL | Role | Owns |
+|-----|------|------|
+| `/real-estate-crm-software` | Product pillar | “real estate CRM software” |
+| `/real-estate-crm` | Educational guide | “what is real estate CRM” / practices |
+| `/best-real-estate-crm-software` | Buyer’s guide | “best real estate CRM software in India” |
+| `/real-estate-client-management-software` | Buyer lifecycle | “client management software” (not CRM software) |
+| `/blog/what-is-real-estate-crm-software` | Long-form supporting | Deep “what is” content |
+
+Do **not** 301 CRM software → client management. Those intents stay separate.
 
 ## Before adding a new URL
 
