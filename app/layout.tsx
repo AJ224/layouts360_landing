@@ -5,6 +5,7 @@ import { GeistMono } from "geist/font/mono"
 import dynamic from "next/dynamic"
 import { Suspense } from "react"
 import { OrganizationWebSiteSchema } from "@/components/seo/schema"
+import { WhatsAppFloat } from "@/components/marketing/whatsapp-float"
 import { DEFAULT_OG_IMAGE, OG_LOCALE, SITE_NAME } from "@/lib/page-metadata"
 import { SITE_URL, absoluteUrl } from "@/lib/site-seo"
 import "./globals.css"
@@ -96,6 +97,7 @@ export default function RootLayout({
       </head>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
         <Suspense fallback={null}>{children}</Suspense>
+        <WhatsAppFloat />
         <Analytics />
       </body>
     </html>
