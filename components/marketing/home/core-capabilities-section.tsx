@@ -29,7 +29,7 @@ const HIGHLIGHTS: Capability[] = [
   },
   {
     icon: LayoutGrid,
-    title: "Plot Inventory Management",
+    title: "Inventory Management",
     description: "Every plot's status, dimensions, and pricing in one live record.",
     href: "/real-estate-inventory-management-software",
   },
@@ -66,7 +66,7 @@ export function CoreCapabilitiesSection() {
         eyebrow="Capabilities"
         eyebrowClassName="bg-blue-50 text-blue-600"
         title="What Layouts360 covers"
-        description="The core stack for layout sales—maps, inventory, booking, CRM, payments, and partners. Explore the full feature set when you need depth."
+        description="The core stack for layout sales—plot management, inventory management, booking, CRM, payments, and partners."
       />
       <div className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {HIGHLIGHTS.map((item) => (

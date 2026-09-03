@@ -1,6 +1,6 @@
 # Layouts360
 
-> Plot and inventory management software with built-in CRM and booking, built for real estate companies selling layouts and plots. Interactive digital layout maps, channel partner management, and payment tracking, replacing spreadsheets and manual updates.
+> Plot management and inventory management software with built-in CRM and booking, built for real estate companies selling layouts and plots. Interactive digital layout maps, channel partner management, and payment tracking, replacing spreadsheets and manual updates.
 
 Layouts360 is a sales operations platform for real estate companies that sell plots and layouts. Its scope covers inventory, bookings, payments, channel partners, and documents. It is not a rental or society management tool, and it does not replace general-ledger accounting software. It is built for plotted townships and layout sales, with a primary customer base in India and published INR pricing; it is also used in other markets on request.
 
@@ -34,7 +34,7 @@ Real estate companies developing and selling plots or layouts — in India or ot
 
 ## Products
 
-- [Layouts360 Home](https://layouts360.com/): Plot inventory, CRM, booking, and channel partner management for real estate companies.
+- [Layouts360 Home](https://layouts360.com/): Plot management, inventory management, CRM, booking, and channel partner tools for real estate companies.
 - [Plot Management Software](https://layouts360.com/real-estate-plot-management-software): Digital layout maps, live plot status, CRM, bookings, and payments in one platform.
 - [Inventory Management Software](https://layouts360.com/real-estate-inventory-management-software): Real-time plot and unit availability across projects.
 - [Layout Management Software](https://layouts360.com/layout-management-software): Digitize site plans and manage phase-wise plot release on a live layout.

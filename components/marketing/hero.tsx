@@ -23,7 +23,7 @@ export default function Hero() {
           </div>
 
           <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-slate-900 sm:text-5xl md:text-6xl">
-            Live plot maps, inventory, and CRM{" "}
+            Plot management and inventory management{" "}
             <span className="text-[#34D399]">for layout sales</span>
           </h1>
 
@@ -32,6 +32,10 @@ export default function Hero() {
             booking, CRM, and channel partner tools. See our{" "}
             <Link href="/real-estate-plot-management-software" className="font-semibold text-slate-900 underline decoration-slate-300 underline-offset-2 hover:decoration-[#34D399]">
               plot management software
+            </Link>{" "}
+            and{" "}
+            <Link href="/real-estate-inventory-management-software" className="font-semibold text-slate-900 underline decoration-slate-300 underline-offset-2 hover:decoration-[#34D399]">
+              inventory management software
             </Link>{" "}
             for layout and township sales.
           </p>

@@ -20,15 +20,15 @@ import { PAGE_KEYWORDS } from "@/lib/seo-keywords"
 import { buildPageMetadata } from "@/lib/page-metadata"
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Live Plot Maps, Inventory & CRM for Real Estate Companies",
+  title: "Plot Management & Inventory Management Software for Real Estate",
   description:
-    "Layouts360 is the sales platform for real estate companies—live layout maps, inventory, booking, CRM, and channel partner tools. Replace Excel and WhatsApp. From ₹2,000/month.",
+    "Layouts360 is plot management and inventory management software for real estate companies—live layout maps, booking, CRM, and channel partner tools. Replace Excel and WhatsApp. From ₹2,000/month.",
   path: "/",
   keywords: [...PAGE_KEYWORDS.home],
   titleAbsolute: true,
-  ogTitle: "Layouts360 | Live Plot Maps, Inventory & CRM for Real Estate Companies",
+  ogTitle: "Layouts360 | Plot Management & Inventory Management Software",
   ogDescription:
-    "Live layout maps, plot inventory, CRM, booking, and payments for real estate companies selling layouts and townships.",
+    "Plot management and inventory management with live layout maps, CRM, booking, and payments for real estate companies selling layouts and townships.",
 })
 
 export default function Page() {

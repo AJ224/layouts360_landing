@@ -50,9 +50,9 @@ export const FOOTER_SOLUTION_GROUPS = [
     links: [
       { href: "/real-estate-plot-management-software", label: "Plot Management" },
       { href: "/online-plot-booking-software", label: "Plot Booking" },
-      { href: "/layout-management-software", label: "Plot Layout" },
+      { href: "/layout-management-software", label: "Layout Management" },
       { href: "/digital-layout-maps", label: "Digital Layout Maps" },
-      { href: "/real-estate-inventory-management-software", label: "Plot Inventory" },
+      { href: "/real-estate-inventory-management-software", label: "Inventory Management" },
     ],
   },
   {

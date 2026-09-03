@@ -15,7 +15,7 @@ export interface SolutionHubGroup {
 export const SOLUTION_HUB_GROUPS: SolutionHubGroup[] = [
   {
     title: "Plot management",
-    description: "Live maps, plot booking, layout digitization, and inventory for Indian developers.",
+    description: "Plot management, inventory management, layout digitization, and booking for Indian developers.",
     items: [
       {
         href: "/real-estate-plot-management-software",
@@ -29,7 +29,7 @@ export const SOLUTION_HUB_GROUPS: SolutionHubGroup[] = [
       },
       {
         href: "/layout-management-software",
-        label: "Plot layout / layout management",
+        label: "Layout management software",
         description: "Digitize site plans and manage phase-wise plot release on a live layout.",
       },
       {
@@ -39,7 +39,7 @@ export const SOLUTION_HUB_GROUPS: SolutionHubGroup[] = [
       },
       {
         href: "/real-estate-inventory-management-software",
-        label: "Plot inventory software",
+        label: "Inventory management software",
         description: "Real-time availability across plots, flats, and commercial units.",
       },
       {

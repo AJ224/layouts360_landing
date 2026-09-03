@@ -16,7 +16,7 @@ export function PlotManagementSoftwareSection() {
               Looking for <span className="text-blue-600">Plot Management Software</span>?
             </h2>
             <p className="mb-6 text-lg leading-relaxed text-slate-600">
-              <strong>Real estate plot & inventory management software</strong> with built-in CRM and booking for
+              <strong>Plot management and inventory management software</strong> with built-in CRM and booking for
               layout developers—live maps, channel partners, and payment tracking in one platform.
             </p>
             <CheckList items={plotManagementBenefits} />
@@ -29,10 +29,10 @@ export function PlotManagementSoftwareSection() {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
-                href="/real-estate-crm-software"
+                href="/real-estate-inventory-management-software"
                 className="inline-flex items-center gap-2 rounded-lg border border-blue-200 bg-white px-6 py-3 font-semibold text-blue-700 transition-colors hover:bg-blue-50"
               >
-                Real estate CRM
+                Inventory management
               </Link>
             </div>
           </div>

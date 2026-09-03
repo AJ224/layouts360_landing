@@ -17,11 +17,11 @@ const Analytics = dynamic(
 
 export const metadata: Metadata = {
   title: {
-    default: "Layouts360 | Live Plot Maps, Inventory & CRM for Real Estate Companies",
+    default: "Layouts360 | Plot Management & Inventory Management Software",
     template: "%s | Layouts360"
   },
   description:
-    "Plot & inventory management software with built-in CRM and booking for real estate companies. Live digital layouts, channel partners, and payment tracking—not generic PropTech.",
+    "Plot management and inventory management software with built-in CRM and booking for real estate companies. Live digital layouts, channel partners, and payment tracking—not generic PropTech.",
   keywords: [
     "real estate software",
     "real estate management software",
@@ -55,16 +55,16 @@ export const metadata: Metadata = {
     type: 'website',
     locale: OG_LOCALE,
     url: SITE_URL,
-    title: 'Layouts360 | Live Plot Maps, Inventory & CRM for Real Estate Companies',
+    title: 'Layouts360 | Plot Management & Inventory Management Software',
     description:
-      'Plot & inventory management with CRM and booking for real estate companies. Live maps, partners, and payments in one platform.',
+      'Plot management and inventory management with CRM and booking for real estate companies. Live maps, partners, and payments in one platform.',
     siteName: SITE_NAME,
     images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Layouts360 | Live Plot Maps, Inventory & CRM for Real Estate Companies',
-    description: 'Live layouts, inventory, CRM, and booking for real estate companies selling plots.',
+    title: 'Layouts360 | Plot Management & Inventory Management Software',
+    description: 'Plot management and inventory management with live layouts, CRM, and booking for real estate companies selling plots.',
     images: [DEFAULT_OG_IMAGE.url],
   },
   robots: {

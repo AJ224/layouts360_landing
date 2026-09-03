@@ -7,12 +7,12 @@ import { buildPageMetadata } from "@/lib/page-metadata"
 export const metadata: Metadata = buildPageMetadata({
   title: "Real Estate Software Solutions",
   description:
-    "Browse Layouts360 solutions: plot management, inventory, real estate CRM, booking, channel partners, sales automation, and ERP for Indian developers.",
+    "Browse Layouts360 solutions: plot management, inventory management, real estate CRM, booking, channel partners, sales automation, and ERP for Indian developers.",
   path: "/solutions",
   keywords: [...PAGE_KEYWORDS.solutions],
   ogTitle: "Real Estate Software Solutions",
   ogDescription:
-    "Plot management, CRM, booking, channel partners, and sales automation for layout developers in India.",
+    "Plot management, inventory management, CRM, booking, and channel partners for layout developers in India.",
 })
 
 export default function SolutionsPage() {
