@@ -17,6 +17,8 @@ export type CoreLandingPageKey =
   | "crmGuide"
   | "lead"
   | "bestCrm"
+  | "affordableCrm"
+  | "affordableCrmRealtors"
 
 export type GeoLandingPageKey =
   | "channelPartner"
@@ -34,6 +36,7 @@ export type CategoryLandingPageKey =
   | "layoutManagement"
   | "digitalLayoutMaps"
   | "siteVisitManagement"
+  | "management360"
 
 export type SeoLandingPageKey = CoreLandingPageKey | GeoLandingPageKey | CategoryLandingPageKey
 

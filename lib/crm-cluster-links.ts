@@ -1,6 +1,8 @@
 /** Internal links for the real-estate CRM content cluster (deduplicated by href). */
 export const CRM_CLUSTER_LINKS = [
   { href: "/real-estate-crm-software", label: "Real Estate CRM Software" },
+  { href: "/affordable-real-estate-crm", label: "Affordable Real Estate CRM" },
+  { href: "/affordable-crm-for-realtors", label: "Affordable CRM for Realtors" },
   { href: "/real-estate-crm", label: "What is Real Estate CRM" },
   { href: "/blog/what-is-real-estate-crm-software", label: "CRM Software Guide" },
   { href: "/compare/unified-real-estate-crm-vs-excel-spreadsheets", label: "CRM vs Excel" },

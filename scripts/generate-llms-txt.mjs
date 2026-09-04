@@ -29,12 +29,15 @@ const PRODUCT_ORDER = [
   "/real-estate-back-office-software",
   "/commercial-real-estate-software",
   "/township-management-software",
+  "/360-management-software",
   "/site-visit-management",
 ]
 
 /** Optional landings — skippable when context is short (llmstxt.org convention). */
 const OPTIONAL_LANDING_PATHS = [
   "/best-real-estate-crm-software",
+  "/affordable-real-estate-crm",
+  "/affordable-crm-for-realtors",
   "/real-estate-crm",
   "/real-estate-client-management-software",
   "/real-estate-asset-management-software",
@@ -80,6 +83,8 @@ const LINK_NOTES = {
     "Shops, office plots, and commercial layouts with live inventory and CRM.",
   "/township-management-software":
     "Multi-phase plotted townships, including inventory, villas, channel partners, and payment tracking.",
+  "/360-management-software":
+    "All-in-one 360° layout sales: maps, inventory, CRM, booking, and partners.",
   "/site-visit-management":
     "Scheduling and tracking of site visits tied to plot interest and sales pipeline.",
   "/solutions":
@@ -94,6 +99,10 @@ const LINK_NOTES = {
   "/contact": "Request a demo or speak with sales (+91 72764 95199).",
   "/best-real-estate-crm-software":
     "Buyer’s guide for plot developers evaluating CRM options in India.",
+  "/affordable-real-estate-crm":
+    "Pricing and total-cost guide for affordable real estate CRM in India.",
+  "/affordable-crm-for-realtors":
+    "Affordable mobile CRM for field agents and realtors selling plot layouts.",
   "/real-estate-crm": "Practices guide on inventory-linked CRM for layout sales.",
   "/real-estate-client-management-software":
     "Buyer lifecycle from enquiry to booking and handover.",

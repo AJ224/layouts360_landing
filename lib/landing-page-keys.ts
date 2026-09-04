@@ -13,6 +13,8 @@ export const LANDING_PAGE_PATHS: Record<SeoLandingPageKey, string> = {
   crmGuide: "/real-estate-crm",
   lead: "/real-estate-lead-management-software",
   bestCrm: "/best-real-estate-crm-software",
+  affordableCrm: "/affordable-real-estate-crm",
+  affordableCrmRealtors: "/affordable-crm-for-realtors",
   channelPartner: "/real-estate-channel-partner-management-software",
   booking: "/real-estate-booking-management-software",
   erp: "/real-estate-erp-software",
@@ -26,6 +28,7 @@ export const LANDING_PAGE_PATHS: Record<SeoLandingPageKey, string> = {
   layoutManagement: "/layout-management-software",
   digitalLayoutMaps: "/digital-layout-maps",
   siteVisitManagement: "/site-visit-management",
+  management360: "/360-management-software",
 }
 
 export const ALL_LANDING_PAGE_KEYS = Object.keys(LANDING_PAGE_PATHS) as SeoLandingPageKey[]

@@ -33,6 +33,9 @@ export const SECONDARY_KEYWORDS = [
   "digital layout software",
   "real estate inventory management",
   "layout developer software",
+  "360 management software",
+  "affordable real estate crm",
+  "best crm for brokers",
 ] as const
 
 export const ALL_TARGET_KEYWORDS = [
@@ -44,6 +47,7 @@ export const ALL_TARGET_KEYWORDS = [
 export const PAGE_KEYWORDS = {
   home: [
     "Layouts360",
+    "360 management software",
     "real estate sales platform",
     "digital layout maps",
     "real estate inventory management software",
@@ -114,6 +118,20 @@ export const PAGE_KEYWORDS = {
     "crm for builders and developers",
     "real estate CRM India",
   ],
+  affordableCrm: [
+    "affordable real estate crm",
+    "affordable real estate CRM India",
+    "cheap real estate CRM",
+    "real estate CRM pricing India",
+    "budget CRM for builders",
+  ],
+  affordableCrmRealtors: [
+    "affordable crm for realtors",
+    "affordable CRM for real estate agents",
+    "CRM for realtors India",
+    "CRM for real estate agents",
+    "mobile CRM for realtors",
+  ],
   crmGuide: [
     "real estate crm",
     "real estate CRM India",
@@ -134,6 +152,7 @@ export const PAGE_KEYWORDS = {
     "best real estate crm software in India",
     "top 10 crm for real estate",
     "best crm for real estate developers",
+    "best crm for brokers",
     "real estate crm comparison",
   ],
   commercial: [
@@ -162,6 +181,8 @@ export const PAGE_KEYWORDS = {
     "real estate software pricing",
     "plot management software cost India",
     "real estate CRM pricing",
+    "affordable real estate crm",
+    "affordable crm for realtors",
     "real estate software India",
   ],
   faq: [
@@ -177,6 +198,7 @@ export const PAGE_KEYWORDS = {
     "real estate agent management software",
     "channel partner software India",
     "broker commission software real estate",
+    "best crm for brokers",
   ],
   booking: [
     "booking management software",
@@ -253,6 +275,7 @@ export const PAGE_KEYWORDS = {
     "real estate ERP software",
     "channel partner management software",
     "booking management software real estate",
+    "360 management software",
   ],
 } as const
 

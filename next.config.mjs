@@ -87,6 +87,11 @@ const nextConfig = {
         destination: "/real-estate-accounting-software",
         permanent: true,
       },
+      {
+        source: "/best-crm-for-brokers",
+        destination: "/best-real-estate-crm-software",
+        permanent: true,
+      },
       ...getCompareRedirects(),
     ]
   },

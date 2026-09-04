@@ -38,19 +38,25 @@ In Vercel: set **Primary Domain** to `layouts360.com` and redirect `www` to apex
 
 - `/blog/{compare-slug}` → 301 → `/compare/{compare-slug}`
 - `/compare` → 301 → `/blog#comparisons`
-- Short aliases → canonical landings (e.g. `/plot-management-software` → `/real-estate-plot-management-software`, `/plot-booking-software` → `/online-plot-booking-software`, `/plot-layout-software` → `/layout-management-software`)
+- Short aliases → canonical landings (e.g. `/plot-management-software` → `/real-estate-plot-management-software`, `/plot-booking-software` → `/online-plot-booking-software`, `/plot-layout-software` → `/layout-management-software`, `/best-crm-for-brokers` → `/best-real-estate-crm-software`)
 
 ## CRM URL roles (avoid cannibalization)
 
 | URL | Role | Owns |
 |-----|------|------|
 | `/real-estate-crm-software` | Product pillar | “real estate CRM software” |
+| `/affordable-real-estate-crm` | Pricing / value | **affordable real estate CRM** |
+| `/affordable-crm-for-realtors` | Agent / field angle | **affordable CRM for realtors** |
 | `/real-estate-crm` | Educational guide | “what is real estate CRM” / practices |
-| `/best-real-estate-crm-software` | Buyer’s guide | “best real estate CRM software in India” |
+| `/best-real-estate-crm-software` | Buyer’s guide | “best real estate CRM software in India”, **best CRM for brokers** |
+| `/real-estate-channel-partner-management-software` | Broker portal | channel partner / broker portal (supports broker CRM intent) |
 | `/real-estate-client-management-software` | Buyer lifecycle | “client management software” (not CRM software) |
 | `/blog/what-is-real-estate-crm-software` | Long-form supporting | Deep “what is” content |
+| `/360-management-software` | Brand / suite | **360 management software** (all-in-one suite, not CRM-only) |
 
-Do **not** 301 CRM software → client management. Those intents stay separate.
+Alias (301): `/best-crm-for-brokers` → best CRM guide.
+
+Do **not** 301 CRM software → client management. Those intents stay separate. Do **not** target “affordable…” keywords on the product pillar—those URLs own them.
 
 ## Before adding a new URL
 

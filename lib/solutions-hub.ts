@@ -74,6 +74,21 @@ export const SOLUTION_HUB_GROUPS: SolutionHubGroup[] = [
         description: "Plot-linked CRM product for builders and layout developers.",
       },
       {
+        href: "/affordable-real-estate-crm",
+        label: "Affordable real estate CRM",
+        description: "INR pricing guide—from ₹2,000/month with unlimited users on tiers.",
+      },
+      {
+        href: "/affordable-crm-for-realtors",
+        label: "Affordable CRM for realtors",
+        description: "Mobile plot-linked CRM for field agents selling layouts.",
+      },
+      {
+        href: "/360-management-software",
+        label: "360 management software",
+        description: "All-in-one maps, inventory, CRM, booking, and partners for layout sales.",
+      },
+      {
         href: "/real-estate-crm",
         label: "What is real estate CRM",
         description: "Practices guide: inventory-linked CRM for Indian plot sales.",
