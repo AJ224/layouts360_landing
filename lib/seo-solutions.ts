@@ -2,21 +2,11 @@ import { CRM_CLUSTER_LINKS } from "@/lib/crm-cluster-links"
 import { PLOT_CLUSTER_LINKS } from "@/lib/plot-cluster-links"
 
 const PRODUCT_SOLUTION_LINKS = [
-  { href: "/township-management-software", label: "Township Management" },
-  { href: "/real-estate-booking-management-software", label: "Booking Management" },
-  { href: "/site-visit-management", label: "Site Visit Management" },
   { href: "/real-estate-channel-partner-management-software", label: "Channel Partners" },
-  { href: "/real-estate-sales-automation-software", label: "Sales Automation" },
-  { href: "/launch-day-plot-sales-software", label: "Launch Day Sales" },
-  { href: "/real-estate-erp-software", label: "Sales ERP" },
-  { href: "/real-estate-back-office-software", label: "Back Office" },
-  { href: "/property-inventory-management-platform", label: "Inventory Platform" },
-  { href: "/apartment-inventory-management-software", label: "Apartments" },
-  { href: "/real-estate-asset-management-software", label: "Asset Management" },
+  { href: "/360-management-software", label: "360 Management" },
   { href: "/real-estate-accounting-software", label: "Payment Tracking" },
   { href: "/commercial-real-estate-software", label: "Commercial Real Estate" },
-  { href: "/real-estate-lead-management-software", label: "Lead Management" },
-  { href: "/real-estate-client-management-software", label: "Client Management" },
+  { href: "/online-plot-booking-software", label: "Online Plot Booking" },
 ] as const
 
 function dedupeByHref<T extends { href: string }>(items: readonly T[]): T[] {
@@ -41,8 +31,8 @@ export const FOOTER_SOLUTION_GROUPS = [
     title: "CRM",
     links: [
       { href: "/real-estate-crm-software", label: "Real Estate CRM" },
-      { href: "/real-estate-crm", label: "What is CRM" },
       { href: "/best-real-estate-crm-software", label: "Best CRM (India)" },
+      { href: "/affordable-real-estate-crm", label: "Affordable CRM" },
     ],
   },
   {
@@ -50,18 +40,15 @@ export const FOOTER_SOLUTION_GROUPS = [
     links: [
       { href: "/real-estate-plot-management-software", label: "Plot Management" },
       { href: "/online-plot-booking-software", label: "Plot Booking" },
-      { href: "/layout-management-software", label: "Layout Management" },
-      { href: "/digital-layout-maps", label: "Digital Layout Maps" },
       { href: "/real-estate-inventory-management-software", label: "Inventory Management" },
     ],
   },
   {
     title: "Sales & ops",
     links: [
-      { href: "/site-visit-management", label: "Site Visits" },
       { href: "/real-estate-channel-partner-management-software", label: "Channel Partners" },
-      { href: "/real-estate-booking-management-software", label: "Bookings" },
       { href: "/real-estate-accounting-software", label: "Payment Tracking" },
+      { href: "/360-management-software", label: "360 Management" },
     ],
   },
 ] as const

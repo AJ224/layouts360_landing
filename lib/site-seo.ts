@@ -25,13 +25,10 @@ const LAST_MOD = {
 
 const HIGH_PRIORITY_LANDING_PATHS = new Set([
   "/real-estate-plot-management-software",
-  "/digital-layout-maps",
-  "/real-estate-inventory-management",
   "/real-estate-inventory-management-software",
-  "/real-estate-booking-management-software",
-  "/real-estate-crm",
   "/real-estate-crm-software",
   "/best-real-estate-crm-software",
+  "/online-plot-booking-software",
 ])
 
 const TRUST_PAGES = ["/about", "/case-studies"] as const
@@ -103,7 +100,7 @@ function contentEntries(
   posts: Array<{ slug: string; date: string; content: string }>,
 ): SitemapEntry[] {
   return posts
-    .filter((post) => shouldIndexArticle(post.content))
+    .filter((post) => shouldIndexArticle(post.content, basePath, post.slug))
     .map((post) => ({
       url: absoluteUrl(`/${basePath}/${post.slug}`),
       lastModified: new Date(post.date),
@@ -129,8 +126,9 @@ export function getLlmsContentIndex() {
     excerpt: p.excerpt,
   })
 
-  const landings = Object.values(LANDING_PAGE_PATHS)
-    .map((landingPath) => {
+  const landings = Object.entries(LANDING_PAGE_PATHS)
+    .filter(([, landingPath]) => shouldIndexStaticPath(landingPath))
+    .map(([, landingPath]) => {
       const slug = landingPath.replace(/^\//, "")
       const filePath = path.join(landingsDirectory, `${slug}.mdx`)
       if (!fs.existsSync(filePath)) {
@@ -148,7 +146,11 @@ export function getLlmsContentIndex() {
 
   return {
     landings,
-    guides: getAllPosts().map((p) => toItem("blog", p)),
-    comparisons: getAllCompares().map((p) => toItem("compare", p)),
+    guides: getAllPosts()
+      .filter((p) => shouldIndexArticle(p.content, "blog", p.slug))
+      .map((p) => toItem("blog", p)),
+    comparisons: getAllCompares()
+      .filter((p) => shouldIndexArticle(p.content, "compare", p.slug))
+      .map((p) => toItem("compare", p)),
   }
 }

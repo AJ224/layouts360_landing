@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: post.excerpt,
     path: `/blog/${post.slug}`,
     keywords: keywordsForArticle(post.tags),
-    robots: robotsForArticle(post.content),
+    robots: robotsForArticle(post.content, "blog", post.slug),
     ogType: "article",
   })
 }

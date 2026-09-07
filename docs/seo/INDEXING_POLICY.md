@@ -2,65 +2,40 @@
 
 Code: [`lib/indexing-policy.ts`](../../lib/indexing-policy.ts), [`lib/content-quality.ts`](../../lib/content-quality.ts), [`lib/site-seo.ts`](../../lib/site-seo.ts).
 
-## Indexed (sitemap + `index, follow`)
+## Strategy
 
-| Type | URLs |
-|------|------|
-| Core marketing | `/`, `/pricing`, `/contact`, `/faq`, `/blog`, `/features` |
-| SEO landings | 6× `/real-estate-*` and `/commercial-real-estate-software` |
-| Guides | Blog posts with **≥400 words** body content |
-| Comparisons | Compare articles with **≥400 words** (all current posts qualify) |
+**10 indexable landings.** Overlapping URLs 301 into pillars. Thin blog/compare stay live with `noindex, follow`.
 
-## Not indexed (`noindex, follow` — still linked for users)
+## Indexed pillars
+
+| Pillar | Owns |
+|--------|------|
+| `/real-estate-plot-management-software` | Plot + layout maps + township/layout digitization |
+| `/real-estate-inventory-management-software` | Inventory + asset performance on sellable units |
+| `/real-estate-crm-software` | CRM + leads + visits + client lifecycle |
+| `/best-real-estate-crm-software` | Buyer’s guide |
+| `/affordable-real-estate-crm` | Affordable / realtor field pricing |
+| `/real-estate-channel-partner-management-software` | Broker portals |
+| `/online-plot-booking-software` | Online + desk booking ops |
+| `/real-estate-accounting-software` | Payments / installments |
+| `/commercial-real-estate-software` | Commercial layouts |
+| `/360-management-software` | All-in-one suite |
+
+Plus core marketing (`/`, `/pricing`, `/contact`, `/features`, `/blog`, `/solutions`, …), allowlisted blogs/compares, or articles ≥900 words.
+
+## Consolidated (301 → pillar)
+
+See `LANDING_CONSOLIDATION_REDIRECTS` in `lib/indexing-policy.ts` (layout/maps/township → plot; asset/apartment → inventory; client/crm-guide/leads → CRM; booking-mgmt → online booking; etc.).
+
+## Not indexed
 
 | URL | Reason |
 |-----|--------|
-| `/compare` | Redirect stub → `/blog#comparisons` |
-| `/features/[slug]` | Thin vs hub; canonical discovery via `/features` |
-| `/blog/why-pdf-maps-kill-sales` | &lt;400 words — expand or merge before indexing |
+| `/features/[slug]` | Thin vs `/features` hub |
+| Other `/blog/*`, `/compare/*` | Not allowlisted and &lt;900 words |
+| `/compare` stub | Redirects to blog |
 
-## Never indexed (blocked)
+## Before adding a URL
 
-| Path | Mechanism |
-|------|-----------|
-| `/api/*` | `robots.txt` disallow |
-
-## Canonical host (www)
-
-Production canonical is **non-www**: `https://layouts360.com`
-
-- `www.layouts360.com` → 301 → `layouts360.com` (middleware + `next.config.mjs`)
-- Sitemap, `metadataBase`, and all `canonical` tags use `lib/site-seo.ts` → `absoluteUrl()`
-
-In Vercel: set **Primary Domain** to `layouts360.com` and redirect `www` to apex.
-
-## Duplicates handled elsewhere
-
-- `/blog/{compare-slug}` → 301 → `/compare/{compare-slug}`
-- `/compare` → 301 → `/blog#comparisons`
-- Short aliases → canonical landings (e.g. `/plot-management-software` → `/real-estate-plot-management-software`, `/plot-booking-software` → `/online-plot-booking-software`, `/plot-layout-software` → `/layout-management-software`, `/best-crm-for-brokers` → `/best-real-estate-crm-software`)
-
-## CRM URL roles (avoid cannibalization)
-
-| URL | Role | Owns |
-|-----|------|------|
-| `/real-estate-crm-software` | Product pillar | “real estate CRM software” |
-| `/affordable-real-estate-crm` | Pricing / value | **affordable real estate CRM** |
-| `/affordable-crm-for-realtors` | Agent / field angle | **affordable CRM for realtors** |
-| `/real-estate-crm` | Educational guide | “what is real estate CRM” / practices |
-| `/best-real-estate-crm-software` | Buyer’s guide | “best real estate CRM software in India”, **best CRM for brokers** |
-| `/real-estate-channel-partner-management-software` | Broker portal | channel partner / broker portal (supports broker CRM intent) |
-| `/real-estate-client-management-software` | Buyer lifecycle | “client management software” (not CRM software) |
-| `/blog/what-is-real-estate-crm-software` | Long-form supporting | Deep “what is” content |
-| `/360-management-software` | Brand / suite | **360 management software** (all-in-one suite, not CRM-only) |
-
-Alias (301): `/best-crm-for-brokers` → best CRM guide.
-
-Do **not** 301 CRM software → client management. Those intents stay separate. Do **not** target “affordable…” keywords on the product pillar—those URLs own them.
-
-## Before adding a new URL
-
-1. Unique, useful content (not boilerplate).
-2. Mobile-friendly layout (Tailwind responsive).
-3. Article body ≥400 words for blog/compare.
-4. Add to sitemap only via `getSitemapEntries()` rules — do not hand-edit `sitemap.xml`.
+1. Unique intent not owned by a pillar.
+2. Expand the pillar first; only then add a new indexable URL + allowlist entry.

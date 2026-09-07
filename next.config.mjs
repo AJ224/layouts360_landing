@@ -3,6 +3,27 @@ import { join } from "path"
 
 /** @type {import('next').NextConfig} */
 
+/** Keep in sync with LANDING_CONSOLIDATION_REDIRECTS in lib/indexing-policy.ts */
+const LANDING_CONSOLIDATION_REDIRECTS = [
+  { source: "/layout-management-software", destination: "/real-estate-plot-management-software" },
+  { source: "/digital-layout-maps", destination: "/real-estate-plot-management-software" },
+  { source: "/township-management-software", destination: "/real-estate-plot-management-software" },
+  { source: "/launch-day-plot-sales-software", destination: "/real-estate-plot-management-software" },
+  { source: "/real-estate-inventory-management", destination: "/real-estate-inventory-management-software" },
+  { source: "/property-inventory-management-platform", destination: "/real-estate-inventory-management-software" },
+  { source: "/apartment-inventory-management-software", destination: "/real-estate-inventory-management-software" },
+  { source: "/real-estate-asset-management-software", destination: "/real-estate-inventory-management-software" },
+  { source: "/real-estate-crm", destination: "/real-estate-crm-software" },
+  { source: "/real-estate-client-management-software", destination: "/real-estate-crm-software" },
+  { source: "/real-estate-lead-management-software", destination: "/real-estate-crm-software" },
+  { source: "/real-estate-sales-automation-software", destination: "/real-estate-crm-software" },
+  { source: "/site-visit-management", destination: "/real-estate-crm-software" },
+  { source: "/affordable-crm-for-realtors", destination: "/affordable-real-estate-crm" },
+  { source: "/real-estate-booking-management-software", destination: "/online-plot-booking-software" },
+  { source: "/real-estate-back-office-software", destination: "/real-estate-accounting-software" },
+  { source: "/real-estate-erp-software", destination: "/360-management-software" },
+]
+
 function getCompareRedirects() {
   try {
     const dir = join(process.cwd(), "content/compare")
@@ -64,17 +85,17 @@ const nextConfig = {
       },
       {
         source: "/plot-layout-software",
-        destination: "/layout-management-software",
+        destination: "/real-estate-plot-management-software",
         permanent: true,
       },
       {
         source: "/plot-inventory-management",
-        destination: "/real-estate-inventory-management",
+        destination: "/real-estate-inventory-management-software",
         permanent: true,
       },
       {
         source: "/real-estate-sales-software",
-        destination: "/real-estate-sales-automation-software",
+        destination: "/real-estate-crm-software",
         permanent: true,
       },
       {
@@ -92,6 +113,11 @@ const nextConfig = {
         destination: "/best-real-estate-crm-software",
         permanent: true,
       },
+      ...LANDING_CONSOLIDATION_REDIRECTS.map(({ source, destination }) => ({
+        source,
+        destination,
+        permanent: true,
+      })),
       ...getCompareRedirects(),
     ]
   },

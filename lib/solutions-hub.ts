@@ -1,4 +1,4 @@
-/** Solutions hub — grouped SEO/GEO landing pages for /solutions */
+/** Solutions hub — only the 10 indexable pillar landings. */
 
 export interface SolutionHubItem {
   href: string
@@ -14,161 +14,70 @@ export interface SolutionHubGroup {
 
 export const SOLUTION_HUB_GROUPS: SolutionHubGroup[] = [
   {
-    title: "Plot management",
-    description: "Plot management, inventory management, layout digitization, and booking for Indian developers.",
+    title: "Plot & inventory",
+    description: "Live maps, inventory, and commercial layouts for Indian developers.",
     items: [
       {
         href: "/real-estate-plot-management-software",
         label: "Plot management software",
-        description: "Digital layouts, plot data, and booking workflows for layout developers.",
-      },
-      {
-        href: "/online-plot-booking-software",
-        label: "Plot booking software",
-        description: "Customer booking flows with payments and live availability.",
-      },
-      {
-        href: "/layout-management-software",
-        label: "Layout management software",
-        description: "Digitize site plans and manage phase-wise plot release on a live layout.",
-      },
-      {
-        href: "/digital-layout-maps",
-        label: "Digital layout maps",
-        description: "Interactive, satellite-backed maps with live plot-level detail.",
+        description: "Digital layouts, satellite maps, plot inventory, and launch workflows.",
       },
       {
         href: "/real-estate-inventory-management-software",
         label: "Inventory management software",
-        description: "Real-time availability across plots, flats, and commercial units.",
-      },
-      {
-        href: "/township-management-software",
-        label: "Township management software",
-        description: "Multi-phase inventory and reporting for large plotted townships.",
-      },
-      {
-        href: "/real-estate-inventory-management",
-        label: "Inventory management guide",
-        description: "Metrics, practices, and bottlenecks for plot and layout inventory in India.",
+        description: "Real-time availability, asset views, and multi-project control.",
       },
       {
         href: "/commercial-real-estate-software",
         label: "Commercial real estate software",
-        description: "Sell shops, office plots, and commercial layouts with live inventory.",
-      },
-      {
-        href: "/real-estate-asset-management-software",
-        label: "Asset management",
-        description: "Plot-level ROI, holding costs, and portfolio performance.",
+        description: "Shops, office plots, and commercial layouts with live inventory.",
       },
     ],
   },
   {
-    title: "CRM & sales",
-    description: "Plot-linked CRM, leads, automation, and launch-day selling.",
+    title: "CRM & partners",
+    description: "Plot-linked CRM, affordable pricing, and channel partner portals.",
     items: [
       {
         href: "/real-estate-crm-software",
         label: "Real estate CRM software",
-        description: "Plot-linked CRM product for builders and layout developers.",
-      },
-      {
-        href: "/affordable-real-estate-crm",
-        label: "Affordable real estate CRM",
-        description: "INR pricing guide—from ₹2,000/month with unlimited users on tiers.",
-      },
-      {
-        href: "/affordable-crm-for-realtors",
-        label: "Affordable CRM for realtors",
-        description: "Mobile plot-linked CRM for field agents selling layouts.",
-      },
-      {
-        href: "/360-management-software",
-        label: "360 management software",
-        description: "All-in-one maps, inventory, CRM, booking, and partners for layout sales.",
-      },
-      {
-        href: "/real-estate-crm",
-        label: "What is real estate CRM",
-        description: "Practices guide: inventory-linked CRM for Indian plot sales.",
+        description: "Leads, visits, buyer lifecycle, and pipeline on live plots.",
       },
       {
         href: "/best-real-estate-crm-software",
         label: "Best real estate CRM (India)",
-        description: "Buyer's guide for plot developers evaluating CRM options.",
+        description: "Buyer’s guide for plot developers evaluating CRM options.",
       },
       {
-        href: "/real-estate-lead-management-software",
-        label: "Lead management software",
-        description: "Capture, assign, and convert portal and walk-in leads.",
+        href: "/affordable-real-estate-crm",
+        label: "Affordable real estate CRM",
+        description: "INR pricing from ₹2,000/month with unlimited users on tiers.",
       },
-      {
-        href: "/real-estate-client-management-software",
-        label: "Client management",
-        description: "Buyer lifecycle from enquiry to booking and handover.",
-      },
-      {
-        href: "/site-visit-management",
-        label: "Site visit management",
-        description: "Schedule, log, and follow up on site visits tied to real plots.",
-      },
-      {
-        href: "/real-estate-sales-automation-software",
-        label: "Sales automation software",
-        description: "Follow-ups, pipeline, and inventory-backed sales workflows.",
-      },
-      {
-        href: "/launch-day-plot-sales-software",
-        label: "Launch day plot sales",
-        description: "Timed blocking, live inventory, and launch CRM for high-volume events.",
-      },
-    ],
-  },
-  {
-    title: "Booking & payments",
-    description: "Tokens, online booking, installments, and finance alignment.",
-    items: [
-      {
-        href: "/real-estate-booking-management-software",
-        label: "Booking management software",
-        description: "Holds, confirmations, and booking records tied to live plots.",
-      },
-      {
-        href: "/real-estate-accounting-software",
-        label: "Payment tracking software",
-        description: "Booking amounts, installments, GST, and outstanding balances.",
-      },
-      {
-        href: "/real-estate-back-office-software",
-        label: "Back office software",
-        description: "Documents, commissions, milestones, and booking operations.",
-      },
-    ],
-  },
-  {
-    title: "Partners & platform",
-    description: "Channel sales, ERP scope, and full-stack selling.",
-    items: [
       {
         href: "/real-estate-channel-partner-management-software",
         label: "Channel partner management",
         description: "Broker portals, live inventory, and structured CP bookings.",
       },
       {
-        href: "/real-estate-erp-software",
-        label: "Sales ERP software",
-        description: "Sales-side ERP: inventory, bookings, CRM, partners, and documents.",
+        href: "/360-management-software",
+        label: "360 management software",
+        description: "All-in-one maps, inventory, CRM, booking, and partners.",
+      },
+    ],
+  },
+  {
+    title: "Booking & payments",
+    description: "Online booking, holds, and installment tracking.",
+    items: [
+      {
+        href: "/online-plot-booking-software",
+        label: "Online plot booking software",
+        description: "Customer checkout and desk booking ops on the same inventory.",
       },
       {
-        href: "/property-inventory-management-platform",
-        label: "Property inventory platform",
-        description: "Unified platform for plots, flats, and commercial unit inventory.",
-      },
-      {
-        href: "/apartment-inventory-management-software",
-        label: "Apartment inventory software",
-        description: "Tower and floor-wise unit management alongside plot layouts.",
+        href: "/real-estate-accounting-software",
+        label: "Payment tracking software",
+        description: "Booking amounts, installments, GST, and outstanding balances.",
       },
     ],
   },

@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: post.excerpt,
     path: `/compare/${post.slug}`,
     keywords: keywordsForArticle(post.tags),
-    robots: robotsForArticle(post.content),
+    robots: robotsForArticle(post.content, "compare", post.slug),
     ogType: "article",
   })
 }

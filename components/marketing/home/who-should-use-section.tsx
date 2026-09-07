@@ -41,8 +41,8 @@ const PERSONAS: Persona[] = [
     icon: Briefcase,
     title: "Township developers",
     description: "Run multi-phase, multi-year townships with phase-level control and project-wide reporting.",
-    href: "/township-management-software",
-    label: "Township management software",
+    href: "/real-estate-plot-management-software",
+    label: "Plot management software",
   },
   {
     icon: HardHat,
@@ -55,7 +55,7 @@ const PERSONAS: Persona[] = [
     icon: LineChart,
     title: "Real estate sales teams",
     description: "Mobile-first tools for site offices—plot cards, follow-ups, and site visit tracking.",
-    href: "/real-estate-crm",
+    href: "/real-estate-crm-software",
     label: "Real estate CRM",
   },
   {

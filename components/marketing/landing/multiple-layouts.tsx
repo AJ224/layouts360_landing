@@ -25,7 +25,7 @@ export function MultipleLayoutsSection() {
           </div>
         </div>
         <div className="mt-6 text-center">
-          <TextLink href="/township-management-software">See township management software</TextLink>
+          <TextLink href="/real-estate-plot-management-software">See plot management software</TextLink>
         </div>
       </div>
     </Section>

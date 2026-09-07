@@ -2,14 +2,11 @@
 export const CRM_CLUSTER_LINKS = [
   { href: "/real-estate-crm-software", label: "Real Estate CRM Software" },
   { href: "/affordable-real-estate-crm", label: "Affordable Real Estate CRM" },
-  { href: "/affordable-crm-for-realtors", label: "Affordable CRM for Realtors" },
-  { href: "/real-estate-crm", label: "What is Real Estate CRM" },
+  { href: "/best-real-estate-crm-software", label: "Best Real Estate CRM (India)" },
   { href: "/blog/what-is-real-estate-crm-software", label: "CRM Software Guide" },
   { href: "/compare/unified-real-estate-crm-vs-excel-spreadsheets", label: "CRM vs Excel" },
-  { href: "/blog/real-estate-crm-for-builders", label: "CRM for Builders" },
-  { href: "/blog/real-estate-crm-with-inventory-management", label: "CRM + Inventory" },
-  { href: "/blog/real-estate-crm-pricing-and-free-trials-india", label: "CRM Pricing" },
-  { href: "/best-real-estate-crm-software", label: "Best Real Estate CRM (India)" },
+  { href: "/compare/purpose-built-real-estate-software-vs-generic-crm", label: "Purpose-built vs generic CRM" },
+  { href: "/blog/top-10-real-estate-crm-software-india", label: "Top CRM software India" },
 ] as const
 
 export const CRM_CLUSTER_PATHS: ReadonlySet<string> = new Set(

@@ -10,6 +10,7 @@ import {
 } from "@/lib/landing-page-keys"
 import type { SeoLandingPageKey } from "@/lib/seo-landing-pages"
 import { buildPageMetadata } from "@/lib/page-metadata"
+import { robotsForStaticPath } from "@/lib/indexing-policy"
 import type { LandingMdxDocument, LandingMdxFrontmatter } from "@/types/landing-mdx"
 
 const landingsDirectory = path.join(process.cwd(), "content/landings")
@@ -74,6 +75,7 @@ export function createLandingMetadata(pageKey: SeoLandingPageKey): Metadata {
     keywords: [...landing.keywords],
     ogTitle: landing.ogTitle,
     ogDescription: landing.ogDescription,
+    robots: robotsForStaticPath(landing.path),
   })
 }
 

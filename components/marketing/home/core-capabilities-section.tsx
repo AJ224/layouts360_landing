@@ -25,7 +25,7 @@ const HIGHLIGHTS: Capability[] = [
     icon: Map,
     title: "Interactive Digital Layout Maps",
     description: "Satellite-backed, zoomable layouts with tap-to-view plot detail.",
-    href: "/digital-layout-maps",
+    href: "/real-estate-plot-management-software",
   },
   {
     icon: LayoutGrid,
@@ -37,7 +37,7 @@ const HIGHLIGHTS: Capability[] = [
     icon: CalendarCheck,
     title: "Plot Booking & Reservation",
     description: "Timed holds, tokens, and confirmed bookings on live inventory.",
-    href: "/real-estate-booking-management-software",
+    href: "/online-plot-booking-software",
   },
   {
     icon: Users,
@@ -93,8 +93,8 @@ export function CoreCapabilitiesSection() {
           <Link href="/real-estate-inventory-management-software" className="hover:text-blue-700 hover:underline">
             Inventory management software
           </Link>
-          <Link href="/digital-layout-maps" className="hover:text-blue-700 hover:underline">
-            Digital layout map
+          <Link href="/real-estate-crm-software" className="hover:text-blue-700 hover:underline">
+            Real estate CRM
           </Link>
         </div>
         <Link
