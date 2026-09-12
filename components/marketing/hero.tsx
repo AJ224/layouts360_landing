@@ -60,9 +60,25 @@ export default function Hero() {
             </MarketingButtonLink>
           </div>
 
+          <a
+            href="https://www.producthunt.com/products/layouts360?utm_source=layouts360&utm_medium=website&utm_campaign=hero"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 transition-colors hover:text-slate-900"
+          >
+            <span
+              className="flex h-5 w-5 items-center justify-center rounded-full bg-[#FF6154] text-[10px] font-bold text-white"
+              aria-hidden
+            >
+              P
+            </span>
+            Featured on Product Hunt
+            <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+          </a>
+
           <nav
             aria-label="How teams use Layouts360"
-            className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 pt-2 text-sm text-slate-500"
+            className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-slate-500"
           >
             {PLATFORM_PROOF.map((item, index) => (
               <span key={item.href} className="inline-flex items-center gap-2">
