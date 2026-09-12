@@ -1,7 +1,6 @@
 import Hero from "@/components/marketing/hero"
 import Footer from "@/components/marketing/footer"
-import { TrustStrip } from "@/components/marketing/home/trust-strip"
-import { CoreCapabilitiesSection } from "@/components/marketing/home/core-capabilities-section"
+import { FeatureCardsSection } from "@/components/marketing/home/feature-cards-section"
 import { WhyToolsFailSection } from "@/components/marketing/home/why-tools-fail-section"
 import { WhoShouldUseSection } from "@/components/marketing/home/who-should-use-section"
 import { CustomerWorkflowSection } from "@/components/marketing/home/customer-workflow-section"
@@ -36,7 +35,6 @@ export default function Page() {
     <main className="bg-white min-h-screen">
       {/* 1. Promise */}
       <Hero />
-      <TrustStrip />
 
       {/* 2. Pain */}
       <SoundFamiliarSection />
@@ -52,8 +50,8 @@ export default function Page() {
       <OneSystemSection />
       <RealLocationSection />
 
-      {/* 6. Capabilities (highlights → full features page) */}
-      <CoreCapabilitiesSection />
+      {/* 6. Feature cards → full features page */}
+      <FeatureCardsSection />
 
       {/* 7. Who it's for */}
       <WhoShouldUseSection />

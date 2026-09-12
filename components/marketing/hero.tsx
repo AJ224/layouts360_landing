@@ -3,6 +3,24 @@ import Header from "@/components/marketing/header"
 import { MarketingButtonLink } from "@/components/ui/marketing-button-link"
 import { ArrowRight, PlayCircle } from "lucide-react"
 
+const PLATFORM_PROOF = [
+  {
+    href: "/digital-layout-maps",
+    prefix: "Live on",
+    name: "Google Maps",
+  },
+  {
+    href: "/compare/live-inventory-portal-vs-whatsapp-updates",
+    prefix: "Share on",
+    name: "WhatsApp",
+  },
+  {
+    href: "/blog/excel-vs-plot-management-software",
+    prefix: "Replace",
+    name: "Excel",
+  },
+] as const
+
 export default function Hero() {
   return (
     <div className="relative bg-white text-gray-900 overflow-hidden">
@@ -23,21 +41,14 @@ export default function Hero() {
           </div>
 
           <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-slate-900 sm:text-5xl md:text-6xl">
-            Plot management and inventory management{" "}
-            <span className="text-[#34D399]">for layout sales</span>
+            Manage every plot.
+            <br />
+            <span className="text-[#34D399]">Sell every layout.</span>
           </h1>
 
           <p className="mx-auto max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
-            Layouts360 helps real estate companies replace Excel, PDFs, and WhatsApp with live maps,
-            booking, CRM, and channel partner tools. See our{" "}
-            <Link href="/real-estate-plot-management-software" className="font-semibold text-slate-900 underline decoration-slate-300 underline-offset-2 hover:decoration-[#34D399]">
-              plot management software
-            </Link>{" "}
-            and{" "}
-            <Link href="/real-estate-inventory-management-software" className="font-semibold text-slate-900 underline decoration-slate-300 underline-offset-2 hover:decoration-[#34D399]">
-              inventory management software
-            </Link>{" "}
-            for layout and township sales.
+            Layouts360 brings your plots, inventory, bookings, CRM and channel
+            partners into one platform.
           </p>
 
           <div className="flex flex-col items-center justify-center gap-4 pt-2 sm:flex-row">
@@ -49,20 +60,23 @@ export default function Hero() {
             </MarketingButtonLink>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-6 pt-2 text-sm font-medium text-slate-700">
-            <span className="flex items-center gap-2">
-              <span className="h-3 w-3 rounded-sm bg-[#34D399]"></span> Available
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="h-3 w-3 rounded-sm bg-[#FBBF24]"></span> Booked
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="h-3 w-3 rounded-sm bg-[#EF4444]"></span> Sold
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="h-3 w-3 rounded-sm bg-[#64748B]"></span> Freeze
-            </span>
-          </div>
+          <nav
+            aria-label="How teams use Layouts360"
+            className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 pt-2 text-sm text-slate-500"
+          >
+            {PLATFORM_PROOF.map((item, index) => (
+              <span key={item.href} className="inline-flex items-center gap-2">
+                {index > 0 && <span className="text-slate-300" aria-hidden>·</span>}
+                <Link
+                  href={item.href}
+                  className="transition-colors hover:text-slate-900"
+                >
+                  {item.prefix}{" "}
+                  <span className="font-semibold text-slate-700">{item.name}</span>
+                </Link>
+              </span>
+            ))}
+          </nav>
         </div>
       </section>
     </div>
