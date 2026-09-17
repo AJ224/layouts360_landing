@@ -1,87 +1,90 @@
 const visualization = [
   {
-    title: "Live map",
-    description: "Every plot on the real layout. Available, frozen, booked, sold.",
+    title: "Interactive project map",
+    description:
+      "Plots and flats on your real layout. Pan, zoom, and tap a unit for details your team actually uses on site.",
   },
   {
-    title: "Work from the map",
-    description: "Pan, zoom, tap. No spreadsheet on site.",
+    title: "Live availability",
+    description:
+      "Available, hold, booked, sold. One color-coded view so nobody asks for the latest Excel.",
   },
   {
     title: "Your plan, digitized",
-    description: "CAD or SVG in, or plots cut on the keymap.",
+    description: "CAD, PDF, or SVG mapped in, with area, facing, rate, survey, and your other labels.",
   },
   {
-    title: "On satellite",
-    description: "Same plots on Google Maps. Scale and rotate to the land.",
+    title: "On satellite when you need it",
+    description: "Same inventory overlaid on Google Maps so location conversations stay grounded.",
   },
   {
     title: "A link you can send",
-    description: "Opens in the browser. Buyers enquire from the plot.",
+    description: "Opens in the browser. Buyers enquire from the plot or flat they are looking at.",
   },
   {
-    title: "Photos and nearby",
-    description: "Gallery, video, schools, hospitals, roads.",
+    title: "Photos and nearby places",
+    description: "Gallery, video, schools, hospitals, roads. Useful in a walkthrough, not only in the office.",
   },
   {
-    title: "Your labels",
-    description: "Plot no, area, facing, rate, survey. Sq ft or sq m.",
-  },
-  {
-    title: "Group plots",
-    description: "Neighbouring plots as one deal.",
+    title: "Group neighbouring units",
+    description: "Sell adjacent plots or flats as one deal without juggling separate rows.",
   },
 ]
 
 const platform = [
   {
-    title: "Freeze to sold",
-    description: "Hold, token, collect, close. One record.",
+    title: "Freeze to sold on the map",
+    description:
+      "Hold while the customer decides, then book and close. Status updates for every agent in real time.",
   },
   {
-    title: "Multi-plot, joint buyers",
-    description: "One booking. Several plots. More than one name.",
+    title: "Multi-unit and joint buyers",
+    description: "One booking across several units, or more than one name on the same deal.",
   },
   {
-    title: "CRM on the map",
-    description: "Leads, visits, follow-ups, My Day — on the plot they asked about.",
+    title: "CRM on the unit",
+    description:
+      "Leads, site visits, follow-ups, and My Day sit on the plot or flat the customer asked about.",
   },
   {
-    title: "Ads into CRM",
-    description: "Facebook and Instagram leads arrive in the pipeline.",
+    title: "Ads into the pipeline",
+    description: "Facebook and Instagram leads land in the same flow instead of dying in WhatsApp.",
   },
   {
-    title: "Collections",
-    description: "Cash, UPI, cheque, loan. Due and overdue in view.",
+    title: "Collections and dues",
+    description: "Cash, UPI, cheque, loan. Booking amount, installments, due and overdue in one place.",
   },
   {
-    title: "Ledger",
-    description: "Split for land owner, developer, and money partner.",
+    title: "Owner and partner ledger",
+    description: "Split visibility for land owner, developer, and money partner when the deal needs it.",
   },
   {
     title: "Broker portal",
-    description: "Partners freeze and enquire on the same map.",
+    description: "Channel partners freeze and enquire on the same live inventory your staff uses.",
   },
   {
-    title: "Team",
-    description: "Who can freeze, book, or see money. GPS attendance if needed.",
+    title: "Team roles",
+    description: "Control who can freeze, book, or see money. GPS attendance if your site needs it.",
   },
 ]
 
 export default function PricingFeatures() {
   return (
-    <section className="mx-auto max-w-5xl px-4 py-20 sm:px-6 md:py-24">
+    <section className="mx-auto max-w-5xl px-4 py-16 sm:px-6 md:py-20">
       <div className="mx-auto max-w-xl text-center">
-        <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-slate-400">Compare</p>
+        <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-slate-400">What you get</p>
         <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 md:text-[2rem]">
-          Map only, or map plus the desk
+          Features that change how your team sells
         </h2>
+        <p className="mt-3 text-base leading-relaxed text-slate-500">
+          Map only replaces scattered files. Layouts360 runs the sale on that same inventory.
+        </p>
       </div>
 
       <div className="mt-14 grid gap-12 md:grid-cols-2 md:gap-16">
         <div>
-          <h3 className="text-lg font-semibold tracking-tight text-slate-900">Layouts</h3>
-          <p className="mt-1 text-sm text-slate-500">Live map and inventory. Included in Layouts360.</p>
+          <h3 className="text-lg font-semibold tracking-tight text-slate-900">Map only</h3>
+          <p className="mt-1 text-sm text-slate-500">Live inventory for plots and apartments. Included in Layouts360.</p>
           <ul className="mt-8 space-y-5">
             {visualization.map((item) => (
               <li key={item.title}>
@@ -94,7 +97,7 @@ export default function PricingFeatures() {
 
         <div>
           <h3 className="text-lg font-semibold tracking-tight text-slate-900">Layouts360</h3>
-          <p className="mt-1 text-sm text-slate-500">Same map. Then booking, CRM, money, and brokers.</p>
+          <p className="mt-1 text-sm text-slate-500">Same map, then booking, CRM, money, and brokers.</p>
           <ul className="mt-8 space-y-5">
             {platform.map((item) => (
               <li key={item.title}>

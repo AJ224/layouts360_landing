@@ -31,7 +31,7 @@ export default function Steps() {
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="text-balance text-3xl font-semibold tracking-tight md:text-4xl">Complete Business Workflow</h2>
         <p className="mt-3 text-pretty text-muted-foreground">
-          From project setup to completion — manage your entire real estate business with professional tools.
+          From project setup to completion, manage your entire real estate business with professional tools.
         </p>
       </div>
 

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | Layouts360"
   },
   description:
-    "Plot management and inventory management software with built-in CRM and booking for real estate companies. Live digital layouts, channel partners, and payment tracking—not generic PropTech.",
+    "Plot management and inventory management software with built-in CRM and booking for real estate companies. Live digital layouts, channel partners, and payment tracking, not generic PropTech.",
   keywords: [
     "real estate software",
     "real estate management software",

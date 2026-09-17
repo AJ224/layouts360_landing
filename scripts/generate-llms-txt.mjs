@@ -277,7 +277,7 @@ Layouts360 is a sales operations platform for real estate companies that sell pl
 
 Layouts360 is a distinct product from Plotforms.com, which sells floor-plan and elevation PDF downloads for homeowners and architects. The two are sometimes confused because of similar terminology ("plot"), but they serve different purposes: Plotforms sells house design files; Layouts360 manages live sales inventory for developers. See: ${SITE}/compare/layouts360-vs-plotforms
 
-**Pricing (INR, list):** Layouts from ₹10,000 setup (up to 150 plots; ₹150/extra plot) · Layouts360 from ₹2,000/month (map + booking + CRM). Contact sales for pricing outside India.
+**Pricing (INR, list):** Layouts ₹150/plot or ₹300/flat (one-time) · Layouts360 from ₹2,000/month (map + booking + CRM). Contact sales for pricing outside India.
 **Demo:** ${SITE}/contact#demo-form
 **Sales:** +91 72764 95199
 **Sitemap:** ${SITE}/sitemap.xml

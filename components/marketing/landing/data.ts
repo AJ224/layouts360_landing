@@ -1,16 +1,16 @@
 import type { LucideIcon } from "lucide-react"
 import {
+  BadgeCheck,
   Calendar,
-  CircleAlert,
-  Clock,
   CreditCard,
+  Eye,
   FileSpreadsheet,
-  History,
-  Share2,
+  FileText,
+  MessageCircle,
+  RefreshCw,
+  Search,
   Snowflake,
-  TrendingDown,
   Trophy,
-  Upload,
   Users,
 } from "lucide-react"
 
@@ -22,34 +22,34 @@ export type PainPoint = {
 
 export const painPoints: PainPoint[] = [
   {
-    icon: CircleAlert,
-    title: "Confusion",
-    description: "Messy Data: Numbers in Excel, Maps on Paper. It's a mess.",
-  },
-  {
-    icon: Clock,
-    title: "Slow Follow-ups",
-    description: "You forget to call back, they buy somewhere else.",
-  },
-  {
-    icon: TrendingDown,
-    title: "Missed Opportunities",
-    description: "You don't know what is sold and what is free right now.",
+    icon: FileText,
+    title: "Static PDF layouts",
+    description: "Printed or forwarded PDFs go stale the moment inventory changes.",
   },
   {
     icon: FileSpreadsheet,
-    title: "Excel Sheet Chaos",
-    description: "Which file is the right one? Version 1 or Version 5?",
+    title: "Excel inventory sheets",
+    description: 'Multiple versions, no map, and constant "which file is latest?" chaos.',
+  },
+  {
+    icon: MessageCircle,
+    title: "WhatsApp availability updates",
+    description: "Status lives in chat threads: easy to miss, hard to trust.",
+  },
+  {
+    icon: RefreshCw,
+    title: "Manual booking updates",
+    description: "Someone has to update every file again whenever a unit moves.",
+  },
+  {
+    icon: Search,
+    title: "Hunting for units",
+    description: "Finding the right plot, floor, or flat means digging through files.",
   },
   {
     icon: Users,
-    title: "Multiple Customer Handling",
-    description: "Showing the same plot to two people. Embarrassing.",
-  },
-  {
-    icon: History,
-    title: "Delayed Updates",
-    description: "You think a plot is free, but your partner already sold it.",
+    title: "Shared inventory risk",
+    description: "Multiple salespeople on the same stock means double holds and confusion.",
   },
 ]
 
@@ -61,11 +61,11 @@ export const plotManagementBenefits = [
 ]
 
 export const howItWorksSteps = [
-  { icon: Upload, title: "Upload", desc: "Upload layout plan" },
-  { icon: Share2, title: "Share", desc: "Share project link with customers" },
-  { icon: Snowflake, title: "Freeze", desc: "Freeze/Book plots" },
-  { icon: Users, title: "Follow", desc: "Manage Follow-ups" },
-  { icon: Trophy, title: "Wins", desc: "Close more deals" },
+  { icon: Search, title: "Find", desc: "Search the exact plot or apartment the customer wants" },
+  { icon: Eye, title: "Show", desc: "Show the location or unit visually" },
+  { icon: Snowflake, title: "Hold", desc: "Reserve inventory while the customer decides" },
+  { icon: BadgeCheck, title: "Book", desc: "Record the booking and customer information" },
+  { icon: Trophy, title: "Track", desc: "Follow the transaction until completion" },
 ] as const
 
 export const managementStats = [

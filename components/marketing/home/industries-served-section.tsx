@@ -12,7 +12,7 @@ const INDUSTRIES: Industry[] = [
   {
     icon: MapPinned,
     title: "Plotted layouts",
-    description: "Residential plot projects of any size—from a single 50-plot layout to multi-phase developments.",
+    description: "Residential plot projects of any size, from a single 50-plot layout to multi-phase developments.",
   },
   {
     icon: Landmark,
@@ -48,7 +48,7 @@ export function IndustriesServedSection() {
         eyebrow="Industries served"
         eyebrowClassName="bg-teal-100 text-teal-700"
         title="Built for land and plotted development, not generic property"
-        description="Layouts360 is purpose-built for businesses selling land parcels and plots—not apartments-first PropTech or rental management tools adapted after the fact."
+        description="Layouts360 is purpose-built for businesses selling land parcels and plots, not apartments-first PropTech or rental management tools adapted after the fact."
       />
       <div className="mx-auto grid max-w-6xl gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {INDUSTRIES.map((industry) => (

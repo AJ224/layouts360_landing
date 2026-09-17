@@ -6,7 +6,7 @@ import { buildPageMetadata } from "@/lib/page-metadata"
 export const metadata: Metadata = buildPageMetadata({
   title: "Pricing",
   description:
-    "Layouts: ₹10,000 + ₹150/plot, one-time — live map and inventory. Layouts360: ₹2,000/month for freeze, booking, CRM, and collections on that map.",
+    "Pricing that grows with your inventory. Platform from ₹2,000/month. Activate plots at ₹150 or flats at ₹300 one-time. No rigid packages.",
   path: "/pricing",
   keywords: [...PAGE_KEYWORDS.pricing],
 })

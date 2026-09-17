@@ -8,7 +8,7 @@ export function SeoLandingMidCta() {
         See how Layouts360 works for your real estate company
       </h2>
       <p className="mt-2 max-w-xl text-sm leading-relaxed text-slate-600 sm:text-base">
-        Interactive maps, live inventory, CRM, and payments—built for real estate
+        Interactive maps, live inventory, CRM, and payments, built for real estate
         companies selling layouts and plots. Same platform across all solution pages.
       </p>
       <div className="mt-5 flex flex-wrap gap-3">

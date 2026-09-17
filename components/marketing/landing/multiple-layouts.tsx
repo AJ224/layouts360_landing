@@ -13,7 +13,7 @@ export function MultipleLayoutsSection() {
             <span className="text-blue-600">one system</span>
           </>
         }
-        description="Run one boutique layout today and a multi-phase township tomorrow—without switching platforms or reconciling separate files per project."
+        description="Run one boutique layout today and a multi-phase township tomorrow, without switching platforms or reconciling separate files per project."
       />
       <div className="mx-auto max-w-5xl">
         <div className="relative aspect-[21/9] overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-100 to-slate-200 shadow-lg">

@@ -8,7 +8,7 @@ const CASE_STUDY_TEMPLATES = [
     industry: "Plotted development · Tier-2 city",
     challenge: "Paper launch room, 200+ brokers, verbal holds on the same plots.",
     outcome:
-      "Live blocking, timed releases, and one inventory map for desk and partners—structured launch without spreadsheet reconciliation.",
+      "Live blocking, timed releases, and one inventory map for desk and partners. Structured launch without spreadsheet reconciliation.",
     href: "/compare/digital-launch-day-plot-sales",
   },
   {
@@ -24,7 +24,7 @@ const CASE_STUDY_TEMPLATES = [
     industry: "Boutique layout · 120 plots",
     challenge: "Version 6 of the master sheet; two double bookings in one quarter.",
     outcome:
-      "Digitized layout, imported inventory, mobile sales—team sells from one status engine.",
+      "Digitized layout, imported inventory, mobile sales. Team sells from one status engine.",
     href: "/compare/digital-plot-management-vs-manual-excel",
   },
 ] as const

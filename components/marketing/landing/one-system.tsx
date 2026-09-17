@@ -1,21 +1,29 @@
-import { DashboardImage, Section } from "@/components/marketing/landing/ui"
+import Image from "next/image"
+import { LANDING_IMAGES } from "@/lib/media"
+import { Section } from "@/components/marketing/landing/ui"
 
-const highlights = ["Live Layout Status", "Customer Management", "Team Performance Tracking"]
+const highlights = [
+  "Visualize, manage, share, book, and track in one place",
+  "Plots, flats, apartments, villas in one system",
+  "Live status for every salesperson",
+]
 
 export function OneSystemSection() {
   return (
-    <Section className="bg-slate-50 py-20">
+    <Section className="bg-white py-20">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-12 lg:flex-row">
         <div className="space-y-6 lg:w-1/2">
-          <span className="text-sm font-medium uppercase tracking-wider text-[#00C29F]">Dashboard</span>
+          <span className="text-sm font-medium uppercase tracking-wider text-[#00C29F]">
+            The transformation
+          </span>
           <h2 className="text-4xl font-bold leading-tight text-slate-900 md:text-5xl">
-            Stop the Confusion
+            Before: PDF → Excel → WhatsApp
             <br />
-            <span className="text-[#00C29F]">Get Control.</span>
+            <span className="text-[#00C29F]">After: one live inventory</span>
           </h2>
           <p className="max-w-md text-lg leading-relaxed text-slate-600">
-            Stop switching between WhatsApp, Excel, and paper. Put your whole business in one app—everyone
-            sees the same thing.
+            Stop the chain of outdated files and manual updates. Put your whole inventory and sales
+            workflow in one place. Everyone sees the same thing.
           </p>
           <ul className="space-y-3">
             {highlights.map((item) => (
@@ -28,8 +36,16 @@ export function OneSystemSection() {
             ))}
           </ul>
         </div>
-        <div className="lg:w-1/2">
-          <DashboardImage alt="Layouts360 dashboard" />
+        <div className="w-full lg:w-1/2">
+          <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-slate-200 shadow-xl">
+            <Image
+              src={LANDING_IMAGES.beforeAfter.src}
+              alt={LANDING_IMAGES.beforeAfter.alt}
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </div>
         </div>
       </div>
     </Section>

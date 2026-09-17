@@ -21,7 +21,7 @@ const faqs = [
             {
                 icon: HelpCircle,
                 question: "Is Layouts360 the same as Plotforms or floor-plan PDF sites?",
-                answer: "No. Plotforms.com and similar sites sell downloadable house floor plans and elevations as PDFs. Layouts360 is software for layout developers to manage live plot inventory, bookings, channel partners, and payments — Available / Blocked / Sold on a digital layout map. Different category: layouts360.com/compare/layouts360-vs-plotforms"
+                answer: "No. Plotforms.com and similar sites sell downloadable house floor plans and elevations as PDFs. Layouts360 is software for layout developers to manage live plot inventory, bookings, channel partners, and payments (Available / Blocked / Sold on a digital layout map). Different category: layouts360.com/compare/layouts360-vs-plotforms"
             },
             {
                 icon: UserCheck,

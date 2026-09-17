@@ -4,7 +4,7 @@ import { MapPin, Phone } from "lucide-react"
 const TRUST_ITEMS = [
   "Built for real estate companies",
   "Live inventory on every device",
-  "Layouts ₹10,000 + ₹150/plot (one-time)",
+  "Layouts ₹150/plot · ₹300/flat (one-time)",
   "Layouts360 from ₹2,000/month",
 ] as const
 

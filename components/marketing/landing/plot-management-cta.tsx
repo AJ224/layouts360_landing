@@ -17,7 +17,7 @@ export function PlotManagementSoftwareSection() {
             </h2>
             <p className="mb-6 text-lg leading-relaxed text-slate-600">
               <strong>Plot management and inventory management software</strong> with built-in CRM and booking for
-              layout developers—live maps, channel partners, and payment tracking in one platform.
+              layout developers: live maps, channel partners, and payment tracking in one platform.
             </p>
             <CheckList items={plotManagementBenefits} />
             <div className="mt-8 flex flex-wrap gap-3">

@@ -2,7 +2,7 @@ import Image from "next/image"
 import { DASHBOARD_PREVIEW } from "@/lib/media"
 import Link from "next/link"
 import type { LucideIcon } from "lucide-react"
-import { ArrowRight, Check } from "lucide-react"
+import { Check } from "lucide-react"
 import type { ReactNode } from "react"
 
 type SectionProps = {
@@ -74,12 +74,8 @@ export function TextLink({
   className?: string
 }) {
   return (
-    <Link
-      href={href}
-      className={`inline-flex items-center font-medium transition-colors group ${className}`}
-    >
+    <Link href={href} className={`font-medium transition-colors ${className}`}>
       {children}
-      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
     </Link>
   )
 }

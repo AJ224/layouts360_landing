@@ -12,7 +12,7 @@ export function ProductSuiteSection() {
             One platform for selling plots end to end
           </h2>
           <p className="mt-4 text-lg text-slate-600">
-            Inventory, maps, CRM, booking, channel partners, and reports—pick what you need today and scale without
+            Inventory, maps, CRM, booking, channel partners, and reports. Pick what you need today and scale without
             stitching tools together.
           </p>
           <Link

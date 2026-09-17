@@ -99,7 +99,7 @@ export function BlogArticle({
             See how Layouts360 works for your layout
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-slate-600 sm:text-base">
-            Interactive maps, live inventory, CRM, and payments—built for Indian
+            Interactive maps, live inventory, CRM, and payments, built for Indian
             plot developers.
           </p>
           <Link

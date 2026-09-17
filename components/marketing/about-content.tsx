@@ -18,7 +18,7 @@ export function AboutContent() {
         <section className="prose prose-slate max-w-none">
           <h2 className="text-2xl font-bold text-slate-900">What we build</h2>
           <p className="text-slate-600 leading-relaxed">
-            {COMPANY.productName} is software for real estate companies—layout developers, builders, and sales teams
+            {COMPANY.productName} is software for real estate companies: layout developers, builders, and sales teams
             selling plots, apartments, and commercial units. We replace Excel inventory, WhatsApp PDF
             updates, and paper layouts with live digital maps, booking workflows, CRM, and payment tracking.
           </p>

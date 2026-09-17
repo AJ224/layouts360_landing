@@ -13,7 +13,7 @@ import { buildPageMetadata } from "@/lib/page-metadata"
 export const metadata: Metadata = buildPageMetadata({
   title: "Blog & Software Comparisons",
   description:
-    "Guides on real estate software, CRM, accounting, and asset management—plus comparisons of Excel, WhatsApp, and paper workflows vs Layouts360.",
+    "Guides on real estate software, CRM, accounting, and asset management, plus comparisons of Excel, WhatsApp, and paper workflows vs Layouts360.",
   path: "/blog",
   keywords: [
     ...PAGE_KEYWORDS.blog,
@@ -104,7 +104,7 @@ export default function BlogIndexPage() {
                       Comparisons
                     </h2>
                     <p className="mb-6 max-w-2xl text-sm text-slate-600">
-                      Old workflow vs Layouts360—inventory, CRM, payments,
+                      Old workflow vs Layouts360: inventory, CRM, payments,
                       launches, and broker sales.
                     </p>
                     <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 xl:grid-cols-3">

@@ -20,7 +20,7 @@ export function ResponsiveShowcaseSection() {
           <span className="text-[#00C29F]">from anywhere</span>
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-lg text-slate-500">
-          At the site, in the office, or at home—your inventory is always in your pocket.
+          At the site, in the office, or at home, your inventory is always in your pocket.
         </p>
         <div className="mt-6">
           <TextLink href="/features/cross-platform">View mobile capabilities</TextLink>

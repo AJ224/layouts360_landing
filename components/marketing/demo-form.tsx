@@ -11,7 +11,7 @@ import { useToast } from "@/components/ui/use-toast"
 import { pricingConfig, type PackageId } from "@/lib/pricing-config"
 
 const PACKAGE_OPTIONS = [
-  { id: "", label: "Not sure yet — recommend for me" },
+  { id: "", label: "Not sure yet. Recommend for me" },
   ...pricingConfig.packages.map((pkg) => ({
     id: pkg.id,
     label: `${pkg.name} (${pkg.pricePrimary})`,
@@ -289,7 +289,7 @@ export default function DemoForm() {
                 name="description" 
                 value={formData.description}
                 onChange={handleInputChange}
-                placeholder="Project type, plot count, Excel/CRM pain points—or anything we should prepare for the demo..."
+                placeholder="Project type, plot count, Excel/CRM pain points, or anything we should prepare for the demo..."
                 rows={3}
                 className="px-4 py-3 text-sm border-2 border-gray-200 rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 bg-gray-50 hover:bg-white resize-none"
                 style={{ color: '#1f2937' }}

@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
 
 /** Story shapes describe real workflow patterns; named metrics are published only after customer approval. See /case-studies. */
 const STORIES = [
@@ -13,7 +12,7 @@ const STORIES = [
     industry: "Multi-phase township",
     title: "Launch weekend without double allotment",
     detail:
-      "A launch room with 200+ brokers and verbal holds on paper charts moved to timed blocking and one inventory map for desk and partners—no spreadsheet reconciliation after the weekend.",
+      "A launch room with 200+ brokers and verbal holds on paper charts moved to timed blocking and one inventory map for desk and partners. No spreadsheet reconciliation after the weekend.",
   },
   {
     industry: "Broker network · 40+ partners",
@@ -51,10 +50,9 @@ export function ProofSection() {
         <div className="mt-10 text-center">
           <Link
             href="/case-studies"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:underline"
+            className="text-sm font-semibold text-blue-600 hover:underline"
           >
             Read customer stories
-            <ArrowRight className="h-4 w-4" aria-hidden />
           </Link>
         </div>
       </div>

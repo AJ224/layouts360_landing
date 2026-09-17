@@ -4,6 +4,8 @@ import { FeatureCardsSection } from "@/components/marketing/home/feature-cards-s
 import { WhyToolsFailSection } from "@/components/marketing/home/why-tools-fail-section"
 import { WhoShouldUseSection } from "@/components/marketing/home/who-should-use-section"
 import { CustomerWorkflowSection } from "@/components/marketing/home/customer-workflow-section"
+import { PlatformInventorySection } from "@/components/marketing/home/platform-inventory-section"
+import { DigitizationPricingSection } from "@/components/marketing/home/digitization-pricing-section"
 import { HomeFaqSection } from "@/components/marketing/home/home-faq-section"
 import { ProofSection } from "@/components/marketing/home/proof-section"
 import {
@@ -19,44 +21,31 @@ import { PAGE_KEYWORDS } from "@/lib/seo-keywords"
 import { buildPageMetadata } from "@/lib/page-metadata"
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Plot Management & Inventory Management Software for Real Estate",
+  title: "Layouts360 | Live Inventory & Sales System for Plots, Flats & Apartments",
   description:
-    "Layouts360 is plot management and inventory management software for real estate companies—live layout maps, booking, CRM, and channel partner tools. Replace Excel and WhatsApp. From ₹2,000/month.",
+    "Turn your real-estate layout into a live sales system. Manage plots, flats, and apartment inventory: visualize, hold, book, and track from one platform.",
   path: "/",
   keywords: [...PAGE_KEYWORDS.home],
   titleAbsolute: true,
-  ogTitle: "Layouts360 | Plot Management & Inventory Management Software",
+  ogTitle: "Layouts360 | Live Inventory & Sales System for Real Estate",
   ogDescription:
-    "Plot management and inventory management with live layout maps, CRM, booking, and payments for real estate companies selling layouts and townships.",
+    "Interactive inventory for plots, flats, and apartments, plus CRM and sales workflow. Replace Excel and WhatsApp.",
 })
 
 export default function Page() {
   return (
     <main className="bg-white min-h-screen">
-      {/* 1. Promise */}
       <Hero />
-
-      {/* 2. Pain */}
       <SoundFamiliarSection />
-
-      {/* 3. Why status quo fails */}
-      <WhyToolsFailSection />
-
-      {/* 4. How Layouts360 works — setup, then sales journey */}
+      <PlatformInventorySection />
       <HowItWorksSection />
       <CustomerWorkflowSection />
-
-      {/* 5. Product proof — one system + real maps */}
+      <WhyToolsFailSection />
       <OneSystemSection />
       <RealLocationSection />
-
-      {/* 6. Feature cards → full features page */}
       <FeatureCardsSection />
-
-      {/* 7. Who it's for */}
       <WhoShouldUseSection />
-
-      {/* 8. Proof → FAQ → CTA */}
+      <DigitizationPricingSection />
       <ProofSection />
       <HomeFaqSection />
       <CtaSectionNew />

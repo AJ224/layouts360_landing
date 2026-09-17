@@ -5,7 +5,7 @@ import { buildPageMetadata } from "@/lib/page-metadata"
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Comparisons",
-  description: "Software comparisons for Indian plot developers — see the blog for guides and side-by-side reviews.",
+  description: "Software comparisons for Indian plot developers. See the blog for guides and side-by-side reviews.",
   path: "/blog",
   robots: NOINDEX_FOLLOW_ROBOTS,
 })

@@ -66,7 +66,7 @@ export function CoreCapabilitiesSection() {
         eyebrow="Capabilities"
         eyebrowClassName="bg-blue-50 text-blue-600"
         title="What Layouts360 covers"
-        description="The core stack for layout sales—plot management, inventory management, booking, CRM, payments, and partners."
+        description="The core stack for layout sales: plot management, inventory management, booking, CRM, payments, and partners."
       />
       <div className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {HIGHLIGHTS.map((item) => (

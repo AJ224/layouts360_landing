@@ -5,10 +5,10 @@ export function SoundFamiliarSection() {
   return (
     <Section id="problems">
       <SectionHeader
-        eyebrow="Problems real estate companies face"
+        eyebrow="The problem"
         eyebrowClassName="bg-rose-100 text-rose-600"
-        title="Selling plots without plot management software gets expensive"
-        description="Most real estate companies don't lose sales to competitors—they lose them to disorganized inventory, slow follow-ups, and double bookings."
+        title="Your inventory shouldn't live in 5 different places"
+        description="Your team is constantly juggling static PDFs, Excel sheets, WhatsApp updates, and manual status changes. When inventory moves, someone has to update everything again. Layouts360 brings it together."
       />
       <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
         {painPoints.map((card) => (

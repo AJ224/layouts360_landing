@@ -1,75 +1,49 @@
-import type { LucideIcon } from "lucide-react"
-import {
-  BadgeCheck,
-  CalendarCheck2,
-  FileSignature,
-  MapPin,
-  MessageSquareText,
-  Wallet2,
-} from "lucide-react"
+import Image from "next/image"
+import { LANDING_IMAGES } from "@/lib/media"
 import { Section, SectionHeader } from "@/components/marketing/landing/ui"
 
-interface WorkflowStep {
-  icon: LucideIcon
-  title: string
-  description: string
-}
-
-const WORKFLOW: WorkflowStep[] = [
-  {
-    icon: MessageSquareText,
-    title: "Enquiry captured",
-    description: "Portal, walk-in, or partner leads land in CRM with plot interest recorded from the first contact.",
-  },
-  {
-    icon: MapPin,
-    title: "Site visit scheduled",
-    description: "Visit is logged against real plots shown, with feedback and next steps tracked—not left to memory.",
-  },
-  {
-    icon: CalendarCheck2,
-    title: "Plot blocked or tokened",
-    description: "A timed hold reserves the plot on the live layout so no one else can book it during the decision window.",
-  },
-  {
-    icon: BadgeCheck,
-    title: "Booking confirmed",
-    description: "Hold converts to a confirmed booking; plot status updates to Booked for every viewer instantly.",
-  },
-  {
-    icon: Wallet2,
-    title: "Payments & installments tracked",
-    description: "Token, milestone, and installment payments are recorded against the booking with tax support where applicable.",
-  },
-  {
-    icon: FileSignature,
-    title: "Documentation & handover",
-    description: "Allotment letters, agreements, and receipts stay attached to the plot record through registration.",
-  },
-]
+const QUESTIONS = [
+  "Is Plot 247 available?",
+  "Which flats are available on the 8th floor?",
+  "Did someone already hold this unit?",
+  "Send me the latest Excel.",
+] as const
 
 export function CustomerWorkflowSection() {
   return (
     <Section className="bg-slate-50 py-20">
       <SectionHeader
-        eyebrow="Customer workflow"
+        eyebrow="One source of truth"
         eyebrowClassName="bg-emerald-100 text-emerald-700"
-        title="From first enquiry to handover, on one plot record"
-        description="Every step below updates the same plot and customer record—so sales, finance, and management always see the same status."
+        title="Give your sales team one live inventory"
+        description="No more chasing status in chat or sheets. Everyone sees the same availability, including plots, floors, and flats."
       />
-      <div className="mx-auto max-w-6xl">
-        <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {WORKFLOW.map((step, index) => (
-            <li key={step.title} className="relative rounded-2xl border border-slate-200 bg-white p-6">
-              <span className="absolute -top-3 -left-3 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-600 text-sm font-bold text-white">
-                {index + 1}
-              </span>
-              <step.icon className="h-6 w-6 text-emerald-700" aria-hidden />
-              <h3 className="mt-3 text-base font-bold text-slate-900">{step.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{step.description}</p>
-            </li>
-          ))}
-        </ol>
+      <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2">
+        <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-slate-200 shadow-lg">
+          <Image
+            src={LANDING_IMAGES.salesWalkthrough.src}
+            alt={LANDING_IMAGES.salesWalkthrough.alt}
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
+        </div>
+        <div>
+          <p className="mb-6 text-sm font-semibold uppercase tracking-wide text-slate-500">No more</p>
+          <ul className="space-y-3">
+            {QUESTIONS.map((q) => (
+              <li
+                key={q}
+                className="rounded-2xl border border-slate-200 bg-white px-6 py-4 text-base font-medium text-slate-700 shadow-sm"
+              >
+                “{q}”
+              </li>
+            ))}
+          </ul>
+          <p className="mt-8 text-lg font-semibold text-slate-900">
+            Your team sees the <span className="text-emerald-700">same live inventory</span>.
+          </p>
+        </div>
       </div>
     </Section>
   )
