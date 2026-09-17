@@ -215,17 +215,6 @@ export const pricingConfig = {
   /** Usage-based pricing page */
   inventoryPresets: [50, 100, 500, 1000, 5000] as const,
   enterpriseInventoryThreshold: 5000,
-  scenarios: [
-    { id: "small", label: "Small project", units: 100, blurb: "A single layout or tower wing" },
-    { id: "growing", label: "Growing project", units: 500, blurb: "Multi-phase or mid-size apartment stock", recommended: true },
-    { id: "large", label: "Large portfolio", units: 5000, blurb: "Multiple projects or a large inventory book" },
-  ] as const,
-  includedCapabilities: [
-    { group: "Inventory", items: ["Live interactive maps", "Plots and apartment units", "Availability status in real time", "Shareable customer links"] },
-    { group: "Sales", items: ["Freeze and booking", "CRM on each unit", "Site visits and follow-ups", "Channel partner access"] },
-    { group: "Money", items: ["Payment tracking", "Installment dues", "Owner and partner ledger", "Reports and dashboards"] },
-    { group: "Team", items: ["Roles and permissions", "Multi-user access", "Lead capture from ads", "Support and product updates"] },
-  ] as const,
 } as const
 
 export type InventoryUnitType = "plot" | "flat"

@@ -1,16 +1,58 @@
 import Link from "next/link"
-import { ArrowRight, Check } from "lucide-react"
+import type { LucideIcon } from "lucide-react"
+import {
+  ArrowRight,
+  BarChart3,
+  Building2,
+  CalendarClock,
+  Handshake,
+  LifeBuoy,
+  Link2,
+  Map,
+  MapPin,
+  Megaphone,
+  RefreshCw,
+  Scale,
+  Shield,
+  Snowflake,
+  Users,
+  UsersRound,
+  Wallet,
+} from "lucide-react"
 import Header from "@/components/marketing/header"
 import Footer from "@/components/marketing/footer"
 import UsageCalculator from "@/components/pricing/usage-calculator"
 import { Button } from "@/components/ui/button"
 import { COMPANY } from "@/lib/company"
 import {
-  estimateUsagePricing,
   formatInr,
   pricingConfig,
   unitActivationRate,
 } from "@/lib/pricing-config"
+
+type IncludedFeature = {
+  icon: LucideIcon
+  label: string
+}
+
+const INCLUDED_FEATURES: IncludedFeature[] = [
+  { icon: Map, label: "Live interactive maps" },
+  { icon: Building2, label: "Plots and apartment units" },
+  { icon: RefreshCw, label: "Real-time availability" },
+  { icon: Link2, label: "Shareable customer links" },
+  { icon: Snowflake, label: "Freeze and booking" },
+  { icon: Users, label: "CRM on each unit" },
+  { icon: MapPin, label: "Site visits and follow-ups" },
+  { icon: Handshake, label: "Channel partner access" },
+  { icon: Wallet, label: "Payment tracking" },
+  { icon: CalendarClock, label: "Installment dues" },
+  { icon: Scale, label: "Owner and partner ledger" },
+  { icon: BarChart3, label: "Reports and dashboards" },
+  { icon: Shield, label: "Roles and permissions" },
+  { icon: UsersRound, label: "Multi-user access" },
+  { icon: Megaphone, label: "Lead capture from ads" },
+  { icon: LifeBuoy, label: "Support and product updates" },
+]
 
 const STEPS = [
   {
@@ -56,72 +98,6 @@ const OBJECTIONS = [
     body: "Begin with one layout or tower. Expand when the team is ready.",
   },
 ] as const
-
-function ScenarioCard({
-  label,
-  units,
-  blurb,
-  recommended,
-  unitType,
-}: Readonly<{
-  label: string
-  units: number
-  blurb: string
-  recommended?: boolean
-  unitType: "plot" | "flat"
-}>) {
-  const estimate = estimateUsagePricing(units, unitType, "monthly")
-  const unitWord = unitType === "flat" ? "flats" : "plots"
-
-  return (
-    <article
-      className={[
-        "flex h-full flex-col rounded-3xl border p-6 sm:p-7",
-        recommended
-          ? "border-[#00C29F]/35 bg-white shadow-[0_20px_50px_-30px_rgba(0,194,159,0.45)]"
-          : "border-[#E8E2D9] bg-[#FBF9F6]",
-      ].join(" ")}
-    >
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-slate-400">
-            Example pricing
-          </p>
-          <h3 className="mt-2 text-xl font-semibold tracking-tight text-[#0B1E3B]">{label}</h3>
-          <p className="mt-1 text-sm text-slate-500">{blurb}</p>
-        </div>
-        {recommended ? (
-          <span className="shrink-0 rounded-full bg-[#00C29F]/10 px-3 py-1 text-[11px] font-medium text-[#0B7A6A]">
-            Common starting point
-          </span>
-        ) : null}
-      </div>
-
-      <p className="mt-6 text-sm text-slate-500">
-        <span className="font-semibold text-[#0B1E3B]">{units.toLocaleString("en-IN")}</span> {unitWord}
-      </p>
-
-      <dl className="mt-5 space-y-3 border-t border-[#E8E2D9] pt-5 text-sm">
-        <div className="flex items-baseline justify-between gap-3">
-          <dt className="text-slate-500">Visualization · one-time</dt>
-          <dd className="font-semibold text-[#0B1E3B]">{formatInr(estimate.activationOneTime)}</dd>
-        </div>
-        <div className="flex items-baseline justify-between gap-3">
-          <dt className="text-slate-500">Platform · monthly</dt>
-          <dd className="font-semibold text-[#0B1E3B]">{formatInr(estimate.platformMonthly)}</dd>
-        </div>
-        <div className="flex items-baseline justify-between gap-3 border-t border-dashed border-[#E8E2D9] pt-3">
-          <dt className="font-medium text-[#0B1E3B]">To get started</dt>
-          <dd className="text-right">
-            <span className="block font-semibold text-[#00A88E]">
-              {formatInr(estimate.activationOneTime)} + {formatInr(estimate.platformMonthly)}/mo
-            </span>
-          </dd>
-        </div>
-      </dl>
-    </article>
-  )
-}
 
 export default function PricingPageContent() {
   const plotRate = unitActivationRate("plot")
@@ -250,38 +226,8 @@ export default function PricingPageContent() {
         </div>
       </section>
 
-      {/* Example scenarios */}
-      <section className="border-y border-[#E8E2D9] bg-white px-4 py-20 sm:px-6 sm:py-24">
-        <div className="mx-auto max-w-5xl">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-slate-400">
-              Anchored to real project sizes
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-              Example pricing, not locked packages
-            </h2>
-            <p className="mt-3 text-base text-slate-500">
-              Figures below use plot activation at {formatInr(plotRate)}. Switch to flats in the calculator for{" "}
-              {formatInr(flatRate)} per unit.
-            </p>
-          </div>
-          <div className="mt-12 grid gap-4 md:grid-cols-3">
-            {pricingConfig.scenarios.map((scenario) => (
-              <ScenarioCard
-                key={scenario.id}
-                label={scenario.label}
-                units={scenario.units}
-                blurb={scenario.blurb}
-                recommended={"recommended" in scenario ? scenario.recommended : false}
-                unitType="plot"
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Value journey */}
-      <section className="px-4 py-20 sm:px-6 sm:py-24">
+      <section className="border-t border-[#E8E2D9] px-4 py-20 sm:px-6 sm:py-24">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
             Built for the way real-estate inventory actually changes.
@@ -308,36 +254,41 @@ export default function PricingPageContent() {
       </section>
 
       {/* What's included */}
-      <section className="border-y border-[#E8E2D9] bg-white px-4 py-20 sm:px-6 sm:py-24">
+      <section className="border-y border-[#E8E2D9] bg-white px-4 py-16 sm:px-6 sm:py-20">
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-slate-400">
-            What's included
-          </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-            The platform. Not a feature maze.
-          </h2>
-          <p className="mt-3 text-base text-slate-500">
-            Core capabilities come with platform access. We don't invent tiers just to hide tools.
+              What&apos;s included
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+              The platform. Not a feature maze.
+            </h2>
+            <p className="mt-3 text-base text-slate-500">
+              Core capabilities come with platform access. We don&apos;t invent tiers just to hide tools.
             </p>
           </div>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {pricingConfig.includedCapabilities.map((group) => (
-              <div key={group.group}>
-                <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-[#00A88E]">
-                  {group.group}
-                </h3>
-                <ul className="mt-4 space-y-3">
-                  {group.items.map((item) => (
-                    <li key={item} className="flex items-start gap-2.5 text-sm text-slate-600">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#00C29F]" strokeWidth={2.5} aria-hidden />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+
+          <ul className="mt-10 grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-4">
+            {INCLUDED_FEATURES.map((feature) => {
+              const Icon = feature.icon
+              return (
+                <li key={feature.label}>
+                  <article className="group flex h-full min-h-[7.5rem] flex-col justify-between rounded-2xl border border-[#E8E2D9] bg-[#FBF9F6] p-4 transition-all duration-200 hover:border-[#00C29F]/50 hover:bg-white hover:shadow-[0_0_0_1px_rgba(0,194,159,0.12),0_12px_28px_-18px_rgba(0,194,159,0.45)] sm:min-h-[8.25rem] sm:p-5">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#00C29F]/10 transition-colors group-hover:bg-[#00C29F]/15">
+                      <Icon
+                        className="h-5 w-5 text-[#00C29F]"
+                        strokeWidth={1.75}
+                        aria-hidden
+                      />
+                    </span>
+                    <p className="mt-4 text-sm font-semibold leading-snug text-[#0B1E3B] transition-colors group-hover:text-[#0B7A6A] sm:text-[15px]">
+                      {feature.label}
+                    </p>
+                  </article>
+                </li>
+              )
+            })}
+          </ul>
         </div>
       </section>
 
