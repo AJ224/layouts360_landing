@@ -1,23 +1,26 @@
 import Image from "next/image"
 import { LANDING_IMAGES } from "@/lib/media"
 import { TextLink } from "@/components/marketing/landing/ui"
+import type { HomeContent } from "@/lib/i18n/home-content"
 
-export function RealLocationSection() {
+type RealLocationSectionProps = {
+  content: HomeContent["showUnit"]
+}
+
+export function RealLocationSection({ content }: RealLocationSectionProps) {
   return (
     <section className="overflow-hidden bg-slate-50 py-20 sm:py-24">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-            Show the unit.
-            <br />
-            <span className="text-[#00C29F]">Not just a spreadsheet row.</span>
+            {content.headlineBefore}{" "}
+            <span className="text-[#00C29F]">{content.headlineAccent}</span>
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-slate-600">
-            Interactive layouts for plots and clear building, floor, and unit views for apartments, so buyers
-            and brokers see what&apos;s actually available.
+            {content.support}
           </p>
           <div className="mt-6">
-            <TextLink href="/features">Explore platform features</TextLink>
+            <TextLink href="/features">{content.link}</TextLink>
           </div>
         </div>
 

@@ -95,4 +95,4 @@ Real estate companies developing and selling plots or layouts — in India or ot
 
 ---
 
-Last updated: 2026-09-07 · [llms.txt standard](https://llmstxt.org/)
+Last updated: 2026-09-18 · [llms.txt standard](https://llmstxt.org/)

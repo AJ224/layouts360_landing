@@ -17,39 +17,32 @@ import {
 export type PainPoint = {
   icon: LucideIcon
   title: string
-  description: string
 }
 
 export const painPoints: PainPoint[] = [
   {
     icon: FileText,
-    title: "Static PDF layouts",
-    description: "Printed or forwarded PDFs go stale the moment inventory changes.",
+    title: "Static PDF layouts go stale the moment they're forwarded",
   },
   {
     icon: FileSpreadsheet,
-    title: "Excel inventory sheets",
-    description: 'Multiple versions, no map, and constant "which file is latest?" chaos.',
+    title: "Excel has no live sync — two agents, two versions",
   },
   {
     icon: MessageCircle,
-    title: "WhatsApp availability updates",
-    description: "Status lives in chat threads: easy to miss, hard to trust.",
+    title: "WhatsApp status is easy to miss, impossible to audit",
   },
   {
     icon: RefreshCw,
-    title: "Manual booking updates",
-    description: "Someone has to update every file again whenever a unit moves.",
+    title: "One missed update, one unit sold twice",
   },
   {
     icon: Search,
-    title: "Hunting for units",
-    description: "Finding the right plot, floor, or flat means digging through files.",
+    title: "Finding a unit means digging through files",
   },
   {
     icon: Users,
-    title: "Shared inventory risk",
-    description: "Multiple salespeople on the same stock means double holds and confusion.",
+    title: "Shared stock, no locking — double holds",
   },
 ]
 
@@ -61,11 +54,11 @@ export const plotManagementBenefits = [
 ]
 
 export const howItWorksSteps = [
-  { icon: Search, title: "Find", desc: "Search the exact plot or apartment the customer wants" },
-  { icon: Eye, title: "Show", desc: "Show the location or unit visually" },
-  { icon: Snowflake, title: "Hold", desc: "Reserve inventory while the customer decides" },
-  { icon: BadgeCheck, title: "Book", desc: "Record the booking and customer information" },
-  { icon: Trophy, title: "Track", desc: "Follow the transaction until completion" },
+  { icon: Search, title: "Find", desc: "the exact plot or flat" },
+  { icon: Eye, title: "Show", desc: "location or unit, visually" },
+  { icon: Snowflake, title: "Hold", desc: "reserve while the customer decides" },
+  { icon: BadgeCheck, title: "Book", desc: "record the booking" },
+  { icon: Trophy, title: "Track", desc: "follow it to close" },
 ] as const
 
 export const managementStats = [

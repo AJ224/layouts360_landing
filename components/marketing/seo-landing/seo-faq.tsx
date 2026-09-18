@@ -10,6 +10,8 @@ import type { SeoFaqItem } from "@/types/seo-landing"
 
 interface SeoFaqProps {
   items: SeoFaqItem[]
+  heading?: string
+  subhead?: string
 }
 
 function FaqColumn({
@@ -41,7 +43,11 @@ function FaqColumn({
   )
 }
 
-export function SeoFaq({ items }: SeoFaqProps) {
+export function SeoFaq({
+  items,
+  heading = "Frequently asked questions",
+  subhead = "Tap any question to expand. Answers stay on this page for search and reference.",
+}: SeoFaqProps) {
   const splitAt = Math.ceil(items.length / 2)
   const leftColumn = items.slice(0, splitAt)
   const rightColumn = items.slice(splitAt)
@@ -50,11 +56,9 @@ export function SeoFaq({ items }: SeoFaqProps) {
     <section className="border-t border-slate-200 bg-slate-50 py-12 sm:py-14">
       <div className="container mx-auto max-w-6xl px-4 sm:px-6">
         <h2 className="mb-2 text-center text-2xl font-bold text-slate-900 sm:text-3xl">
-          Frequently asked questions
+          {heading}
         </h2>
-        <p className="mb-8 text-center text-sm text-slate-600">
-          Tap any question to expand. Answers stay on this page for search and reference.
-        </p>
+        <p className="mb-8 text-center text-sm text-slate-600">{subhead}</p>
         <div className="grid gap-6 md:grid-cols-2 md:gap-8 lg:gap-10">
           <FaqColumn columnItems={leftColumn} idOffset={0} />
           <FaqColumn columnItems={rightColumn} idOffset={splitAt} />

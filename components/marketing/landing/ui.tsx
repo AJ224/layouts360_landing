@@ -83,7 +83,7 @@ export function TextLink({
 type IconCardProps = {
   icon: LucideIcon
   title: string
-  description: string
+  description?: string
   iconClassName?: string
   iconWrapClassName?: string
 }
@@ -102,8 +102,10 @@ export function IconCard({
       >
         <Icon className={`h-6 w-6 ${iconClassName}`} />
       </div>
-      <h3 className="mb-3 text-lg font-bold text-slate-900">{title}</h3>
-      <p className="max-w-xs text-sm leading-relaxed text-slate-500">{description}</p>
+      <h3 className="text-lg font-bold leading-snug text-slate-900">{title}</h3>
+      {description ? (
+        <p className="mt-3 max-w-xs text-sm leading-relaxed text-slate-500">{description}</p>
+      ) : null}
     </article>
   )
 }
