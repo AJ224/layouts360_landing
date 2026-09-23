@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useEffect, useState } from "react"
+import { useEffect, useId, useState } from "react"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { DEFAULT_LOCALE, LOCALE_COOKIE, parseLocale, type Locale } from "@/lib/i18n/locale"
@@ -24,7 +24,9 @@ function readCookieLocale(): Locale {
 export default function Header({ theme = "light", locale: localeProp }: HeaderProps) {
   const isDark = theme === "dark"
   const [locale, setLocale] = useState<Locale>(localeProp ?? DEFAULT_LOCALE)
+  const [menuOpen, setMenuOpen] = useState(false)
   const nav = getNavCopy(locale)
+  const menuId = useId()
 
   useEffect(() => {
     if (localeProp) {
@@ -34,16 +36,26 @@ export default function Header({ theme = "light", locale: localeProp }: HeaderPr
     setLocale(readCookieLocale())
   }, [localeProp])
 
+  useEffect(() => {
+    if (!menuOpen) return
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false)
+    }
+    document.addEventListener("keydown", onKeyDown)
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+    return () => {
+      document.removeEventListener("keydown", onKeyDown)
+      document.body.style.overflow = previousOverflow
+    }
+  }, [menuOpen])
+
+  function closeMenu() {
+    setMenuOpen(false)
+  }
+
   return (
     <header className="relative z-50 w-full pt-4 sm:pt-6 md:pt-8">
-      <input
-        id="mobile-nav-toggle"
-        type="checkbox"
-        className="peer sr-only"
-        aria-hidden
-        tabIndex={-1}
-      />
-
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div
           className={cn(
@@ -51,7 +63,7 @@ export default function Header({ theme = "light", locale: localeProp }: HeaderPr
             isDark ? "border-white/10 bg-white/10 text-white" : "border-gray-200 bg-white/80 text-gray-900",
           )}
         >
-          <Link href="/" className="flex items-center gap-2 sm:gap-3">
+          <Link href="/" className="flex items-center gap-2 sm:gap-3" onClick={closeMenu}>
             <Image
               src="/logo.png"
               alt="Layouts360 logo"
@@ -91,46 +103,61 @@ export default function Header({ theme = "light", locale: localeProp }: HeaderPr
 
           <div className="flex items-center gap-2 md:hidden">
             <LanguageSwitcher locale={locale} theme={theme} label={nav.language} />
-            <label
-              htmlFor="mobile-nav-toggle"
-              className={cn("cursor-pointer p-1", isDark ? "text-white" : "text-gray-900")}
-              aria-label={nav.openMenu}
+            <button
+              type="button"
+              className={cn("rounded-md p-1", isDark ? "text-white" : "text-gray-900")}
+              aria-expanded={menuOpen}
+              aria-controls={menuId}
+              aria-label={menuOpen ? nav.closeMenu : nav.openMenu}
+              onClick={() => setMenuOpen((open) => !open)}
             >
-              <Menu className="h-6 w-6" />
-            </label>
+              {menuOpen ? <X className="h-6 w-6" aria-hidden /> : <Menu className="h-6 w-6" aria-hidden />}
+            </button>
           </div>
         </div>
       </div>
 
-      <label
-        htmlFor="mobile-nav-toggle"
-        className="fixed inset-0 z-[60] hidden cursor-pointer bg-black/60 backdrop-blur-sm peer-checked:block md:hidden"
-        aria-label={nav.closeMenu}
-      />
+      {menuOpen ? (
+        <button
+          type="button"
+          className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm md:hidden"
+          aria-label={nav.closeMenu}
+          onClick={closeMenu}
+        />
+      ) : null}
 
       <aside
+        id={menuId}
+        hidden={!menuOpen}
         className={cn(
-          "fixed inset-y-0 right-0 z-[70] flex w-[80%] max-w-sm translate-x-full flex-col bg-white shadow-2xl transition-transform duration-300 peer-checked:translate-x-0 md:hidden",
+          "fixed inset-y-0 right-0 z-[70] flex w-[80%] max-w-sm flex-col bg-white shadow-2xl md:hidden",
+          menuOpen ? "flex" : "hidden",
         )}
         aria-label={nav.mobileNav}
       >
         <div className="flex items-center justify-between border-b p-6">
-          <Link href="/" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3" onClick={closeMenu}>
             <Image src="/logo.png" alt="Layouts360 logo" width={32} height={32} className="rounded-lg" />
             <span className="text-lg font-semibold text-gray-900">Layouts360</span>
           </Link>
-          <label
-            htmlFor="mobile-nav-toggle"
-            className="cursor-pointer rounded-full p-2 text-gray-500 hover:bg-gray-100"
+          <button
+            type="button"
+            className="rounded-full p-2 text-gray-500 hover:bg-gray-100"
             aria-label={nav.closeMenu}
+            onClick={closeMenu}
           >
-            <X className="h-6 w-6" />
-          </label>
+            <X className="h-6 w-6" aria-hidden />
+          </button>
         </div>
 
         <nav className="flex flex-1 flex-col gap-6 overflow-y-auto px-6 py-6 text-lg font-medium text-gray-600">
           {nav.links.map((link) => (
-            <Link key={link.href} href={link.href} className="transition-colors hover:text-[#FFB800]">
+            <Link
+              key={link.href}
+              href={link.href}
+              className="transition-colors hover:text-[#FFB800]"
+              onClick={closeMenu}
+            >
               {link.label}
             </Link>
           ))}
@@ -140,6 +167,7 @@ export default function Header({ theme = "light", locale: localeProp }: HeaderPr
           <Link
             href="/contact#demo-form"
             className="flex h-12 w-full items-center justify-center rounded-full bg-[#FFB800] text-lg font-bold text-black transition-colors hover:bg-[#E5A600]"
+            onClick={closeMenu}
           >
             {nav.getStarted}
           </Link>

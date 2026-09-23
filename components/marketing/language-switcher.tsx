@@ -39,14 +39,14 @@ export function LanguageSwitcher({
   }
 
   return (
-    <div
-      aria-label={label}
+    <fieldset
       className={cn(
-        "inline-flex items-center rounded-full border p-0.5 text-xs font-semibold",
+        "m-0 inline-flex min-w-0 items-center rounded-full border p-0.5 text-xs font-semibold",
         isDark ? "border-white/20 bg-white/10" : "border-gray-200 bg-gray-50",
         className,
       )}
     >
+      <legend className="sr-only">{label}</legend>
       <button
         type="button"
         onClick={() => switchTo("en")}
@@ -63,6 +63,6 @@ export function LanguageSwitcher({
       >
         हिं
       </button>
-    </div>
+    </fieldset>
   )
 }

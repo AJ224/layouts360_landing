@@ -41,14 +41,14 @@ export default function Hero({ content, locale }: HeroProps) {
 
           <div className="flex flex-col items-center justify-center gap-4 pt-2 sm:flex-row">
             <MarketingButtonLink href="/contact" variant="accent">
-              {content.primaryCta} <ArrowRight className="ml-2 h-4 w-4" />
+              {content.primaryCta} <ArrowRight className="ml-2 h-4 w-4" aria-hidden />
             </MarketingButtonLink>
             <MarketingButtonLink
               href="/#how-it-works"
               variant="outline"
               className="border-white/25 bg-white/10 text-white hover:bg-white/20"
             >
-              <PlayCircle className="mr-2 h-4 w-4" /> {content.secondaryCta}
+              <PlayCircle className="mr-2 h-4 w-4" aria-hidden /> {content.secondaryCta}
             </MarketingButtonLink>
           </div>
 

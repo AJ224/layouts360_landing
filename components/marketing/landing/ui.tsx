@@ -55,7 +55,7 @@ export function CheckList({ items }: { items: string[] }) {
       {items.map((item) => (
         <li key={item} className="flex items-start gap-3 text-slate-700">
           <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-100">
-            <Check className="h-3 w-3 text-emerald-600" strokeWidth={3} />
+            <Check className="h-3 w-3 text-emerald-600" strokeWidth={3} aria-hidden />
           </span>
           {item}
         </li>
@@ -100,7 +100,7 @@ export function IconCard({
       <div
         className={`mb-6 flex h-14 w-14 items-center justify-center rounded-full ${iconWrapClassName}`}
       >
-        <Icon className={`h-6 w-6 ${iconClassName}`} />
+        <Icon className={`h-6 w-6 ${iconClassName}`} aria-hidden />
       </div>
       <h3 className="text-lg font-bold leading-snug text-slate-900">{title}</h3>
       {description ? (

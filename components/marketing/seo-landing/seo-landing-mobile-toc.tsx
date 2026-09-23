@@ -23,7 +23,7 @@ export function SeoLandingMobileToc({ headings }: SeoLandingMobileTocProps) {
         aria-expanded={open}
       >
         <span className="inline-flex items-center gap-2">
-          <List className="h-4 w-4 text-teal-600" />
+          <List className="h-4 w-4 text-teal-600" aria-hidden />
           Jump to section
         </span>
         <span className="text-slate-500">{open ? "Hide" : "Show"}</span>

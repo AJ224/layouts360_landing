@@ -93,6 +93,7 @@ export default function RootLayout({
   return (
     <html lang="en-IN">
       <head>
+        <link rel="describedby" href={`${SITE_URL}/llms.txt`} />
         <OrganizationWebSiteSchema />
       </head>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>

@@ -38,7 +38,7 @@ function AccordionTrigger({
         {...props}
       >
         {children}
-        <ChevronDown className="h-5 w-5 shrink-0 text-slate-500 transition-transform duration-200" />
+        <ChevronDown className="h-5 w-5 shrink-0 text-slate-500 transition-transform duration-200" aria-hidden />
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   )
