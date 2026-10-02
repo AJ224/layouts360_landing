@@ -28,34 +28,24 @@ export const SEO_SOLUTION_LINKS = dedupeByHref([
 /** Compact, deduplicated groups for site footer (not every landing URL). */
 export const FOOTER_SOLUTION_GROUPS = [
   {
-    title: "CRM",
+    title: "Core",
     links: [
-      { href: "/real-estate-crm-software", label: "Real Estate CRM" },
-      { href: "/best-real-estate-crm-software", label: "Best CRM (India)" },
-      { href: "/affordable-real-estate-crm", label: "Affordable CRM" },
-    ],
-  },
-  {
-    title: "Plot management",
-    links: [
+      { href: "/real-estate-crm-software", label: "CRM" },
       { href: "/real-estate-plot-management-software", label: "Plot Management" },
-      { href: "/online-plot-booking-software", label: "Plot Booking" },
       { href: "/real-estate-inventory-management-software", label: "Inventory Management" },
     ],
   },
   {
     title: "Sales & ops",
     links: [
+      { href: "/online-plot-booking-software", label: "Plot Booking" },
       { href: "/real-estate-channel-partner-management-software", label: "Channel Partners" },
       { href: "/real-estate-accounting-software", label: "Payment Tracking" },
-      { href: "/360-management-software", label: "360 Management" },
     ],
   },
 ] as const
 
 export const FOOTER_COMPANY_LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/solutions", label: "Solutions" },
   { href: "/pricing", label: "Pricing" },
   { href: "/about", label: "About" },
   { href: "/case-studies", label: "Case Studies" },
@@ -63,6 +53,4 @@ export const FOOTER_COMPANY_LINKS = [
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
   { href: "/tools", label: "Tools" },
-  { href: "/privacy", label: "Privacy" },
-  { href: "/terms", label: "Terms" },
 ] as const
