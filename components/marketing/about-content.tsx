@@ -46,7 +46,9 @@ export function AboutContent() {
             <li className="flex items-start gap-3">
               <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-[#FFB800]" aria-hidden />
               <span>
-                <strong className="text-slate-900">{COMPANY.legalName}</strong>
+                <strong className="text-slate-900">{COMPANY.productName}</strong>
+                <br />
+                {COMPANY.legalName}
                 <br />
                 {COMPANY.headquarters} {COMPANY.postalCode}
               </span>

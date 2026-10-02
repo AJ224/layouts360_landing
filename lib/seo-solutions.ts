@@ -63,4 +63,6 @@ export const FOOTER_COMPANY_LINKS = [
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
   { href: "/tools", label: "Tools" },
+  { href: "/privacy", label: "Privacy" },
+  { href: "/terms", label: "Terms" },
 ] as const

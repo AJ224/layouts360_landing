@@ -80,6 +80,8 @@ const STATIC_PAGES: SitemapPageConfig[] = [
   page("/blog", LAST_MOD.baseline, 0.7, "weekly"),
   page("/contact", LAST_MOD.baseline, 0.7),
   page("/faq", LAST_MOD.baseline, 0.6),
+  page("/privacy", new Date("2026-10-02"), 0.4),
+  page("/terms", new Date("2026-10-02"), 0.4),
   page("/tools", new Date("2026-08-12"), 0.5),
   page("/tools/layout-calculator", new Date("2026-08-12"), 0.4),
   page("/tools/land-converter", new Date("2026-08-12"), 0.4),

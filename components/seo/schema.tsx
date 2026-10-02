@@ -194,6 +194,7 @@ export function OrganizationWebSiteSchema() {
             {
                 "@type": "Organization",
                 name: "Layouts360",
+                legalName: "OriginGrey Private Limited",
                 url: SITE_URL,
                 logo: absoluteUrl("/logo.png"),
                 contactPoint: {

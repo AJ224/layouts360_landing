@@ -2,7 +2,8 @@
 
 export const COMPANY = {
   productName: "Layouts360",
-  legalName: "Layouts360",
+  /** Registered company that operates the Layouts360 brand */
+  legalName: "OriginGrey Private Limited",
   tagline: "Real estate software for layout developers in India",
   headquarters: "Pune, Maharashtra, India",
   postalCode: "411014",
@@ -14,3 +15,6 @@ export const COMPANY = {
   foundedFocus:
     "Purpose-built plot and layout sales software—live digital maps, inventory, CRM, booking, and payment tracking.",
 } as const
+
+/** Effective date shown on Privacy Policy and Terms pages */
+export const LEGAL_EFFECTIVE_DATE = "2 October 2026" as const
