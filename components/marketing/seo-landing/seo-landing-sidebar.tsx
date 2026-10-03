@@ -99,12 +99,6 @@ export function SeoLandingSidebar({
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </Link>
-        <Link
-          href="/pricing"
-          className="mt-2 block text-center text-sm font-medium text-teal-800 hover:underline"
-        >
-          View pricing
-        </Link>
       </div>
     </aside>
   )

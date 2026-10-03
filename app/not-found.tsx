@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 
 export const metadata: Metadata = {
   title: "Page not found",
-  description: "This page does not exist. Browse Layouts360 solutions, pricing, blog, or contact us for a demo.",
+  description: "This page does not exist. Browse Layouts360 solutions, blog, or contact us for a demo.",
   robots: { index: false, follow: true },
 }
 
@@ -28,9 +28,6 @@ export default function NotFound() {
           </Button>
           <Button asChild variant="outline" className="rounded-full">
             <Link href="/solutions">Solutions</Link>
-          </Button>
-          <Button asChild variant="outline" className="rounded-full">
-            <Link href="/pricing">Pricing</Link>
           </Button>
           <Button asChild variant="outline" className="rounded-full">
             <Link href="/contact">Contact</Link>

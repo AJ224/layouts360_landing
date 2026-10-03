@@ -76,7 +76,6 @@ const STATIC_PAGES: SitemapPageConfig[] = [
   page("/solutions", LAST_MOD.mdxLandings, 0.85),
   ...TRUST_PAGES.map((p) => page(p, LAST_MOD.trustPages, 0.7)),
   page("/features", LAST_MOD.baseline, 0.8),
-  page("/pricing", LAST_MOD.baseline, 0.8),
   page("/blog", LAST_MOD.baseline, 0.7, "weekly"),
   page("/contact", LAST_MOD.baseline, 0.7),
   page("/faq", LAST_MOD.baseline, 0.6),

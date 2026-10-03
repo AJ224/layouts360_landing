@@ -14,7 +14,7 @@ type HeroProps = {
 
 export default function Hero({ content, locale }: HeroProps) {
   return (
-    <div className="relative min-h-[100svh] overflow-hidden text-white">
+    <div className="relative overflow-hidden text-white">
       <Image
         src={LANDING_IMAGES.heroLiveLayout.src}
         alt={LANDING_IMAGES.heroLiveLayout.alt}
@@ -28,7 +28,7 @@ export default function Hero({ content, locale }: HeroProps) {
 
       <Header theme="dark" locale={locale} />
 
-      <section className="relative z-10 flex flex-col items-center justify-center px-4 sm:px-6 pt-24 pb-28 text-center">
+      <section className="relative z-10 flex flex-col items-center justify-center px-4 sm:px-6 pt-20 pb-16 text-center sm:pt-24 sm:pb-20">
         <div className="mx-auto max-w-4xl space-y-6">
           <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl">
             {content.headlineBefore}{" "}
@@ -70,6 +70,20 @@ export default function Hero({ content, locale }: HeroProps) {
               </span>
             ))}
           </nav>
+        </div>
+
+        <div className="relative mx-auto mt-12 w-full max-w-5xl px-1 sm:mt-16">
+          <div className="overflow-hidden rounded-2xl border border-white/15 bg-white shadow-2xl shadow-black/40 sm:rounded-3xl">
+            <Image
+              src={LANDING_IMAGES.productPlatform.src}
+              alt={LANDING_IMAGES.productPlatform.alt}
+              width={1024}
+              height={500}
+              className="h-auto w-full"
+              sizes="(max-width: 1024px) 100vw, 1024px"
+              priority
+            />
+          </div>
         </div>
       </section>
     </div>

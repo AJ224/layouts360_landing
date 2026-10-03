@@ -42,4 +42,12 @@ export const LANDING_IMAGES = {
     src: "/images/multi-building-towers.png",
     alt: "Multi-building apartment towers with unit inventory highlights",
   },
+  productPlatform: {
+    src: "/images/product-platform-banner.png",
+    alt: "Layouts360 on laptop and phone — projects, inventory, leads, sales, and teams",
+  },
+  productMobile: {
+    src: "/images/product-mobile-dashboard.jpg",
+    alt: "Layouts360 mobile app — enquiries, bookings, sold, and payments on one screen",
+  },
 } as const

@@ -63,6 +63,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/pricing",
+        destination: "/contact",
+        permanent: true,
+      },
+      {
         source: "/compare",
         destination: "/blog#comparisons",
         permanent: true,

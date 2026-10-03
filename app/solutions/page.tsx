@@ -5,14 +5,14 @@ import { PAGE_KEYWORDS } from "@/lib/seo-keywords"
 import { buildPageMetadata } from "@/lib/page-metadata"
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Real Estate Software Solutions",
+  title: "Solutions — Plot, inventory, CRM, booking",
   description:
-    "Browse Layouts360 solutions: plot management, inventory management, real estate CRM, booking, channel partners, sales automation, and ERP for Indian developers.",
+    "Fix PDF layouts, double booking, broker fights, and CRM that doesn’t know the plot. Layouts360 solutions for plot developers, apartments, and channel partners.",
   path: "/solutions",
   keywords: [...PAGE_KEYWORDS.solutions],
-  ogTitle: "Real Estate Software Solutions",
+  ogTitle: "Layouts360 Solutions",
   ogDescription:
-    "Plot management, inventory management, CRM, booking, and channel partners for layout developers in India.",
+    "Start with the job that hurts: live maps, inventory, plot-linked CRM, booking, and channel partners.",
 })
 
 export default function SolutionsPage() {

@@ -37,6 +37,7 @@ export type HomeContent = {
   howItWorks: {
     headline: string
     steps: { title: string; desc: string }[]
+    productCaption: string
   }
   channelPartners: {
     headline: string
@@ -173,6 +174,8 @@ const EN: HomeContent = {
       { title: "Book", desc: "record the booking" },
       { title: "Track", desc: "follow it to close" },
     ],
+    productCaption:
+      "Sales sees the same numbers on the phone — enquiries, bookings, sold, money in. Not a PDF from this morning.",
   },
   channelPartners: {
     headline: "Give brokers a login, not a PDF blast.",
@@ -293,7 +296,7 @@ const EN: HomeContent = {
       {
         question: "How is it priced?",
         answer:
-          "Pricing depends on inventory size, property type, and how many users you need. Book a demo and we'll map a plan to your projects.",
+          "It depends on inventory size, property type, and how many users you need. Contact us or book a demo and we'll map a plan to your projects.",
       },
       {
         question: "How long does digitization take?",
@@ -414,6 +417,8 @@ const HI: HomeContent = {
       { title: "बुक करें", desc: "डिटेल दर्ज, बात पक्की" },
       { title: "ट्रैक करें", desc: "पेमेंट से पज़ेशन तक नज़र" },
     ],
+    productCaption:
+      "सेल्स को फोन पर वही नंबर दिखते हैं — इंक्वायरी, बुकिंग, सोल्ड, पैसा आया। सुबह वाला PDF नहीं।",
   },
   channelPartners: {
     headline: "ब्रोकर को PDF नहीं, लॉगिन दें",
@@ -540,7 +545,7 @@ const HI: HomeContent = {
       {
         question: "कीमत कितनी है?",
         answer:
-          "कीमत इन्वेंटरी साइज़, प्रॉपर्टी टाइप और यूज़र्स की संख्या पर निर्भर करती है। डेमो बुक करें — आपके प्रोजेक्ट्स के हिसाब से प्लान बताएंगे।",
+          "कीमत इन्वेंटरी साइज़, प्रॉपर्टी टाइप और यूज़र्स की संख्या पर निर्भर करती है। संपर्क करें या डेमो बुक करें — आपके प्रोजेक्ट्स के हिसाब से प्लान बताएंगे।",
       },
       {
         question: "डिजिटाइज़ेशन में कितना वक़्त लगेगा?",

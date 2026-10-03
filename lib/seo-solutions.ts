@@ -46,7 +46,6 @@ export const FOOTER_SOLUTION_GROUPS = [
 ] as const
 
 export const FOOTER_COMPANY_LINKS = [
-  { href: "/pricing", label: "Pricing" },
   { href: "/about", label: "About" },
   { href: "/case-studies", label: "Case Studies" },
   { href: "/blog", label: "Blog" },

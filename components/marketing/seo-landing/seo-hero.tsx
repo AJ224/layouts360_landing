@@ -55,15 +55,10 @@ export function SeoHero({
           )}
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Link href="/contact#demo-form" className="sm:order-1">
+            <Link href="/contact#demo-form">
               <Button size="lg" className="w-full bg-[#00C29F] hover:bg-[#00A884] sm:w-auto">
                 Get free demo
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-            <Link href="/pricing" className="sm:order-2">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto">
-                View pricing
               </Button>
             </Link>
           </div>

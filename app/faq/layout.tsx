@@ -5,7 +5,7 @@ import { buildPageMetadata } from "@/lib/page-metadata"
 export const metadata: Metadata = buildPageMetadata({
   title: "FAQ",
   description:
-    "Answers about Layouts360: plot management, inventory management, digital layouts, CRM, pricing, and setup for Indian developers.",
+    "Answers about Layouts360: plot management, inventory management, digital layouts, CRM, and setup for Indian developers.",
   path: "/faq",
   keywords: [...PAGE_KEYWORDS.faq],
 })

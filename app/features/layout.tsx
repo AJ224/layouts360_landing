@@ -3,14 +3,14 @@ import { PAGE_KEYWORDS } from "@/lib/seo-keywords"
 import { buildPageMetadata } from "@/lib/page-metadata"
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Features",
+  title: "Features — Live map, hold, book, CRM",
   description:
-    "Explore Layouts360 features: interactive digital layouts, real estate inventory management, CRM, plot booking, and payment tracking, built for layout developers.",
+    "See how Layouts360 works: live plot and flat maps, holds that stop double booking, unit-linked CRM, broker logins, and buyer-facing layout links.",
   path: "/features",
   keywords: [...PAGE_KEYWORDS.features],
   ogTitle: "Layouts360 Features",
   ogDescription:
-    "Digital layouts, live inventory, real estate CRM, and payment tracking in one platform.",
+    "Live inventory map, hold and booking, plot-linked CRM, and channel partner access — one system for layout developers.",
 })
 
 export default function FeaturesLayout({

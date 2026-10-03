@@ -28,19 +28,11 @@ export default function CtaSection({ compact }: { compact?: boolean }) {
                     <>
                         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">See your layout live</h2>
                         <p className="text-base sm:text-lg md:text-xl text-gray-400 mb-8 sm:mb-10 max-w-2xl mx-auto">
-                            Book a free demo for your real estate company. We’ll walk your project map, show freeze and booking on live inventory, and quote setup with clear starting prices.
+                            Book a free demo for your real estate company. We’ll walk your project map, show freeze and booking on live inventory, and map the right setup for your projects.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
                             <Button size="lg" className="bg-[#FFB800] hover:bg-[#E5A600] text-black font-bold rounded-full px-6 sm:px-8 h-11 sm:h-12 w-full sm:w-auto text-sm sm:text-base" asChild>
                                 <Link href="/contact#demo-form">Book a free demo</Link>
-                            </Button>
-                            <Button
-                                size="lg"
-                                variant="outline"
-                                className="bg-white/5 border-white/20 hover:bg-white/10 text-white text-sm sm:text-base font-semibold rounded-full px-6 sm:px-8 h-11 sm:h-12 w-full sm:w-auto backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-white/40 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]"
-                                asChild
-                            >
-                                <Link href="/pricing">View Pricing</Link>
                             </Button>
                         </div>
                     </>

@@ -21,15 +21,6 @@ export function SeoCta({ title, description }: SeoCtaProps) {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <Link href="/pricing">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-white bg-transparent px-8 py-6 text-lg font-semibold text-white shadow-none hover:bg-white hover:text-blue-700"
-              >
-                View Pricing Plans
-              </Button>
-            </Link>
           </div>
         </div>
       </div>
