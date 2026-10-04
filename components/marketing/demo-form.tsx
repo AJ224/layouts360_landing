@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { useToast } from "@/components/ui/use-toast"
+import { measureLeadCreated } from "@/lib/openai-pixel"
 import { pricingConfig, type PackageId } from "@/lib/pricing-config"
 
 const PACKAGE_OPTIONS = [
@@ -113,6 +114,7 @@ export default function DemoForm() {
       const data = await res.json()
       if (!res.ok) throw new Error(data?.error || "Failed to send request")
 
+      measureLeadCreated()
       setShowConfirmation(true)
       setFormData(EMPTY_FORM)
     } catch (err: unknown) {
