@@ -1,39 +1,101 @@
 import { Resend } from "resend"
+import { sendDemoWhatsAppNotification } from "@/lib/whatsapp-notify"
+
+type DemoLead = {
+  email: string
+  mobile: string
+  company: string
+  plotCount: string
+  packageInterest: string
+  description: string
+}
 
 export async function POST(req: Request) {
   try {
-    const { email, mobile, company, description, plotCount, packageInterest } = await req.json()
+    const body = await req.json()
+    const lead = parseLead(body)
 
-    // Validate required fields
-    if (!email || !mobile || !company) {
+    if (!lead) {
       return Response.json({ error: "Missing required fields" }, { status: 400 })
     }
 
-    // Check environment variables
     const resendApiKey = process.env.RESEND_API_KEY
-    if (!resendApiKey) {
-      console.error("RESEND_API_KEY not configured")
-      return Response.json(
-        { error: "Email service not configured. Please contact support." },
-        { status: 500 },
-      )
-    }
-
     const to = process.env.DEMO_REQUESTS_TO
-    if (!to) {
-      console.error("DEMO_REQUESTS_TO not configured")
+    if (!resendApiKey || !to) {
+      console.error(!resendApiKey ? "RESEND_API_KEY not configured" : "DEMO_REQUESTS_TO not configured")
       return Response.json(
         { error: "Email service not configured. Please contact support." },
         { status: 500 },
       )
     }
 
-    // Initialize Resend
     const resend = new Resend(resendApiKey)
-    
-    // Create email content
-    const subject = "New Demo Request - Layouts360"
-    const html = `
+    const [emailResult, whatsappResult] = await Promise.allSettled([
+      resend.emails.send({
+        from: "Layouts360 <onboarding@resend.dev>",
+        to: [to],
+        subject: "New Demo Request - Layouts360",
+        html: buildDemoEmailHtml(lead),
+      }),
+      sendDemoWhatsAppNotification(lead),
+    ])
+
+    if (emailResult.status === "rejected") {
+      console.error("Error sending email:", emailResult.reason)
+      const message =
+        emailResult.reason instanceof Error
+          ? emailResult.reason.message
+          : "Failed to send email. Please try again or contact us directly."
+      return Response.json({ error: message }, { status: 500 })
+    }
+
+    if (emailResult.value.error) {
+      console.error("Resend API error:", emailResult.value.error)
+      return Response.json(
+        { error: emailResult.value.error.message || "Failed to send email" },
+        { status: 500 },
+      )
+    }
+
+    console.log("Email sent successfully:", emailResult.value)
+
+    if (whatsappResult.status === "rejected") {
+      console.error("WhatsApp notify failed (email still sent):", whatsappResult.reason)
+    } else {
+      console.log("WhatsApp notify:", whatsappResult.value)
+    }
+
+    return Response.json({
+      ok: true,
+      message: "Demo request submitted successfully",
+    })
+  } catch (e: unknown) {
+    console.error("Error sending email:", e)
+    const message =
+      e instanceof Error ? e.message : "Failed to send email. Please try again or contact us directly."
+    return Response.json({ error: message }, { status: 500 })
+  }
+}
+
+function parseLead(body: unknown): DemoLead | null {
+  if (!body || typeof body !== "object") return null
+  const { email, mobile, company, description, plotCount, packageInterest } = body as Record<
+    string,
+    unknown
+  >
+  if (!email || !mobile || !company) return null
+  return {
+    email: String(email),
+    mobile: String(mobile),
+    company: String(company),
+    plotCount: plotCount ? String(plotCount) : "",
+    packageInterest: packageInterest ? String(packageInterest) : "",
+    description: description ? String(description) : "",
+  }
+}
+
+function buildDemoEmailHtml(lead: DemoLead) {
+  return `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
         <h2 style="color: #333; border-bottom: 2px solid #007bff; padding-bottom: 10px;">
           New Demo Request - Layouts360
@@ -41,19 +103,19 @@ export async function POST(req: Request) {
         
         <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
           <h3 style="color: #333; margin-top: 0;">Contact Information</h3>
-          <p><strong>Company:</strong> ${escapeHtml(company)}</p>
-          <p><strong>Email:</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></p>
-          <p><strong>Mobile:</strong> <a href="tel:${escapeHtml(mobile)}">${escapeHtml(mobile)}</a></p>
-          ${plotCount ? `<p><strong>Approx. plots:</strong> ${escapeHtml(String(plotCount))}</p>` : ""}
-          ${packageInterest ? `<p><strong>Package interest:</strong> ${escapeHtml(String(packageInterest))}</p>` : ""}
+          <p><strong>Company:</strong> ${escapeHtml(lead.company)}</p>
+          <p><strong>Email:</strong> <a href="mailto:${escapeHtml(lead.email)}">${escapeHtml(lead.email)}</a></p>
+          <p><strong>Mobile:</strong> <a href="tel:${escapeHtml(lead.mobile)}">${escapeHtml(lead.mobile)}</a></p>
+          ${lead.plotCount ? `<p><strong>Approx. plots:</strong> ${escapeHtml(lead.plotCount)}</p>` : ""}
+          ${lead.packageInterest ? `<p><strong>Package interest:</strong> ${escapeHtml(lead.packageInterest)}</p>` : ""}
         </div>
         
-        ${description ? `
+        ${lead.description ? `
         <div style="background: #fff; padding: 20px; border-left: 4px solid #007bff; margin: 20px 0;">
           <h3 style="color: #333; margin-top: 0;">Project Description</h3>
-          <p style="white-space: pre-wrap;">${escapeHtml(description)}</p>
+          <p style="white-space: pre-wrap;">${escapeHtml(lead.description)}</p>
         </div>
-        ` : ''}
+        ` : ""}
         
         <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin: 20px 0;">
           <p style="margin: 0; color: #1976d2;">
@@ -67,27 +129,6 @@ export async function POST(req: Request) {
         </p>
       </div>
     `
-
-    // Send email
-    const result = await resend.emails.send({
-      from: "Layouts360 <onboarding@resend.dev>", // Use Resend's default domain for testing
-      to: [to],
-      subject,
-      html,
-    })
-
-    console.log("Email sent successfully:", result)
-
-    return Response.json({ 
-      ok: true, 
-      message: "Demo request submitted successfully" 
-    })
-  } catch (e: unknown) {
-    console.error("Error sending email:", e)
-    const message =
-      e instanceof Error ? e.message : "Failed to send email. Please try again or contact us directly."
-    return Response.json({ error: message }, { status: 500 })
-  }
 }
 
 function escapeHtml(input: string) {

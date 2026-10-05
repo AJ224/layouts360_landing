@@ -30,11 +30,19 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ### Environment variables
 
-Create `.env.local` for local demo form / email (see [`docs/guides/EMAIL_SETUP.md`](./docs/guides/EMAIL_SETUP.md)):
+Create `.env` / `.env.local` for local demo form notifications (see [`docs/guides/EMAIL_SETUP.md`](./docs/guides/EMAIL_SETUP.md)):
 
 ```env
 RESEND_API_KEY=
-DEMO_FORM_TO_EMAIL=
+DEMO_REQUESTS_TO=
+
+# Optional: WhatsApp group notify (GOWA) alongside Resend
+WHATSAPP_API_URL=
+WHATSAPP_API_USER=
+WHATSAPP_API_PASSWORD=
+WHATSAPP_DEVICE_ID=layouts360
+WHATSAPP_NOTIFY_TO=120363412465889059@g.us
+WHATSAPP_NOTIFY_CUSTOMER=true
 ```
 
 ## Scripts
