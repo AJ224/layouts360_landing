@@ -1,31 +1,28 @@
 "use client"
 
 import type React from "react"
-
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { useToast } from "@/components/ui/use-toast"
 import { measureLeadCreated } from "@/lib/openai-pixel"
-import { pricingConfig, type PackageId } from "@/lib/pricing-config"
-
-const PACKAGE_OPTIONS = [
-  { id: "", label: "Not sure yet. Recommend for me" },
-  ...pricingConfig.packages.map((pkg) => ({
-    id: pkg.id,
-    label: `${pkg.name} (${pkg.pricePrimary})`,
-  })),
-] as const
+import { cn } from "@/lib/utils"
 
 const EMPTY_FORM = {
+  name: "",
   email: "",
   mobile: "",
   company: "",
-  plotCount: "",
-  packageInterest: "" as PackageId | "",
-  description: "",
+}
+
+function fieldClass(hasError?: boolean) {
+  return cn(
+    "h-11 rounded-xl border-2 px-4 text-sm text-slate-800 transition-colors",
+    hasError
+      ? "border-red-400 bg-red-50 focus-visible:border-red-500"
+      : "border-slate-200 bg-slate-50 hover:bg-white focus-visible:border-slate-900",
+  )
 }
 
 export default function DemoForm() {
@@ -35,45 +32,25 @@ export default function DemoForm() {
   const [formData, setFormData] = useState(EMPTY_FORM)
   const [errors, setErrors] = useState<Record<string, string>>({})
 
-  useEffect(() => {
-    if (typeof window === "undefined") return
-    const packageParam = new URLSearchParams(window.location.search).get("package")
-    const match = pricingConfig.packages.find((pkg) => pkg.id === packageParam)
-    if (match) {
-      setFormData((prev) => ({ ...prev, packageInterest: match.id }))
-    }
-  }, [])
+  const validateEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+  const validateMobile = (mobile: string) => /^[+]?[0-9\s\-()]{10,}$/.test(mobile)
 
-  const validateEmail = (email: string) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    return emailRegex.test(email)
-  }
-
-  const validateMobile = (mobile: string) => {
-    const mobileRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/
-    return mobileRegex.test(mobile)
-  }
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
-
-    if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: "" }))
-    }
+    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }))
   }
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-
     setErrors({})
 
     const newErrors: Record<string, string> = {}
 
+    if (!formData.name.trim()) newErrors.name = "Name is required"
+
     if (!formData.email.trim()) {
-      newErrors.email = "Email is required"
+      newErrors.email = "Work email is required"
     } else if (!validateEmail(formData.email)) {
       newErrors.email = "Please enter a valid email address"
     }
@@ -84,9 +61,7 @@ export default function DemoForm() {
       newErrors.mobile = "Please enter a valid mobile number"
     }
 
-    if (!formData.company.trim()) {
-      newErrors.company = "Company name is required"
-    }
+    if (!formData.company.trim()) newErrors.company = "Company name is required"
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors)
@@ -96,19 +71,14 @@ export default function DemoForm() {
 
     setPending(true)
     try {
-      const selectedPackage = pricingConfig.packages.find(
-        (pkg) => pkg.id === formData.packageInterest
-      )
       const res = await fetch("/api/demo", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          name: formData.name.trim(),
           email: formData.email.trim(),
           mobile: formData.mobile.trim(),
           company: formData.company.trim(),
-          plotCount: formData.plotCount.trim(),
-          packageInterest: selectedPackage?.name || "Not specified",
-          description: formData.description.trim(),
         }),
       })
       const data = await res.json()
@@ -126,244 +96,134 @@ export default function DemoForm() {
   }
 
   return (
-    <div className="w-full max-w-lg">
-      <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">
-        {/* Compact Header */}
-        <div className="bg-gradient-to-r from-primary to-primary/90 text-white p-6 text-center">
-          <div className="inline-flex items-center justify-center w-12 h-12 bg-white/20 rounded-full mb-3 backdrop-blur-sm">
-            <svg aria-hidden="true" className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
+    <div className="w-full">
+      <form onSubmit={onSubmit} className="space-y-5" noValidate>
+        <div className="space-y-2">
+          <Label htmlFor="name" className="text-sm font-semibold text-slate-800">
+            Name <span className="text-red-500">*</span>
+          </Label>
+          <Input
+            id="name"
+            name="name"
+            type="text"
+            autoComplete="name"
+            value={formData.name}
+            onChange={handleInputChange}
+            placeholder="Your full name"
+            className={fieldClass(Boolean(errors.name))}
+            aria-invalid={Boolean(errors.name)}
+          />
+          {errors.name ? <p className="text-xs text-red-600">{errors.name}</p> : null}
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="space-y-2">
+            <Label htmlFor="email" className="text-sm font-semibold text-slate-800">
+              Work Email <span className="text-red-500">*</span>
+            </Label>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              autoComplete="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              placeholder="you@company.com"
+              className={fieldClass(Boolean(errors.email))}
+              aria-invalid={Boolean(errors.email)}
+            />
+            {errors.email ? <p className="text-xs text-red-600">{errors.email}</p> : null}
           </div>
-          <h3 className="text-xl font-bold mb-2">Get Your Free Demo</h3>
-          <p className="text-white/90 text-sm">For real estate companies selling layouts &amp; plots</p>
+
+          <div className="space-y-2">
+            <Label htmlFor="mobile" className="text-sm font-semibold text-slate-800">
+              Mobile / WhatsApp <span className="text-red-500">*</span>
+            </Label>
+            <Input
+              id="mobile"
+              name="mobile"
+              type="tel"
+              autoComplete="tel"
+              value={formData.mobile}
+              onChange={handleInputChange}
+              placeholder="+91 90000 00000"
+              className={fieldClass(Boolean(errors.mobile))}
+              aria-invalid={Boolean(errors.mobile)}
+            />
+            {errors.mobile ? <p className="text-xs text-red-600">{errors.mobile}</p> : null}
+          </div>
         </div>
 
-        {/* Form Section */}
-        <div className="p-6">
-          <form onSubmit={onSubmit} className="space-y-5">
-            {/* Email and Mobile Row */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label htmlFor="email" className="text-sm font-semibold text-gray-800 flex items-center gap-1">
-                  <svg aria-hidden="true" className="w-3 h-3 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                  </svg>
-                  Email <span className="text-red-500">*</span>
-                </Label>
-                <Input 
-                  id="email" 
-                  name="email" 
-                  type="email" 
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  placeholder="you@company.com" 
-                  className={`h-11 px-4 text-sm border-2 rounded-xl focus:ring-2 focus:ring-primary/20 transition-all duration-300 ${
-                    errors.email 
-                      ? 'border-red-400 bg-red-50 focus:border-red-500' 
-                      : 'border-gray-200 bg-gray-50 focus:border-primary hover:bg-white'
-                  }`}
-                  style={{ color: '#1f2937' }}
-                />
-                {errors.email && (
-                  <div className="flex items-center gap-1 text-red-600 text-xs mt-1">
-                    <svg aria-hidden="true" className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                    </svg>
-                    {errors.email}
-                  </div>
-                )}
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="mobile" className="text-sm font-semibold text-gray-800 flex items-center gap-1">
-                  <svg aria-hidden="true" className="w-3 h-3 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                  </svg>
-                  Mobile <span className="text-red-500">*</span>
-                </Label>
-                <Input 
-                  id="mobile" 
-                  name="mobile" 
-                  type="tel" 
-                  value={formData.mobile}
-                  onChange={handleInputChange}
-                  placeholder="+91 90000 00000" 
-                  className={`h-11 px-4 text-sm border-2 rounded-xl focus:ring-2 focus:ring-primary/20 transition-all duration-300 ${
-                    errors.mobile 
-                      ? 'border-red-400 bg-red-50 focus:border-red-500' 
-                      : 'border-gray-200 bg-gray-50 focus:border-primary hover:bg-white'
-                  }`}
-                  style={{ color: '#1f2937' }}
-                />
-                {errors.mobile && (
-                  <div className="flex items-center gap-1 text-red-600 text-xs mt-1">
-                    <svg aria-hidden="true" className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                    </svg>
-                    {errors.mobile}
-                  </div>
-                )}
-              </div>
-            </div>
+        <div className="space-y-2">
+          <Label htmlFor="company" className="text-sm font-semibold text-slate-800">
+            Company <span className="text-red-500">*</span>
+          </Label>
+          <Input
+            id="company"
+            name="company"
+            type="text"
+            autoComplete="organization"
+            value={formData.company}
+            onChange={handleInputChange}
+            placeholder="Your real estate company"
+            className={fieldClass(Boolean(errors.company))}
+            aria-invalid={Boolean(errors.company)}
+          />
+          {errors.company ? <p className="text-xs text-red-600">{errors.company}</p> : null}
+        </div>
 
-            {/* Company Name */}
-            <div className="space-y-2">
-              <Label htmlFor="company" className="text-sm font-semibold text-gray-800 flex items-center gap-1">
-                <svg aria-hidden="true" className="w-3 h-3 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clipRule="evenodd" />
-                </svg>
-                Company <span className="text-red-500">*</span>
-              </Label>
-              <Input 
-                id="company" 
-                name="company" 
-                type="text" 
-                value={formData.company}
-                onChange={handleInputChange}
-                placeholder="Your real estate company name" 
-                className={`h-11 px-4 text-sm border-2 rounded-xl focus:ring-2 focus:ring-primary/20 transition-all duration-300 ${
-                  errors.company 
-                    ? 'border-red-400 bg-red-50 focus:border-red-500' 
-                    : 'border-gray-200 bg-gray-50 focus:border-primary hover:bg-white'
-                }`}
-                style={{ color: '#1f2937' }}
-              />
-              {errors.company && (
-                <div className="flex items-center gap-1 text-red-600 text-xs mt-1">
-                  <svg aria-hidden="true" className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                  </svg>
-                  {errors.company}
-                </div>
-              )}
-            </div>
+        <Button
+          type="submit"
+          disabled={pending}
+          className="h-12 w-full rounded-xl bg-[#FFB800] text-base font-bold text-black hover:bg-[#E5A600] disabled:opacity-50"
+        >
+          {pending ? "Sending..." : "Get My Free Demo"}
+        </Button>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label htmlFor="plotCount" className="text-sm font-semibold text-gray-800">
-                  Approx. plot count
-                </Label>
-                <Input
-                  id="plotCount"
-                  name="plotCount"
-                  type="number"
-                  min={1}
-                  value={formData.plotCount}
-                  onChange={handleInputChange}
-                  placeholder="e.g. 120"
-                  className="h-11 px-4 text-sm border-2 rounded-xl border-gray-200 bg-gray-50 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 hover:bg-white"
-                  style={{ color: "#1f2937" }}
-                />
-              </div>
+        <p className="text-center text-xs text-slate-500">
+          No commitment. We&apos;ll contact you to schedule the walkthrough.
+        </p>
+      </form>
 
-              <div className="space-y-2">
-                <Label htmlFor="packageInterest" className="text-sm font-semibold text-gray-800">
-                  Package interest
-                </Label>
-                <select
-                  id="packageInterest"
-                  name="packageInterest"
-                  value={formData.packageInterest}
-                  onChange={handleInputChange}
-                  className="h-11 w-full rounded-xl border-2 border-gray-200 bg-gray-50 px-3 text-sm text-gray-800 transition-all duration-300 hover:bg-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                >
-                  {PACKAGE_OPTIONS.map((option) => (
-                    <option key={option.id || "none"} value={option.id}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
-
-            {/* Project Details */}
-            <div className="space-y-2">
-              <Label htmlFor="description" className="text-sm font-semibold text-gray-800 flex items-center gap-1">
-                <svg aria-hidden="true" className="w-3 h-3 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
-                </svg>
-                Project Details
-              </Label>
-              <Textarea 
-                id="description" 
-                name="description" 
-                value={formData.description}
-                onChange={handleInputChange}
-                placeholder="Project type, plot count, Excel/CRM pain points, or anything we should prepare for the demo..."
-                rows={3}
-                className="px-4 py-3 text-sm border-2 border-gray-200 rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 bg-gray-50 hover:bg-white resize-none"
-                style={{ color: '#1f2937' }}
-              />
-            </div>
-
-            {/* Submit Button */}
-            <div className="pt-4">
-              <Button 
-                type="submit" 
-                disabled={pending}
-                className="w-full h-12 text-base font-semibold bg-gradient-to-r from-primary via-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+      {showConfirmation ? (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+          <dialog
+            open
+            aria-labelledby="demo-confirmation-title"
+            className="m-0 w-full max-w-md rounded-2xl border-0 bg-white p-8 text-center shadow-2xl"
+          >
+            <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100">
+              <svg
+                aria-hidden="true"
+                className="h-8 w-8 text-emerald-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                {pending ? (
-                  <div className="flex items-center justify-center gap-2">
-                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                    <span>Sending...</span>
-                  </div>
-                ) : (
-                  <div className="flex items-center justify-center gap-2">
-                    <svg aria-hidden="true" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                    </svg>
-                    <span>Schedule Demo</span>
-                  </div>
-                )}
-              </Button>
-            </div>
-
-            {/* Trust Badge */}
-            <div className="text-center pt-4">
-              <div className="inline-flex items-center gap-2 bg-green-50 text-green-700 px-4 py-2 rounded-full text-xs font-medium">
-                <svg aria-hidden="true" className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span>Free demo for real estate companies</span>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      {/* Confirmation Modal */}
-      {showConfirmation && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 text-center">
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg aria-hidden="true" className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">Thank You!</h3>
-            <p className="text-gray-600 mb-6">
-              We have received your request and will contact you soon. Our team will get back to you within 24 hours.
+            <h3 id="demo-confirmation-title" className="mb-2 text-2xl font-bold text-slate-900">
+              Demo request received
+            </h3>
+            <p className="mb-6 text-slate-600">
+              Thanks — our team will contact you within 24 hours to schedule your Layouts360 walkthrough.
             </p>
-            <div className="space-y-3">
-              <Button 
-                onClick={() => setShowConfirmation(false)}
-                className="w-full bg-primary hover:bg-primary/90"
-              >
-                Got it!
-              </Button>
-              <p className="text-sm text-gray-500">
-                For immediate assistance, call us at{" "}
-                <a href="tel:+917276495199" className="text-primary font-semibold hover:underline">
-                  +91 72764 95199
-                </a>
-              </p>
-            </div>
-          </div>
+            <Button
+              onClick={() => setShowConfirmation(false)}
+              className="w-full bg-slate-900 text-white hover:bg-slate-800"
+            >
+              Got it
+            </Button>
+            <p className="mt-4 text-sm text-slate-500">
+              For anything urgent, call{" "}
+              <a href="tel:+917276495199" className="font-semibold text-slate-900 hover:underline">
+                +91 72764 95199
+              </a>
+            </p>
+          </dialog>
         </div>
-      )}
+      ) : null}
     </div>
   )
 }

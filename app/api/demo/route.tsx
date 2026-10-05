@@ -2,11 +2,14 @@ import { Resend } from "resend"
 import { sendDemoWhatsAppNotification } from "@/lib/whatsapp-notify"
 
 type DemoLead = {
+  name: string
   email: string
   mobile: string
   company: string
-  plotCount: string
-  packageInterest: string
+  projectType: string
+  inventorySize: string
+  inventoryMethod: string
+  interests: string
   description: string
 }
 
@@ -77,20 +80,32 @@ export async function POST(req: Request) {
   }
 }
 
+function asTrimmedString(value: unknown): string {
+  return typeof value === "string" ? value.trim() : ""
+}
+
 function parseLead(body: unknown): DemoLead | null {
   if (!body || typeof body !== "object") return null
-  const { email, mobile, company, description, plotCount, packageInterest } = body as Record<
-    string,
-    unknown
-  >
+  const data = body as Record<string, unknown>
+
+  const email = asTrimmedString(data.email)
+  const mobile = asTrimmedString(data.mobile)
+  const company = asTrimmedString(data.company)
   if (!email || !mobile || !company) return null
+
+  const inventorySize =
+    asTrimmedString(data.inventorySize) || asTrimmedString(data.unitCount)
+
   return {
-    email: String(email),
-    mobile: String(mobile),
-    company: String(company),
-    plotCount: plotCount ? String(plotCount) : "",
-    packageInterest: packageInterest ? String(packageInterest) : "",
-    description: description ? String(description) : "",
+    name: asTrimmedString(data.name),
+    email,
+    mobile,
+    company,
+    projectType: asTrimmedString(data.projectType),
+    inventorySize,
+    inventoryMethod: asTrimmedString(data.inventoryMethod),
+    interests: asTrimmedString(data.interests),
+    description: asTrimmedString(data.description),
   }
 }
 
@@ -103,11 +118,14 @@ function buildDemoEmailHtml(lead: DemoLead) {
         
         <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
           <h3 style="color: #333; margin-top: 0;">Contact Information</h3>
+          ${lead.name ? `<p><strong>Name:</strong> ${escapeHtml(lead.name)}</p>` : ""}
           <p><strong>Company:</strong> ${escapeHtml(lead.company)}</p>
           <p><strong>Email:</strong> <a href="mailto:${escapeHtml(lead.email)}">${escapeHtml(lead.email)}</a></p>
           <p><strong>Mobile:</strong> <a href="tel:${escapeHtml(lead.mobile)}">${escapeHtml(lead.mobile)}</a></p>
-          ${lead.plotCount ? `<p><strong>Approx. plots:</strong> ${escapeHtml(lead.plotCount)}</p>` : ""}
-          ${lead.packageInterest ? `<p><strong>Package interest:</strong> ${escapeHtml(lead.packageInterest)}</p>` : ""}
+          ${lead.projectType ? `<p><strong>What they sell:</strong> ${escapeHtml(lead.projectType)}</p>` : ""}
+          ${lead.inventorySize ? `<p><strong>Approximate inventory:</strong> ${escapeHtml(lead.inventorySize)}</p>` : ""}
+          ${lead.inventoryMethod ? `<p><strong>Current inventory method:</strong> ${escapeHtml(lead.inventoryMethod)}</p>` : ""}
+          ${lead.interests ? `<p><strong>Wants to see:</strong> ${escapeHtml(lead.interests)}</p>` : ""}
         </div>
         
         ${lead.description ? `

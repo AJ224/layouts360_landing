@@ -4,7 +4,7 @@ import { buildPageMetadata } from "@/lib/page-metadata"
 export const metadata: Metadata = buildPageMetadata({
   title: "Contact & Demo",
   description:
-    "Book a free demo of Layouts360: plot management and inventory management software with CRM and digital layouts for Indian developers.",
+    "Book a free 20-minute Layouts360 demo. See live inventory, interactive layouts, holds, bookings, and sales workflow for plots, apartments, and townships.",
   path: "/contact",
   keywords: [
     "layouts360 demo",
@@ -12,6 +12,7 @@ export const metadata: Metadata = buildPageMetadata({
     "plot management software demo",
     "inventory management software demo",
     "real estate crm demo",
+    "book layouts360 walkthrough",
   ],
 })
 

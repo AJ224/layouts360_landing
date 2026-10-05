@@ -1,27 +1,41 @@
 type DemoLead = {
+  name?: string
   email: string
   mobile: string
   company: string
-  plotCount?: string
-  packageInterest?: string
+  projectType?: string
+  inventorySize?: string
+  inventoryMethod?: string
+  interests?: string
   description?: string
+  unitCount?: string
 }
 
 function buildTeamMessage(lead: DemoLead) {
   const lines = [
     "🆕 *New Demo Request — Layouts360*",
     "",
+    ...(lead.name ? [`*Name:* ${lead.name}`] : []),
     `*Company:* ${lead.company}`,
     `*Email:* ${lead.email}`,
     `*Mobile:* ${lead.mobile}`,
   ]
 
-  if (lead.plotCount) {
-    lines.push(`*Approx. plots:* ${lead.plotCount}`)
+  if (lead.projectType) {
+    lines.push(`*What they sell:* ${lead.projectType}`)
   }
 
-  if (lead.packageInterest) {
-    lines.push(`*Package interest:* ${lead.packageInterest}`)
+  const inventory = lead.inventorySize || lead.unitCount
+  if (inventory) {
+    lines.push(`*Approximate inventory:* ${inventory}`)
+  }
+
+  if (lead.inventoryMethod) {
+    lines.push(`*Current method:* ${lead.inventoryMethod}`)
+  }
+
+  if (lead.interests) {
+    lines.push(`*Wants to see:* ${lead.interests}`)
   }
 
   if (lead.description) {
@@ -37,13 +51,19 @@ function buildCustomerMessage(lead: DemoLead) {
     "",
     "We received your demo request and will contact you within 24 hours.",
     "",
+    ...(lead.name ? [`*Name:* ${lead.name}`] : []),
     `*Company:* ${lead.company}`,
     `*Email:* ${lead.email}`,
     `*Mobile:* ${lead.mobile}`,
   ]
 
-  if (lead.packageInterest) {
-    lines.push(`*Package interest:* ${lead.packageInterest}`)
+  if (lead.projectType) {
+    lines.push(`*What you sell:* ${lead.projectType}`)
+  }
+
+  const inventory = lead.inventorySize || lead.unitCount
+  if (inventory) {
+    lines.push(`*Approximate inventory:* ${inventory}`)
   }
 
   lines.push("", "For anything urgent, call +91 90210 18080.")
