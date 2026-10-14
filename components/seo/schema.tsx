@@ -57,7 +57,7 @@ export function ArticleSchema({
             "name": "Layouts360",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://layouts360.com/logo.png"
+                "url": "https://layouts360.com/logo-horizontal-on-dark.svg"
             }
         },
         "mainEntityOfPage": {
@@ -196,7 +196,7 @@ export function OrganizationWebSiteSchema() {
                 name: "Layouts360",
                 legalName: "OriginGrey Private Limited",
                 url: SITE_URL,
-                logo: absoluteUrl("/logo.png"),
+                logo: absoluteUrl("/logo-horizontal-on-dark.svg"),
                 contactPoint: {
                     "@type": "ContactPoint",
                     telephone: "+91-72764-95199",

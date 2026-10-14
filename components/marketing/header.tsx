@@ -22,7 +22,6 @@ function readCookieLocale(): Locale {
 }
 
 export default function Header({ theme = "light", locale: localeProp }: HeaderProps) {
-  const isDark = theme === "dark"
   const [locale, setLocale] = useState<Locale>(localeProp ?? DEFAULT_LOCALE)
   const [menuOpen, setMenuOpen] = useState(false)
   const nav = getNavCopy(locale)
@@ -59,29 +58,23 @@ export default function Header({ theme = "light", locale: localeProp }: HeaderPr
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div
           className={cn(
-            "flex items-center justify-between rounded-full border px-4 py-2.5 shadow-sm backdrop-blur-md sm:px-6 sm:py-3",
-            isDark ? "border-white/10 bg-white/10 text-white" : "border-gray-200 bg-white/80 text-gray-900",
+            "flex items-center justify-between rounded-full border border-white/10 px-4 py-2.5 text-white shadow-sm backdrop-blur-md sm:px-6 sm:py-3",
+            theme === "dark" ? "bg-white/10" : "bg-slate-950/90",
           )}
         >
-          <Link href="/" className="flex items-center gap-2 sm:gap-3" onClick={closeMenu}>
+          <Link href="/" className="flex items-center" onClick={closeMenu}>
             <Image
-              src="/logo.png"
-              alt="Layouts360 logo"
-              width={28}
-              height={28}
-              className="rounded-lg sm:h-8 sm:w-8"
+              src="/logo-horizontal-on-dark.svg"
+              alt="Layouts360"
+              width={220}
+              height={27}
+              className="h-6 w-auto sm:h-7"
               priority
             />
-            <span className={cn("text-base font-semibold sm:text-lg", isDark ? "text-white" : "text-gray-900")}>
-              Layouts360
-            </span>
           </Link>
 
           <nav
-            className={cn(
-              "hidden items-center gap-5 text-sm font-medium lg:flex lg:gap-7",
-              isDark ? "text-gray-300" : "text-gray-700",
-            )}
+            className="hidden items-center gap-5 text-sm font-medium text-gray-300 lg:flex lg:gap-7"
             aria-label={nav.mainNav}
           >
             {nav.links.map((link) => (
@@ -92,7 +85,7 @@ export default function Header({ theme = "light", locale: localeProp }: HeaderPr
           </nav>
 
           <div className="hidden items-center gap-3 md:flex">
-            <LanguageSwitcher locale={locale} theme={theme} label={nav.language} />
+            <LanguageSwitcher locale={locale} theme="dark" label={nav.language} />
             <Link
               href="/contact#demo-form"
               className="rounded-full bg-[#FFB800] px-4 py-2 text-sm font-bold text-black transition-colors hover:bg-[#E5A600] md:px-6 md:text-base"
@@ -102,10 +95,10 @@ export default function Header({ theme = "light", locale: localeProp }: HeaderPr
           </div>
 
           <div className="flex items-center gap-2 md:hidden">
-            <LanguageSwitcher locale={locale} theme={theme} label={nav.language} />
+            <LanguageSwitcher locale={locale} theme="dark" label={nav.language} />
             <button
               type="button"
-              className={cn("rounded-md p-1", isDark ? "text-white" : "text-gray-900")}
+              className="rounded-md p-1 text-white"
               aria-expanded={menuOpen}
               aria-controls={menuId}
               aria-label={menuOpen ? nav.closeMenu : nav.openMenu}
@@ -135,14 +128,19 @@ export default function Header({ theme = "light", locale: localeProp }: HeaderPr
         )}
         aria-label={nav.mobileNav}
       >
-        <div className="flex items-center justify-between border-b p-6">
-          <Link href="/" className="flex items-center gap-3" onClick={closeMenu}>
-            <Image src="/logo.png" alt="Layouts360 logo" width={32} height={32} className="rounded-lg" />
-            <span className="text-lg font-semibold text-gray-900">Layouts360</span>
+        <div className="flex items-center justify-between border-b border-white/10 bg-slate-950 p-6">
+          <Link href="/" className="flex items-center" onClick={closeMenu}>
+            <Image
+              src="/logo-horizontal-on-dark.svg"
+              alt="Layouts360"
+              width={220}
+              height={27}
+              className="h-7 w-auto"
+            />
           </Link>
           <button
             type="button"
-            className="rounded-full p-2 text-gray-500 hover:bg-gray-100"
+            className="rounded-full p-2 text-white/70 hover:bg-white/10 hover:text-white"
             aria-label={nav.closeMenu}
             onClick={closeMenu}
           >

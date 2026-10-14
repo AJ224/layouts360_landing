@@ -13,15 +13,14 @@ export default function Footer() {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           <div className="space-y-4 sm:col-span-2 lg:col-span-3">
-            <Link href="/" className="flex items-center gap-2 sm:gap-3">
+            <Link href="/" className="flex items-center">
               <Image
-                src="/logo.png"
-                alt="Layouts360 logo"
-                width={32}
-                height={32}
-                className="rounded-lg sm:h-10 sm:w-10"
+                src="/logo-horizontal-on-dark.svg"
+                alt="Layouts360"
+                width={220}
+                height={27}
+                className="h-7 w-auto sm:h-8"
               />
-              <span className="text-lg font-bold sm:text-xl">Layouts360</span>
             </Link>
             <p className="max-w-xs text-sm leading-relaxed text-gray-400">
               Plot and inventory software with CRM and booking for layout developers.
