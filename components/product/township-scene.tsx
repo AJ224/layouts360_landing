@@ -427,30 +427,11 @@ class SceneErrorBoundary extends Component<
   }
 }
 
-/** True when a WebGL1/2 context can be created (false in sandboxed / GPU-disabled browsers). */
-function canCreateWebGL(): boolean {
-  if (typeof document === "undefined") return false
-  try {
-    const canvas = document.createElement("canvas")
-    const gl =
-      canvas.getContext("webgl2", { failIfMajorPerformanceCaveat: false }) ||
-      canvas.getContext("webgl", { failIfMajorPerformanceCaveat: false }) ||
-      canvas.getContext("experimental-webgl", { failIfMajorPerformanceCaveat: false })
-    if (!gl || typeof (gl as WebGLRenderingContext).getParameter !== "function") return false
-    const lose = (gl as WebGLRenderingContext).getExtension("WEBGL_lose_context")
-    lose?.loseContext()
-    return true
-  } catch {
-    return false
-  }
-}
-
 export function TownshipScene({ className }: { className?: string }) {
   const [hover, setHover] = useState<HoverInfo>(null)
   const [selected, setSelected] = useState<HoverInfo>(null)
   const [reduced, setReduced] = useState(false)
-  const [webglOk, setWebglOk] = useState<boolean | null>(null)
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState(false)
   const [booted, setBooted] = useState(false)
   const [modelsReady, setModelsReady] = useState(false)
   const [statusOn, setStatusOn] = useState(false)
@@ -459,11 +440,7 @@ export function TownshipScene({ className }: { className?: string }) {
 
   useEffect(() => {
     setReduced(prefersReducedMotion())
-    setWebglOk(canCreateWebGL())
   }, [])
-
-  const glFailed = webglOk === false || !!error
-  const showCanvas = webglOk === true && !error
 
   // Force a canvas resize when the shell gets a real size (fixes blank WebGL after layout).
   useEffect(() => {
@@ -489,7 +466,7 @@ export function TownshipScene({ className }: { className?: string }) {
   )
 
   const active = hover ?? selected
-  const showLoader = !glFailed && (webglOk === null || !booted || !modelsReady)
+  const showLoader = !error && (!booted || !modelsReady)
 
   return (
     <div
@@ -508,7 +485,7 @@ export function TownshipScene({ className }: { className?: string }) {
           backgroundImage: `url(${TERRAIN_BG})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          opacity: glFailed ? 0.7 : 0.4,
+          opacity: error ? 0.7 : 0.4,
           transform: "translate3d(0, 0, 0) scale(1.22)",
         }}
       />
@@ -521,26 +498,16 @@ export function TownshipScene({ className }: { className?: string }) {
         </div>
       ) : null}
 
-      {glFailed ? (
-        <div className="absolute inset-0 z-10 flex items-center justify-center p-6 text-center">
-          <p className="max-w-sm rounded-lg border border-white/15 bg-black/45 px-4 py-3 text-sm leading-relaxed text-white/85 backdrop-blur-sm">
-            3D preview needs WebGL. Open this page in Chrome or Safari with hardware acceleration
-            on — or book a demo to see the live layout.
-          </p>
-        </div>
-      ) : null}
-
-      {showCanvas ? (
+      {!error ? (
         <div className="absolute inset-0 z-[1]">
-          <SceneErrorBoundary onError={setError}>
+          <SceneErrorBoundary onError={() => setError(true)}>
             <Canvas
               dpr={[1, 1.5]}
               camera={{ position: [8, 10, 12], fov: 42, near: 0.5, far: 2000 }}
               gl={{
                 antialias: true,
                 alpha: true,
-                powerPreference: "default",
-                failIfMajorPerformanceCaveat: false,
+                powerPreference: "high-performance",
                 logarithmicDepthBuffer: true,
               }}
               style={{ width: "100%", height: "100%", display: "block", touchAction: "none" }}
@@ -583,7 +550,7 @@ export function TownshipScene({ className }: { className?: string }) {
         </div>
       ) : null}
 
-      {showCanvas ? (
+      {!error ? (
         <div className="pointer-events-none absolute left-4 top-4 z-20 flex max-w-[min(100%-8rem,18rem)] flex-col gap-2">
           <div className="rounded-lg border border-white/70 bg-white/92 px-3 py-2 text-xs shadow-md backdrop-blur-sm">
             {active ? (
@@ -606,7 +573,7 @@ export function TownshipScene({ className }: { className?: string }) {
         </div>
       ) : null}
 
-      {showCanvas ? (
+      {!error ? (
         <button
           type="button"
           onClick={() => setStatusOn((v) => !v)}
