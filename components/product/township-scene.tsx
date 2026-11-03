@@ -411,15 +411,15 @@ function LayoutModels({
 }
 
 class SceneErrorBoundary extends Component<
-  { children: ReactNode; onError: (msg: string) => void },
+  { children: ReactNode; onError: () => void },
   { hasError: boolean }
 > {
   state = { hasError: false }
   static getDerivedStateFromError() {
     return { hasError: true }
   }
-  componentDidCatch(err: Error) {
-    this.props.onError(err.message || "Failed to render 3D scene")
+  componentDidCatch() {
+    this.props.onError()
   }
   render() {
     if (this.state.hasError) return null
@@ -427,19 +427,35 @@ class SceneErrorBoundary extends Component<
   }
 }
 
+/** Soft probe only — never loseContext() (poisons later canvases). */
+function canUseWebGL(): boolean {
+  try {
+    const el = document.createElement("canvas")
+    return !!(
+      el.getContext("webgl2", { failIfMajorPerformanceCaveat: false }) ||
+      el.getContext("webgl", { failIfMajorPerformanceCaveat: false })
+    )
+  } catch {
+    return false
+  }
+}
+
 export function TownshipScene({ className }: { className?: string }) {
   const [hover, setHover] = useState<HoverInfo>(null)
   const [selected, setSelected] = useState<HoverInfo>(null)
   const [reduced, setReduced] = useState(false)
-  const [error, setError] = useState(false)
+  const [failed, setFailed] = useState(false)
   const [booted, setBooted] = useState(false)
   const [modelsReady, setModelsReady] = useState(false)
   const [statusOn, setStatusOn] = useState(false)
+  /** null while probing — never mount <Canvas> until true (avoids Next.js Unhandled Runtime Error). */
+  const [webglOk, setWebglOk] = useState<boolean | null>(null)
   const shellRef = useRef<HTMLDivElement>(null)
   const bgRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setReduced(prefersReducedMotion())
+    setWebglOk(canUseWebGL())
   }, [])
 
   // Force a canvas resize when the shell gets a real size (fixes blank WebGL after layout).
@@ -466,7 +482,9 @@ export function TownshipScene({ className }: { className?: string }) {
   )
 
   const active = hover ?? selected
-  const showLoader = !error && (!booted || !modelsReady)
+  const showCanvas = webglOk === true && !failed
+  const staticOnly = webglOk === false || failed
+  const showLoader = !staticOnly && (webglOk === null || !booted || !modelsReady)
 
   return (
     <div
@@ -485,7 +503,7 @@ export function TownshipScene({ className }: { className?: string }) {
           backgroundImage: `url(${TERRAIN_BG})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          opacity: error ? 0.7 : 0.4,
+          opacity: staticOnly ? 0.75 : 0.4,
           transform: "translate3d(0, 0, 0) scale(1.22)",
         }}
       />
@@ -498,17 +516,18 @@ export function TownshipScene({ className }: { className?: string }) {
         </div>
       ) : null}
 
-      {!error ? (
+      {showCanvas ? (
         <div className="absolute inset-0 z-[1]">
-          <SceneErrorBoundary onError={() => setError(true)}>
+          {/* Boundary must wrap <Canvas> — context errors throw in Canvas itself, not children */}
+          <SceneErrorBoundary onError={() => setFailed(true)}>
             <Canvas
               dpr={[1, 1.5]}
               camera={{ position: [8, 10, 12], fov: 42, near: 0.5, far: 2000 }}
               gl={{
                 antialias: true,
                 alpha: true,
-                powerPreference: "high-performance",
-                logarithmicDepthBuffer: true,
+                powerPreference: "default",
+                failIfMajorPerformanceCaveat: false,
               }}
               style={{ width: "100%", height: "100%", display: "block", touchAction: "none" }}
               onCreated={({ gl }) => {
@@ -550,7 +569,7 @@ export function TownshipScene({ className }: { className?: string }) {
         </div>
       ) : null}
 
-      {!error ? (
+      {showCanvas ? (
         <div className="pointer-events-none absolute left-4 top-4 z-20 flex max-w-[min(100%-8rem,18rem)] flex-col gap-2">
           <div className="rounded-lg border border-white/70 bg-white/92 px-3 py-2 text-xs shadow-md backdrop-blur-sm">
             {active ? (
@@ -573,7 +592,7 @@ export function TownshipScene({ className }: { className?: string }) {
         </div>
       ) : null}
 
-      {!error ? (
+      {showCanvas ? (
         <button
           type="button"
           onClick={() => setStatusOn((v) => !v)}
