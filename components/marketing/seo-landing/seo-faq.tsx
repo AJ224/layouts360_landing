@@ -55,11 +55,13 @@ export function SeoFaq({
   return (
     <section className="border-t border-slate-200 bg-slate-50 py-12 sm:py-14">
       <div className="container mx-auto max-w-6xl px-4 sm:px-6">
-        <h2 className="mb-2 text-center text-2xl font-bold text-slate-900 sm:text-3xl">
+        <h2 className="mb-2 text-center text-2xl font-bold text-slate-900 sm:text-3xl" data-split="lines">
           {heading}
         </h2>
-        <p className="mb-8 text-center text-sm text-slate-600">{subhead}</p>
-        <div className="grid gap-6 md:grid-cols-2 md:gap-8 lg:gap-10">
+        <p className="mb-8 text-center text-sm text-slate-600" data-reveal="fade" data-delay="0.15">
+          {subhead}
+        </p>
+        <div className="grid gap-6 md:grid-cols-2 md:gap-8 lg:gap-10" data-reveal="fade">
           <FaqColumn columnItems={leftColumn} idOffset={0} />
           <FaqColumn columnItems={rightColumn} idOffset={splitAt} />
         </div>

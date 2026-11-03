@@ -14,13 +14,13 @@ export function WhyToolsFailSection({ content }: WhyToolsFailSectionProps) {
       <SectionHeader
         title={
           <>
-            {content.headlineBefore}{" "}
+            {`${content.headlineBefore} `}
             <span className="text-amber-700">{content.headlineAccent}</span>
           </>
         }
       />
 
-      <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
+      <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-3" data-reveal="up" data-stagger>
         {content.tools.map((tool, index) => {
           const Icon = TOOL_ICONS[index] ?? FileSpreadsheet
           return (

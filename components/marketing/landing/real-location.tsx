@@ -12,19 +12,26 @@ export function RealLocationSection({ content }: RealLocationSectionProps) {
     <section className="overflow-hidden bg-slate-50 py-20 sm:py-24">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-            {content.headlineBefore}{" "}
+          <h2 className="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl" data-split="lines">
+            {`${content.headlineBefore} `}
             <span className="text-[#00C29F]">{content.headlineAccent}</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-slate-600">
+          <p
+            className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-slate-600"
+            data-reveal="fade"
+            data-delay="0.15"
+          >
             {content.support}
           </p>
-          <div className="mt-6">
+          <div className="mt-6" data-reveal="up" data-delay="0.25">
             <TextLink href="/features">{content.link}</TextLink>
           </div>
         </div>
 
-        <div className="relative mx-auto mt-12 max-w-6xl overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl shadow-slate-200/60">
+        <div
+          className="relative mx-auto mt-12 max-w-6xl overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl shadow-slate-200/60"
+          data-reveal="up"
+        >
           <div className="relative aspect-[16/9] w-full sm:aspect-[2/1]">
             <Image
               src={LANDING_IMAGES.multiBuilding.src}

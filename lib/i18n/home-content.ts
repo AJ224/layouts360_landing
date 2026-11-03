@@ -18,6 +18,19 @@ export type HomeContent = {
     closerAccent: string
     closerAfter: string
   }
+  disconnectedTools: {
+    heading: string
+    body: string
+    fragmentedLabel: string
+    connectedLabel: string
+    rows: { before: string; after: string }[]
+  }
+  showcase: {
+    heading: string
+    body: string
+    stages: { id: string; title: string; body: string; imageAlt: string }[]
+    caption: string
+  }
   showUnit: {
     headlineBefore: string
     headlineAccent: string
@@ -59,6 +72,24 @@ export type HomeContent = {
     headline: string
     types: string[]
   }
+  builtFor: {
+    heading: string
+    body: string
+    items: { title: string; body: string; href: string; imageAlt: string }[]
+  }
+  groups: {
+    heading: string
+    body: string
+    items: {
+      id: "visualize" | "operate" | "control"
+      title: string
+      lead: string
+      points: string[]
+      href: string
+      linkLabel: string
+      imageAlt: string
+    }[]
+  }
   digitization: {
     headline: string
     body: string
@@ -70,8 +101,9 @@ export type HomeContent = {
   }
   faq: {
     heading: string
-    subhead: string
+    body: string
     items: { question: string; answer: string }[]
+    link: string
   }
   cta: {
     headlineBefore: string
@@ -93,16 +125,16 @@ const EN: HomeContent = {
     secondaryCta: "See How It Works",
     proofAria: "How teams use Layouts360",
     proof: [
-      { href: "/digital-layout-maps", prefix: "Visualize", name: "layouts" },
+      { href: "/digital-layout-maps", prefix: "FOLLOW UP", name: "ENQUIRY" },
       {
         href: "/real-estate-inventory-management-software",
-        prefix: "Manage",
-        name: "inventory",
+        prefix: "PRESENT",
+        name: "PROJECT",
       },
       {
         href: "/real-estate-booking-management-software",
-        prefix: "Book &",
-        name: "sell",
+        prefix: "BOOK",
+        name: "& SELL",
       },
     ],
   },
@@ -125,6 +157,60 @@ const EN: HomeContent = {
     closerBefore: "Your team stops asking. Everyone sees the",
     closerAccent: "same live inventory",
     closerAfter: ".",
+  },
+  disconnectedTools: {
+    heading: "Most development businesses run on disconnected tools.",
+    body: "A PDF layout on WhatsApp, a master Excel with six versions, holds agreed verbally, collections in a separate ledger and follow-ups in someone's phone. Each one is fine on its own. Together they produce double allotments and Monday reconciliation.",
+    fragmentedLabel: "Fragmented operations",
+    connectedLabel: "One connected platform",
+    rows: [
+      { before: "PDF layout forwarded on WhatsApp", after: "One live layout, current for everyone" },
+      { before: 'Excel with two versions of "available"', after: "One status per plot, locked by a freeze" },
+      { before: "Verbal holds nobody can prove", after: "Timed freezes with an expiry and a history" },
+      { before: "Brokers guessing from the last blast", after: "Partner logins on live inventory" },
+      { before: "Collections tracked in a separate book", after: "Payments and dues on the booking itself" },
+      {
+        before: "Follow-ups in a personal phone",
+        after: "Enquiries and site visits on the plot, visible to the team",
+      },
+    ],
+  },
+  showcase: {
+    heading: "The product, as your team uses it",
+    body: "Five screens from the Layouts360 demo account. The same plot moves from layout to collections without leaving the system.",
+    stages: [
+      {
+        id: "layout",
+        title: "Start on the layout",
+        body: "Every plot carries its status in colour. Filters narrow by status, plot size and facing. Hundreds of plots, one screen, current for everyone.",
+        imageAlt: "Layouts360 3D layout view with status and plot size filters and the map toolbar",
+      },
+      {
+        id: "plot",
+        title: "Open the plot",
+        body: "Tap a plot to see its area and status. From here the team freezes it for a buyer or books it straight away.",
+        imageAlt: "Layouts360 plot 316 selected on the 3D layout with Freeze and Book actions",
+      },
+      {
+        id: "freeze",
+        title: "Confirm the sold plot",
+        body: "Sold plots list the customer, who closed the deal and whether a booking record is attached. Gaps show up before they slip.",
+        imageAlt: "Layouts360 sold plots list with customer, sold by and booked status",
+      },
+      {
+        id: "book",
+        title: "Book and track the deal",
+        body: "Bookings carry the customer, the total price and the pending amount, grouped by stage: active, payment, registration, sold.",
+        imageAlt: "Layouts360 bookings table with customer, total price, pending amount and status",
+      },
+      {
+        id: "collect",
+        title: "Collect against the booking",
+        body: "Receivable, received and pending at a glance. Every entry is a payment or a due on a plot, with mode, category and who handled it.",
+        imageAlt: "Layouts360 payments view with total receivable, received and pending, and a ledger of entries",
+      },
+    ],
+    caption: "Screens captured from the Layouts360 demo account. Sample names and numbers.",
   },
   showUnit: {
     headlineBefore: "Show the Unit,",
@@ -178,7 +264,7 @@ const EN: HomeContent = {
       "Sales sees the same numbers on the phone — enquiries, bookings, sold, money in. Not a PDF from this morning.",
   },
   channelPartners: {
-    headline: "Give brokers a login, not a PDF blast.",
+    headline: "Give Channel Partners & Brokers a login, not a PDF blast.",
     body: "Partners see live availability and submit booking requests tied to real units — not a group chat. Fewer disputes over who sourced which lead.",
   },
   whyToolsFail: {
@@ -249,6 +335,84 @@ const EN: HomeContent = {
       "Large Multi-Phase Projects",
     ],
   },
+  builtFor: {
+    heading: "Built for real estate development",
+    body: "The same platform, configured for how each kind of project sells.",
+    items: [
+      {
+        title: "Plotted developments",
+        body: "Plot numbers, survey numbers, sizes and facing on a live layout. Freeze, book and collect from the plot.",
+        href: "/real-estate-plot-management-software",
+        imageAlt: "Low-poly isometric view of a plotted development with color-coded lots and trees",
+      },
+      {
+        title: "Township projects",
+        body: "Phased releases, large partner networks and launch days without verbal holds or PDF blasts.",
+        href: "/township-management-software",
+        imageAlt: "Low-poly township map with villas on plots, central park, clubhouse amenities, and status legend",
+      },
+      {
+        title: "Residential developments",
+        body: "Plots and apartment towers in one inventory: building, floor, unit, configuration and price.",
+        href: "/apartment-inventory-management-software",
+        imageAlt: "Residential apartment towers with live unit highlights on Tower A",
+      },
+      {
+        title: "Multi-project developers",
+        body: "Several layouts in one account, with a ledger per layout and dashboards across the portfolio.",
+        href: "/solutions",
+        imageAlt: "Low-poly isometric portfolio showing plotted, residential, and villa projects together",
+      },
+    ],
+  },
+  groups: {
+    heading: "One connected platform",
+    body: "Three groups of capability, one inventory underneath them.",
+    items: [
+      {
+        id: "visualize",
+        title: "Visualize",
+        lead: "The project as a live layout, not a file.",
+        points: [
+          "Interactive project layouts digitised from your PDF, CAD, Excel or Illustrator files",
+          "Plot-level information: area, facing, side dimensions, survey number, rate",
+          "Project presentation with photos, key map and nearby places",
+          "Buyer-facing project links that show only what you choose to show",
+        ],
+        href: "/digital-layout-maps",
+        linkLabel: "Visualization",
+        imageAlt: "Layouts360 plot detail: plot 146, 900 sq ft, east facing, with freeze and book actions",
+      },
+      {
+        id: "operate",
+        title: "Operate",
+        lead: "Every sales action lands on the unit.",
+        points: [
+          "Inventory and availability across projects and phases",
+          "Enquiries, site visits and follow-ups attached to the plot",
+          "Freeze, book and record payments without double allotment",
+          "Channel partner logins, booking requests and commission tracking",
+        ],
+        href: "/real-estate-crm-software",
+        linkLabel: "Sales operations",
+        imageAlt: "Layouts360 CRM: My day view with first calls, site visits and follow-ups",
+      },
+      {
+        id: "control",
+        title: "Control",
+        lead: "Leadership sees the business on live data.",
+        points: [
+          "Collections, dues and a ledger per layout",
+          "Dashboard with enquiries, bookings, sold and today's receivables, with exports",
+          "Team roles, permissions, GPS attendance and an activity trail",
+          "Several projects in one account, one source of truth",
+        ],
+        href: "/real-estate-accounting-software",
+        linkLabel: "Bookings and collections",
+        imageAlt: "Layouts360 dashboard: today's received and top performers",
+      },
+    ],
+  },
   digitization: {
     headline: "Already have it in PDF, CAD, Excel, or Illustrator?",
     body: "We digitize by property type, inventory size, and complexity — so your team sells from a live map, not static files.",
@@ -275,51 +439,52 @@ const EN: HomeContent = {
     link: "Read customer stories",
   },
   faq: {
-    heading: "Frequently asked questions",
-    subhead: "Tap any question to expand. Answers stay on this page for search and reference.",
+    heading: "Questions developers ask first",
+    body: "Short answers here. The full FAQ covers setup, access, data and support in more detail.",
     items: [
       {
         question: "What is Layouts360?",
         answer:
-          "Layouts360 is a live inventory and sales platform for real estate companies. It combines interactive layouts, plot and apartment inventory, booking workflow, CRM, and team tools so you visualize, manage, share, and sell from one place.",
+          "A real estate operating system for developers. It combines interactive layouts, plot and apartment inventory, enquiries and site visits, freezing and booking, payments and collections, channel partners and team tools on one platform.",
       },
       {
-        question: "Does it support flats and apartments?",
+        question: "Who is it designed for?",
         answer:
-          "Yes. Manage apartment projects by building, floor, and unit, with flat number, configuration, area, price, availability, customer, and booking status, alongside plotted inventory.",
+          "Plot and layout developers, township developers, builders selling plots alongside apartment towers, and companies running several projects. Sales teams and channel partner networks use it daily.",
       },
       {
-        question: "Does it prevent double bookings?",
+        question: "How does project setup and migration work?",
         answer:
-          "Yes. A hold locks a unit the moment your agent clicks it. Every viewer sees the same state until it's confirmed, released, or expires.",
+          "You share your layout files and your current sheet. The team digitises the layout, configures statuses, roles and partners, and imports existing plots, customers and bookings. The timeline is scoped after reviewing your files.",
       },
       {
-        question: "How is it priced?",
+        question: "How do sales teams and brokers work in it?",
         answer:
-          "It depends on inventory size, property type, and how many users you need. Contact us or book a demo and we'll map a plan to your projects.",
+          "Staff get roles with the permissions you set, for example viewing and freezing plots without deleting. Channel partners get their own logins, see live availability and submit booking requests tied to specific plots.",
       },
       {
-        question: "How long does digitization take?",
+        question: "How is pricing and onboarding structured?",
         answer:
-          "It depends on property type, inventory size, and complexity. Most projects move from static files to a live map on a scoped timeline we confirm after reviewing your layouts.",
+          "Pricing depends on inventory size, property type and the number of users. Digitisation is scoped per layout. Book a demo and the team maps a plan to your projects.",
       },
       {
-        question: "Do brokers need their own accounts?",
+        question: "Who can see our data?",
         answer:
-          "Yes. Channel partners get logins so they see live availability and submit booking requests tied to real units — not a PDF blast or group chat.",
+          "Access is controlled by roles and permissions you manage. Buyer links show only what you choose to publish, and partner logins show availability without exposing your master sheet.",
       },
       {
-        question: "Can it connect to our existing CRM?",
+        question: "What support do we get?",
         answer:
-          "Layouts360 is built around the unit, with CRM and sales workflow included. For existing CRM connections, talk to us during a demo about what you need to keep in sync.",
+          "Onboarding by the Layouts360 team and WhatsApp support afterwards. The product is built for non-technical staff and works on basic 4G at the site.",
       },
     ],
+    link: "Read the full FAQ",
   },
   cta: {
-    headlineBefore: "Your inventory is more than a",
-    headlineAccent: "spreadsheet",
-    headlineAfter: ".",
-    body: "Plots, flats, apartments, villas — one live system.",
+    headlineBefore: "PRE-SALE.",
+    headlineAccent: "VISUALISATION.",
+    headlineAfter: "POST-SALE.",
+    body: "One Complete System for Real Estate Developers.",
     primaryCta: "Book a Demo",
     secondaryCta: "See Your Project on Layouts360",
     trustPoints: ["Plots, flats & apartments", "Live inventory", "Book a walkthrough"],
@@ -336,16 +501,16 @@ const HI: HomeContent = {
     secondaryCta: "काम कैसे करता है, देखें",
     proofAria: "टीमें Layouts360 कैसे इस्तेमाल करती हैं",
     proof: [
-      { href: "/digital-layout-maps", prefix: "विज़ुअलाइज़ करें", name: "लेआउट" },
+      { href: "/digital-layout-maps", prefix: "फ़ॉलो-अप", name: "इंक्वायरी" },
       {
         href: "/real-estate-inventory-management-software",
-        prefix: "मैनेज करें",
-        name: "इन्वेंटरी",
+        prefix: "प्रेज़ेंट",
+        name: "प्रोजेक्ट",
       },
       {
         href: "/real-estate-booking-management-software",
-        prefix: "बुक व",
-        name: "सेल",
+        prefix: "बुक",
+        name: "व सेल",
       },
     ],
   },
@@ -368,6 +533,63 @@ const HI: HomeContent = {
     closerBefore: "ये सवाल अब बंद। पूरी टीम",
     closerAccent: "एक ही स्क्रीन",
     closerAfter: " देखती है, रियल टाइम में।",
+  },
+  disconnectedTools: {
+    heading: "ज़्यादातर डेवलपमेंट बिज़नेस अलग-अलग टूल्स पर चलते हैं।",
+    body: "WhatsApp पर PDF लेआउट, छह वर्ज़न वाली मास्टर Excel, ज़ुबानी होल्ड, अलग खाते में कलेक्शन और किसी के फ़ोन में फ़ॉलो-अप। अलग-अलग सब ठीक हैं। साथ में ये डबल अलॉटमेंट और सोमवार का मिलान पैदा करते हैं।",
+    fragmentedLabel: "बिखरे हुए ऑपरेशंस",
+    connectedLabel: "एक जुड़ा हुआ प्लेटफ़ॉर्म",
+    rows: [
+      { before: "WhatsApp पर फ़ॉरवर्ड किया PDF लेआउट", after: "एक लाइव लेआउट, सबके लिए अपडेटेड" },
+      { before: 'Excel में "available" के दो वर्ज़न', after: "हर प्लॉट का एक स्टेटस, फ़्रीज़ से लॉक" },
+      {
+        before: "ज़ुबानी होल्ड जो कोई साबित नहीं कर सकता",
+        after: "समयबद्ध फ़्रीज़, एक्सपायरी और हिस्ट्री के साथ",
+      },
+      { before: "ब्रोकर पिछले ब्लास्ट से अंदाज़ा लगाते हैं", after: "लाइव इन्वेंटरी पर पार्टनर लॉगिन" },
+      { before: "कलेक्शन अलग किताब में", after: "भुगतान और बकाया बुकिंग पर ही" },
+      {
+        before: "फ़ॉलो-अप निजी फ़ोन में",
+        after: "एन्क्वायरी और साइट विज़िट प्लॉट पर, टीम को दिखती हैं",
+      },
+    ],
+  },
+  showcase: {
+    heading: "प्रोडक्ट, जैसा आपकी टीम इस्तेमाल करती है",
+    body: "Layouts360 डेमो अकाउंट की पाँच स्क्रीन। वही प्लॉट लेआउट से कलेक्शन तक सिस्टम छोड़े बिना जाता है।",
+    stages: [
+      {
+        id: "layout",
+        title: "लेआउट से शुरू करें",
+        body: "हर प्लॉट अपना स्टेटस रंग में दिखाता है। फ़िल्टर स्टेटस, प्लॉट साइज़ और दिशा से छाँटते हैं। सैकड़ों प्लॉट, एक स्क्रीन, सबके लिए अपडेटेड।",
+        imageAlt: "Layouts360 का 3D लेआउट व्यू, स्टेटस और प्लॉट साइज़ फ़िल्टर तथा मैप टूलबार के साथ",
+      },
+      {
+        id: "plot",
+        title: "प्लॉट खोलें",
+        body: "प्लॉट पर टैप करके क्षेत्रफल और स्टेटस देखें। यहीं से टीम खरीदार के लिए फ़्रीज़ करती है या सीधे बुक करती है।",
+        imageAlt: "Layouts360 में 3D लेआउट पर चुना गया प्लॉट 316, Freeze और Book कार्रवाइयों के साथ",
+      },
+      {
+        id: "freeze",
+        title: "सोल्ड प्लॉट कन्फ़र्म करें",
+        body: "सोल्ड प्लॉट सूची में ग्राहक, किसने डील बंद की और बुकिंग रिकॉर्ड जुड़ा है या नहीं — सब दिखता है। गैप छिपने से पहले दिख जाते हैं।",
+        imageAlt: "Layouts360 सोल्ड प्लॉट सूची, ग्राहक, sold by और booked स्टेटस के साथ",
+      },
+      {
+        id: "book",
+        title: "बुक करें और डील ट्रैक करें",
+        body: "बुकिंग में ग्राहक, कुल कीमत और बकाया राशि होती है, चरण के अनुसार: active, payment, registration, sold।",
+        imageAlt: "Layouts360 बुकिंग तालिका, ग्राहक, कुल कीमत, बकाया और स्टेटस के साथ",
+      },
+      {
+        id: "collect",
+        title: "बुकिंग पर कलेक्शन",
+        body: "प्राप्य, प्राप्त और बकाया एक नज़र में। हर एंट्री किसी प्लॉट पर भुगतान या बकाया है, मोड, श्रेणी और हैंडल करने वाले के साथ।",
+        imageAlt: "Layouts360 भुगतान व्यू, कुल प्राप्य, प्राप्त और बकाया के साथ एंट्री लेजर",
+      },
+    ],
+    caption: "Layouts360 डेमो अकाउंट से ली गई स्क्रीन। सैंपल नाम और नंबर।",
   },
   showUnit: {
     headlineBefore: "सिर्फ लिस्ट नहीं,",
@@ -498,6 +720,84 @@ const HI: HomeContent = {
       "बड़े मल्टी-फेज़ लॉन्च",
     ],
   },
+  builtFor: {
+    heading: "रियल एस्टेट डेवलपमेंट के लिए बना",
+    body: "वही प्लेटफ़ॉर्म, हर तरह के प्रोजेक्ट के बिकने के तरीके के लिए कॉन्फ़िगर।",
+    items: [
+      {
+        title: "प्लॉटेड डेवलपमेंट",
+        body: "लाइव लेआउट पर प्लॉट नंबर, सर्वे नंबर, साइज़ और दिशा। प्लॉट से ही फ़्रीज़, बुक और कलेक्ट करें।",
+        href: "/real-estate-plot-management-software",
+        imageAlt: "प्लॉटेड डेवलपमेंट का लो-पॉली आइसोमेट्रिक व्यू, रंगीन प्लॉट और पेड़ों के साथ",
+      },
+      {
+        title: "टाउनशिप प्रोजेक्ट",
+        body: "फेज़ में रिलीज़, बड़े पार्टनर नेटवर्क और लॉन्च डे, बिना ज़ुबानी होल्ड या PDF ब्लास्ट के।",
+        href: "/township-management-software",
+        imageAlt: "लो-पॉली टाउनशिप मैप: प्लॉट पर विला, सेंट्रल पार्क, क्लबहाउस अमेनिटी और स्टेटस लेजेंड",
+      },
+      {
+        title: "रेज़िडेंशियल डेवलपमेंट",
+        body: "प्लॉट और अपार्टमेंट टावर एक इन्वेंटरी में: बिल्डिंग, फ़्लोर, यूनिट, कॉन्फ़िगरेशन और कीमत।",
+        href: "/apartment-inventory-management-software",
+        imageAlt: "रेज़िडेंशियल अपार्टमेंट टावर, टावर A पर लाइव यूनिट हाइलाइट के साथ",
+      },
+      {
+        title: "मल्टी-प्रोजेक्ट डेवलपर",
+        body: "एक अकाउंट में कई लेआउट, हर लेआउट का लेजर और पोर्टफोलियो डैशबोर्ड।",
+        href: "/solutions",
+        imageAlt: "मल्टी-प्रोजेक्ट पोर्टफोलियो का लो-पॉली आइसोमेट्रिक व्यू",
+      },
+    ],
+  },
+  groups: {
+    heading: "एक जुड़ा हुआ प्लेटफ़ॉर्म",
+    body: "क्षमताओं के तीन समूह, नीचे एक ही इन्वेंटरी।",
+    items: [
+      {
+        id: "visualize",
+        title: "Visualize",
+        lead: "प्रोजेक्ट एक लाइव लेआउट है, फ़ाइल नहीं।",
+        points: [
+          "आपकी PDF, CAD, Excel या Illustrator फ़ाइलों से डिजिटाइज़ किए इंटरैक्टिव लेआउट",
+          "प्लॉट-स्तर जानकारी: क्षेत्रफल, दिशा, साइड डाइमेंशन, सर्वे नंबर, दर",
+          "फ़ोटो, की-मैप और आसपास की जगहों के साथ प्रोजेक्ट प्रस्तुति",
+          "खरीदार के लिए प्रोजेक्ट लिंक, जिसमें सिर्फ़ वही दिखे जो आप चाहें",
+        ],
+        href: "/digital-layout-maps",
+        linkLabel: "विज़ुअलाइज़ेशन",
+        imageAlt: "Layouts360 प्लॉट विवरण: प्लॉट 146, 900 वर्ग फ़ुट, पूर्व मुखी, फ़्रीज़ और बुक विकल्पों के साथ",
+      },
+      {
+        id: "operate",
+        title: "Operate",
+        lead: "हर सेल्स कार्रवाई यूनिट पर दर्ज होती है।",
+        points: [
+          "प्रोजेक्ट और फेज़ के पार इन्वेंटरी और उपलब्धता",
+          "प्लॉट से जुड़ी एन्क्वायरी, साइट विज़िट और फ़ॉलो-अप",
+          "डबल अलॉटमेंट के बिना फ़्रीज़, बुक और भुगतान दर्ज",
+          "चैनल पार्टनर लॉगिन, बुकिंग अनुरोध और कमीशन ट्रैकिंग",
+        ],
+        href: "/real-estate-crm-software",
+        linkLabel: "सेल्स ऑपरेशंस",
+        imageAlt: "Layouts360 CRM: My day व्यू, पहली कॉल, साइट विज़िट और फ़ॉलो-अप के साथ",
+      },
+      {
+        id: "control",
+        title: "Control",
+        lead: "नेतृत्व बिज़नेस को लाइव डेटा पर देखता है।",
+        points: [
+          "कलेक्शन, बकाया और हर लेआउट का लेजर",
+          "एन्क्वायरी, बुकिंग, बिक्री और आज की प्राप्तियों वाला डैशबोर्ड, एक्सपोर्ट के साथ",
+          "टीम रोल, अनुमतियाँ, GPS अटेंडेंस और गतिविधि ट्रेल",
+          "एक अकाउंट में कई प्रोजेक्ट, एक ही सत्य स्रोत",
+        ],
+        href: "/real-estate-accounting-software",
+        linkLabel: "बुकिंग और कलेक्शन",
+        imageAlt: "Layouts360 डैशबोर्ड: आज की प्राप्तियाँ और टॉप परफ़ॉर्मर",
+      },
+    ],
+  },
   digitization: {
     headline: "PDF, CAD, Excel में लेआउट पड़ा है?",
     body: "साइज़ और कॉम्प्लेक्सिटी के हिसाब से हम खुद डिजिटाइज़ कर देंगे — टीम फाइल नहीं, लाइव मैप से बेचेगी।",
@@ -524,51 +824,52 @@ const HI: HomeContent = {
     link: "पूरी कहानियाँ पढ़ें",
   },
   faq: {
-    heading: "अक्सर पूछे जाने वाले सवाल",
-    subhead: "कोई भी सवाल खोलें। जवाब इसी पेज पर सर्च और रेफरेंस के लिए रहते हैं।",
+    heading: "डेवलपर सबसे पहले क्या पूछते हैं",
+    body: "यहाँ छोटे जवाब। पूरा FAQ सेटअप, एक्सेस, डेटा और सपोर्ट को विस्तार से कवर करता है।",
     items: [
       {
-        question: "Layouts360 है क्या?",
+        question: "Layouts360 क्या है?",
         answer:
-          "Layouts360 रियल एस्टेट कंपनियों के लिए लाइव इन्वेंटरी और सेल्स प्लेटफ़ॉर्म है। इंटरैक्टिव लेआउट, प्लॉट व अपार्टमेंट इन्वेंटरी, बुकिंग वर्कफ़्लो, CRM और टीम टूल्स एक जगह — विज़ुअलाइज़, मैनेज, शेयर और सेल एक ही सिस्टम से।",
+          "डेवलपरों के लिए एक रियल एस्टेट ऑपरेटिंग सिस्टम। यह इंटरैक्टिव लेआउट, प्लॉट और अपार्टमेंट इन्वेंटरी, एन्क्वायरी और साइट विज़िट, फ़्रीज़िंग और बुकिंग, भुगतान और कलेक्शन, चैनल पार्टनर और टीम टूल्स को एक प्लेटफ़ॉर्म पर जोड़ता है।",
       },
       {
-        question: "फ्लैट और अपार्टमेंट के लिए भी काम करता है?",
+        question: "यह किसके लिए बना है?",
         answer:
-          "हाँ। अपार्टमेंट प्रोजेक्ट्स को बिल्डिंग, फ्लोर और यूनिट के हिसाब से मैनेज करें — फ्लैट नंबर, कॉन्फ़िगरेशन, एरिया, प्राइस, अवेलेबिलिटी और बुकिंग स्टेटस के साथ।",
+          "प्लॉट और लेआउट डेवलपर, टाउनशिप डेवलपर, अपार्टमेंट टावर के साथ प्लॉट बेचने वाले बिल्डर, और कई प्रोजेक्ट चलाने वाली कंपनियाँ। सेल्स टीमें और चैनल पार्टनर नेटवर्क इसे रोज़ इस्तेमाल करते हैं।",
       },
       {
-        question: "डबल बुकिंग रुकती है क्या?",
+        question: "प्रोजेक्ट सेटअप और माइग्रेशन कैसे होता है?",
         answer:
-          "हाँ। एजेंट के क्लिक करते ही यूनिट लॉक हो जाती है। कन्फर्म, रिलीज़ या होल्ड टाइम-आउट तक हर किसी को एक ही सच्चाई दिखती है।",
+          "आप अपनी लेआउट फ़ाइलें और वर्तमान शीट साझा करते हैं। टीम लेआउट डिजिटाइज़ करती है, स्टेटस, रोल और पार्टनर कॉन्फ़िगर करती है, और मौजूदा प्लॉट, ग्राहक और बुकिंग इम्पोर्ट करती है। समयसीमा फ़ाइलें देखने के बाद तय होती है।",
       },
       {
-        question: "कीमत कितनी है?",
+        question: "सेल्स टीम और ब्रोकर इसमें कैसे काम करते हैं?",
         answer:
-          "कीमत इन्वेंटरी साइज़, प्रॉपर्टी टाइप और यूज़र्स की संख्या पर निर्भर करती है। संपर्क करें या डेमो बुक करें — आपके प्रोजेक्ट्स के हिसाब से प्लान बताएंगे।",
+          "स्टाफ़ को आपकी तय अनुमतियों वाले रोल मिलते हैं, जैसे प्लॉट देखना और फ़्रीज़ करना पर डिलीट नहीं। चैनल पार्टनरों को अपने लॉगिन मिलते हैं, वे लाइव उपलब्धता देखते हैं और विशेष प्लॉट पर बुकिंग अनुरोध भेजते हैं।",
       },
       {
-        question: "डिजिटाइज़ेशन में कितना वक़्त लगेगा?",
+        question: "प्राइसिंग और ऑनबोर्डिंग कैसे तय होती है?",
         answer:
-          "साइज़ और कॉम्प्लेक्सिटी पर निर्भर करता है। आपके लेआउट देखने के बाद हम एक साफ़ टाइमलाइन बताते हैं — ज़्यादातर प्रोजेक्ट्स स्टैटिक फाइल से लाइव मैप तक उसी स्कोप में जाते हैं।",
+          "प्राइसिंग इन्वेंटरी आकार, प्रॉपर्टी प्रकार और यूज़र संख्या पर निर्भर करती है। डिजिटाइज़ेशन हर लेआउट के लिए अलग से तय होता है। डेमो बुक करें और टीम आपके प्रोजेक्ट के लिए प्लान बनाती है।",
       },
       {
-        question: "हर ब्रोकर का अलग लॉगिन होगा?",
+        question: "हमारा डेटा कौन देख सकता है?",
         answer:
-          "हाँ। हर पार्टनर को अपना लॉगिन मिलता है — लाइव स्टॉक देखें, असली यूनिट पर बुकिंग रिक्वेस्ट भेजें। PDF ब्लास्ट या ग्रुप चैट की ज़रूरत नहीं।",
+          "एक्सेस उन रोल और अनुमतियों से नियंत्रित होता है जिन्हें आप प्रबंधित करते हैं। खरीदार लिंक सिर्फ़ वही दिखाते हैं जो आप प्रकाशित करना चुनें, और पार्टनर लॉगिन आपकी मास्टर शीट दिखाए बिना उपलब्धता दिखाते हैं।",
       },
       {
-        question: "हमारे मौजूदा CRM से जुड़ सकता है?",
+        question: "हमें क्या सपोर्ट मिलता है?",
         answer:
-          "Layouts360 की नींव यूनिट पर है, CRM और सेल्स वर्कफ़्लो शामिल। मौजूदा CRM से जोड़ने के लिए डेमो में बताएं कि क्या सिंक रखना है।",
+          "Layouts360 टीम से ऑनबोर्डिंग और बाद में WhatsApp सपोर्ट। प्रोडक्ट गैर-तकनीकी स्टाफ़ के लिए बना है और साइट पर बेसिक 4G पर चलता है।",
       },
     ],
+    link: "पूरा FAQ पढ़ें",
   },
   cta: {
-    headlineBefore: "आपकी इन्वेंटरी,",
-    headlineAccent: "स्प्रेडशीट",
-    headlineAfter: " से बहुत बड़ी चीज़ है",
-    body: "प्लॉट हो, फ्लैट हो, विला हो — एक ही लाइव सिस्टम में, हमेशा ताज़ा।",
+    headlineBefore: "प्री-सेल.",
+    headlineAccent: "विज़ुअलाइज़ेशन.",
+    headlineAfter: "पोस्ट-सेल.",
+    body: "रियल एस्टेट डेवलपर्स के लिए एक पूरा सिस्टम।",
     primaryCta: "डेमो बुक करें",
     secondaryCta: "अपना प्रोजेक्ट यहाँ देखें",
     trustPoints: ["प्लॉट, फ्लैट व अपार्टमेंट", "लाइव इन्वेंटरी", "वॉकथ्रू बुक करें"],

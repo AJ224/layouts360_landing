@@ -21,7 +21,7 @@ export function WhoShouldUseSection({ content }: WhoShouldUseSectionProps) {
     <Section className="bg-slate-50 py-20">
       <SectionHeader title={content.headline} />
 
-      <div className="mx-auto grid max-w-6xl gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto grid max-w-6xl gap-5 sm:grid-cols-2 lg:grid-cols-3" data-reveal="up" data-stagger>
         {content.types.map((title, index) => {
           const Icon = TYPE_ICONS[index] ?? MapPinned
           return (

@@ -1,5 +1,3 @@
-import { Lock } from "lucide-react"
-import { Section, SectionHeader } from "@/components/marketing/landing/ui"
 import type { HomeContent } from "@/lib/i18n/home-content"
 
 type StopDoubleBookingsSectionProps = {
@@ -8,22 +6,25 @@ type StopDoubleBookingsSectionProps = {
 
 export function StopDoubleBookingsSection({ content }: StopDoubleBookingsSectionProps) {
   return (
-    <Section id="double-bookings" className="bg-slate-50 py-20">
-      <SectionHeader
-        title={
-          <>
-            {content.headlineBefore}{" "}
-            <span className="text-emerald-700">{content.headlineAccent}</span>
-          </>
-        }
-        description={content.body}
-      />
-      <div className="mx-auto flex max-w-2xl flex-col items-center gap-4 text-center">
-        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100">
-          <Lock className="h-6 w-6 text-emerald-700" aria-hidden />
+    <section
+      id="double-bookings"
+      className="border-t border-line bg-white py-10 sm:py-12"
+      aria-labelledby="double-bookings-heading"
+    >
+      <div className="container-site">
+        <div className="mx-auto w-full max-w-5xl text-center">
+          <h2
+            id="double-bookings-heading"
+            className="w-full text-balance text-center text-[clamp(1.15rem,2.6vw,2.75rem)] font-bold leading-tight tracking-tight text-ink lg:whitespace-nowrap"
+          >
+            {`${content.headlineBefore} `}
+            <span className="text-available-ink">{content.headlineAccent}</span>
+          </h2>
+          <p className="mt-3 w-full text-center text-sm font-semibold text-ink sm:mt-3.5 sm:text-base">
+            {content.microProof}
+          </p>
         </div>
-        <p className="text-base font-semibold text-slate-800 sm:text-lg">{content.microProof}</p>
       </div>
-    </Section>
+    </section>
   )
 }

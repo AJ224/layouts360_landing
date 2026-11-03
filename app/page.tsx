@@ -1,20 +1,15 @@
 import Hero from "@/components/marketing/hero"
 import Footer from "@/components/marketing/footer"
 import { FeatureCardsSection } from "@/components/marketing/home/feature-cards-section"
-import { WhyToolsFailSection } from "@/components/marketing/home/why-tools-fail-section"
-import { WhoShouldUseSection } from "@/components/marketing/home/who-should-use-section"
+import { ConnectedPlatformSection } from "@/components/marketing/home/connected-platform-section"
+import { ProductShowcaseSection } from "@/components/marketing/home/product-showcase-section"
+import { BuiltForSection } from "@/components/marketing/home/built-for-section"
 import { PlatformInventorySection } from "@/components/marketing/home/platform-inventory-section"
-import { DigitizationPricingSection } from "@/components/marketing/home/digitization-pricing-section"
 import { HomeFaqSection } from "@/components/marketing/home/home-faq-section"
 import { ProofSection } from "@/components/marketing/home/proof-section"
 import { StopDoubleBookingsSection } from "@/components/marketing/home/stop-double-bookings-section"
 import { ChannelPartnersSection } from "@/components/marketing/home/channel-partners-section"
-import {
-  SoundFamiliarSection,
-  RealLocationSection,
-  HowItWorksSection,
-  CtaSectionNew,
-} from "@/components/marketing/landing-sections"
+import { HowItWorksSection, CtaSectionNew } from "@/components/marketing/landing-sections"
 import { LocaleHtmlLang } from "@/components/marketing/locale-html-lang"
 import { getRequestLocale } from "@/lib/i18n/locale-server"
 import { getHomeContent } from "@/lib/i18n/home-content"
@@ -40,19 +35,17 @@ export default function Page() {
   const content = getHomeContent(locale)
 
   return (
-    <main className="bg-white min-h-screen">
+    <main className="min-h-screen overflow-x-clip bg-ground">
       <LocaleHtmlLang locale={locale} />
       <Hero content={content.hero} locale={locale} />
-      <SoundFamiliarSection content={content.problem} />
-      <RealLocationSection content={content.showUnit} />
+      <ConnectedPlatformSection content={content.groups} />
+      <ProductShowcaseSection content={content.showcase} />
       <PlatformInventorySection content={content.platform} />
       <StopDoubleBookingsSection content={content.doubleBookings} />
       <HowItWorksSection content={content.howItWorks} />
       <ChannelPartnersSection content={content.channelPartners} />
-      <WhyToolsFailSection content={content.whyToolsFail} />
       <FeatureCardsSection content={content.features} />
-      <WhoShouldUseSection content={content.inventoryTypes} />
-      <DigitizationPricingSection content={content.digitization} />
+      <BuiltForSection content={content.builtFor} />
       <ProofSection content={content.proof} />
       <HomeFaqSection content={content.faq} />
       <CtaSectionNew content={content.cta} />

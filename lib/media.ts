@@ -11,7 +11,7 @@ export const DASHBOARD_PREVIEW = "/assets/images/DashboardPreview.webp"
 /** Landing page marketing visuals (`public/images`). */
 export const LANDING_IMAGES = {
   heroLiveLayout: {
-    src: "/images/hero-live-layout-map.png",
+    src: "/images/hero-live-layout-map-ultra.jpg",
     alt: "Aerial plotted layout with live color-coded plot inventory",
   },
   interactivePlot: {
@@ -35,7 +35,7 @@ export const LANDING_IMAGES = {
     alt: "Before messy PDFs and Excel versus after live inventory on tablet",
   },
   salesWalkthrough: {
-    src: "/images/sales-walkthrough.png",
+    src: "/images/sales-walkthrough-realistic.jpg",
     alt: "Sales team showing interactive layout inventory to buyers",
   },
   multiBuilding: {
@@ -43,11 +43,11 @@ export const LANDING_IMAGES = {
     alt: "Multi-building apartment towers with unit inventory highlights",
   },
   productPlatform: {
-    src: "/images/product-platform-banner.png",
-    alt: "Layouts360 on laptop and phone — projects, inventory, leads, sales, and teams",
+    src: "/images/marketing/hero-platform-card.jpg",
+    alt: "Layouts360 — Your Real Estate. One Platform. Projects, inventory, leads, sales and teams on desktop and mobile.",
   },
   productMobile: {
-    src: "/images/product-mobile-dashboard.jpg",
-    alt: "Layouts360 mobile app — enquiries, bookings, sold, and payments on one screen",
+    src: "/images/product-mobile-dashboard-new.jpg",
+    alt: "Layouts360 mobile app — punch-in, enquiries, bookings, sold, and collections on one screen",
   },
 } as const
