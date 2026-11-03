@@ -19,16 +19,16 @@ export const LANDING_IMAGES = {
     alt: "Interactive plot inventory map on a laptop",
   },
   apartmentFloor: {
-    src: "/images/apartment-floor-inventory.png",
-    alt: "Apartment project with building floor and unit inventory",
+    src: "/images/apartment-floor-inventory.jpg",
+    alt: "3D cutaway of a modern three-bedroom flat with living, dining, kitchen, and en-suite bedrooms",
   },
   liveDashboard: {
     src: "/images/live-inventory-dashboard.png",
     alt: "Live inventory dashboard with status and filters",
   },
   floorPlanCloseup: {
-    src: "/images/floor-plan-closeup.png",
-    alt: "Detailed apartment floor plan for sales inventory",
+    src: "/images/floor-plan-closeup.jpg",
+    alt: "Detailed isometric floor plan of a luxury three-bedroom apartment for sales inventory",
   },
   beforeAfter: {
     src: "/images/before-after-inventory.png",
@@ -39,8 +39,8 @@ export const LANDING_IMAGES = {
     alt: "Sales team showing interactive layout inventory to buyers",
   },
   multiBuilding: {
-    src: "/images/multi-building-towers.png",
-    alt: "Multi-building apartment towers with unit inventory highlights",
+    src: "/images/multi-building-towers.jpg",
+    alt: "Modern mid-rise apartment building with glass balconies, wood accents, and landscaped grounds",
   },
   productPlatform: {
     src: "/images/marketing/hero-platform-card.jpg",

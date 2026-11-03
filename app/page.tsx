@@ -7,6 +7,7 @@ import { BuiltForSection } from "@/components/marketing/home/built-for-section"
 import { PlatformInventorySection } from "@/components/marketing/home/platform-inventory-section"
 import { HomeFaqSection } from "@/components/marketing/home/home-faq-section"
 import { ProofSection } from "@/components/marketing/home/proof-section"
+import { StatsSection } from "@/components/marketing/home/stats-section"
 import { StopDoubleBookingsSection } from "@/components/marketing/home/stop-double-bookings-section"
 import { ChannelPartnersSection } from "@/components/marketing/home/channel-partners-section"
 import { HowItWorksSection, CtaSectionNew } from "@/components/marketing/landing-sections"
@@ -38,6 +39,7 @@ export default function Page() {
     <main className="min-h-screen overflow-x-clip bg-ground">
       <LocaleHtmlLang locale={locale} />
       <Hero content={content.hero} locale={locale} />
+      <StatsSection content={content.stats} />
       <ConnectedPlatformSection content={content.groups} />
       <ProductShowcaseSection content={content.showcase} />
       <PlatformInventorySection content={content.platform} />

@@ -1,3 +1,4 @@
+import { SITE_STATS } from "@/lib/company"
 import type { Locale } from "@/lib/i18n/locale"
 
 export type HomeContent = {
@@ -93,6 +94,10 @@ export type HomeContent = {
   digitization: {
     headline: string
     body: string
+  }
+  stats: {
+    ariaLabel: string
+    items: { key: "projects" | "units" | "users"; value: string; label: string }[]
   }
   proof: {
     headline: string
@@ -355,7 +360,7 @@ const EN: HomeContent = {
         title: "Residential developments",
         body: "Plots and apartment towers in one inventory: building, floor, unit, configuration and price.",
         href: "/apartment-inventory-management-software",
-        imageAlt: "Residential apartment towers with live unit highlights on Tower A",
+        imageAlt: "Modern mid-rise residential apartment building with balconies and landscaped grounds",
       },
       {
         title: "Multi-project developers",
@@ -416,6 +421,10 @@ const EN: HomeContent = {
   digitization: {
     headline: "Already have it in PDF, CAD, Excel, or Illustrator?",
     body: "We digitize by property type, inventory size, and complexity — so your team sells from a live map, not static files.",
+  },
+  stats: {
+    ariaLabel: "Layouts360 at a glance",
+    items: SITE_STATS.map((s) => ({ key: s.key, value: s.value, label: s.labelEn })),
   },
   proof: {
     headline: "Real workflows",
@@ -801,6 +810,10 @@ const HI: HomeContent = {
   digitization: {
     headline: "PDF, CAD, Excel में लेआउट पड़ा है?",
     body: "साइज़ और कॉम्प्लेक्सिटी के हिसाब से हम खुद डिजिटाइज़ कर देंगे — टीम फाइल नहीं, लाइव मैप से बेचेगी।",
+  },
+  stats: {
+    ariaLabel: "Layouts360 एक नज़र में",
+    items: SITE_STATS.map((s) => ({ key: s.key, value: s.value, label: s.labelHi })),
   },
   proof: {
     headline: "असली किस्से",

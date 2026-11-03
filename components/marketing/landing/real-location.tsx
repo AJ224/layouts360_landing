@@ -37,7 +37,7 @@ export function RealLocationSection({ content }: RealLocationSectionProps) {
               src={LANDING_IMAGES.multiBuilding.src}
               alt={LANDING_IMAGES.multiBuilding.alt}
               fill
-              className="object-contain object-center p-2 sm:p-4"
+              className="object-cover object-center"
               sizes="(max-width: 1152px) 100vw, 1152px"
               priority={false}
             />
