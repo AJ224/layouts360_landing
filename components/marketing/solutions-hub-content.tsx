@@ -11,6 +11,7 @@ import {
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import CtaSection from "@/components/marketing/cta-section"
+import Header from "@/components/marketing/header"
 import { LANDING_IMAGES } from "@/lib/media"
 import { SOLUTION_HUB_GROUPS, SOLUTION_JOBS, SOLUTION_PAGE } from "@/lib/solutions-hub"
 
@@ -36,11 +37,13 @@ export function SolutionsHubContent() {
 
   return (
     <div className="bg-[#F4F6F8]">
-      <section className="relative overflow-hidden bg-[#071525] text-white">
+      <section className="relative flex min-h-svh flex-col overflow-hidden bg-[#071525] text-white">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,194,159,0.22),transparent_50%),radial-gradient(ellipse_at_bottom_left,rgba(255,184,0,0.12),transparent_45%)]" />
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:40px_40px]" />
 
-        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 pb-14 pt-12 sm:px-6 sm:pb-20 sm:pt-16 lg:grid-cols-12 lg:gap-12">
+        <Header theme="dark" />
+
+        <div className="relative mx-auto grid w-full max-w-6xl flex-1 items-center gap-10 px-4 pb-14 pt-8 sm:px-6 sm:pb-20 sm:pt-10 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-6">
             <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#FFB800]">
               <span className="h-1.5 w-1.5 rounded-full bg-[#00C29F]" aria-hidden />

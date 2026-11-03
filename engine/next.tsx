@@ -5,6 +5,7 @@
 // Opt a link out with data-no-transition. Back/forward re-inits the page without the veil.
 import { useEffect, useRef, useSyncExternalStore } from "react"
 import { usePathname, useRouter } from "next/navigation"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { boot, cleanup, enter, leave, onPage, type PageFn } from "./index"
 
 /** false during SSR + hydration; true only after the client tree has hydrated. */
@@ -36,7 +37,7 @@ export function Engine({ setup }: { setup?: () => void }) {
     const start = () => {
       if (cancelled) return
       boot(setup).then(() => {
-        window.ScrollTrigger?.refresh?.()
+        ScrollTrigger.refresh()
       })
     }
     const waitForPage = () => {

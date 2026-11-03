@@ -7,7 +7,6 @@ import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { DEFAULT_LOCALE, LOCALE_COOKIE, parseLocale, type Locale } from "@/lib/i18n/locale"
 import { getNavCopy } from "@/lib/i18n/nav"
-import { LanguageSwitcher } from "@/components/marketing/language-switcher"
 
 type HeaderProps = Readonly<{
   theme?: "light" | "dark"
@@ -90,7 +89,6 @@ export default function Header({ theme = "light", locale: localeProp }: HeaderPr
           </nav>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <LanguageSwitcher locale={locale} theme="dark" label={nav.language} />
             <Link
               href="/contact#demo-form"
               className="rounded-full bg-[#FFB800] px-4 py-2 text-sm font-bold text-black transition-colors hover:bg-[#E5A600] lg:px-6 lg:text-base"
@@ -100,7 +98,6 @@ export default function Header({ theme = "light", locale: localeProp }: HeaderPr
           </div>
 
           <div className="flex items-center gap-2 lg:hidden">
-            <LanguageSwitcher locale={locale} theme="dark" label={nav.language} />
             <button
               type="button"
               className="rounded-md p-1 text-white"

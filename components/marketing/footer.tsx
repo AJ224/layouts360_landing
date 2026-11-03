@@ -12,11 +12,11 @@ export default function Footer() {
   const year = 2026
 
   return (
-    <>
+    <div className="relative overflow-hidden text-ground">
+      <HeroAtmosphere idPrefix="footer" />
       <AskAiSection />
-      <footer className="relative overflow-hidden border-t border-white/10 pt-10 pb-8 text-ground sm:pt-12 sm:pb-10">
-        <HeroAtmosphere idPrefix="footer" />
-        <div className="container-site relative z-10">
+      <footer className="relative z-10 pt-8 pb-8 sm:pt-10 sm:pb-10">
+        <div className="container-site">
           <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
             <div className="space-y-4 sm:col-span-2 lg:col-span-3">
               <Link href="/" className="flex items-center">
@@ -136,6 +136,6 @@ export default function Footer() {
           </div>
         </div>
       </footer>
-    </>
+    </div>
   )
 }

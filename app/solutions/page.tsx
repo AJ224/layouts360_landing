@@ -17,7 +17,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function SolutionsPage() {
   return (
-    <SeoPageShell>
+    <SeoPageShell variant="immersive">
       <SolutionsHubContent />
     </SeoPageShell>
   )
