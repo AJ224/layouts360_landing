@@ -427,10 +427,29 @@ class SceneErrorBoundary extends Component<
   }
 }
 
+/** True when a WebGL1/2 context can be created (false in sandboxed / GPU-disabled browsers). */
+function canCreateWebGL(): boolean {
+  if (typeof document === "undefined") return false
+  try {
+    const canvas = document.createElement("canvas")
+    const gl =
+      canvas.getContext("webgl2", { failIfMajorPerformanceCaveat: false }) ||
+      canvas.getContext("webgl", { failIfMajorPerformanceCaveat: false }) ||
+      canvas.getContext("experimental-webgl", { failIfMajorPerformanceCaveat: false })
+    if (!gl || typeof (gl as WebGLRenderingContext).getParameter !== "function") return false
+    const lose = (gl as WebGLRenderingContext).getExtension("WEBGL_lose_context")
+    lose?.loseContext()
+    return true
+  } catch {
+    return false
+  }
+}
+
 export function TownshipScene({ className }: { className?: string }) {
   const [hover, setHover] = useState<HoverInfo>(null)
   const [selected, setSelected] = useState<HoverInfo>(null)
   const [reduced, setReduced] = useState(false)
+  const [webglOk, setWebglOk] = useState<boolean | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [booted, setBooted] = useState(false)
   const [modelsReady, setModelsReady] = useState(false)
@@ -440,7 +459,11 @@ export function TownshipScene({ className }: { className?: string }) {
 
   useEffect(() => {
     setReduced(prefersReducedMotion())
+    setWebglOk(canCreateWebGL())
   }, [])
+
+  const glFailed = webglOk === false || !!error
+  const showCanvas = webglOk === true && !error
 
   // Force a canvas resize when the shell gets a real size (fixes blank WebGL after layout).
   useEffect(() => {
@@ -466,7 +489,7 @@ export function TownshipScene({ className }: { className?: string }) {
   )
 
   const active = hover ?? selected
-  const showLoader = (!booted || !modelsReady) && !error
+  const showLoader = !glFailed && (webglOk === null || !booted || !modelsReady)
 
   return (
     <div
@@ -485,7 +508,7 @@ export function TownshipScene({ className }: { className?: string }) {
           backgroundImage: `url(${TERRAIN_BG})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          opacity: 0.4,
+          opacity: glFailed ? 0.7 : 0.4,
           transform: "translate3d(0, 0, 0) scale(1.22)",
         }}
       />
@@ -497,100 +520,111 @@ export function TownshipScene({ className }: { className?: string }) {
           </p>
         </div>
       ) : null}
-      {error ? (
+
+      {glFailed ? (
         <div className="absolute inset-0 z-10 flex items-center justify-center p-6 text-center">
-          <p className="max-w-sm text-sm text-red-700">{error}</p>
+          <p className="max-w-sm rounded-lg border border-white/15 bg-black/45 px-4 py-3 text-sm leading-relaxed text-white/85 backdrop-blur-sm">
+            3D preview needs WebGL. Open this page in Chrome or Safari with hardware acceleration
+            on — or book a demo to see the live layout.
+          </p>
         </div>
       ) : null}
 
-      <div className="absolute inset-0 z-[1]">
-        <Canvas
-          dpr={[1, 1.5]}
-          camera={{ position: [8, 10, 12], fov: 42, near: 0.5, far: 2000 }}
-          gl={{
-            antialias: true,
-            alpha: true,
-            powerPreference: "high-performance",
-            logarithmicDepthBuffer: true,
-          }}
-          style={{ width: "100%", height: "100%", display: "block", touchAction: "none" }}
-          onCreated={({ gl }) => {
-            gl.setClearColor(0x000000, 0)
-            setBooted(true)
-          }}
-          onPointerMissed={() => setSelected(null)}
-        >
-          <ambientLight intensity={0.95} />
-          <directionalLight position={[6, 10, 4]} intensity={1.4} />
-          <directionalLight position={[-4, 3, -2]} intensity={0.45} color="#b9d6c3" />
-          <hemisphereLight args={["#f7f9fb", "#b7c4bc", 0.55]} />
-
+      {showCanvas ? (
+        <div className="absolute inset-0 z-[1]">
           <SceneErrorBoundary onError={setError}>
-            <Suspense fallback={null}>
-              <LayoutModels
-                selectedId={selected?.id ?? null}
-                onHover={setHover}
-                onSelect={setSelected}
-                onReady={() => setModelsReady(true)}
-                statusOn={statusOn}
-                reducedMotion={reduced}
-              />
-              <OrbitControls
-                makeDefault
-                enablePan={false}
-                minPolarAngle={0.25}
-                maxPolarAngle={1.35}
-                minDistance={4}
-                maxDistance={120}
-                autoRotate={!reduced && !hover && !selected}
-                autoRotateSpeed={0.45}
-                enableDamping
-                dampingFactor={0.08}
-              />
-              <OrbitParallax onOrbit={onOrbit} enabled={!reduced} />
-            </Suspense>
+            <Canvas
+              dpr={[1, 1.5]}
+              camera={{ position: [8, 10, 12], fov: 42, near: 0.5, far: 2000 }}
+              gl={{
+                antialias: true,
+                alpha: true,
+                powerPreference: "default",
+                failIfMajorPerformanceCaveat: false,
+                logarithmicDepthBuffer: true,
+              }}
+              style={{ width: "100%", height: "100%", display: "block", touchAction: "none" }}
+              onCreated={({ gl }) => {
+                gl.setClearColor(0x000000, 0)
+                setBooted(true)
+              }}
+              onPointerMissed={() => setSelected(null)}
+            >
+              <ambientLight intensity={0.95} />
+              <directionalLight position={[6, 10, 4]} intensity={1.4} />
+              <directionalLight position={[-4, 3, -2]} intensity={0.45} color="#b9d6c3" />
+              <hemisphereLight args={["#f7f9fb", "#b7c4bc", 0.55]} />
+
+              <Suspense fallback={null}>
+                <LayoutModels
+                  selectedId={selected?.id ?? null}
+                  onHover={setHover}
+                  onSelect={setSelected}
+                  onReady={() => setModelsReady(true)}
+                  statusOn={statusOn}
+                  reducedMotion={reduced}
+                />
+                <OrbitControls
+                  makeDefault
+                  enablePan={false}
+                  minPolarAngle={0.25}
+                  maxPolarAngle={1.35}
+                  minDistance={4}
+                  maxDistance={120}
+                  autoRotate={!reduced && !hover && !selected}
+                  autoRotateSpeed={0.45}
+                  enableDamping
+                  dampingFactor={0.08}
+                />
+                <OrbitParallax onOrbit={onOrbit} enabled={!reduced} />
+              </Suspense>
+            </Canvas>
           </SceneErrorBoundary>
-        </Canvas>
-      </div>
-
-      <div className="pointer-events-none absolute left-4 top-4 z-20 flex max-w-[min(100%-8rem,18rem)] flex-col gap-2">
-        <div className="rounded-lg border border-white/70 bg-white/92 px-3 py-2 text-xs shadow-md backdrop-blur-sm">
-          {active ? (
-            <p className="font-semibold text-slate-900">
-              Plot {active.id}
-              <span
-                className="ml-2 inline-flex rounded-full px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide"
-                style={{
-                  background: STATUS_SOFT[active.status],
-                  color: STATUS_DOT[active.status],
-                }}
-              >
-                {STATUS_LABEL[active.status]}
-              </span>
-            </p>
-          ) : (
-            <p className="font-medium text-slate-500">Hover a plot · drag to orbit</p>
-          )}
         </div>
-      </div>
+      ) : null}
 
-      <button
-        type="button"
-        onClick={() => setStatusOn((v) => !v)}
-        className={cn(
-          "absolute right-4 top-4 z-20 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-semibold shadow-md backdrop-blur-sm transition-colors",
-          statusOn
-            ? "border-available/40 bg-available text-white"
-            : "border-white/70 bg-white/92 text-ink hover:bg-white",
-        )}
-        aria-pressed={statusOn}
-      >
-        <span
-          className={cn("h-2 w-2 rounded-full", statusOn ? "bg-white" : "bg-subtle")}
-          aria-hidden
-        />
-        Status {statusOn ? "on" : "off"}
-      </button>
+      {showCanvas ? (
+        <div className="pointer-events-none absolute left-4 top-4 z-20 flex max-w-[min(100%-8rem,18rem)] flex-col gap-2">
+          <div className="rounded-lg border border-white/70 bg-white/92 px-3 py-2 text-xs shadow-md backdrop-blur-sm">
+            {active ? (
+              <p className="font-semibold text-slate-900">
+                Plot {active.id}
+                <span
+                  className="ml-2 inline-flex rounded-full px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide"
+                  style={{
+                    background: STATUS_SOFT[active.status],
+                    color: STATUS_DOT[active.status],
+                  }}
+                >
+                  {STATUS_LABEL[active.status]}
+                </span>
+              </p>
+            ) : (
+              <p className="font-medium text-slate-500">Hover a plot · drag to orbit</p>
+            )}
+          </div>
+        </div>
+      ) : null}
+
+      {showCanvas ? (
+        <button
+          type="button"
+          onClick={() => setStatusOn((v) => !v)}
+          className={cn(
+            "absolute right-4 top-4 z-20 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-semibold shadow-md backdrop-blur-sm transition-colors",
+            statusOn
+              ? "border-available/40 bg-available text-white"
+              : "border-white/70 bg-white/92 text-ink hover:bg-white",
+          )}
+          aria-pressed={statusOn}
+        >
+          <span
+            className={cn("h-2 w-2 rounded-full", statusOn ? "bg-white" : "bg-subtle")}
+            aria-hidden
+          />
+          Status {statusOn ? "on" : "off"}
+        </button>
+      ) : null}
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/55 via-black/20 to-transparent p-4 pt-14">
         <div className="flex flex-wrap items-center gap-3 text-[11px] font-semibold text-white/85">
