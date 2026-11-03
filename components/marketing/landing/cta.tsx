@@ -1,56 +1,33 @@
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
 import type { HomeContent } from "@/lib/i18n/home-content"
 
 type CtaSectionNewProps = {
   content: HomeContent["cta"]
 }
 
+/** Light CTA — title/subtitle left, Book a Demo right (stacks on small screens). */
 export function CtaSectionNew({ content }: CtaSectionNewProps) {
   return (
-    <section className="relative overflow-hidden bg-slate-950 py-20 sm:py-24">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:40px_40px]" />
-      <div className="pointer-events-none absolute top-1/2 left-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#00C29F]/15 blur-[100px]" />
-      <div className="pointer-events-none absolute top-0 right-0 h-64 w-64 rounded-full bg-[#FFB800]/10 blur-[80px]" />
-
-      <div className="container relative z-10 mx-auto px-4">
-        <div className="mx-auto max-w-3xl rounded-3xl border border-white/10 bg-gradient-to-b from-slate-800/80 to-slate-900/90 px-6 py-12 text-center shadow-2xl shadow-black/40 backdrop-blur-sm sm:px-12 sm:py-14">
-          <h2 className="mb-4 text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
-            {content.headlineBefore}{" "}
-            <span className="bg-gradient-to-r from-[#00C29F] to-emerald-300 bg-clip-text text-transparent">
-              {content.headlineAccent}
-            </span>
-            {content.headlineAfter}
-          </h2>
-
-          <p className="mx-auto mb-8 max-w-lg text-base leading-relaxed text-slate-300 sm:text-lg">
-            {content.body}
-          </p>
-
-          <div className="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:justify-center sm:gap-4">
-            <Link
-              href="/contact#demo-form"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#FFB800] px-8 text-base font-bold text-slate-900 transition-colors hover:bg-[#E5A600]"
+    <section className="section-y border-y border-slate-200 bg-slate-50" aria-labelledby="cta-sentence">
+      <div className="container-site max-w-6xl">
+        <div className="flex flex-col gap-5 sm:gap-6 md:flex-row md:items-center md:justify-between md:gap-10">
+          <div className="min-w-0 flex-1">
+            <p
+              id="cta-sentence"
+              className="flex flex-wrap items-baseline gap-x-2 gap-y-1 text-[clamp(1.35rem,4.5vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink sm:gap-x-3 sm:gap-y-2"
             >
-              {content.primaryCta}
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex h-12 items-center justify-center rounded-full border-2 border-white/50 bg-white/5 px-8 text-base font-semibold text-white transition-colors hover:border-white hover:bg-white/15"
-            >
-              {content.secondaryCta}
-            </Link>
+              <span>{content.headlineBefore.trim()}</span>
+              <span className="text-logo">{content.headlineAccent}</span>
+              <span>{content.headlineAfter.trim()}</span>
+            </p>
+            <p className="mt-3 max-w-xl text-sm text-ink/60 sm:mt-4 sm:text-base md:text-lg">{content.body}</p>
           </div>
-
-          <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs font-medium uppercase tracking-wide text-slate-400 sm:gap-x-8 sm:text-sm">
-            {content.trustPoints.map((point) => (
-              <li key={point} className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#00C29F]" aria-hidden />
-                {point}
-              </li>
-            ))}
-          </ul>
+          <Link
+            href="/contact#demo-form"
+            className="inline-flex h-12 w-full shrink-0 items-center justify-center rounded-[4px] bg-brand px-7 text-base font-semibold text-white transition-opacity hover:opacity-90 sm:w-auto md:self-center"
+          >
+            {content.primaryCta}
+          </Link>
         </div>
       </div>
     </section>

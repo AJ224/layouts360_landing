@@ -45,9 +45,12 @@ function getCompareRedirects() {
 const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
-    deviceSizes: [640, 750, 828, 1080, 1200],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256],
+    // Include large viewports so full-bleed hero stays sharp on retina desktops.
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 2560],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    minimumCacheTTL: 60 * 60 * 24 * 30,
   },
+  transpilePackages: ["three", "@react-three/fiber", "@react-three/drei"],
   experimental: {
     optimizeCss: true,
   },

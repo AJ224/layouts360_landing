@@ -39,12 +39,19 @@ export function SectionHeader({
       {eyebrow ? (
         <span
           className={`inline-block px-3 py-1 rounded-full text-xs font-medium tracking-wider uppercase mb-4 ${eyebrowClassName}`}
+          data-reveal="fade"
         >
           {eyebrow}
         </span>
       ) : null}
-      <h2 className="text-3xl md:text-5xl font-bold text-slate-900">{title}</h2>
-      {description ? <p className="text-slate-500 mt-4 text-lg max-w-2xl mx-auto">{description}</p> : null}
+      <h2 className="text-3xl md:text-5xl font-bold text-slate-900" data-split="lines">
+        {title}
+      </h2>
+      {description ? (
+        <p className="text-slate-500 mt-4 text-lg max-w-2xl mx-auto" data-reveal="fade" data-delay="0.15">
+          {description}
+        </p>
+      ) : null}
     </header>
   )
 }

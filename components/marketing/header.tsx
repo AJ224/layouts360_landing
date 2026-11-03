@@ -11,7 +11,6 @@ import { LanguageSwitcher } from "@/components/marketing/language-switcher"
 
 type HeaderProps = Readonly<{
   theme?: "light" | "dark"
-  /** When provided (e.g. homepage SSR), avoids a language flash in the nav. */
   locale?: Locale
 }>
 
@@ -40,11 +39,17 @@ export default function Header({ theme = "light", locale: localeProp }: HeaderPr
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setMenuOpen(false)
     }
+    const mq = window.matchMedia("(min-width: 1024px)")
+    const onDesktop = () => {
+      if (mq.matches) setMenuOpen(false)
+    }
     document.addEventListener("keydown", onKeyDown)
+    mq.addEventListener("change", onDesktop)
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = "hidden"
     return () => {
       document.removeEventListener("keydown", onKeyDown)
+      mq.removeEventListener("change", onDesktop)
       document.body.style.overflow = previousOverflow
     }
   }, [menuOpen])
@@ -84,17 +89,17 @@ export default function Header({ theme = "light", locale: localeProp }: HeaderPr
             ))}
           </nav>
 
-          <div className="hidden items-center gap-3 md:flex">
+          <div className="hidden items-center gap-3 lg:flex">
             <LanguageSwitcher locale={locale} theme="dark" label={nav.language} />
             <Link
               href="/contact#demo-form"
-              className="rounded-full bg-[#FFB800] px-4 py-2 text-sm font-bold text-black transition-colors hover:bg-[#E5A600] md:px-6 md:text-base"
+              className="rounded-full bg-[#FFB800] px-4 py-2 text-sm font-bold text-black transition-colors hover:bg-[#E5A600] lg:px-6 lg:text-base"
             >
               {nav.getStarted}
             </Link>
           </div>
 
-          <div className="flex items-center gap-2 md:hidden">
+          <div className="flex items-center gap-2 lg:hidden">
             <LanguageSwitcher locale={locale} theme="dark" label={nav.language} />
             <button
               type="button"
@@ -113,7 +118,7 @@ export default function Header({ theme = "light", locale: localeProp }: HeaderPr
       {menuOpen ? (
         <button
           type="button"
-          className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm md:hidden"
+          className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm lg:hidden"
           aria-label={nav.closeMenu}
           onClick={closeMenu}
         />
@@ -123,7 +128,7 @@ export default function Header({ theme = "light", locale: localeProp }: HeaderPr
         id={menuId}
         hidden={!menuOpen}
         className={cn(
-          "fixed inset-y-0 right-0 z-[70] flex w-[80%] max-w-sm flex-col bg-white shadow-2xl md:hidden",
+          "fixed inset-y-0 right-0 z-[70] flex w-[min(100%,20rem)] flex-col bg-white shadow-2xl lg:hidden",
           menuOpen ? "flex" : "hidden",
         )}
         aria-label={nav.mobileNav}

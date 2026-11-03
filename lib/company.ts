@@ -16,5 +16,12 @@ export const COMPANY = {
     "Purpose-built plot and layout sales software—live digital maps, inventory, CRM, booking, and payment tracking.",
 } as const
 
+/** Live platform scale shown on the homepage */
+export const SITE_STATS = [
+  { key: "projects", value: "16", labelEn: "Projects", labelHi: "प्रोजेक्ट्स" },
+  { key: "units", value: "2,378", labelEn: "Units", labelHi: "यूनिट्स" },
+  { key: "users", value: "66", labelEn: "Users", labelHi: "यूज़र्स" },
+] as const
+
 /** Effective date shown on Privacy Policy and Terms pages */
 export const LEGAL_EFFECTIVE_DATE = "2 October 2026" as const
