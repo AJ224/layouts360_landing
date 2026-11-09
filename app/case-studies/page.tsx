@@ -5,14 +5,14 @@ import { PAGE_KEYWORDS } from "@/lib/seo-keywords"
 import { buildPageMetadata } from "@/lib/page-metadata"
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Case Studies — Manual Ops to Plot Sales Growth",
+  title: "The Plot Sales Playbook — Manual Ops Cost Real Money",
   description:
-    "Business case studies for layout developers: manual staff waste, double bookings, broker chaos—and how Layouts360 drives measurable sales growth in India.",
+    "How layout developers actually lose money to Excel, WhatsApp, and verbal holds — staff hours, ₹ risk, and case studies with the operating math. Illustrative composites.",
   path: "/case-studies",
   keywords: [...PAGE_KEYWORDS.caseStudies],
-  ogTitle: "Layouts360 Case Studies | Business Growth Outcomes",
+  ogTitle: "The Plot Sales Playbook | Layouts360",
   ogDescription:
-    "From Excel and WhatsApp to live inventory—quantified workflows for plot launches, partners, and growth.",
+    "The staff hours, the ₹ risk, and what changes when plot inventory goes live — with spelled-out case math.",
 })
 
 export default function CaseStudiesPage() {
