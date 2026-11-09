@@ -47,15 +47,15 @@ export const ALL_TARGET_KEYWORDS = [
 export const PAGE_KEYWORDS = {
   home: [
     "Layouts360",
-    "360 management software",
-    "real estate sales platform",
-    "digital layout maps",
+    "real estate software",
+    "real estate software India",
+    "plot management software",
     "real estate inventory management software",
     "real estate crm software",
-    "township management software",
-    "booking management software",
-    "channel partner management software",
+    "digital layout maps",
     "builder CRM India",
+    "layout developer software",
+    "360 management software",
   ],
   inventory: [
     "real estate inventory management software",

@@ -82,6 +82,12 @@ export const INDEXABLE_BLOG_SLUGS = new Set<string>([
   "top-10-real-estate-crm-software-india",
   "saas-vs-custom-agency-real-estate",
   "why-pdf-maps-kill-sales",
+  // Pillar-supporting guides (Nov 2026)
+  "best-real-estate-software-india-2026",
+  "how-to-choose-plot-management-software",
+  "real-estate-software-for-layout-developers",
+  "when-generic-crm-fails-plot-developers",
+  "layouts360-business-case-study-manual-ops-to-growth",
 ])
 
 /** Non-allowlisted articles are not indexed (prefer expand allowlist over auto-index). */
