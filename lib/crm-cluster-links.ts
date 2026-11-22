@@ -8,6 +8,7 @@ export const CRM_CLUSTER_LINKS = [
   { href: "/compare/purpose-built-real-estate-software-vs-generic-crm", label: "Purpose-built vs generic CRM" },
   { href: "/blog/top-10-real-estate-crm-software-india", label: "Top CRM software India" },
   { href: "/blog/when-generic-crm-fails-plot-developers", label: "When Generic CRM Fails" },
+  { href: "/blog/whatsapp-meta-marketing-real-estate-number-ban-risk", label: "Meta & WhatsApp Ban Risk" },
   { href: "/blog/best-real-estate-software-india-2026", label: "Best Real Estate Software India" },
 ] as const
 

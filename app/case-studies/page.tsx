@@ -7,12 +7,12 @@ import { buildPageMetadata } from "@/lib/page-metadata"
 export const metadata: Metadata = buildPageMetadata({
   title: "The Plot Sales Playbook — Manual Ops Cost Real Money",
   description:
-    "How layout developers actually lose money to Excel, WhatsApp, and verbal holds — staff hours, ₹ risk, and case studies with the operating math. Illustrative composites.",
+    "Plot sales playbook: Excel ops cost, Meta ads, and why unofficial WhatsApp blast tools get numbers banned — plus better official solutions. Illustrative case math.",
   path: "/case-studies",
   keywords: [...PAGE_KEYWORDS.caseStudies],
   ogTitle: "The Plot Sales Playbook | Layouts360",
   ogDescription:
-    "The staff hours, the ₹ risk, and what changes when plot inventory goes live — with spelled-out case math.",
+    "Ops leaks, Meta marketing, and WhatsApp ban risk — with spelled-out case math for layout teams.",
 })
 
 export default function CaseStudiesPage() {

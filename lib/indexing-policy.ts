@@ -88,6 +88,7 @@ export const INDEXABLE_BLOG_SLUGS = new Set<string>([
   "real-estate-software-for-layout-developers",
   "when-generic-crm-fails-plot-developers",
   "layouts360-business-case-study-manual-ops-to-growth",
+  "whatsapp-meta-marketing-real-estate-number-ban-risk",
 ])
 
 /** Non-allowlisted articles are not indexed (prefer expand allowlist over auto-index). */

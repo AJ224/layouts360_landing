@@ -60,6 +60,33 @@ const CASE_STUDIES = [
   },
 ] as const
 
+const META_WHATSAPP_CASES = [
+  {
+    title: "The ₹15k blaster that cost the business number",
+    industry: "WhatsApp “automation” · personal number as company line",
+    saved: "Ban risk priced in — usually after the first ‘win’",
+    savedSub: "Unofficial blasts → restriction / suspension",
+    body: "Vendors sell unlimited Excel broadcasts from a normal WhatsApp. It feels like growth until quality signals trip. Then the number — and years of broker chat — is gone. Official WhatsApp Business Platform + opt-in already exists; grey tools skip it on purpose.",
+    method: "Meta opt-in → official WABA/BSP → CRM — never modified apps or cold blasts",
+  },
+  {
+    title: "The Meta ads that worked until chat became the CRM",
+    industry: "Facebook / Instagram lead spend · replies only in WhatsApp",
+    saved: "CPL looked fine · conversion died in unowned threads",
+    savedSub: "Ads found demand; ops double-promised plots",
+    body: "Click-to-WhatsApp and lead forms can fill the pipe. Without plot-linked CRM and live inventory locks, two agents still sell the same unit in parallel chats. Meta did its job. The desk needed a map — not another blast tool.",
+    method: "Lead → Layouts360 CRM + live hold → WhatsApp for conversation only",
+  },
+  {
+    title: "The ‘AI WhatsApp’ farm the developer did not own",
+    industry: "Agency retainer · vendor-controlled numbers",
+    saved: "When the farm burned, the client had no channel asset",
+    savedSub: "Growth you cannot log into is rented risk",
+    body: "If the seller will not put Meta Business Manager and the WhatsApp Business Account under your company, you are buying leads on borrowed numbers. Better solutions are already in market: your Business Manager, approved templates, quality rating — and live inventory for partners instead of promo spam.",
+    method: "Client-owned Meta + WABA; kill vendor-only number farms",
+  },
+] as const
+
 export function CaseStudiesContent() {
   return (
     <div className="bg-white">
@@ -132,12 +159,63 @@ export function CaseStudiesContent() {
             ))}
           </ul>
 
-          <div className="mt-10 text-center">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4 text-center">
             <Link
               href="/blog/layouts360-business-case-study-manual-ops-to-growth"
               className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:underline"
             >
-              Read the full playbook
+              Ops playbook
+              <ArrowRight className="h-4 w-4" aria-hidden />
+            </Link>
+            <Link
+              href="/blog/whatsapp-meta-marketing-real-estate-number-ban-risk"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:underline"
+            >
+              Meta & WhatsApp playbook
+              <ArrowRight className="h-4 w-4" aria-hidden />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-slate-100 bg-white py-12 sm:py-16">
+        <div className="container mx-auto max-w-4xl px-4 sm:px-6">
+          <h2 className="text-center text-xl font-bold text-slate-900 sm:text-2xl">
+            Meta & WhatsApp — what teams must learn
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-slate-600">
+            Cheap WhatsApp “automation” often ends in{" "}
+            <strong className="font-semibold text-slate-800">number suspension</strong>. Meta ads and
+            official WhatsApp Business already solve legitimate reach. Live inventory solves the rest —
+            so chat is conversation, not a spam cannon or a fake stock list.
+          </p>
+          <ul className="mt-10 space-y-6">
+            {META_WHATSAPP_CASES.map((study) => (
+              <li
+                key={study.title}
+                className="rounded-xl border border-slate-200 bg-slate-50 p-6 sm:p-8"
+              >
+                <p className="text-xs font-semibold uppercase tracking-wide text-teal-700">
+                  {study.industry}
+                </p>
+                <h3 className="mt-2 text-xl font-bold text-slate-900">{study.title}</h3>
+                <p className="mt-4 text-2xl font-bold tracking-tight text-slate-900">
+                  {study.saved}
+                </p>
+                <p className="mt-1 text-sm font-semibold text-teal-800">{study.savedSub}</p>
+                <p className="mt-4 text-sm leading-relaxed text-slate-600">{study.body}</p>
+                <p className="mt-4 text-xs font-medium text-slate-500">
+                  Method: {study.method}
+                </p>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8 text-center">
+            <Link
+              href="/blog/whatsapp-meta-marketing-real-estate-number-ban-risk"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:underline"
+            >
+              Read the full Meta & WhatsApp guide
               <ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
           </div>

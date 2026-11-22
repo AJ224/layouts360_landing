@@ -260,13 +260,17 @@ export const PAGE_KEYWORDS = {
   ],
   about: [
     "Layouts360 company",
+    "Layouts360 about us",
     "real estate software company India",
     "plot management software company",
+    "making tech simple for real estate",
   ],
   caseStudies: [
     "Layouts360 case studies",
     "plot management software results",
     "real estate software customer stories",
+    "WhatsApp marketing real estate number ban",
+    "Meta ads real estate India",
   ],
   solutions: [
     "real estate software solutions",

@@ -5,6 +5,10 @@ export const COMPANY = {
   /** Registered company that operates the Layouts360 brand */
   legalName: "OriginGrey Private Limited",
   tagline: "Real estate software for layout developers in India",
+  /** About / brand north star */
+  vision: "Making tech simple for real estate teams.",
+  mission:
+    "So business people can focus on selling, collections, and growth—not spreadsheets, WhatsApp chaos, or operational hazards.",
   headquarters: "Pune, Maharashtra, India",
   postalCode: "411014",
   country: "IN",
@@ -18,9 +22,9 @@ export const COMPANY = {
 
 /** Live platform scale shown on the homepage */
 export const SITE_STATS = [
-  { key: "projects", value: "16", labelEn: "Projects", labelHi: "प्रोजेक्ट्स" },
-  { key: "units", value: "2,378", labelEn: "Units", labelHi: "यूनिट्स" },
-  { key: "users", value: "66", labelEn: "Users", labelHi: "यूज़र्स" },
+  { key: "projects", value: "17", labelEn: "Projects", labelHi: "प्रोजेक्ट्स" },
+  { key: "units", value: "7,475", labelEn: "Units", labelHi: "यूनिट्स" },
+  { key: "users", value: "76", labelEn: "Users", labelHi: "यूज़र्स" },
 ] as const
 
 /** Effective date shown on Privacy Policy and Terms pages */
